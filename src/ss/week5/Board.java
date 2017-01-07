@@ -1,4 +1,4 @@
-package ss.week4.tictactoe;
+package ss.week5;
 
 /**
  * Game student for the Tic Tac Toe game. Module 2 lab assignment.
