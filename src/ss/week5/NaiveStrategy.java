@@ -1,5 +1,14 @@
 package ss.week5;
 
+import java.security.KeyStore.Entry;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
+import java.util.List;
+import java.util.ArrayList;
+
 public class NaiveStrategy implements Strategy {
 
     @Override
@@ -25,6 +34,11 @@ public class NaiveStrategy implements Strategy {
             /*if (b.isEmptyField(((Moves.get(next))) {
                 return next;
             }*/
+            
+            Iterator<Integer> iteratorA = Moves.iterator();
+            while(iteratorA.hasNext()) {
+                int IntegerDieViaNextKomt = iteratorA.next(); //iteratorA.next is dus een integer, En zorgt ervoor dat telkens de volgende integer gepakt wordt
+            }
         }
         
         return 0;
