@@ -15,8 +15,13 @@ public class NaiveStrategy implements Strategy {
                 Moves.add(i);
             }
         }
-        while (Moves.size() > 0) {
-            Integer next = new Integer((int) Math.random()*Moves.size());
+        Integer next = new Integer((int) Math.random()*Moves.size());
+        int count = 0;
+        while (Moves.size() > 0 && Moves.iterator().hasNext()) {
+            if (next.equals(new Integer(count))) {
+                Moves.iterator()
+            }
+            count++;
             /*if (b.isEmptyField(((Moves.get(next))) {
                 return next;
             }*/
