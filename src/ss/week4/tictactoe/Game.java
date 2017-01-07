@@ -123,8 +123,7 @@ public class Game {
                 if (board.gameOver()) {
                     break;
                 }
-                System.out.println(board.toString());
-                System.out.println("\n");
+                update();
                 current = i;
                 board.setField(players[i].determineMove(board), players[i].getMark());
             }

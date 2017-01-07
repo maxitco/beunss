@@ -134,10 +134,7 @@ public class Board {
     //@ ensures \result == (this.getField(i) == Mark.EMPTY);
     /*@pure*/
     public boolean isEmptyField(int i) {
-    	if (this.getField(i).equals(Mark.EMPTY)) {
-    	    return true;
-    	}
-        return false;
+    	return this.getField(i).equals(Mark.EMPTY);
     }
 
     /**
@@ -153,10 +150,7 @@ public class Board {
     //@ ensures \result == (this.getField(row,col) == Mark.EMPTY);
     /*@pure*/
     public boolean isEmptyField(int row, int col) {
-    	if (this.getField(row, col).equals(Mark.EMPTY)) {
-    	    return true;
-    	}
-        return false;
+    	return this.getField(row, col).equals(Mark.EMPTY);
     }
 
     /**
@@ -339,9 +333,9 @@ public class Board {
     //@ requires this.isField(i);
     //@ ensures this.getField(i) == m;
     public void setField(int i, Mark m) {
-        if(this.isField(i)) {
+        //if(this.isField(i)) {
             this.fields[i] = m;
-        }
+        //}
     }
 
     /**
@@ -358,8 +352,8 @@ public class Board {
     //@ requires this.isField(row,col);
     //@ ensures this.getField(row,col) == m;
     public void setField(int row, int col, Mark m) {
-    	if (this.isField(row, col)) {
+    	//if (this.isField(row, col)) {
     	    this.fields[this.index(row, col)] = m;
-    	}
+    	//}
     }
 }
