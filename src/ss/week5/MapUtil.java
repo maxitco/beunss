@@ -87,7 +87,6 @@ public class MapUtil {
         while (loopEntries.hasNext()) {
             //add a new set or the current entry
             setK.add(index, new HashSet<K>());
-            
             Map.Entry<K, V> entry = loopEntries.next();
             
             //Iterator 2 using while loop
@@ -117,6 +116,8 @@ public class MapUtil {
     }
     
     public static <K, V> Map<V, K> inverseBijection(Map<K, V> map) {
+        assert(isOneOnOne(map));
+        assert(isSurjectiveOnRange(map, (Set) map.values()));
         Map<V, K> mapInverse = new HashMap<V, K>();
                 
         //Iterator using while loop
@@ -131,11 +132,48 @@ public class MapUtil {
     }
     
     public static <K, V, W> boolean compatible(Map<K, V> f, Map<V, W> g) {
-        // TODO: implement, see exercise P-5.4
-        return false;
+        Iterator<V> iterator_V = f.values().iterator(); 
+        
+        while(iterator_V.hasNext()) {
+            V currentV = iterator_V.next();
+            Iterator<K> iterator_K = (Iterator<K>) g.keySet().iterator();
+            boolean gotCha = false;
+            while(iterator_K.hasNext() && !gotCha) {
+                K currentK = iterator_K.next(); 
+                if(currentK.equals(currentV)) {
+                    gotCha = true;                    
+                }
+            }
+            
+            if (gotCha == false) {
+                return gotCha;
+            }
+            
+        }
+        return true;
     }
     public static <K, V, W> Map<K, W> compose(Map<K, V> f, Map<V, W> g) {
-        // TODO: implement, see exercise P-5.5
-        return null;
+        if(compatible(f,g)) {
+            Map<K, W> h = new HashMap<K,W>();
+            
+            Iterator<Map.Entry<K, V>> entriesF = f.entrySet().iterator(); 
+            while(entriesF.hasNext()) {
+                Map.Entry<K, V> entryF = entriesF.next();
+                
+                Iterator<Map.Entry<V,W>> entriesG = g.entrySet().iterator();
+                while(entriesG.hasNext()) {
+                    Map.Entry<V, W> entryG = entriesG.next(); 
+                    if (entryF.getValue().equals(entryG.getKey())) {
+                        h.put(entryF.getKey(), entryG.getValue());                    
+                    }
+                }                
+                      
+            }
+            return h;
+        }
+                 
+        else {
+            return null;
+        }
     }
 }
