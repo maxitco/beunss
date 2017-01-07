@@ -1,5 +1,5 @@
 package ss.week5;
-//nudan
+
 import java.security.KeyStore.Entry;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -43,9 +43,8 @@ public class MapUtil {
     
     //@ requires map != null;
     //@ ensures \result == true || \result == false;
-    public static <K, V> 
-           boolean isSurjectiveOnRange(Map<K, V> map, Set<V> range) {
-        // TODO: implement, see exercise P-5.2
+    public static <K, V> boolean isSurjectiveOnRange(Map<K, V> map, Set<V> range) {
+        
         
         
         //while loop setup
@@ -75,18 +74,18 @@ public class MapUtil {
     }
 
     public static <K, V> Map<V, Set<K>> inverse(Map<K, V> map) {
-        // TODO: implement, see exercise P-5.3
+        //creating variables of the function
         Map<V, Set<K>> mapInverse = new HashMap<V, Set<K>>();
+        //array list of sets, wonderful
         List<Set<K>> setK = new ArrayList<Set<K>>();
         
-        //Iterator using while loop
-        Iterator<Map.Entry<K, V>> loopEntries = map.entrySet().iterator();        
-        
+        //while loop setup
+        Iterator<Map.Entry<K, V>> loopEntries = map.entrySet().iterator(); //iterator over all entries of the map        
         int index = 0; //index for sets
         
-        //Pass all entries
+        //loop over all entries
         while (loopEntries.hasNext()) {
-            
+            //add a new set or the current entry
             setK.add(index, new HashSet<K>());
             
             Map.Entry<K, V> entry = loopEntries.next();
@@ -108,20 +107,29 @@ public class MapUtil {
                 }                
             }
             //if a there is at least one entry with the same value then add it to the mapinverse
-            
+            //only if there is an entry the index is increased since if there is counter < 0 then the Set on the current index is not used in mapInverse            
             if (counter > 0) {
                 mapInverse.put(entry.getValue(), setK.get(index));
                 index = index + 1;
             }
         }
-        
         return mapInverse;        
     }
     
     public static <K, V> Map<V, K> inverseBijection(Map<K, V> map) {
-        // TODO: implement, see exercise P-5.3
-        return null;
+        Map<V, K> mapInverse = new HashMap<V, K>();
+                
+        //Iterator using while loop
+        Iterator<Map.Entry<K, V>> loopEntries = map.entrySet().iterator();        
+                
+        //Pass all entries
+        while (loopEntries.hasNext()) {
+            Map.Entry<K, V> entry = loopEntries.next();
+            mapInverse.put(entry.getValue(), entry.getKey());            
+        }        
+        return mapInverse;        
     }
+    
     public static <K, V, W> boolean compatible(Map<K, V> f, Map<V, W> g) {
         // TODO: implement, see exercise P-5.4
         return false;
