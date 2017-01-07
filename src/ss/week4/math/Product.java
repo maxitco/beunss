@@ -4,7 +4,7 @@ public class Product implements Function{
     private Function f1,f2;
     
     //@ requires in1 != null && in2 != null;
-    Product(Function in1,Function in2) {
+    public Product(Function in1,Function in2) {
         this.f1 = in1;
         this.f2 = in2;
     }

@@ -4,7 +4,7 @@ public class Sum implements Function, Integrandable{
     private Function f1,f2;
     
     //@ requires in1 != null && in2 != null;
-    Sum(Function in1,Function in2) {
+    public Sum(Function in1,Function in2) {
         this.f1 = in1;
         this.f2 = in2;
     }
