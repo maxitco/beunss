@@ -152,6 +152,7 @@ public class MapUtil {
         }
         return true;
     }
+    
     public static <K, V, W> Map<K, W> compose(Map<K, V> f, Map<V, W> g) {
         if(compatible(f,g)) {
             Map<K, W> h = new HashMap<K,W>();
