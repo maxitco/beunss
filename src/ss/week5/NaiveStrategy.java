@@ -1,8 +1,7 @@
 package ss.week5;
 
 import java.security.KeyStore.Entry;
-import java.util.HashMap;
-import java.util.HashSet;
+import java.util.TreeSet;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
@@ -18,30 +17,21 @@ public class NaiveStrategy implements Strategy {
 
     @Override
     public int determineMove(Board b, Mark m) {
-        java.util.Set<Integer> Moves = new java.util.HashSet<Integer>();
+        java.util.Set<Integer> Moves = new java.util.TreeSet<Integer>();
         for (int i = 0;i < Board.DIM*Board.DIM;i++) {
             if (b.isEmptyField(i)) {
                 Moves.add(i);
             }
         }
-        Integer next = new Integer((int) Math.random()*Moves.size());
+        int next = (int) Math.random()*Moves.size() - 1;
         int count = 0;
-        while (Moves.size() > 0 && Moves.iterator().hasNext()) {
-            if (next.equals(new Integer(count))) {
-                Moves.iterator()
+        Iterator<Integer> setiterator = Moves.iterator();
+        while (Moves.size() > 0 && setiterator.hasNext()) {
+            if (next == count) {
+                return setiterator.next().intValue();
             }
             count++;
-            /*if (b.isEmptyField(((Moves.get(next))) {
-                return next;
-            }*/
-            
-            Iterator<Integer> iteratorA = Moves.iterator();
-            while(iteratorA.hasNext()) {
-                int IntegerDieViaNextKomt = iteratorA.next(); //iteratorA.next is dus een integer, En zorgt ervoor dat telkens de volgende integer gepakt wordt
-            }
         }
-        
-        return 0;
     }
 
 }
