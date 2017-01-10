@@ -32,6 +32,8 @@ public class NaiveStrategy implements Strategy {
             }
             count++;
         }
+        //Strategy failed to return value
+        System.exit(0);
     }
 
 }
