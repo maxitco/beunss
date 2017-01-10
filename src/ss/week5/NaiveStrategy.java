@@ -23,12 +23,13 @@ public class NaiveStrategy implements Strategy {
                 Moves.add(i);
             }
         }
-        int next = (int) Math.random()*Moves.size() - 1;
+        int next = (int) Math.random()*(Moves.size() - 1);
         int count = 0;
         Iterator<Integer> setiterator = Moves.iterator();
-        while (Moves.size() > 0 && setiterator.hasNext()) {
+        while (setiterator.hasNext()) {
+            int result = setiterator.next().intValue();
             if (next == count) {
-                return setiterator.next().intValue();
+                return result;
             }
             count++;
         }
