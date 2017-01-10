@@ -9,31 +9,26 @@ package ss.week5;
  */
 public class TicTacToe {
     
-    private Player ArgRead(String arg) {
-        switch (arg) {
-        case "-N":
-            return new ComputerPlayer(Mark.XX,new NaiveStrategy());
-            break;
-        default:
-            return new
-    }
+    
     
     public static void main(String[] args) {
+        Player player0,player1;
         if (args.length < 2) {
             System.exit(0);
         }
-        for (int i = 0; i < args.length;i++) {
-            switch (args[i]) {
-            
-            }
-        }
-        if (args[0].equals("-N")) {
-            ComputerPlayer player0 = new ComputerPlayer(Mark.XX,new NaiveStrategy());
+        
+        if (args[0].contains("-N")) {
+            player0 = new ComputerPlayer(Mark.XX,new NaiveStrategy());
         }
         else {
-            HumanPlayer player0 = new HumanPlayer(args[0],Mark.XX);
+            player0 = new HumanPlayer(args[0],Mark.XX);
         }
-        HumanPlayer player1 = new HumanPlayer(args[1],Mark.OO);
+        if (args[1].contains("-N")) {
+            player1 = new ComputerPlayer(Mark.OO,new NaiveStrategy());
+        }
+        else {
+            player1 = new HumanPlayer(args[1],Mark.OO);
+        }
 
 
         Game game0 = new Game(player0, player1);
