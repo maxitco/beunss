@@ -1,6 +1,11 @@
 package ss.week6.cards;
 
-public class Card
+import java.io.*;
+
+import ss.week6.ArgumentLengthsDifferException;
+import ss.week6.TooFewArgumentsException;
+
+public class Card implements Serializable
 {
 
 	// ---- constants -----------------------------------
@@ -39,7 +44,7 @@ public class Card
 		for (i = 0; i < 13 && RANK_CHARACTERS[i] != rank; i++)
 			;
 		return (i == 13) ? null : RANK_STRINGS[i];
-	}
+	} 
 
 	/**
 	 * Translates a suit encoding of rank into its String representation.
@@ -320,4 +325,111 @@ public class Card
 	public boolean isInRankBefore(Card card) {
 		return isRankFollowing(this.getRank(), card.getRank());
 	}
+	
+	/**
+	 * write methods
+	 * @param cardPrintWriter
+	 */
+	public void write(PrintWriter cardPrintWriter) {	    
+	    cardPrintWriter.println(this.toString());	    
+	}
+	
+	public void write(ObjectOutput cardPrintWriter) {       
+        try {
+            cardPrintWriter.writeObject(this);       
+        } catch (IOException ex) {
+            ex.printStackTrace();            
+        }
+    }
+	
+	   public void write(DataOutput out) {
+	        try {
+	            out.write(toString().getBytes());
+	        } catch (IOException e) {
+	            // TODO Auto-generated catch block
+	            e.printStackTrace();
+	        }
+	    }
+	    
+	    
+	
+	/**
+     * Read methods
+     * @param in
+     * @return
+     */
+	public static Card read(BufferedReader in) throws EOFException, IOException {
+	    try {
+	        String[] inputSplit = in.readLine().split(" ");
+	        in.close();  
+	        
+	        if(isValidRank(rankString2Char(inputSplit[1])) && isValidSuit(suitString2Char(inputSplit[0]))) {
+                return new Card(suitString2Char(inputSplit[0]), rankString2Char(inputSplit[1]));                
+            } else {
+                return null;
+            }
+	        
+	    } catch (EOFException e1) {
+	        e1.printStackTrace();
+	        return null;
+	    } catch (IOException e2) {
+	        e2.printStackTrace();
+	        return null;
+	    } 
+	    
+	}
+
+	public static Card read(ObjectInput in) {
+        Card card = null;
+        try {
+            card = (Card) in.readObject();
+            return card;
+        } catch (ClassNotFoundException e) {
+            //e.printStackTrace();
+            return null;
+        } catch (IOException e) {
+            //e.printStackTrace();
+            return null;
+        }        
+    }	
+	
+	public static Card read(DataInput in) throws EOFException {
+        String[] strings = null;
+        try {
+        String string = in.readLine();
+        strings = string.split(" ");
+        System.out.println(string);
+        } catch (EOFException e) {
+            throw new EOFException();
+        } catch (Exception e) {
+            System.out.println(e);
+        }  
+        
+        if (strings == null || strings.length != 2 || strings[0] == null || strings[1] == null) {
+            return null;
+        }
+        
+        char suit = suitString2Char(strings[0]);
+        char rank = rankString2Char(strings[1]);
+        
+        if (isValidSuit(suit) && isValidRank(rank)) {
+            return new Card(suit, rank);            
+        } else return null;       
+    }
+	
+    public static void main(String[] args) {
+        try {
+            File file = new File("C:/Users/Jan Reinder/Documents/Softwaresystems/eclipse/beunss/src/ss/week6/cardfile.txt");
+            PrintWriter writerOfPrints = new PrintWriter(file);
+            
+            new Card('C', '7').write(writerOfPrints);
+            new Card('S', '7').write(writerOfPrints);
+            new Card('D', 'Q').write(writerOfPrints);
+            System.out.println("done");
+            
+            writerOfPrints.close();      
+        } catch (FileNotFoundException e1) {
+            System.out.println(e1.getMessage());
+        } 
+    }
 }
