@@ -15,8 +15,16 @@ public class Zipper {
         return result;
     }    
 
-    public static void main(String[] args) throws TooFewArgumentsException, ArgumentLengthsDifferException {
+    public static void main(String[] args) {
+        try {
         System.out.println(zip2(args[0], args[1]));
+        }
+        catch(TooFewArgumentsException e1) {
+            System.out.println(e1.getMessage());
+        }
+        catch(ArgumentLengthsDifferException e2) {
+            System.out.println(e2.getMessage());
+        }
     }
     
     public static String zip2(String s1, String s2) throws TooFewArgumentsException, ArgumentLengthsDifferException {
