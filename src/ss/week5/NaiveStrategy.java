@@ -25,7 +25,6 @@ public class NaiveStrategy implements Strategy {
         }
         int next = new java.util.Random().nextInt(Moves.size() - 1);
         int count = 0;
-        Iterator<Integer> setiterator = Moves.iterator();
         for(Integer field : Moves ) {
             if (next == count) {
                 return field.intValue();
