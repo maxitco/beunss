@@ -30,7 +30,7 @@ public class TicTacToe {
             player1 = new ComputerPlayer(Mark.OO,new NaiveStrategy());
         }
         else if (args[1].contains("-S")) {
-            player0 = new ComputerPlayer(Mark.OO,new SmartStrategy());
+            player1 = new ComputerPlayer(Mark.OO,new SmartStrategy());
         }
         else {
             player1 = new HumanPlayer(args[1],Mark.OO);
