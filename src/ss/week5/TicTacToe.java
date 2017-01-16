@@ -20,11 +20,17 @@ public class TicTacToe {
         if (args[0].contains("-N")) {
             player0 = new ComputerPlayer(Mark.XX,new NaiveStrategy());
         }
+        else if (args[0].contains("-S")) {
+            player0 = new ComputerPlayer(Mark.XX,new SmartStrategy());
+        }
         else {
             player0 = new HumanPlayer(args[0],Mark.XX);
         }
         if (args[1].contains("-N")) {
             player1 = new ComputerPlayer(Mark.OO,new NaiveStrategy());
+        }
+        else if (args[1].contains("-S")) {
+            player0 = new ComputerPlayer(Mark.OO,new SmartStrategy());
         }
         else {
             player1 = new HumanPlayer(args[1],Mark.OO);
