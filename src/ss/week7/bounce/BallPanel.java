@@ -26,18 +26,20 @@ public class BallPanel extends JPanel implements ActionListener/*, 7.5 Runnable 
 	}
 	*/
 	
+	/* 7.6
 	public class AnimateThread extends Thread {
 		public void run() {
 			animate();
 		}
 	}
+	*/
 	
 	public BallPanel() {
 		//7.5 new Thread(this).start();
 		/* 7.6
 		 * new AnimateThread().start();
 		 */
-		Timer timer = new Timer(50, this);
+		Timer timer = new Timer(10, this);
 		timer.start();
 		balls = new java.util.ArrayList<Ball>();
 	}
@@ -50,7 +52,8 @@ public class BallPanel extends JPanel implements ActionListener/*, 7.5 Runnable 
 		moveBalls();
 		repaint();
 	}
-
+	
+	/* 7.6
 	public void animate() {
 		try {
 			while (true) {
@@ -62,6 +65,8 @@ public class BallPanel extends JPanel implements ActionListener/*, 7.5 Runnable 
 			e.printStackTrace();
 		}
 	}
+	
+	*/
 
 	/** Add a new ball to the ball list and start the timer if not yet running. */
 	public synchronized void addNewBall() {
