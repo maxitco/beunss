@@ -185,8 +185,7 @@ public class MapUtil {
                     if (entryF.getValue().equals(entryG.getKey())) {
                         h.put(entryF.getKey(), entryG.getValue());                    
                     }
-                }                
-                      
+                }                      
             }
             return h;
         } else {

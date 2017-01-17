@@ -11,12 +11,17 @@ import javax.swing.JPanel;
  * @author Martin Kalin, aangepast door Arend Rensink
  * @version 15-01-2002
  */
-class MandelPanel extends JPanel
+class MandelPanel extends JPanel implements Runnable
 {
+	//serialVersionUID set at random nr
+	static final long serialVersionUID = 42L; 
 	public void draw() {
-		(new MandelThread(this)).start();
+		this.run();
 	}
-
+	
+	public void run() {
+		drawMandel();
+	}
 
 	// draw the fractal 
 	void drawMandel() {
