@@ -13,7 +13,8 @@ import java.util.ArrayList;
 public class MapUtil {
         
     //@ requires map != null;
-    //@ ensures \result == true || \result == false;
+    //@ ensures \result == (\forall K x1,x2; map.containsKey(x1) && map.containsKey(x2) && !x1.equals(x2); !map.get(x1).equals(map.get(x2)));
+
     public static <K, V> boolean isOneOnOne(Map<K, V> map) {
         //while loop setup
         boolean goFlag = true;
@@ -45,7 +46,7 @@ public class MapUtil {
     }
     
     //@ requires map != null && range != null;
-    //@ ensures \result == true || \result == false;
+    //@ ensures \result == (\forall V value; map.containsValue(value); (\exists K key; map.containsKey(key) && value.equals(map.get(key))));
     public static <K, V> boolean isSurjectiveOnRange(Map<K, V> map, Set<V> range) {        
         
         //while loop setup
@@ -78,9 +79,10 @@ public class MapUtil {
     }
     
     //@ requires map != null;
-    //@ ensures 
+    //@ ensures (\forall K key; map.containsKey(key) && !map.get(key).equals(null); (\exists Set<K> aSet; aSet.contains(key);  \result.get(map.get(key)).equals(aSet)));
     public static <K, V> Map<V, Set<K>> inverse(Map<K, V> map) {
-        //creating variables of the function
+    	
+    	//creating variables of the function
         Map<V, Set<K>> mapInverse = new HashMap<V, Set<K>>();
         //array list of sets, wonderful
         List<Set<K>> setK = new ArrayList<Set<K>>();
@@ -126,9 +128,11 @@ public class MapUtil {
         return mapInverse;        
     }
     
+    //@ requires map != null;
+    //@ ensures (\forall K key; map.containsKey(key) && !map.get(key).equals(null); \result.get(map.get(key)).equals(key));
     public static <K, V> Map<V, K> inverseBijection(Map<K, V> map) {
         assert isOneOnOne(map);
-        assert isSurjectiveOnRange(map, (Set) map.values());
+        assert isSurjectiveOnRange(map, (Set<V>) map.values());
         Map<V, K> mapInverse = new HashMap<V, K>();
                 
         //Iterator using while loop
@@ -142,15 +146,16 @@ public class MapUtil {
         return mapInverse;        
     }
     
-    public static <K, V, W> boolean compatible(Map<K, V> f, Map<V, W> g) {
+    //@ ensures \result == (\forall V valueF; f.containsValue(valueF); g.containsKey(valueF));
+    /*@pure */ public static <K, V, W> boolean compatible(Map<K, V> f, Map<V, W> g) {
         Iterator<V> iteratorV = f.values().iterator(); 
         
         while (iteratorV.hasNext()) {
             V currentV = iteratorV.next();
-            Iterator<K> iteratorK = (Iterator<K>) g.keySet().iterator();
+            Iterator<V> iteratorK = g.keySet().iterator();
             boolean gotCha = false;
             while (iteratorK.hasNext() && !gotCha) {
-                K currentK = iteratorK.next(); 
+                V currentK = iteratorK.next(); 
                 if (currentK.equals(currentV)) {
                     gotCha = true;                    
                 }
@@ -164,6 +169,8 @@ public class MapUtil {
         return true;
     }
     
+    
+    //@ ensures compatible(f,g) ==> (\forall K keyF; f.containsKey(keyF); \result.get(keyF).equals(g.get(f.get(keyF))));   
     public static <K, V, W> Map<K, W> compose(Map<K, V> f, Map<V, W> g) {
         if (compatible(f, g)) {
             Map<K, W> h = new HashMap<K, W>();
