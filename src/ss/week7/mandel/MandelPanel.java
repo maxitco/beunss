@@ -13,15 +13,16 @@ import javax.swing.JPanel;
  */
 class MandelPanel extends JPanel implements Runnable
 {
-	//serialVersionUID set at random nr
+	//serialVersionUID set
 	static final long serialVersionUID = 42L; 
 	public void draw() {
-		this.run();
+		(new Thread(this)).start();
 	}
 	
 	public void run() {
 		drawMandel();
 	}
+
 
 	// draw the fractal 
 	void drawMandel() {
