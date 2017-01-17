@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import java.util.List;
 import java.util.ListIterator;
 
+import javax.swing.Timer;
 import javax.swing.JPanel;
 
 /**
@@ -13,10 +14,31 @@ import javax.swing.JPanel;
  * Used with TimedBouncer.
  * @version 2005.02.22
  */
-public class BallPanel extends JPanel implements ActionListener {
+public class BallPanel extends JPanel implements ActionListener/*, 7.5 Runnable */ {
+	//serialVersionUID set
+	static final long serialVersionUID = 42L;
+	
 	private List<Ball> balls; // @invariant balls != null
-
+	
+	/* 7.5
+	public void run() {
+		animate();
+	}
+	*/
+	
+	public class AnimateThread extends Thread {
+		public void run() {
+			animate();
+		}
+	}
+	
 	public BallPanel() {
+		//7.5 new Thread(this).start();
+		/* 7.6
+		 * new AnimateThread().start();
+		 */
+		Timer timer = new Timer(50, this);
+		timer.start();
 		balls = new java.util.ArrayList<Ball>();
 	}
 
