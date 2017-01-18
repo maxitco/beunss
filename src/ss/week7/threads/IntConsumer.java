@@ -13,21 +13,24 @@ public class IntConsumer extends Thread {
 		this.cell = cellArg;
 	}
 
-	public void run() {
-		int val;
+	public synchronized void run() {
+		int val;		
+				
 		do {
 			// sleep for a random interval
 			try {
-				Thread.sleep((int) (Math.random() * 3000));
+				Thread.sleep((int) (Math.random() * 300));
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
 
 			val = cell.getValue();
 			System.out.println(getName() + ": " + val + " read");
+			
 		} while (val != -1);
-
+		//notifyAll();
 		System.out.println(getName() + ": end");
+		
 	}
 }
 

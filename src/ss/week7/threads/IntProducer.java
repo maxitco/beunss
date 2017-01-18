@@ -16,18 +16,20 @@ public class IntProducer extends Thread {
 		this.cell = cellArg;
 	}
 
-	public void run() {
+	public synchronized void run() {
 		for (int i = 0; i < 10; i++) {
 			try {
-				Thread.sleep((int) (Math.random() * 3000));
+				Thread.sleep((int) (Math.random() * 300));
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
 			int val = 10 * nr + i;
 			System.out.println(getName() + ": " + val + " written");
-			cell.setValue(val);
+			cell.setValue(val);	
+			
+			
 		}
-
+		//notifyAll();
 		System.out.println(getName() + ": end");
 	}
 }

@@ -11,16 +11,16 @@ package ss.week7.threads;
  */
 public class ProdCons {
 	public static void main(String[] args) {
-		IntCell cell = new UnsynchronizedIntCell();
+		IntCell cell = new FineGrainedIntCell();
 		Thread prod1 = new IntProducer(1, cell);
 		Thread prod2 = new IntProducer(2, cell);
 		Thread cons1 = new IntConsumer(1, cell);
 		Thread cons2 = new IntConsumer(2, cell);
-
-		prod1.start();
+		
+		prod1.start();			
 		prod2.start();
 		cons1.start();
-		cons2.start();
+		cons2.start();				
 	}
 }
 
