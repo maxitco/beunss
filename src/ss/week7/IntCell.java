@@ -4,14 +4,16 @@ public class IntCell {
     private int contents = 0;
 
     public void add(int amount) {
-        contents = contents + amount;
+        contents = contents + amount;        
     }
+    
     public int get() {
         return contents;
     }
 
     public static void main(String[] args) {
-        IntCell cell = new IntCell();
+        for(int i = 0; i<1000 ;i++) {
+    	IntCell cell = new IntCell();
         Adder a1 = new Adder(cell, 1);
         Adder a2 = new Adder(cell, 2);
         a1.start();
@@ -21,8 +23,11 @@ public class IntCell {
             a2.join();
         } catch (InterruptedException e) {
             e.printStackTrace();
-        }
+        } 
+        if(cell.get() != 3) {
         System.out.println(cell.get());
+        }
+        }
     }
 }
 
@@ -34,7 +39,7 @@ class Adder extends Thread {
         this.cell = cellArg;
         this.amount = amountArg;
     }
-    public void run() {
+    public synchronized void run() {
         cell.add(amount);
     }
 }
