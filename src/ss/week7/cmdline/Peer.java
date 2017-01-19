@@ -31,6 +31,14 @@ public class Peer implements Runnable {
      */
     public Peer(String nameArg, Socket sockArg) throws IOException
     {
+    	if(nameArg != null && sockArg != null) {
+    		this.name = nameArg;
+    		this.sock = sockArg;    	
+    		this.in = new BufferedReader(new InputStreamReader(sock.getInputStream()));
+    		this.out = new BufferedWriter(new OutputStreamWriter(sock.getOutputStream()));
+    	} else {
+    		throw new IOException("Input arguments should not be null");
+    	}    	
     }
 
     /**
@@ -38,6 +46,12 @@ public class Peer implements Runnable {
      * writes the characters to the default output.
      */
     public void run() {
+    	try {
+    		String input = in.readLine();
+    		System.out.println(name + ": " + input);
+    	} catch (IOException e1) {
+    		e1.getStackTrace();
+    	}
     }
 
 
@@ -47,6 +61,12 @@ public class Peer implements Runnable {
      * On Peer.EXIT the method ends
      */
     public void handleTerminalInput() {
+    	try {
+    		
+    	} catch (IOException e1) {
+    		e1.getStackTrace();
+    	}
+    	
     }
 
     /**

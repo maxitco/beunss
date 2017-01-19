@@ -13,8 +13,9 @@ import java.util.ArrayList;
 public class MapUtil {
         
     //@ requires map != null;
-    //@ ensures \result == (\forall K x1,x2; map.containsKey(x1) && map.containsKey(x2) && !x1.equals(x2); !map.get(x1).equals(map.get(x2)));
-
+    /*@ ensures \result == (\forall K x1,x2; map.containsKey(x1)
+	&& map.containsKey(x2) && !x1.equals(x2); !map.get(x1).equals(map.get(x2)));
+*/
     public static <K, V> boolean isOneOnOne(Map<K, V> map) {
         //while loop setup
         boolean goFlag = true;
@@ -46,7 +47,9 @@ public class MapUtil {
     }
     
     //@ requires map != null && range != null;
-    //@ ensures \result == (\forall V value; map.containsValue(value); (\exists K key; map.containsKey(key) && value.equals(map.get(key))));
+    /*@ ensures \result == (\forall V value; map.containsValue(value); 
+     (\exists K key; map.containsKey(key) && value.equals(map.get(key))));
+     */
     public static <K, V> boolean isSurjectiveOnRange(Map<K, V> map, Set<V> range) {        
         
         //while loop setup
@@ -79,7 +82,9 @@ public class MapUtil {
     }
     
     //@ requires map != null;
-    //@ ensures (\forall K key; map.containsKey(key) && !map.get(key).equals(null); (\exists Set<K> aSet; aSet.contains(key);  \result.get(map.get(key)).equals(aSet)));
+    /*@ ensures (\forall K key; map.containsKey(key) && !map.get(key).equals(null); 
+    (\exists Set<K> aSet; aSet.contains(key);  \result.get(map.get(key)).equals(aSet)));
+    */
     public static <K, V> Map<V, Set<K>> inverse(Map<K, V> map) {
     	
     	//creating variables of the function

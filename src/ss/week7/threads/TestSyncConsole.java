@@ -26,7 +26,6 @@ public class TestSyncConsole extends Thread{
 			int firstInt = SyncConsole.readInt(this.getName() + ": get number 1?:");
 			int secondInt = SyncConsole.readInt(this.getName() + ": get number 2?:");	
 			SyncConsole.println(this.getName() + ": " + firstInt + " + " + secondInt + " = " + (firstInt + secondInt));
-		
 	}
 	/*
 	private synchronized void sum() {
@@ -34,8 +33,6 @@ public class TestSyncConsole extends Thread{
 		 int firstInt = SyncConsole.readInt(this.getName() + ": get number 1?:");
 		 int secondInt = SyncConsole.readInt(this.getName() + ": get number 2?:");	
 		 SyncConsole.println(this.getName() + ": " + firstInt + " + " + secondInt + " = " + (firstInt + secondInt));
-		
-		
 	} 	
 	*/
 	
