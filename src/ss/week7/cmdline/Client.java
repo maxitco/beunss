@@ -45,7 +45,7 @@ public class Client {
             System.exit(0);
         }
 
-        // try to open a Socket to the server
+        // try to open a ServerSocket 
         try {
             sock = new Socket(addr, port);
         } catch (IOException e) {

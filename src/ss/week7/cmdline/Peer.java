@@ -47,11 +47,15 @@ public class Peer implements Runnable {
      */
     public void run() {
     	try {
-    		String input = in.readLine();
-    		System.out.println(name + ": " + input);
+    		String line = null;
+    		while((line = in.readLine()) != null) {	
+    			System.out.println(name + ": " + line);     			
+    		}
     	} catch (IOException e1) {
     		e1.getStackTrace();
+    		return;
     	}
+    	
     }
 
 
@@ -62,35 +66,40 @@ public class Peer implements Runnable {
      */
     public void handleTerminalInput() {
     	try {
-    		
+    		System.out.println(this.getName() + " type message:");
+    		BufferedReader standardInput = new BufferedReader(new InputStreamReader(System.in));
+    		String input = standardInput.readLine();
+    		while(input != null) {
+    			if(input.equals(EXIT)) {
+    				shutDown();
+    				return;
+    			} else {    			
+    			out.write(this.getName() + ":	" + input);
+    			out.newLine();
+    			out.flush();
+    			}
+    		}
     	} catch (IOException e1) {
     		e1.getStackTrace();
-    	}
-    	
+    	}    	
     }
 
     /**
      * Closes the connection, the sockets will be terminated
      */
     public void shutDown() {
+    	try { 
+    		in.close();
+    		out.close();
+    		sock.close();    	
+    	} catch (IOException e1) {
+    		e1.getStackTrace();    		
+    	}    
     }
 
     /**  returns name of the peer object*/
     public String getName() {
         return name;
     }
-
-    /** read a line from the default input */
-    static public String readString(String tekst) {
-        System.out.print(tekst);
-        String antw = null;
-        try {
-            BufferedReader in = new BufferedReader(new InputStreamReader(
-                    System.in));
-            antw = in.readLine();
-        } catch (IOException e) {
-        }
-
-        return (antw == null) ? "" : antw;
-    }
+    
 }
