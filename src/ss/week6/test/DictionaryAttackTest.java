@@ -38,7 +38,12 @@ public class DictionaryAttackTest {
      */
     @Test
     public void testGetPasswordHash() {
-        assertEquals("5f4dcc3b5aa765d61d8327deb882cf99", dictionaryAttack.getPasswordHash("password"));
+        try {
+            assertEquals("5f4dcc3b5aa765d61d8327deb882cf99", dictionaryAttack.getPasswordHash("password"));
+        }
+        catch (IOException ex) {
+            
+        }
     }
 
     /**

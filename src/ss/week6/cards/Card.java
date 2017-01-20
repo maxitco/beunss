@@ -419,7 +419,7 @@ public class Card implements Serializable
 	
     public static void main(String[] args) {
         try {
-            File file = new File("C:/Users/Jan Reinder/Documents/Softwaresystems/eclipse/beunss/src/ss/week6/cardfile.txt");
+            File file = new File("./src/ss/week6/cardfile.txt");
             PrintWriter writerOfPrints = new PrintWriter(file);
             
             new Card('C', '7').write(writerOfPrints);

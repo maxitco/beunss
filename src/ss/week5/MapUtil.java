@@ -147,10 +147,10 @@ public class MapUtil {
         
         while (iteratorV.hasNext()) {
             V currentV = iteratorV.next();
-            Iterator<K> iteratorK = (Iterator<K>) g.keySet().iterator();
+            Iterator<V> iteratorK = g.keySet().iterator();
             boolean gotCha = false;
             while (iteratorK.hasNext() && !gotCha) {
-                K currentK = iteratorK.next(); 
+                V currentK = iteratorK.next(); 
                 if (currentK.equals(currentV)) {
                     gotCha = true;                    
                 }

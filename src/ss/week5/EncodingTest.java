@@ -45,7 +45,7 @@ public class EncodingTest {
         String input4 = "";
         for(int i = 1; i <= 4; i++) {
             input4 = input4.concat("a");
-            System.out.println(Base64.encodeBase64(input3.getBytes()));    
+            System.out.println(new String(Base64.encodeBase64(input3.getBytes())));    
         }  
     }
 }
