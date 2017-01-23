@@ -1,0 +1,3 @@
+Clubs 7
+Spades 7
+Diamonds queen
