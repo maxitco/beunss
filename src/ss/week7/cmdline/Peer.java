@@ -48,11 +48,17 @@ public class Peer implements Runnable {
     public void run() {
     	try {
     		String line = null;
-    		while((line = in.readLine()) != null) {	
-    			System.out.println(name + ": " + line);     			
+    		int counter = 0;
+    		while((!sock.isClosed() && (line = in.readLine()) != null)) {	
+    			String[] parts = line.split(" ");
+    			if (Integer.parseInt(parts[0]) > counter) {
+    				System.out.println(name + ": " + line);
+    				counter++;
+    			}
     		}
     	} catch (IOException e1) {
     		e1.getStackTrace();
+    		shutDown();
     		return;
     	}
     	
@@ -64,23 +70,26 @@ public class Peer implements Runnable {
      * the socket-connection to the Peer process.
      * On Peer.EXIT the method ends
      */
-    public void handleTerminalInput() {
+    public synchronized void handleTerminalInput() {
     	try {
     		System.out.println(this.getName() + " type message:");
     		BufferedReader standardInput = new BufferedReader(new InputStreamReader(System.in));
-    		String input = standardInput.readLine();
-    		while(input != null) {
+    		String input = null;
+    		int counter = 0; 
+    		while((!sock.isClosed() && (input = standardInput.readLine()) != null)) {
     			if(input.equals(EXIT)) {
     				shutDown();
     				return;
-    			} else {    			
-    			out.write(this.getName() + ":	" + input);
+    			} else { 
+    			counter++;	
+    			out.write(counter + " " + this.getName() + ":	" + input);
     			out.newLine();
     			out.flush();
     			}
     		}
     	} catch (IOException e1) {
-    		e1.getStackTrace();
+    		System.out.println("input fail");
+    		shutDown();
     	}    	
     }
 
@@ -100,6 +109,19 @@ public class Peer implements Runnable {
     /**  returns name of the peer object*/
     public String getName() {
         return name;
+    }
+    
+    public static int getPort(String input, String USAGE) {
+    	int result = 0;
+    	try {
+    		result = Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            System.out.println(USAGE);
+            System.out.println("ERROR: " + input
+            		           + " is not an integer");
+            System.exit(0);
+        }
+    	return result;
     }
     
 }

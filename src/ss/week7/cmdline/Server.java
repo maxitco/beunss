@@ -13,13 +13,21 @@ import java.net.UnknownHostException;
  * @version 2005.02.21
  */
 public class Server {
-	private final ServerSocket serverSocket;	
+	private ServerSocket serverSocket;	
 	
     private static final String USAGE
         = "usage: " + Server.class.getName() + " <name> <port>";
 
     public Server(ServerSocket inputServerSocket) {
-    	this.serverSocket = inputServerSocket;
+    	if(inputServerSocket != null) {
+    		this.serverSocket = inputServerSocket;
+    	} else {
+    		System.out.println("null input");
+    	}
+    }    
+    
+    public ServerSocket getServerSocket() {
+    	return this.serverSocket;
     }
     /** Starts a Server-application. */
     public static void main(String[] args) {
@@ -44,16 +52,22 @@ public class Server {
             System.exit(0);
         }	
 	  
-    	// create ServerSocket    	    	
+    	// create ServerSocket    	   
+        Server aServer = null;
     	try {
     		mainServerSocket = new ServerSocket(port);
+    		aServer = new Server(mainServerSocket);
     	} catch (IOException e1) {
-    		e1.getStackTrace();
+    		System.out.println("ERROR: could not create a socket on port" + port);
+    		System.exit(0);
     	}
     	
-    	Server aServer = new Server(mainServerSocket);
+    	
+    	
+    	
     	try {
-    		Socket sock = aServer.serverSocket.accept();
+    		
+    		Socket sock = aServer.getServerSocket().accept();
     		
     		// create Peer object and start the two-way communication
             
@@ -66,12 +80,7 @@ public class Server {
         	
     	} catch(IOException e1) {
     		e1.getStackTrace();
-    	}
-    	
-    	
-    	
-    	
-    	
+    	}    	
     }
 
 } // end of class Server

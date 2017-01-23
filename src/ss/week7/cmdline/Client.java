@@ -36,14 +36,7 @@ public class Client {
         }
 
         // parse args[2] - the port
-        try {
-            port = Integer.parseInt(args[2]);
-        } catch (NumberFormatException e) {
-            System.out.println(USAGE);
-            System.out.println("ERROR: port " + args[2]
-            		           + " is not an integer");
-            System.exit(0);
-        }
+        port = Peer.getPort(args[2], USAGE);
 
         // try to open a ServerSocket 
         try {
