@@ -10,6 +10,11 @@ public class Board {
     public Board() {
         this.reset();
     }
+    //@ensures (field.x > MAXFIELD
+    //@pure;
+    public boolean isField(Field field) {
+        return field.x < MAXFIELD || field.y < MAXFIELD || field.z < MAXFIELD;
+    }
     
     public void reset() {
         this.fieldMap.clear();
