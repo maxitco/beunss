@@ -19,8 +19,8 @@ public class Peer implements Runnable {
     protected Socket sock;
     protected BufferedReader in;
     protected BufferedWriter out;
-
-
+    
+    
     /*@
        requires (nameArg != null) && (sockArg != null);
      */
@@ -49,13 +49,25 @@ public class Peer implements Runnable {
     	try {
     		String line = null;
     		int counter = 0;
-    		while((!sock.isClosed() && (line = in.readLine()) != null)) {	
-    			String[] parts = line.split(" ");
+    		
+    		
+    		System.out.println(getName() + " is awaiting connection");
+    		while(!sock.isConnected()) {
+    			
+    		}
+    		
+    		System.out.println(getName() + " is now connected");    		
+    		while((line = in.readLine()) != null) {	
+    			//exit on recieving exit command
+    			if(line.equals(EXIT)) {
+    				shutDown();
+    			}
+    			String[] parts = line.split("\\|");
     			if (Integer.parseInt(parts[0]) > counter) {
-    				System.out.println(name + ": " + line);
+    				System.out.println(new String(parts[1]));
     				counter++;
     			}
-    		}
+    		}    		
     	} catch (IOException e1) {
     		e1.getStackTrace();
     		shutDown();
@@ -76,17 +88,28 @@ public class Peer implements Runnable {
     		BufferedReader standardInput = new BufferedReader(new InputStreamReader(System.in));
     		String input = null;
     		int counter = 0; 
-    		while((!sock.isClosed() && (input = standardInput.readLine()) != null)) {
+    		
+    		while(!sock.isConnected()) {
+    			
+    		}
+    		
+    		int runningTracker = 0;
+    		while((input = standardInput.readLine()) != null) {
+    			runningTracker++;
+    			    			
     			if(input.equals(EXIT)) {
-    				shutDown();
-    				return;
+    				out.write(EXIT);
+        			out.newLine();
+        			out.flush();  
+        			shutDown();
     			} else { 
     			counter++;	
-    			out.write(counter + " " + this.getName() + ":	" + input);
+    			out.write(counter + "|" + this.getName() + ":	" + input);
     			out.newLine();
     			out.flush();
     			}
     		}
+    		
     	} catch (IOException e1) {
     		System.out.println("input fail");
     		shutDown();
@@ -100,7 +123,9 @@ public class Peer implements Runnable {
     	try { 
     		in.close();
     		out.close();
-    		sock.close();    	
+    		sock.close();     		
+    		System.exit(0);
+    		System.out.println(getName() + ": byebye");
     	} catch (IOException e1) {
     		e1.getStackTrace();    		
     	}    
@@ -122,6 +147,20 @@ public class Peer implements Runnable {
             System.exit(0);
         }
     	return result;
+    }
+    
+    public static void createPeer(String name, Socket sock) {
+    	// create Peer object and start the two-way communication
+        try {
+            Peer client = new Peer(name, sock);
+            Thread streamInputHandler = new Thread(client);
+            streamInputHandler.start();
+            client.handleTerminalInput();
+            client.shutDown();           
+            
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
     
 }

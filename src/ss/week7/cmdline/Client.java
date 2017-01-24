@@ -46,16 +46,7 @@ public class Client {
                     + " and port " + port);
         }
 
-        // create Peer object and start the two-way communication
-        try {
-            Peer client = new Peer(name, sock);
-            Thread streamInputHandler = new Thread(client);
-            streamInputHandler.start();
-            client.handleTerminalInput();
-            client.shutDown();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        Peer.createPeer(name, sock);
     }
 
 } // end of class Client

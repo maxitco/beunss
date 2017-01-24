@@ -41,46 +41,26 @@ public class Server {
         InetAddress addr = null;
         int port = 0;
         ServerSocket mainServerSocket = null;
+        Socket sock = null;
 
         // parse args[1] - the port
-        try {
-            port = Integer.parseInt(args[1]);
-        } catch (NumberFormatException e) {
-            System.out.println(USAGE);
-            System.out.println("ERROR: port " + args[1]
-            		           + " is not an integer");
-            System.exit(0);
-        }	
+        port = Peer.getPort(args[1], USAGE);
 	  
     	// create ServerSocket    	   
         Server aServer = null;
     	try {
     		mainServerSocket = new ServerSocket(port);
     		aServer = new Server(mainServerSocket);
+    		sock = aServer.getServerSocket().accept();
     	} catch (IOException e1) {
-    		System.out.println("ERROR: could not create a socket on port" + port);
+    		
+    		System.out.println("ERROR: could not create a serversocket on port" + port);
+    		
     		System.exit(0);
     	}
     	
-    	
-    	
-    	
-    	try {
     		
-    		Socket sock = aServer.getServerSocket().accept();
-    		
-    		// create Peer object and start the two-way communication
-            
-            Peer server = new Peer(name, sock);
-            Thread streamInputHandlerServer = new Thread(server);
-            streamInputHandlerServer.start();
-            server.handleTerminalInput();
-            server.shutDown();
-            
-        	
-    	} catch(IOException e1) {
-    		e1.getStackTrace();
-    	}    	
+    	Peer.createPeer(name, sock);   	
     }
 
 } // end of class Server
