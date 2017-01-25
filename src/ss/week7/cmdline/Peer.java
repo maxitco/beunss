@@ -50,13 +50,13 @@ public class Peer implements Runnable {
     		String line = null;
     		int counter = 0;
     		
-    		
-    		System.out.println(getName() + " is awaiting connection");
-    		while(!sock.isConnected()) {
-    			
+    		if(!sock.isBound()) {
+	    		System.out.println(getName() + " is awaiting connection");
+	    		while(!sock.isConnected()) {
+	    			
+	    		}    		
+    		System.out.println(getName() + " is now connected");   
     		}
-    		
-    		System.out.println(getName() + " is now connected");    		
     		while((line = in.readLine()) != null) {	
     			//exit on recieving exit command
     			if(line.equals(EXIT)) {
@@ -84,7 +84,7 @@ public class Peer implements Runnable {
      */
     public synchronized void handleTerminalInput() {
     	try {
-    		System.out.println(this.getName() + " type message:");
+    		System.out.println("User: " + this.getName());
     		BufferedReader standardInput = new BufferedReader(new InputStreamReader(System.in));
     		String input = null;
     		int counter = 0; 
@@ -93,10 +93,10 @@ public class Peer implements Runnable {
     			
     		}
     		
-    		int runningTracker = 0;
+    		
     		while((input = standardInput.readLine()) != null) {
-    			runningTracker++;
-    			    			
+    			
+    						
     			if(input.equals(EXIT)) {
     				out.write(EXIT);
         			out.newLine();
@@ -124,8 +124,9 @@ public class Peer implements Runnable {
     		in.close();
     		out.close();
     		sock.close();     		
+    		System.out.println("shutdown");
     		System.exit(0);
-    		System.out.println(getName() + ": byebye");
+    		
     	} catch (IOException e1) {
     		e1.getStackTrace();    		
     	}    
