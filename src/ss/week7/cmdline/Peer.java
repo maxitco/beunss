@@ -63,10 +63,10 @@ public class Peer implements Runnable {
     				shutDown();
     			}
     			String[] parts = line.split("\\|");
-    			if (Integer.parseInt(parts[0]) > counter) {
+    			//if (Integer.parseInt(parts[0]) > counter) {
     				System.out.println(new String(parts[1]));
     				counter++;
-    			}
+    			//}
     		}    		
     	} catch (IOException e1) {
     		e1.getStackTrace();
