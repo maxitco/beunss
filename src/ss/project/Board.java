@@ -10,46 +10,72 @@ public class Board {
     public Board() {
         this.reset();
     }
-    //@ensures (field.x <= MAXFIELD
+    
     //@pure;
     public boolean isField(Field field) {
-        return field.x <= MAXFIELD || field.y <= MAXFIELD || field.z <= MAXFIELD;
+        return field.x >= 0 && field.x <= MAXFIELD &&
+               field.y >= 0 && field.y <= MAXFIELD &&
+               field.z >= 0 && field.z <= MAXFIELD;
     }
     
-    public boolean isEmpty(Field field) {
-        return !this.fieldMap.containsKey(field);
+    public boolean isEmptyField(Field field) {
+        Field copy = field.copy();
+        //check fields below
+        while(this.walkField(copy,0,0,-1)) {
+            if(!this.fieldMap.containsKey(copy)) {
+                return false;
+            }
+        }
+        return (this.isField(field) && !this.fieldMap.containsKey(field));
+    }
+    
+    public Field getEmptyField(int x, int y) {
+        Field empty = new Field(x,y,0);
+        if (this.isEmptyField(empty)) {
+            return empty;
+        }
+        else {
+            while (walkField(empty,0,0,1)) {
+                if (this.isEmptyField(empty)) {
+                    return empty;
+                }
+            }
+        }
+        return null;
     }
     
     public boolean setField(Field field, Mark m) {
-        if (this.isField(field) && this.isEmpty(field)) {
+        if (this.isEmptyField(field)) {
             this.fieldMap.put(field, m);
             return true;
         }
         return false;
     }
     
-    public Mark getMark(Field field) {
-        return this.fieldMap.get(field);
+    public boolean walkField(Field field, int xoff, int yoff, int zoff) {
+        Field nextfield = new Field(field.x + xoff,field.y + yoff, field.z + zoff);
+        if (this.isField(nextfield)) {
+            field = nextfield;
+            return true;
+        }
+        return false;
     }
     
-    public Field getFieldByCoordinate(int x,int y, int z) {
-        Field result = new Field(x,y,z);
-        if (this.isField(result)) {
-            return result;
+    public boolean setField(int x, int y, Mark m) {
+        Field newfield = null;
+        if ((newfield = this.getEmptyField(x,y)) != null) {
+            return this.setField(newfield, m);
+        }
+        return false;
+    }
+    
+    public Mark getMark(Field field) {
+        if (this.isField(field)) {
+            return this.fieldMap.get(field);
         }
         return null;
     }
-    
-    public int getNextZ(int x, int y) {
-        Field tester = new Field(x,y,0);
-        for (tester.z = 0; tester.z <= MAXFIELD; tester.z++) {
-            if (this.isEmpty(tester)) {
-                return tester.z;
-            }
-        }
-    }
-    
-    
+        
     public void reset() {
         this.fieldMap.clear();
     }

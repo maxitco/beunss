@@ -1,7 +1,7 @@
 package ss.project;
 
 public class Field {
-    int x,y,z;
+    public int x,y,z;
     //@invariant x,y,z >= 0;
     
     public Field(int newx, int newy, int newz) {
@@ -20,5 +20,9 @@ public class Field {
     @Override
     public int hashCode() {
         return x*100+y*10+z;
+    }
+    
+    public Field copy() {
+        return new Field(this.x,this.y,this.z);
     }
 }
