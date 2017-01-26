@@ -57,6 +57,7 @@ public class Peer implements Runnable {
 	    		}    		
     		System.out.println(getName() + " is now connected");   
     		}
+    		while(true) {
     		while((line = in.readLine()) != null) {	
     			//exit on recieving exit command
     			if(line.equals(EXIT)) {
@@ -65,9 +66,11 @@ public class Peer implements Runnable {
     			String[] parts = line.split("\\|");
     			//if (Integer.parseInt(parts[0]) > counter) {
     				System.out.println(new String(parts[1]));
+    				
     				counter++;
     			//}
     		}    		
+    		}
     	} catch (IOException e1) {
     		e1.getStackTrace();
     		shutDown();

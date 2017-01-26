@@ -7,10 +7,12 @@ import java.net.Socket;
 import java.util.ArrayList;
 
 public class Server {
-private ServerSocket serverSocket;	
-	private static final String name = "ServerJR"; 
+	private ServerSocket serverSocket;	
+	public static final String NAME = "ServerJR"; 
+	public static final String CAPABILITIES = ""; //TODO write string
     private static final String USAGE
         = "usage: " + Server.class.getName() + " <name> <port>";
+    
     private ArrayList<ClientHandler> clientHandlerList = new ArrayList<ClientHandler>();
 
     //constructor for server, create ServerSocket
@@ -24,11 +26,8 @@ private ServerSocket serverSocket;
     
     public ServerSocket getServerSocket() {
     	return this.serverSocket;
-    }
-    
-    public static String getName() {
-    	return name;
-    }
+    }    
+
     
     public void accepter() throws IOException {
     	while (true) {
@@ -40,6 +39,15 @@ private ServerSocket serverSocket;
     	}
     }
     
+    public synchronized int getHighestPlayerId() {
+        int result = 0;
+        for (int i = 0; i < clientHandlerList.size(); i++) {            
+            if (clientHandlerList.get(i).getPlayerId() > result) {
+                result = clientHandlerList.get(i).getPlayerId();
+            }
+        }
+        return result;
+    }
     
     /** Starts a Server-application. */
     /*
@@ -58,7 +66,7 @@ private ServerSocket serverSocket;
 	  
     	// create a Server       
     	try {
-    		new Server(port).accepter();;
+    		new Server(port).accepter();
     		
     	} catch (IOException e1) {    		
     		System.out.println("ERROR: could not create a serversocket on port" + port);    		
