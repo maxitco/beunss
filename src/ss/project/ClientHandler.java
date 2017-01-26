@@ -18,6 +18,7 @@ public class ClientHandler extends Thread {
 	private String playerName;
 	private int id;
 	private Game game;
+	private String capabilities;
     
 	
 	public ClientHandler(Server inServer, Socket inSock) throws IOException {
@@ -65,12 +66,36 @@ public class ClientHandler extends Thread {
         } 
 	}
 	
+	//function to take action upon recieving input from the client
 	public void checkInput(String input) {
+	    //split input around spaces
 	    String[] inputSplit = input.split(" ");
 	    
+	    //check which command is given (always the first word)
 	    if (inputSplit[0].equals(Protocol.Client.SENDCAPABILITIES)) {
-	        send(Protocol.Server.ASSIGNID + " " + getPlayerId());
-	        server.joinGame();
+	        //store the input capabilities after removing the tag SENDCAPABILITIES
+	        //also sets playername since it is sent with the capabilities
+	        String storedCapabilities = "";
+            for (int i = 1; i < 10; i++) {
+                storedCapabilities.concat(" ".concat(inputSplit[i]));
+            }
+            this.capabilities = storedCapabilities;
+            this.playerName = inputSplit[2];
+            
+            //send the playerID to the player
+            //ID was already known since it is set in the constructor
+            //however the protocol mandates this is the time to send it
+            send(Protocol.Server.ASSIGNID + " " + getPlayerId());
+            
+            //make a new game or join a current one
+            server.joinGame(this);	
+            
+            //wait till game is full
+            while (!this.game.isFull()) {
+                
+            }
+            
+            
 	    } 
 	}
     
@@ -79,8 +104,7 @@ public class ClientHandler extends Thread {
 		try { 
 		    //first action from the server, send capabilities as described in protocol
 		    send(Protocol.Server.SERVERCAPABILITIES + Server.CAPABILITIES);		    
-		    
-		    
+		    		    
 			while (true) { 
 				while ((line = in.readLine()) != null) {
 				    checkInput(line);

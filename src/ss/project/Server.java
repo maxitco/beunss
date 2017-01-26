@@ -50,21 +50,26 @@ public class Server {
         return result;
     }
     
-    public synchronized void joinGame() {
+    //join an available game or if none is available create a new game for the player.
+    public synchronized void joinGame(ClientHandler inputPlayer) {
+        
+        //search for available games && and player if found
         boolean found = false;
         int i = 0;
         while (!found && i < gameList.size()) {
             if (!this.gameList.get(i).isFull()) {
-                
-                //TODO
+                this.gameList.get(i).addPlayer(inputPlayer);
                 found = true;
             }
         }
-    }
-    
-    public synchronized void addGame() {
-        gameList.add(new Game());
-    }
+        
+        //construct new game if no available game is found
+        if (!found) {
+            Game aNewGame = new Game();
+            aNewGame.addPlayer(inputPlayer);
+            this.gameList.add(aNewGame);            
+        }
+    }    
     
     /** Starts a Server-application. */
     /*
