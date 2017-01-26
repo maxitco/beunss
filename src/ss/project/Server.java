@@ -67,6 +67,7 @@ public class Server {
         if (!found) {
             Game aNewGame = new Game();
             aNewGame.addPlayer(inputPlayer);
+            inputPlayer.setPlayerGame(aNewGame);
             this.gameList.add(aNewGame);            
         }
     }    
