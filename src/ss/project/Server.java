@@ -14,7 +14,8 @@ public class Server {
         = "usage: " + Server.class.getName() + " <name> <port>";
     
     private ArrayList<ClientHandler> clientHandlerList = new ArrayList<ClientHandler>();
-
+    private ArrayList<Game> gameList = new ArrayList<Game>();
+    
     //constructor for server, create ServerSocket
     public Server(int port) throws IOException, PortException {
     	if (port > 0) {
@@ -47,6 +48,22 @@ public class Server {
             }
         }
         return result;
+    }
+    
+    public synchronized void joinGame() {
+        boolean found = false;
+        int i = 0;
+        while (!found && i < gameList.size()) {
+            if (!this.gameList.get(i).isFull()) {
+                
+                //TODO
+                found = true;
+            }
+        }
+    }
+    
+    public synchronized void addGame() {
+        gameList.add(new Game());
     }
     
     /** Starts a Server-application. */

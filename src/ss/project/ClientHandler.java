@@ -17,6 +17,7 @@ public class ClientHandler extends Thread {
 	private BufferedWriter out;
 	private String playerName;
 	private int id;
+	private Game game;
     
 	
 	public ClientHandler(Server inServer, Socket inSock) throws IOException {
@@ -69,8 +70,8 @@ public class ClientHandler extends Thread {
 	    
 	    if (inputSplit[0].equals(Protocol.Client.SENDCAPABILITIES)) {
 	        send(Protocol.Server.ASSIGNID + " " + getPlayerId());
-	        this.game = new Game();
-	    } else if ()
+	        server.joinGame();
+	    } 
 	}
     
     public void run() {
