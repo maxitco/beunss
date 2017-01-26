@@ -111,7 +111,7 @@ public class ClientHandler extends Thread {
         this.game.startGame();    
 	}
 	
-	//function to take action upon recieving input from the client
+	//function to take action upon receiving input from the client
 	public void handleInput(String input) {
 	    //split input around spaces
 	    String[] inputSplit = input.split(" ");
