@@ -16,9 +16,9 @@ public class ClientHandler extends Thread {
 	private BufferedReader in;
 	private BufferedWriter out;
 	private String playerName;
-	private int id;
+	private int playerId;
 	private Game game;
-	private String capabilities;
+	private String clientCapabilities;
     
 	
 	public ClientHandler(Server inServer, Socket inSock) throws IOException {
@@ -26,7 +26,7 @@ public class ClientHandler extends Thread {
     	this.sock = inSock;      	
     	this.in = new BufferedReader(new InputStreamReader(sock.getInputStream()));
 		this.out = new BufferedWriter(new OutputStreamWriter(sock.getOutputStream()));
-		this.id = server.getHighestPlayerId() + 1;
+		this.playerId = server.getHighestPlayerId() + 1;
     } 
 	
 	public void setPlayerName(String input) {
@@ -39,7 +39,7 @@ public class ClientHandler extends Thread {
 	
 	
 	public int getPlayerId() {
-	    return this.id;
+	    return this.playerId;
 	}
 	
 	public void setPlayerGame(Game inputGame) {
@@ -63,7 +63,7 @@ public class ClientHandler extends Thread {
         for (int i = 1; i < 10; i++) {
             storedCapabilities.concat(" ".concat(inputSplit[i]));
         }
-        this.capabilities = storedCapabilities;
+        this.clientCapabilities = storedCapabilities;
         this.playerName = inputSplit[2];
         
         //send the playerID to the player
