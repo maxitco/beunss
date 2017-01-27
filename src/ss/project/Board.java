@@ -93,27 +93,6 @@ public class Board {
         return true;
     }
     
-    
-    
-    public boolean checkXYPlane(int z, Mark m) {
-        for (int i = 0; i <= MAXFIELD; i++) {
-            Field xchecker = new Field(0,i,z);
-            Field ychecker = new Field(i,0,z);
-            if (this.checkRow(xchecker, 1, 0, 0, m) ||
-                this.checkRow(ychecker, 0, 1, 0, m)) {
-                return true;
-            }
-        }
-        Field crosschecker = new Field(0,0,z);
-        Field crossdownchecker = new Field(0,3,z);
-        if (this.checkRow(crosschecker, 1, 1, 0, m) ||
-            this.checkRow(crossdownchecker, 1, -1, 0, m)) {
-            return true;
-        }
-        
-        return false;
-    }
-    
     public boolean checkZcolums(Mark m) {
         for (int x = 0; x <= MAXFIELD; x++) {
             for (int y = 0; y <= MAXFIELD; y++) {
@@ -126,31 +105,41 @@ public class Board {
         return false;
     }
     
-    public boolean checkDiagPlanes(Mark m) {
-        for (int x = 0; x <= MAXFIELD; x++) {
-            for (int y = 0; y <= MAXFIELD; y++) {
-                Field yzchecker = new Field(x,0,0); //startpoint x axis
-                Field xzchecker = new Field(0,y,0); //startpoint y axis
-                Field yzdownchecker = new Field(x,MAXFIELD,0); //opposite startpoint x axis
-                Field xzdownchecker = new Field(MAXFIELD,y,0); //opposite startpoint y axis
-                if (
+    public boolean checkPlanes(Mark m) {
+        for (int i = 0; i <= MAXFIELD; i++) {
+            //check all x-y planes
+            for (int z = 0; z <= MAXFIELD; z++) {
+                Field xchecker = new Field(0,i,z);
+                Field ychecker = new Field(i,0,z);
+                if (this.checkRow(xchecker, 1, 0, 0, m) ||
+                    this.checkRow(ychecker, 0, 1, 0, m)) {
+                        return true;
+                    }
+            }
+            //check diagonal planes
+            Field yzchecker = new Field(i,0,0); //startpoint x axis
+            Field xzchecker = new Field(0,i,0); //startpoint y axis
+            Field yzdownchecker = new Field(i,MAXFIELD,0); //opposite startpoint x axis
+            Field xzdownchecker = new Field(MAXFIELD,i,0); //opposite startpoint y axis
+            //check cross-planes
+            Field crosschecker = new Field(0,0,i);
+            Field crossdownchecker = new Field(0,MAXFIELD,i);
+            if (
                     this.checkRow(yzchecker, 0, 1, 1, m) ||
                     this.checkRow(xzchecker, 1, 0, 1, m) ||
                     this.checkRow(yzdownchecker, 0, -1, 1, m) ||
-                    this.checkRow(xzdownchecker, -1, 0, 1, m) ) {
+                    this.checkRow(xzdownchecker, -1, 0, 1, m) ||
+                    this.checkRow(crosschecker, 1, 1, 0, m) ||
+                    this.checkRow(crossdownchecker, 1, -1, 0, m)
+                    ) {
                     return true;
                 }
-            }
         }
         return false;
     }
     
     public boolean isWinner(Mark m) {
-        for (int i = 0; i <= MAXFIELD; i++) {
-            if (this.checkXYPlane(i, m)) {
-                return true;
-            }
-        }
+        return this.checkPlanes(m) || this.checkZcolums(m);
         
     }
     
