@@ -29,7 +29,7 @@ public class Game extends Thread {
     
     //starts the game thread, if it is not running already
     public synchronized void startGame() {
-        if (this.running == false) {
+        if (!this.running) {
             this.start();
             this.running = true;
         }

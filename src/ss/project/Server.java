@@ -72,6 +72,23 @@ public class Server {
         }
     }    
     
+    //getPort function to retrieve port from input
+    //duplicate Client/Server function getPort()
+    //some people might only run the server or only a client
+    //so duplicate is required
+    public static int getPort(String input) {
+        int result = 0;
+        try {
+            result = Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            System.out.println(USAGE);
+            System.out.println("ERROR: " + input
+                               + " is not an integer");
+            System.exit(0);
+        }
+        return result;
+    }
+    
     /** Starts a Server-application. */
     /*
      * args[0] --> port
@@ -85,7 +102,7 @@ public class Server {
         }      
         
         // parse args[0] - the port
-        int port = ClientHandler.getPort(args[0], USAGE);
+        int port = getPort(args[0]);
 	  
     	// create a Server       
     	try {

@@ -46,20 +46,6 @@ public class ClientHandler extends Thread {
 	    this.game = inputGame;
 	}
 	
-	
-	public static int getPort(String input, String usage) {
-    	int result = 0;
-    	try {
-    		result = Integer.parseInt(input);
-        } catch (NumberFormatException e) {
-            System.out.println(usage);
-            System.out.println("ERROR: " + input
-            		           + " is not an integer");
-            System.exit(0);
-        }
-    	return result;
-    }
-	
 	public void send(String input) {
 	    try {
     	    out.write(input);
