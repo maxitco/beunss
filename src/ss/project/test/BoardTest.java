@@ -15,11 +15,11 @@ public class BoardTest {
     public void setUp() throws Exception {
        this.board = new Board();
     }
-
+    
     @Test
     public void testisField() {
-        Field badfield = new Field(4,0,0);
-        Field goodfield = new Field(2,3,0);
+        Field badfield = new Field(board.MAXFIELD + 1,0,0);
+        Field goodfield = new Field(1,1,0);
         assertTrue(board.isField(goodfield));
         assertFalse(board.isField(badfield));
     }
@@ -44,9 +44,26 @@ public class BoardTest {
         
     }
     
+    @Test
     public void testsetField() {
-        
+        //wrong move
+        Field test0 = new Field(1,1,1);
+        assertFalse(board.setField(test0, Mark.White));
+        assertTrue(board.getMark(test0) == null);
+        //correct move
+        Field test1 = new Field(1,1,0);
+        assertTrue(board.setField(test1, Mark.Black));
+        assertEquals(board.getMark(test1),Mark.Black);
+        //out of bounds stacking with coordinates
+        for (int i = 0; i <= board.MAXFIELD;i++) {
+            assertTrue(board.setField(0, 0, Mark.White));
+        }
+        assertFalse(board.setField(0, 0, Mark.Black));
+        //check coordinate setting worked correctly
+        Field coord = new Field(0,0,0);
+        assertEquals(board.getMark(coord),Mark.White);
     }
+    
     @Test
     public void testwalkField() {
         Field start = new Field(0,0,0);
@@ -54,4 +71,6 @@ public class BoardTest {
         start = board.walkField(start, 1, 1, 1);
         assertEquals(end,start);
     }
+    
+    
 }
