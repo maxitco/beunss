@@ -21,7 +21,7 @@ public class Board {
     public boolean isEmptyField(Field field) {
         Field copy = field.copy();
         //check fields below
-        while(this.walkField(copy,0,0,-1)) {
+        while((copy = this.walkField(copy,0,0,-1)) != null) {
             if(!this.fieldMap.containsKey(copy)) {
                 return false;
             }
@@ -35,7 +35,7 @@ public class Board {
             return empty;
         }
         else {
-            while (walkField(empty,0,0,1)) {
+            while ((empty = walkField(empty,0,0,1)) != null) {
                 if (this.isEmptyField(empty)) {
                     return empty;
                 }
@@ -52,13 +52,12 @@ public class Board {
         return false;
     }
     
-    public boolean walkField(Field field, int xoff, int yoff, int zoff) {
+    public Field walkField(Field field, int xoff, int yoff, int zoff) {
         Field nextfield = new Field(field.x + xoff,field.y + yoff, field.z + zoff);
         if (this.isField(nextfield)) {
-            field = nextfield;
-            return true;
+            return nextfield;
         }
-        return false;
+        return null;
     }
     
     public boolean setField(int x, int y, Mark m) {
@@ -86,7 +85,7 @@ public class Board {
             if (this.isEmptyField(checker) || !this.getMark(checker).equals(m)) {
                 return false;
             }
-            if (!this.walkField(checker, xdir, ydir, zdir)) {
+            if ((checker = this.walkField(checker, xdir, ydir, zdir)) == null) {
                 return false;
             }
         }
