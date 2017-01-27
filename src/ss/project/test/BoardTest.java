@@ -72,5 +72,14 @@ public class BoardTest {
         assertEquals(end,start);
     }
     
+    @Test
+    public void testgetMark() {
+        Field test = new Field(0,0,0);
+        assertEquals(null,board.getMark(test));
+        board.setField(test, Mark.Black);
+        assertEquals(Mark.Black,board.getMark(test));
+    }
+    
+    
     
 }
