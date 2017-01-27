@@ -80,6 +80,13 @@ public class BoardTest {
         assertEquals(Mark.Black,board.getMark(test));
     }
     
-    
+    @Test
+    public void testreset() {
+        Field test = new Field(0,0,0);
+        board.setField(test, Mark.Black);
+        assertEquals(Mark.Black,board.getMark(test));
+        board.reset();
+        assertEquals(null,board.getMark(test));
+    }
     
 }
