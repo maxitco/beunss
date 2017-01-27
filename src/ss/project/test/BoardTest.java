@@ -6,6 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import ss.project.Field;
+import ss.project.Mark;
 import ss.project.Board;
 
 public class BoardTest {
@@ -23,5 +24,11 @@ public class BoardTest {
         assertFalse(board.isField(badfield));
     }
     
-
+    @Test
+    public void testisEmptyField() {
+        Field filler = new Field (1,1,0);
+        assertTrue(board.isEmptyField(filler));
+        board.setField(filler, Mark.Black);
+        assertFalse(board.isEmptyField(filler));
+    }
 }
