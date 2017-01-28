@@ -27,9 +27,9 @@ public class BoardTest {
     @Test
     public void testisEmptyField() {
         Field filler = new Field (1,1,0);
-        assertTrue(board.isEmptyField(filler));
+        assertTrue(board.isReachableEmptyField(filler));
         board.setField(filler, Mark.Black);
-        assertFalse(board.isEmptyField(filler));
+        assertFalse(board.isReachableEmptyField(filler));
     }
     
     @Test
@@ -89,4 +89,18 @@ public class BoardTest {
         assertEquals(null,board.getMark(test));
     }
     
+    @Test
+    public void testcheckRow() {
+        Mark m0 = Mark.Black;
+        Mark m1 = Mark.White;
+        Field start = new Field(0,0,0);
+        for (int i = 0; i <= board.MAXFIELD; i++) {
+            board.setField(i, 0, m0);
+        }
+        for (int i = 1; i <= board.MAXFIELD; i++) {
+            board.setField(i, i, m1);
+        }
+        assertTrue(board.checkRow(start, 1, 0, 0, m0));
+        assertFalse(board.checkRow(start, 1, 1, 0, m1));
+    }
 }

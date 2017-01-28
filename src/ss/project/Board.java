@@ -18,7 +18,7 @@ public class Board {
                field.z >= 0 && field.z <= MAXFIELD;
     }
     
-    public boolean isEmptyField(Field field) {
+    public boolean isReachableEmptyField(Field field) {
         Field copy = field.copy();
         //check fields below
         while((copy = this.walkField(copy,0,0,-1)) != null) {
@@ -29,14 +29,18 @@ public class Board {
         return (this.isField(field) && !this.fieldMap.containsKey(field));
     }
     
+    public boolean isEmptyField(Field field) {
+        return !this.fieldMap.containsKey(field);
+    }
+    
     public Field getEmptyField(int x, int y) {
         Field empty = new Field(x,y,0);
-        if (this.isEmptyField(empty)) {
+        if (this.isReachableEmptyField(empty)) {
             return empty;
         }
         else {
             while ((empty = walkField(empty,0,0,1)) != null) {
-                if (this.isEmptyField(empty)) {
+                if (this.isReachableEmptyField(empty)) {
                     return empty;
                 }
             }
@@ -45,7 +49,7 @@ public class Board {
     }
     
     public boolean setField(Field field, Mark m) {
-        if (this.isEmptyField(field)) {
+        if (this.isReachableEmptyField(field)) {
             this.fieldMap.put(field, m);
             return true;
         }
@@ -78,13 +82,21 @@ public class Board {
     public void reset() {
         this.fieldMap.clear();
     }
-    
+    /*@ requires (start.x == MAXFIELD || start.x == 0) ||
+                 (start.y == MAXFILED || start.y == 0) ||
+                 (start.z == MAXFIELD || start.z == 0);
+     */
+    //@pure;
     public boolean checkRow(Field start, int xdir, int ydir, int zdir, Mark m) {
         Field checker = start.copy();
-        for (int i = 0; i <= MAXFIELD; i++) {
-            if (this.isEmptyField(checker) || !this.getMark(checker).equals(m)) {
+        for (int i = 0; i < MAXFIELD; i++) {
+            if (this.isEmptyField(checker)) {
                 return false;
             }
+            if (!this.getMark(checker).equals(m)) {
+                return false;
+            }
+            
             if ((checker = this.walkField(checker, xdir, ydir, zdir)) == null) {
                 return false;
             }
