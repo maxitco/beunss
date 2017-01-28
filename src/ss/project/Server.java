@@ -25,10 +25,13 @@ public class Server {
     	}
     }    
     
-    public ServerSocket getServerSocket() {
+    /*@ pure */ public ServerSocket getServerSocket() {
     	return this.serverSocket;
     }    
 
+    /*@ pure */ public ArrayList<ClientHandler> getClientHandlerList() {
+        return this.clientHandlerList;
+    }
     
     public void accepter() throws IOException {
     	while (true) {
@@ -40,7 +43,15 @@ public class Server {
     	}
     }
     
-    //synchronized to prevent players from getting the same ID if their clients call function at same moment    
+    /*
+     * synchronized to prevent players from getting the same ID 
+     * if their clients call function at same moment    
+     */
+    
+    //@requires idLessClient != null;
+    /*@ensures (\forall ClientHandler c; c != idLessClient && getClientHandlerList().contains(c);
+     idLessClient.getPlayerId() > c.getPlayerId());
+    */    
     public synchronized void obtainPlayerId(ClientHandler idLessClient) {
         int result = 0;
         for (int i = 0; i < clientHandlerList.size(); i++) {            
@@ -74,10 +85,9 @@ public class Server {
     }    
     
     //getPort function to retrieve port from input
-    //duplicate Client/Server function getPort()
-    //some people might only run the server or only a client
-    //so duplicate is required
-    public static int getPort(String input) {
+    //@requires input != null;
+    //@ensures \result == Integer.parseInt(input) || \result == 0;
+    /*@ pure */ public static int getPort(String input) {
         int result = 0;
         try {
             result = Integer.parseInt(input);
