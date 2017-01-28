@@ -40,14 +40,15 @@ public class Server {
     	}
     }
     
-    public synchronized int getHighestPlayerId() {
+    //synchronized to prevent players from getting the same ID if their clients call function at same moment    
+    public synchronized void obtainPlayerId(ClientHandler idLessClient) {
         int result = 0;
         for (int i = 0; i < clientHandlerList.size(); i++) {            
             if (clientHandlerList.get(i).getPlayerId() > result) {
                 result = clientHandlerList.get(i).getPlayerId();
             }
         }
-        return result;
+        idLessClient.setPlayerId(result + 1);
     }
     
     //join an available game or if none is available create a new game for the player.
@@ -106,6 +107,7 @@ public class Server {
 	  
     	// create a Server       
     	try {
+    	    
     		new Server(port).accepter();
     		
     	} catch (IOException e1) {    		

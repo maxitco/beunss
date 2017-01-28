@@ -13,12 +13,15 @@ import java.util.ArrayList;
 public class ClientHandler extends Thread {
 	private final Server server;
 	private final Socket sock;
-	private BufferedReader in;
-	private BufferedWriter out;
+	private final BufferedReader in;
+	private final BufferedWriter out;
 	private String playerName;
 	private int playerId;
 	private Game game;
-	private String clientCapabilities;
+	/*
+	 * variable below is not necessary since we run the basic game
+	 * private String[] clientCapabilities;
+	 */
     
 	
 	public ClientHandler(Server inServer, Socket inSock) throws IOException {
@@ -26,26 +29,43 @@ public class ClientHandler extends Thread {
     	this.sock = inSock;      	
     	this.in = new BufferedReader(new InputStreamReader(sock.getInputStream()));
 		this.out = new BufferedWriter(new OutputStreamWriter(sock.getOutputStream()));
-		this.playerId = server.getHighestPlayerId() + 1;
+		inServer.obtainPlayerId(this);
     } 
 	
+
+	
+	//@requires input != null;
+	//@ensures getPlayerName().equals(input);
 	public void setPlayerName(String input) {
 		this.playerName = input;
 	}
 	
-	public String getPlayerName() {
+	//@ensures getPlayerId() == id;
+    public void setPlayerId(int id) {
+        this.playerId = id;
+    }
+    
+    //@requires inputGame != null;
+    //@ensures getPlayerGame() == inputGame;
+    public void setPlayerGame(Game inputGame) {
+        this.game = inputGame;
+    }
+	
+    
+	/*@ pure*/ public String getPlayerName() {
 	    return this.playerName;
 	}	
 	
 	
-	public int getPlayerId() {
+	/*@ pure */ public int getPlayerId() {
 	    return this.playerId;
 	}
 	
-	public void setPlayerGame(Game inputGame) {
-	    this.game = inputGame;
-	}
+    /*@ pure */ public Game getPlayerGame() {
+        return this.game;
+    }	
 	
+	//send String to Client using out
 	public void send(String input) {
 	    try {
     	    out.write(input);
@@ -56,16 +76,22 @@ public class ClientHandler extends Thread {
         } 
 	}
 	
-	public void commandSendCapabilities (String[] inputSplit) {
-	    //store the input capabilities after removing the tag SENDCAPABILITIES
-        //also sets playername since it is sent with the capabilities
-        String storedCapabilities = "";
-        for (int i = 1; i < 10; i++) {
-            storedCapabilities.concat(" ".concat(inputSplit[i]));
-        }
-        this.clientCapabilities = storedCapabilities;
+	
+	/* 
+     * sets playerName since it is sent with the capabilities
+     * could be used to store clientCapabilites
+     * but this is not done since we only have the basic game
+     * so the client should be able to handle all the commands we send to it
+     */
+	
+	//@requires inputSplit.length == 10;
+	//@ensures getPlayerName().equals(inputSplit[2]);    
+	public void setClientCapabilities(String[] inputSplit) {
+        // this.clientCapabilities = inputSplit;
         this.playerName = inputSplit[2];
-        
+	}
+    
+	public void setupGameForClient() {
         //send the playerID to the player
         //ID was already known since it is set in the constructor
         //however the protocol mandates this is the time to send it
@@ -91,34 +117,44 @@ public class ClientHandler extends Thread {
             + this.game.getPlayerList().get(2).getPlayerId()
             + "|" + this.game.getPlayerList().get(2).getPlayerName()
             + "ff0000"  
-            );
+        );
         
         //start game loop
         this.game.startGame();    
 	}
 	
-	//function to take action upon receiving input from the client
+	//function to determine which action should be performed upon receiving input from the client
 	public void handleInput(String input) {
 	    //split input around spaces
 	    String[] inputSplit = input.split(" ");
 	    
 	    //check which command is given (always the first word)
 	    if (inputSplit[0].equals(Protocol.Client.SENDCAPABILITIES)) {
-	        commandSendCapabilities(inputSplit);
+	        setClientCapabilities(inputSplit);
+	        setupGameForClient();
 	    } else if (inputSplit[0].equals(Protocol.Client.MAKEMOVE)) {
+	        try {
+	            int x = Integer.parseInt(inputSplit[1]);
+	            int y = Integer.parseInt(inputSplit[2]);
+	            this.game.makeMove(x, y, this);
+	        } catch (NumberFormatException e) {
+	            send("error 4"); //error 4 ==> invalidCommand
+	        }
 	        
 	    } else {
 	        send("error 4"); //error 4 ==> invalidCommand
 	    }
 	    
-	}
+	}	
+
     
     public void run() {
 		String line = null; 
 		try { 
 		    //first action from the server, send capabilities as described in protocol
 		    send(Protocol.Server.SERVERCAPABILITIES + Server.CAPABILITIES);		    
-		    		    
+		    	
+		    //continuously read input and perform actions based on it
 			while (true) { 
 				while ((line = in.readLine()) != null) {
 				    handleInput(line);

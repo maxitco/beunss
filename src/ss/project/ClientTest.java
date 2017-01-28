@@ -13,7 +13,7 @@ import java.net.UnknownHostException;
 
 public class ClientTest {
     private static final String USAGE
-    = "usage: java week7.cmdline.Client <name> <address> <port>";
+        = "usage: java week7.cmdline.Client <name> <address> <port>";
 
     private final Socket sock;
     private BufferedReader in;
@@ -29,6 +29,8 @@ public class ClientTest {
         this.in = new BufferedReader(new InputStreamReader(sock.getInputStream()));
         this.out = new BufferedWriter(new OutputStreamWriter(sock.getOutputStream()));
     } 
+    
+
     
     public void setPlayerName(String input) {
         this.playerName = input;
@@ -97,7 +99,7 @@ public class ClientTest {
                                
             while (true) { 
                 while ((line = aClient.in.readLine()) != null) {
-                    System.out.println(line);;
+                    System.out.println(line);
                 }
             } 
         } catch (IOException e) { 
