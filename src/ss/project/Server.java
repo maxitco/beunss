@@ -22,8 +22,7 @@ public class Server {
     	if (port > 0) {
 			this.serverSocket = new ServerSocket(port);	
 			this.serverTerminal = new ServerTerminal(this);
-			Thread terminalThread = new Thread(this.serverTerminal, "terminalThread");
-			terminalThread.start();
+			serverTerminal.start();
     	} else {
     		throw new PortException();
     	}

@@ -10,11 +10,9 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
 
-public class ClientHandler extends Thread {
+public class ClientHandler extends Terminal {
 	private final Server server;
 	private final Socket sock;
-	private final BufferedReader in;
-	private final BufferedWriter out;
 	private String playerName;
 	private int playerId;
 	private Game game;
@@ -23,12 +21,10 @@ public class ClientHandler extends Thread {
 	 * private String[] clientCapabilities;
 	 */
     
-	
 	public ClientHandler(Server inServer, Socket inSock) throws IOException {
-    	this.server = inServer;
+    	super(inSock.getInputStream(), inSock.getOutputStream());
+	    this.server = inServer;
     	this.sock = inSock;      	
-    	this.in = new BufferedReader(new InputStreamReader(sock.getInputStream()));
-		this.out = new BufferedWriter(new OutputStreamWriter(sock.getOutputStream()));
 		inServer.obtainPlayerId(this);
     } 
 	
@@ -64,18 +60,6 @@ public class ClientHandler extends Thread {
     /*@ pure */ public Game getPlayerGame() {
         return this.game;
     }	
-	
-	//send String to Client using out
-	public void send(String input) {
-	    try {
-    	    out.write(input);
-            out.newLine();
-            out.flush();
-	    } catch (IOException e) { 
-            System.out.println("Something went wrong with sending through socket"); 
-        } 
-	}
-	
 	
 	/* 
      * sets playerName since it is sent with the capabilities
@@ -123,7 +107,14 @@ public class ClientHandler extends Thread {
         this.game.startGame();    
 	}
 	
+	@Override
+	public void atStart() {
+	    //first action from the server, send capabilities as described in protocol
+	    send(Protocol.Server.SERVERCAPABILITIES + Server.CAPABILITIES); 
+	}
+	
 	//function to determine which action should be performed upon receiving input from the client
+	@Override
 	public void handleInput(String input) {
 	    //split input around spaces
 	    String[] inputSplit = input.split(" ");
@@ -145,24 +136,6 @@ public class ClientHandler extends Thread {
 	        send("error 4"); //error 4 ==> invalidCommand
 	    }
 	    
-	}	
-
-    
-    public void run() {
-		String line = null; 
-		try { 
-		    //first action from the server, send capabilities as described in protocol
-		    send(Protocol.Server.SERVERCAPABILITIES + Server.CAPABILITIES);		    
-		    	
-		    //continuously read input and perform actions based on it
-			while (true) { 
-				while ((line = in.readLine()) != null) {
-				    handleInput(line);
-				}
-			} 
-	  	} catch (IOException e) { 
-	  		System.out.println("Something went wrong reading from socket"); 
-	  	} 
-    }
+	}
 }
  
