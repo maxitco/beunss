@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 public class Server {
 	private ServerSocket serverSocket;	
+	private ServerTerminal serverTerminal;
 	public static final String NAME = "ServerJR"; 
 	public static final String CAPABILITIES = ""; //TODO write string
     private static final String USAGE
@@ -19,11 +20,23 @@ public class Server {
     //constructor for server, create ServerSocket
     public Server(int port) throws IOException, PortException {
     	if (port > 0) {
-			this.serverSocket = new ServerSocket(port);			
+			this.serverSocket = new ServerSocket(port);	
+			this.serverTerminal = new ServerTerminal(this);
+			Thread terminalThread = new Thread(this.serverTerminal, "terminalThread");
+			terminalThread.start();
     	} else {
     		throw new PortException();
     	}
     }    
+    
+    //shutdown, notify all clients that shutdown will happen
+    //exit the program and all its threads
+    public void shutDown() {
+        for (ClientHandler client: this.clientHandlerList ) {
+            client.send("error 1"); //TODO fix better error
+        }
+        System.exit(0);        
+    }
     
     /*@ pure */ public ServerSocket getServerSocket() {
     	return this.serverSocket;
