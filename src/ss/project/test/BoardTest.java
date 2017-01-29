@@ -204,8 +204,31 @@ public class BoardTest {
             board.setField(i, Board.MAXFIELD - i, m);
         }
         assertTrue(board.checkPlanes(m));
-        System.out.println(board.toString());
+        board.reset();
     }
     
+    @Test
+    public void testisWinner() {
+        Mark m = Mark.Black;
+        for (int i = 0; i <= Board.MAXFIELD; i++) {
+            board.setField(i, i, m);
+        }
+        assertTrue(board.isWinner(m));
+    }
+    
+    @Test
+    public void testhasWinner() {
+        Mark m = Mark.Black;
+        assertFalse(board.hasWinner());
+        for (int i = 0; i <= Board.MAXFIELD; i++) {
+            board.setField(i, 0, m);
+        }
+        assertTrue(board.hasWinner());
+        for (int i = 0; i <= Board.MAXFIELD; i++) {
+            board.setField(i, 1, m.other());
+        }
+        assertFalse(board.hasWinner());
+        
+    }
     
 }
