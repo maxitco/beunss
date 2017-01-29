@@ -5,9 +5,9 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
+import ss.project.Board;
 import ss.project.Field;
 import ss.project.Mark;
-import ss.project.Board;
 
 public class BoardTest {
     private Board board;

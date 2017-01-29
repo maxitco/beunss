@@ -89,19 +89,18 @@ public class Board {
     //@pure;
     public boolean checkRow(Field start, int xdir, int ydir, int zdir, Mark m) {
         Field checker = start.copy();
-        for (int i = 0; i < MAXFIELD; i++) {
-            if (this.isEmptyField(checker)) {
+        int count = 0;
+        do {
+            if (this.isEmptyField(checker) || !this.getMark(checker).equals(m)) {
                 return false;
             }
-            if (!this.getMark(checker).equals(m)) {
-                return false;
-            }
+            count++;
             checker = this.walkField(checker, xdir, ydir, zdir);
-            if (checker == null) {
-                return false;
-            }
+        } while (checker != null);
+        if (count == MAXFIELD + 1) {
+            return true;
         }
-        return true;
+        return false;
     }
     
     public boolean checkZcolums(Mark m) {
@@ -162,7 +161,7 @@ public class Board {
     
     public String toString() {
         String result = "";
-        for (int y = 0; y <= MAXFIELD; y++) {
+        for (int y = MAXFIELD; y >= 0; y--) {
             for (int z = 0; z <= MAXFIELD; z++) {
                 for (int x = 0; x <= MAXFIELD; x++) {
                     Field out = new Field(x, y, z);
