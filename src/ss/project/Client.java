@@ -45,6 +45,10 @@ public class Client extends Terminal {
         this.currentTurnId = input;
     }
     
+    public void setInGame(boolean input) {
+        this.inGame = input;
+    }
+    
     /*@ pure */ public String getPlayerName() {
         return this.playerName;
     }  
@@ -95,8 +99,8 @@ public class Client extends Terminal {
                 serverHandler.send(Protocol.Client.MAKEMOVE + " " + inputSplit[1] + " " + inputSplit[2]);
             } else {
                 send(
-                    "You entered: " + input 
-                    + "which is not valid input or can only be done if it is your turn in the game."
+                    "You entered: '" + input 
+                    + "' which is not valid input or can only be done if it is your turn in the game."
                 );
                 
                 if (this.inGame) {

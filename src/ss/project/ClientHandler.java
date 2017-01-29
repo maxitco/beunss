@@ -123,7 +123,7 @@ public class ClientHandler extends Terminal {
 	    if (inputSplit[0].equals(Protocol.Client.SENDCAPABILITIES)) {
 	        setClientCapabilities(inputSplit);
 	        setupGameForClient();
-	    } else if (inputSplit[0].equals(Protocol.Client.MAKEMOVE)) {
+	    } else if (inputSplit[0].equals(Protocol.Client.MAKEMOVE) && inputSplit.length == 3) {
 	        try {
 	            int x = Integer.parseInt(inputSplit[1]);
 	            int y = Integer.parseInt(inputSplit[2]);

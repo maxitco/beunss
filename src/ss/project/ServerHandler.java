@@ -40,8 +40,10 @@ public class ServerHandler extends Terminal {
             }                
         } else if (inputSplit[0].equals(Protocol.Server.STARTGAME)) {
             //notify the client that the game has started and create a board
+            this.client.setInGame(true);
             this.client.send("Game has started");
             this.client.refreshBoard();
+            this.client.send(this.client.getBoard().toString());
         } else if (inputSplit[0].equals(Protocol.Server.TURNOFPLAYER) && inputSplit.length == 2) {
             //notify the player whose turn it is
             try {
@@ -86,10 +88,10 @@ public class ServerHandler extends Terminal {
             } catch (NumberFormatException e) {
                 this.client.send("Server is sending rubbish, NumberFormatException");
             }
-        } else if (
-            //game has ended in a draw, notify client
-            inputSplit[0].equals(Protocol.Server.NOTIFYEND) && inputSplit.length == 2) {
-            send("The game has ended in a draw, type EXIT to exit the game and start a new one");           
+        } else if (inputSplit[0].equals(Protocol.Server.NOTIFYEND) && inputSplit.length == 2) {
+          //game has ended in a draw, notify client
+            send("The game has ended in a draw, type EXIT to exit the game and start a new one"); 
+            this.client.setInGame(false);
         } else if (
             //game has ended in win row or ended due to a disconnect
             inputSplit[0].equals(Protocol.Server.NOTIFYEND) && inputSplit.length == 3) {
@@ -98,6 +100,7 @@ public class ServerHandler extends Terminal {
             } else {
                 this.client.send("Player " + inputSplit[2] + " has disconnected.");
             }
+            this.client.setInGame(false);
         } else {        
             send("Server is sending an unknown command");
         }
