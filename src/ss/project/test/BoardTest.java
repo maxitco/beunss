@@ -55,13 +55,13 @@ public class BoardTest {
         assertTrue(board.setField(test1, Mark.Black));
         assertEquals(board.getMark(test1), Mark.Black);
         //out of bounds stacking with coordinates
-        for (int i = 0; i <= board.MAXFIELD;i++) {
+        for (int i = 0; i <= board.MAXFIELD; i++) {
             assertTrue(board.setField(0, 0, Mark.White));
         }
         assertFalse(board.setField(0, 0, Mark.Black));
         //check coordinate setting worked correctly
         Field coord = new Field(0, 0, 0);
-        assertEquals(board.getMark(coord),Mark.White);
+        assertEquals(board.getMark(coord), Mark.White);
     }
     
     @Test
@@ -78,6 +78,8 @@ public class BoardTest {
         assertEquals(null, board.getMark(test));
         board.setField(test, Mark.Black);
         assertEquals(Mark.Black, board.getMark(test));
+        Field badfield = new Field(-1, 0, 0);
+        assertEquals(null, board.getMark(badfield));
     }
     
     @Test
@@ -102,6 +104,8 @@ public class BoardTest {
         }
         assertTrue(board.checkRow(start, 1, 0, 0, m0));
         assertFalse(board.checkRow(start, 1, 1, 0, m1));
+        Field wrongstart = new Field(1, 0, 0);
+        assertFalse(board.checkRow(wrongstart, 1, 0, 0, m0));
     }
     
     @Test
@@ -116,5 +120,89 @@ public class BoardTest {
             board.setField(1, 1, Mark.Black);
         }
         assertTrue(board.checkZcolums(Mark.Black));
+    }
+    
+    @Test
+    public void testcheckPlanes() {
+        //horizontal row in xy-plane
+        for (int i = 0; i <= Board.MAXFIELD; i++) {
+            board.setField(i, 1, Mark.Black);
+        }
+        assertTrue(board.checkPlanes(Mark.Black));
+        board.reset();
+        
+        //vertical row in xy-plane, z=1
+        board.setField(0, 0, Mark.White);
+        board.setField(0, 0, Mark.White);
+        for (int i = 1; i <= Board.MAXFIELD; i++) {
+            board.setField(0, i, Mark.Black);
+            board.setField(0, i, Mark.White);
+        }
+        assertFalse(board.checkPlanes(Mark.Black));
+        assertTrue(board.checkPlanes(Mark.White));
+        board.reset();
+        
+        //check diagonal plane line (1,0,0 to 1,3,3)
+        Mark m = Mark.Black;
+        for (int i = 0; i <= Board.MAXFIELD; i++) {
+            //winning stone
+            board.setField(1, i, m);
+            for (int a = i + 1; a <= Board.MAXFIELD; a++) {
+                //filling stones
+                board.setField(1, a, m.other());
+            }
+        }
+        assertTrue(board.checkPlanes(m));
+        board.reset();
+        
+        //check diagonal plane line (0,1,0 to 3,1,3)
+        for (int i = 0; i <= Board.MAXFIELD; i++) {
+            //winning stone
+            board.setField(i, 1, m);
+            for (int a = i + 1; a <= Board.MAXFIELD; a++) {
+                //filling stones
+                board.setField(a, 1, m.other());
+            }
+        }
+        assertTrue(board.checkPlanes(m));
+        board.reset();
+        
+        //check opposite diagonal plane line (1,3,0 to 1,0,3)
+        for (int i = 0; i <= Board.MAXFIELD; i++) {
+            //winning stone
+            board.setField(1, Board.MAXFIELD - i, m);
+            for (int a = i + 1; a <= Board.MAXFIELD; a++) {
+                //filling stones
+                board.setField(1, Board.MAXFIELD - a, m.other());
+            }
+        }
+        assertTrue(board.checkPlanes(m));
+        board.reset();
+        
+        //check opposite diagonal plane line (3,0,0 to 0,0,3)
+        for (int i = 0; i <= Board.MAXFIELD; i++) {
+            //winning stone
+            board.setField(Board.MAXFIELD - i, 0, m);
+            for (int a = i + 1; a <= Board.MAXFIELD; a++) {
+                //filling stones
+                board.setField(Board.MAXFIELD - a, 0, m.other());
+            }
+        }
+        assertTrue(board.checkPlanes(m));
+        board.reset();
+        
+        //check cross line (0,0,0 to 3,3,0)
+        for (int i = 0; i <= Board.MAXFIELD; i++) {
+            board.setField(i, i, m);
+        }
+        assertTrue(board.checkPlanes(m));
+        board.reset();
+        
+        //check cross line (0,3,0 to 3,0,0)
+        for (int i = 0; i <= Board.MAXFIELD; i++) {
+            board.setField(i, Board.MAXFIELD - i, m);
+        }
+        assertTrue(board.checkPlanes(m));
+        
     }
 }
