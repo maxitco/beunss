@@ -151,7 +151,13 @@ public class Board {
     
     public boolean isWinner(Mark m) {
         return this.checkPlanes(m) || this.checkZcolums(m);
-        
+    }
+    
+    public boolean hasWinner() {
+        if (this.isWinner(Mark.Black) ^ this.isWinner(Mark.White)) {
+            return true;
+        }
+        return false;
     }
     
 }
