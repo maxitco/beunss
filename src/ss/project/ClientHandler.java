@@ -23,9 +23,12 @@ public class ClientHandler extends Terminal {
     
 	public ClientHandler(Server inServer, Socket inSock) throws IOException {
     	super(inSock.getInputStream(), inSock.getOutputStream());
-	    this.server = inServer;
+    	System.out.println("here we are");
+    	this.server = inServer;
     	this.sock = inSock;      	
+    	System.out.println("here we are2");
 		inServer.obtainPlayerId(this);
+		System.out.println("here we are3");
     } 
 	
 

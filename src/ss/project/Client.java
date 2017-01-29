@@ -81,6 +81,7 @@ public class Client extends Terminal {
     @Override
     public void handleInput(String input) {
         if (input != null) {
+            
             //split input around spaces
             String[] inputSplit = input.split(" ");
             

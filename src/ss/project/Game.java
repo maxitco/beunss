@@ -45,7 +45,8 @@ public class Game extends Thread {
     //make move depending on input, player input is to identify who is trying to make a move
     public synchronized void makeMove(int x, int y, ClientHandler player) {
         //check if it is the turn of the player that calls the function
-        if (playerList.get(whoseTurn()).equals(player)) {
+        
+        if (!answered && playerList.get(whoseTurn()).equals(player)) {
             
             //make the move, mark depends on index in the array
             //0 --> black
@@ -126,27 +127,20 @@ public class Game extends Thread {
                 c.send(
                     Protocol.Server.TURNOFPLAYER + " " 
                     + Integer.toString(playerList.get(whoseTurn()).getPlayerId())
-                );
-                System.out.println(this.turnCounter);
-                System.out.println(whoseTurn());
-                
+                );          
             }
             //set answered on false, is set true when the player whose turn it is makes a move
             this.answered = false;
-            System.out.println("reached this?");
             //wait for move
             while (!this.answered) {
                 try {
-                    this.sleep(1000);
-                    System.out.println("yoyo");
+                    this.sleep(50);                    
                 } catch (InterruptedException e) {
                     //nada
                 }
             }   
             //check if the game has ended
-            gameEnd();
-            System.out.println("and this this?");
-            System.out.println(this.ended);
+            gameEnd();            
         }
     }
 }

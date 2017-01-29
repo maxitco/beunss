@@ -50,8 +50,11 @@ public class Server {
     		Socket sock = this.getServerSocket().accept();
     		System.out.println("New client connected!");
     		ClientHandler clientHandler = new ClientHandler(this, sock);
-    		clientHandlerList.add(clientHandler);
-    		clientHandler.start();    		
+    		System.out.println("ClientHandler made");
+    		this.clientHandlerList.add(clientHandler);
+    		System.out.println("ClientHandler added to list");
+    		clientHandler.start();
+    		System.out.println("ClientHandler started");
     	}
     }
     
@@ -64,14 +67,18 @@ public class Server {
     /*@ensures (\forall ClientHandler c; c != idLessClient && getClientHandlerList().contains(c);
      idLessClient.getPlayerId() > c.getPlayerId());
     */    
-    public synchronized void obtainPlayerId(ClientHandler idLessClient) {
+    public void obtainPlayerId(ClientHandler idLessClient) {
         int result = 0;
+        System.out.println("didchagethere?");
         for (int i = 0; i < clientHandlerList.size(); i++) {            
             if (clientHandlerList.get(i).getPlayerId() > result) {
                 result = clientHandlerList.get(i).getPlayerId();
             }
         }
+        
+        System.out.println("didchagethere2?");
         idLessClient.setPlayerId(result + 1);
+        System.out.println("didchagethere?3");
     }
     
     //join an available game or if none is available create a new game for the player.

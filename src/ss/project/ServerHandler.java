@@ -18,7 +18,8 @@ public class ServerHandler extends Terminal {
     
     @Override
     public void handleInput(String input) {
-      //split input around spaces
+        System.out.println(input); //for testing
+        //split input around spaces
         String[] inputSplit = input.split(" ");
         
         if (inputSplit[0].equals(Protocol.Server.SERVERCAPABILITIES)) {
@@ -53,7 +54,7 @@ public class ServerHandler extends Terminal {
                 
                 //compare current player to clientId to see who it is
                 if (id == client.getPlayerId()) {
-                    this.client.send("It is your turn, type: 'MOVE <x>, <y>' to make a move.");
+                    this.client.send("It is your turn, type: 'MOVE <x> <y>' to make a move.");
                 } else {
                     this.client.send("It is the turn of player " + inputSplit[1]);
                 }                
@@ -101,8 +102,10 @@ public class ServerHandler extends Terminal {
                 this.client.send("Player " + inputSplit[2] + " has disconnected.");
             }
             this.client.setInGame(false);
+        } else if (inputSplit[0].equals("error") && inputSplit.length == 2) {
+            this.client.send(Protocol.getError(inputSplit[1]));
         } else {        
-            send("Server is sending an unknown command");
+            this.client.send("Server is sending an unknown command");
         }
     }
 }
