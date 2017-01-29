@@ -83,7 +83,7 @@ public class Board {
         this.fieldMap.clear();
     }
     /*@ requires (start.x == MAXFIELD || start.x == 0) ||
-                 (start.y == MAXFILED || start.y == 0) ||
+                 (start.y == MAXFIELD || start.y == 0) ||
                  (start.z == MAXFIELD || start.z == 0);
      */
     //@pure;

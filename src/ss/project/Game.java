@@ -78,12 +78,12 @@ public class Game extends Thread {
             c.send(Protocol.Server.NOTIFYMOVE + " " + id + " " + x + " " + y);
         }
         //set answered on true such that the game thread can continue
-        answered = true;
+        this.answered = true;
     }
     
     //determine whose turn it is, depending on turn and amount of players
     public int whoseTurn() {
-        return this.turnCounter % (this.playerList.size());
+        return this.turnCounter % (2);
     }
     
     //check if the game has ended
@@ -113,29 +113,40 @@ public class Game extends Thread {
     //notify everyone that the game has ended, draw
     public void notifyEnd() {
         for (ClientHandler c: this.playerList) {
-            c.send(Protocol.Server.TURNOFPLAYER + " 2");
+            c.send(Protocol.Server.NOTIFYEND + " 2");
         }  
     }
     
+    @Override
     public void run() {
                         
-        while (!ended) {     
+        while (!this.ended) {     
             this.turnCounter++; //next turn, at top of loop such that not updated when game is ended
             for (ClientHandler c: this.playerList) {
                 c.send(
                     Protocol.Server.TURNOFPLAYER + " " 
-                    + playerList.get(whoseTurn()).getPlayerId()
+                    + Integer.toString(playerList.get(whoseTurn()).getPlayerId())
                 );
+                System.out.println(this.turnCounter);
+                System.out.println(whoseTurn());
+                
             }
             //set answered on false, is set true when the player whose turn it is makes a move
             this.answered = false;
-            
+            System.out.println("reached this?");
             //wait for move
-            while (!answered) {
-                
+            while (!this.answered) {
+                try {
+                    this.sleep(1000);
+                    System.out.println("yoyo");
+                } catch (InterruptedException e) {
+                    //nada
+                }
             }   
             //check if the game has ended
-            gameEnd();   
+            gameEnd();
+            System.out.println("and this this?");
+            System.out.println(this.ended);
         }
     }
 }
