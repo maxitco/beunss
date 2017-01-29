@@ -160,4 +160,24 @@ public class Board {
         return false;
     }
     
+    public String toString() {
+        String result = "";
+        for (int y = 0; y <= MAXFIELD; y++) {
+            for (int z = 0; z <= MAXFIELD; z++) {
+                for (int x = 0; x <= MAXFIELD; x++) {
+                    Field out = new Field(x, y, z);
+                    if (this.isEmptyField(out)) {
+                        result = result + "[ ]";
+                    }
+                    else {
+                        result = result + "[" + this.getMark(out).toString() + "]";
+                    }
+                }
+                result = result + "   ";
+            }
+            result = result + "\n";
+        }
+        return result;
+    }
+    
 }

@@ -10,4 +10,14 @@ public enum Mark {
             return Black;
         }
     }
+    
+    public String toString() {
+        if (this == Black) {
+            return new String("X");
+        }
+        if (this == White) {
+            return new String("O");
+        }
+        return "";
+    }
 }

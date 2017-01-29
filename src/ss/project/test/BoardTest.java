@@ -177,6 +177,7 @@ public class BoardTest {
             }
         }
         assertTrue(board.checkPlanes(m));
+        System.out.println(board.toString());
         board.reset();
         
         //check opposite diagonal plane line (3,0,0 to 0,0,3)
@@ -203,6 +204,8 @@ public class BoardTest {
             board.setField(i, Board.MAXFIELD - i, m);
         }
         assertTrue(board.checkPlanes(m));
-        
+        System.out.println(board.toString());
     }
+    
+    
 }
