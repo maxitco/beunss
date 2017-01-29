@@ -29,7 +29,12 @@ public class ServerHandler extends Terminal {
             } else if (!client.isOnline()){
                 this.client.send("Enter AI difficulty 'easy'/'medium'/'hard'");
             }
-        } else {        
+        } else if (inputSplit[0].equals(Protocol.Server.STARTGAME)) {
+            this.client.send("Game has started");
+            //TODO create board for client
+        }
+        
+        else {        
             send("code 4");
         }
     }
