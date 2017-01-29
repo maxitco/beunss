@@ -83,6 +83,7 @@ public class Server {
         while (!found && i < gameList.size()) {
             if (!this.gameList.get(i).isFull()) {
                 this.gameList.get(i).addPlayer(inputPlayer);
+                inputPlayer.setPlayerGame(this.gameList.get(i));
                 found = true;
             }
         }

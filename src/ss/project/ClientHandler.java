@@ -94,12 +94,12 @@ public class ClientHandler extends Terminal {
         send(
             Protocol.Server.STARTGAME 
             + " 4|4|4|4 " 
-            + this.game.getPlayerList().get(1).getPlayerId()
-            + "|" + this.game.getPlayerList().get(1).getPlayerName()
+            + this.game.getPlayerList().get(0).getPlayerId()
+            + "|" + this.game.getPlayerList().get(0).getPlayerName()
             + "0000ff"
             + " "
-            + this.game.getPlayerList().get(2).getPlayerId()
-            + "|" + this.game.getPlayerList().get(2).getPlayerName()
+            + this.game.getPlayerList().get(1).getPlayerId()
+            + "|" + this.game.getPlayerList().get(1).getPlayerName()
             + "ff0000"  
         );
         

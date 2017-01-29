@@ -42,11 +42,15 @@ public class Terminal extends Thread {
             out.newLine();
             out.flush();
         } catch (IOException e) { 
-            System.out.println("Something went wrong with sending through socket"); 
+             onFailure();
         } 
     }
     
     public void handleInput(String input) {
         send(input);        
+    }
+    
+    public void onFailure() {
+        System.out.println("Something went wrong with sending through socket");
     }
 }
