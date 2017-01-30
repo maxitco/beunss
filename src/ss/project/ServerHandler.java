@@ -17,6 +17,11 @@ public class ServerHandler extends Terminal {
     }
     
     @Override
+    public void send(String input) {
+        super.send(input);
+        System.out.println(input);
+    }
+    @Override
     public void handleInput(String input) {
         System.out.println(input); //for testing
         //split input around spaces

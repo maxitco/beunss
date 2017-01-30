@@ -23,10 +23,8 @@ public class ClientHandler extends Terminal {
     
 	public ClientHandler(Server inServer, Socket inSock) throws IOException {
     	super(inSock.getInputStream(), inSock.getOutputStream());
-    	System.out.println("here we are");
     	this.server = inServer;
-    	this.sock = inSock;      	
-    	System.out.println("here we are2");		
+    	this.sock = inSock;  		
     } 
 	
 
@@ -77,6 +75,12 @@ public class ClientHandler extends Terminal {
 	}
 	
 	@Override
+	public void send(String input) {
+	    super.send(input);
+	    System.out.println(input);
+	}
+	
+	@Override
 	public void atStart() {
 	    //first action from the server, send capabilities as described in protocol
 	    send(Protocol.Server.SERVERCAPABILITIES + Server.CAPABILITIES); 
@@ -103,8 +107,7 @@ public class ClientHandler extends Terminal {
 	        
 	    } else {
 	        send("error 4"); //error 4 ==> invalidCommand
-	    }
-	    
+	    }	    
 	}
 }
  

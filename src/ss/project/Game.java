@@ -18,7 +18,7 @@ public class Game extends Thread {
         this.board = new Board();
     }
     
-    public synchronized boolean isFull() {
+    public boolean isFull() {
         if (playerList.size() == 2) {
             return true;
         } else {

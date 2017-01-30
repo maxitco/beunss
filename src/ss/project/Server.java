@@ -50,32 +50,29 @@ public class Server {
     		Socket sock = this.getServerSocket().accept();
     		System.out.println("New client connected!");
     		ClientHandler clientHandler = new ClientHandler(this, sock);
-    		System.out.println("ClientHandler made");
     		this.clientHandlerList.add(clientHandler);
-    		System.out.println("ClientHandler added to list");
-    		clientHandler.start();
-    		System.out.println("ClientHandler started");
+    		clientHandler.start();    		
     	}
     }
     
-    /*
-     * synchronized to prevent players from getting the same ID 
-     * if their clients call function at same moment    
-     */  
-    
+    //synchronized to prevent 2 players joining an existing game at the same moment.
     //join an available game or if none is available create a new game for the player.
     public synchronized void joinGame(ClientHandler inputPlayer) {
         //search for available games and start them && and player if found
         Game game = null;
         int i = 0;
         //search for game available to join
-        while (game == null && i < gameList.size()) {
+        while (game == null && i < this.gameList.size()) {
             if (!this.gameList.get(i).isFull()) {
+                System.out.println("game " + i + " was joined");
                 game = this.gameList.get(i);                
             }
-        }       
+            i++;
+        }
+        
         //if no game found make a new one
         if (game == null) {
+            System.out.println("new game created");
             game = new Game(); 
             this.gameList.add(game);
         }
