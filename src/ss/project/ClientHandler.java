@@ -27,7 +27,7 @@ public class ClientHandler extends Terminal {
     	this.server = inServer;
     	this.sock = inSock;      	
     	System.out.println("here we are2");
-		inServer.obtainPlayerId(this);
+		this.playerId = inServer.obtainPlayerId();
 		System.out.println("here we are3");
     } 
 	

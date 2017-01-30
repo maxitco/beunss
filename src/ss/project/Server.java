@@ -67,7 +67,7 @@ public class Server {
     /*@ensures (\forall ClientHandler c; c != idLessClient && getClientHandlerList().contains(c);
      idLessClient.getPlayerId() > c.getPlayerId());
     */    
-    public synchronized void obtainPlayerId(ClientHandler idLessClient) {
+    public synchronized int obtainPlayerId() {
         int result = 0;
         System.out.println("didchagethere?");
         for (int i = 0; i < clientHandlerList.size(); i++) {            
@@ -77,8 +77,7 @@ public class Server {
         }
         
         System.out.println("didchagethere2?");
-        idLessClient.setPlayerId(result + 1);
-        System.out.println("didchagethere?3");
+        return result + 1;        
     }
     
     //join an available game or if none is available create a new game for the player.
