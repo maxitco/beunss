@@ -4,12 +4,17 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Board {
-    public static int MAXFIELD = 9;
+    public final static int MAXFIELD = 3;
     private Map<Field, Mark> fieldMap = new HashMap<Field, Mark>();
     
     public Board() {
         this.reset();
     }
+    /*
+    public Board copy() {
+        Board copy = new Board();
+        for (int x = 0; x <= MAXFIELD)
+    }*/
     
     //@pure;
     public boolean isField(Field field) {
