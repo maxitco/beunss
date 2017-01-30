@@ -21,6 +21,8 @@ public class Client extends Terminal {
     private boolean online;
     private boolean inGame = false;
     private int currentTurnId;
+    private Terminal term;
+    private Player player;
     
     
     public Client() throws IOException {
