@@ -32,15 +32,7 @@ public class Game extends Thread {
     
     public ArrayList<ClientHandler> getPlayerList() {
         return this.playerList;
-    }
-    
-    //starts the game thread, if it is not running already
-    public synchronized void startGame() {
-        if (!this.running) {
-            this.start();
-            this.running = true;
-        }
-    }
+    }  
     
     //make move depending on input, player input is to identify who is trying to make a move
     public synchronized void makeMove(int x, int y, ClientHandler player) {
@@ -120,6 +112,28 @@ public class Game extends Thread {
     
     @Override
     public void run() {
+        //assign an id to each player (their index in the arrayList + 1)
+        for (int i = 0; i < this.playerList.size(); i++) {
+            int id = i + 1;
+            this.playerList.get(i).setPlayerId(id);
+            this.playerList.get(i).send(Protocol.Server.ASSIGNID + " " + Integer.toString(id));
+        }
+        
+        //notify players that the game has started   
+        //includes game specifications and opponent info
+        for (ClientHandler c: this.playerList) {
+            c.send(
+                    Protocol.Server.STARTGAME 
+                    + " 4|4|4|4 " 
+                    + getPlayerList().get(0).getPlayerId()
+                    + "|" + getPlayerList().get(0).getPlayerName()
+                    + "0000ff"
+                    + " "
+                    + getPlayerList().get(1).getPlayerId()
+                    + "|" + getPlayerList().get(1).getPlayerName()
+                    + "ff0000" 
+            );          
+        }      
                         
         while (!this.ended) {     
             this.turnCounter++; //next turn, at top of loop such that not updated when game is ended

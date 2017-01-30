@@ -44,7 +44,7 @@ public class Server {
     /*@ pure */ public ArrayList<ClientHandler> getClientHandlerList() {
         return this.clientHandlerList;
     }
-    
+     
     public void accepter() throws IOException {
     	while (true) {
     		Socket sock = this.getServerSocket().accept();
@@ -61,46 +61,31 @@ public class Server {
     /*
      * synchronized to prevent players from getting the same ID 
      * if their clients call function at same moment    
-     */
-    
-    //@requires idLessClient != null;
-    /*@ensures (\forall ClientHandler c; c != idLessClient && getClientHandlerList().contains(c);
-     idLessClient.getPlayerId() > c.getPlayerId());
-    */    
-    public synchronized int obtainPlayerId() {
-        int result = 0;
-        System.out.println("didchagethere?");
-        for (int i = 0; i < clientHandlerList.size(); i++) {            
-            if (clientHandlerList.get(i).getPlayerId() > result) {
-                result = clientHandlerList.get(i).getPlayerId();
-            }
-        }
-        
-        System.out.println("didchagethere2?");
-        return result + 1;        
-    }
+     */  
     
     //join an available game or if none is available create a new game for the player.
     public synchronized void joinGame(ClientHandler inputPlayer) {
-        
-        //search for available games && and player if found
-        boolean found = false;
+        //search for available games and start them && and player if found
+        Game game = null;
         int i = 0;
-        while (!found && i < gameList.size()) {
+        //search for game available to join
+        while (game == null && i < gameList.size()) {
             if (!this.gameList.get(i).isFull()) {
-                this.gameList.get(i).addPlayer(inputPlayer);
-                inputPlayer.setPlayerGame(this.gameList.get(i));
-                found = true;
+                game = this.gameList.get(i);                
             }
+        }       
+        //if no game found make a new one
+        if (game == null) {
+            game = new Game(); 
+            this.gameList.add(game);
         }
-        
-        //construct new game if no available game is found
-        if (!found) {
-            Game aNewGame = new Game();
-            aNewGame.addPlayer(inputPlayer);
-            inputPlayer.setPlayerGame(aNewGame);
-            this.gameList.add(aNewGame);            
-        }
+        //add the game to the handler and the handler to the game        
+        game.addPlayer(inputPlayer);
+        inputPlayer.setPlayerGame(game);
+        //start the game if it is full
+        if (game.isFull()) {
+            game.start();
+        }        
     }    
     
     //getPort function to retrieve port from input

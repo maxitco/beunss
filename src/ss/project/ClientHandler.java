@@ -26,9 +26,7 @@ public class ClientHandler extends Terminal {
     	System.out.println("here we are");
     	this.server = inServer;
     	this.sock = inSock;      	
-    	System.out.println("here we are2");
-		this.playerId = inServer.obtainPlayerId();
-		System.out.println("here we are3");
+    	System.out.println("here we are2");		
     } 
 	
 
@@ -77,38 +75,6 @@ public class ClientHandler extends Terminal {
         // this.clientCapabilities = inputSplit;
         this.playerName = inputSplit[2];
 	}
-    
-	public void setupGameForClient() {
-        //send the playerID to the player
-        //ID was already known since it is set in the constructor
-        //however the protocol mandates this is the time to send it
-        send(Protocol.Server.ASSIGNID + " " + getPlayerId());
-        
-        //make a new game or join a current one
-        server.joinGame(this);  
-        
-        //wait till game is full
-        while (!this.game.isFull()) {
-            
-        }
-        
-        //notify player that the game has started   
-        //includes game specifications and opponent info
-        send(
-            Protocol.Server.STARTGAME 
-            + " 4|4|4|4 " 
-            + this.game.getPlayerList().get(0).getPlayerId()
-            + "|" + this.game.getPlayerList().get(0).getPlayerName()
-            + "0000ff"
-            + " "
-            + this.game.getPlayerList().get(1).getPlayerId()
-            + "|" + this.game.getPlayerList().get(1).getPlayerName()
-            + "ff0000"  
-        );
-        
-        //start game loop
-        this.game.startGame();    
-	}
 	
 	@Override
 	public void atStart() {
@@ -125,7 +91,7 @@ public class ClientHandler extends Terminal {
 	    //check which command is given (always the first word)
 	    if (inputSplit[0].equals(Protocol.Client.SENDCAPABILITIES)) {
 	        setClientCapabilities(inputSplit);
-	        setupGameForClient();
+	        server.joinGame(this);
 	    } else if (inputSplit[0].equals(Protocol.Client.MAKEMOVE) && inputSplit.length == 3) {
 	        try {
 	            int x = Integer.parseInt(inputSplit[1]);

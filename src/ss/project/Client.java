@@ -9,8 +9,6 @@ import java.net.InetAddress;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
-
-
 public class Client extends Terminal {
     private static final String USAGE
         = "usage: java week7.cmdline.Client <name> <address> <port>";
