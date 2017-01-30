@@ -174,6 +174,13 @@ public class Board {
         return false;
     }
     
+    public boolean hasEnded() {
+    	if (this.hasWinner() || this.fieldMap.size() == MAXFIELD * MAXFIELD * MAXFIELD) {
+    		return true;
+    	}
+    	return false;
+    }
+    
     public String toString() {
         String result = "";
         for (int y = MAXFIELD; y >= 0; y--) {

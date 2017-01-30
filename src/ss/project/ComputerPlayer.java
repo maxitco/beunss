@@ -3,7 +3,7 @@ package ss.project;
 public class ComputerPlayer implements Player {
     private Difficulty difficulty;
     
-    ComputerPlayer(Difficulty newdiff) {
+    public ComputerPlayer(Difficulty newdiff) {
         this.difficulty = newdiff;
     }
     @Override
