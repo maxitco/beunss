@@ -8,7 +8,8 @@ public class Easy implements Difficulty {
     public String getName() {
         return "easy";
     }
-
+    
+    //@ensures board.isReachableEmptyField(\result);
     @Override
     public Field determineMove(Board board, Mark m) {
         ArrayList<Field> moves = new ArrayList<Field>();

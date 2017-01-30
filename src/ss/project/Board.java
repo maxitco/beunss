@@ -32,7 +32,7 @@ public class Board {
                field.y >= 0 && field.y <= MAXFIELD &&
                field.z >= 0 && field.z <= MAXFIELD;
     }
-    
+    //@pure;
     public boolean isReachableEmptyField(Field field) {
         Field copy = field.copy();
         //check fields below
@@ -172,6 +172,13 @@ public class Board {
             return true;
         }
         return false;
+    }
+    
+    public boolean hasEnded() {
+    	if (this.hasWinner() || this.fieldMap.size() == MAXFIELD * MAXFIELD * MAXFIELD) {
+    		return true;
+    	}
+    	return false;
     }
     
     public String toString() {
