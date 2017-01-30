@@ -2,7 +2,7 @@ package ss.project;
 
 public class Field {
     public int x,y,z;
-    //@invariant x,y,z >= 0;
+    //@invariant x >=== 0;
     
     public Field(int newx, int newy, int newz) {
         this.x = newx;
