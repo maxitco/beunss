@@ -2,11 +2,9 @@ package ss.project;
 
 public class Field {
     public int x,y,z;
-<<<<<<< HEAD
-    //@invariant x >=== 0;
-=======
->>>>>>> branch 'master' of https://github.com/maxitco/beunss.git
-    
+
+    //@invariant x >= 0;
+
     public Field(int newx, int newy, int newz) {
         this.x = newx;
         this.y = newy;
