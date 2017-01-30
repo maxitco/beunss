@@ -20,11 +20,7 @@ public class Easy implements Difficulty {
                 }
             }
         }
-        Board test
-        for (Field field : moves) {
-            
-        }
-        return null;
+        return moves.get((int) (Math.random() * moves.size()));
     }
 
 }

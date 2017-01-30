@@ -10,11 +10,21 @@ public class Board {
     public Board() {
         this.reset();
     }
-    /*
+    
     public Board copy() {
         Board copy = new Board();
-        for (int x = 0; x <= MAXFIELD)
-    }*/
+        for (int x = 0; x <= MAXFIELD; x++) {
+            for (int y = 0; y <= MAXFIELD; y++) {
+                for (int z = 0; z <= MAXFIELD; z++) {
+                    Field field = new Field(x, y, z);
+                    if (!this.isEmptyField(field)) {
+                        copy.fieldMap.put(field, this.getMark(field));
+                    }
+                }
+            }
+        }
+        return copy;
+    }
     
     //@pure;
     public boolean isField(Field field) {

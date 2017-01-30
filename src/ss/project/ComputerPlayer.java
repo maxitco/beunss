@@ -1,17 +1,19 @@
 package ss.project;
 
 public class ComputerPlayer implements Player {
-
+    private Difficulty difficulty;
+    
+    ComputerPlayer(Difficulty newdiff) {
+        this.difficulty = newdiff;
+    }
     @Override
     public String getName() {
-        // TODO Auto-generated method stub
-        return null;
+        return this.difficulty.getName() + " Computer Player";
     }
-
+    
     @Override
-    public Field determineMove(Board board) {
-        
-        return null;
+    public Field determineMove(Board board, Mark m) {
+        return this.difficulty.determineMove(board, m);
     }
 
 }
