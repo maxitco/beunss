@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Collections; 
+import java.util.Iterator;
 
 public class Medium implements Difficulty {
 
@@ -24,25 +25,39 @@ public class Medium implements Difficulty {
                 }
             }
         }
-        
+        System.out.println(moves.size());
         for (Field field : moves) {
             Board test = board.copy();
             test.setField(field, m);
             if (test.isWinner(m)) {
-                result.put(field, new Integer(25));
+                result.put(field, new Integer(50));
             }
-            else if (test.isWinner(m.other())) {
-                result.put(field, new Integer(20));
+            if (test.isWinner(m.other())) {
+                result.put(field, new Integer(40));
+                System.out.println("aaaah");
             }
             else {
             	result.put(field, new Integer(countSurroundings(field, board, m)));
             }
         }
         int maxValue = Collections.max(result.values());
-        for (Map.Entry<Field,Integer> field : result.entrySet()) {
-        	if (field.getValue() == maxValue) {
-        		return field.getKey();
+        System.out.println(maxValue);
+        Iterator<Map.Entry<Field, Integer>> it = result.entrySet().iterator();
+        while (it.hasNext()) {
+        	Map.Entry<Field,Integer> item = it.next();
+        	if (item.getValue().intValue() < maxValue) {
+        		it.remove();
         	}
+        }
+        it = result.entrySet().iterator();
+        int next = (int) (Math.random() * new Double(result.size()));
+        int count = 0;
+        while (it.hasNext()) {
+        	Map.Entry<Field,Integer> item = it.next();
+        	if (count == next) {
+        		return item.getKey();
+        	}
+        	count++;
         }
         
         return null;
