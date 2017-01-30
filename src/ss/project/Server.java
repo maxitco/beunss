@@ -34,7 +34,7 @@ public class Server {
         for (ClientHandler client: this.clientHandlerList ) {
             client.send("error 1"); //TODO fix better error
         }
-        System.exit(0);        
+        System.exit(0);
     }
     
     /*@ pure */ public ServerSocket getServerSocket() {
