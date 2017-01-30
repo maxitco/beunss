@@ -3,8 +3,6 @@ package ss.project;
 public class Field {
     public int x,y,z;
 
-    //@invariant x >= 0;
-
     public Field(int newx, int newy, int newz) {
         this.x = newx;
         this.y = newy;
