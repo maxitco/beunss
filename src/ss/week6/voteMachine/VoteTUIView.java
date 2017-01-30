@@ -1,9 +1,9 @@
 package ss.week6.voteMachine;
 import java.util.*;
-public class VoteTUIView implements Observer,VoteView {
+public class VoteTUIView implements Observer, VoteView {
     private VoteMachine controller;
     
-    public VoteTUIView (VoteMachine inController) {
+    public VoteTUIView(VoteMachine inController) {
         this.controller = inController;         
     }
     
@@ -30,7 +30,7 @@ public class VoteTUIView implements Observer,VoteView {
             } else if (line.equals("HELP")) {
                 System.out.println("The following are legit commands\n"
                         + "'VOTE':  to vote for a party\n"
-                        + "'ADD PARTY': to add a new party\n"
+                        + "'ADD PARTY': to add a new party\n" 
                         + "'VOTES': to view the amount of votes each party has\n"
                         + "'PARTIES': to view a list with all parties\n"
                         + "'EXIT': to exit the program");

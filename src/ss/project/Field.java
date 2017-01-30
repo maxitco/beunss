@@ -2,7 +2,7 @@ package ss.project;
 
 public class Field {
     public int x,y,z;
-    
+
     public Field(int newx, int newy, int newz) {
         this.x = newx;
         this.y = newy;
