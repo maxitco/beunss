@@ -67,7 +67,7 @@ public class Server {
     /*@ensures (\forall ClientHandler c; c != idLessClient && getClientHandlerList().contains(c);
      idLessClient.getPlayerId() > c.getPlayerId());
     */    
-    public void obtainPlayerId(ClientHandler idLessClient) {
+    public synchronized void obtainPlayerId(ClientHandler idLessClient) {
         int result = 0;
         System.out.println("didchagethere?");
         for (int i = 0; i < clientHandlerList.size(); i++) {            
