@@ -9,8 +9,8 @@ public class ComputerPlayer implements Player {
     }
 
     @Override
-    public Field determineMove() {
-        // TODO Auto-generated method stub
+    public Field determineMove(Board board) {
+        
         return null;
     }
 

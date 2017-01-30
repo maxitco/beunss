@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Board {
-    public static int MAXFIELD = 3;
+    public static int MAXFIELD = 9;
     private Map<Field, Mark> fieldMap = new HashMap<Field, Mark>();
     
     public Board() {
@@ -163,6 +163,7 @@ public class Board {
         String result = "";
         for (int y = MAXFIELD; y >= 0; y--) {
             for (int z = 0; z <= MAXFIELD; z++) {
+                result = result + y;
                 for (int x = 0; x <= MAXFIELD; x++) {
                     Field out = new Field(x, y, z);
                     if (this.isEmptyField(out)) {
