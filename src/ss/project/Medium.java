@@ -48,8 +48,10 @@ public class Medium implements Difficulty {
     			for (int a = -1; a <= 1; a++) {
     				Field neighbour = board.walkField(field, i, a, z);
     				//next to field of same color
-    				if (neighbour != null) {// && board.getMark(neighbour).equals(m)) {
-    					result++;
+    				if (neighbour != null) {
+    					if (board.getMark(neighbour).equals(m)) {
+        					result++;
+    					}
     				}
     				//next to boundary
     				else if (neighbour == null) {
@@ -58,6 +60,7 @@ public class Medium implements Difficulty {
     			}
     		}
     	}
+    	System.out.println(result);
     	return result;
     }
 
