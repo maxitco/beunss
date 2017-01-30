@@ -3,6 +3,7 @@ package ss.project;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Collections; 
 
 public class Medium implements Difficulty {
 
@@ -37,6 +38,12 @@ public class Medium implements Difficulty {
             	result.put(field, new Integer(countSurroundings(field, board, m)));
             }
         }
+        int maxValue = Collections.max(result.values());
+        for (Map.Entry<Field,Integer> field : result.entrySet()) {
+        	if (field.getValue() == maxValue) {
+        		return field.getKey();
+        	}
+        }
         
         return null;
     }
@@ -49,7 +56,8 @@ public class Medium implements Difficulty {
     				Field neighbour = board.walkField(field, i, a, z);
     				//next to field of same color
     				if (neighbour != null) {
-    					if (board.getMark(neighbour).equals(m)) {
+    					Mark nextmark = board.getMark(neighbour);
+    					if (nextmark != null && nextmark.equals(m)) {
         					result++;
     					}
     				}
@@ -60,7 +68,6 @@ public class Medium implements Difficulty {
     			}
     		}
     	}
-    	System.out.println(result);
     	return result;
     }
 
