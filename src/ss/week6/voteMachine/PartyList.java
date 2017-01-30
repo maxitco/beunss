@@ -3,7 +3,7 @@ import java.util.*;
 public class PartyList extends Observable {
     private ArrayList<String> partyList;
     
-    public PartyList () {
+    public PartyList() {
         partyList = new ArrayList<String>();    
     }
     

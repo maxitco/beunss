@@ -1,4 +1,4 @@
- package ss.project;
+package ss.project;
 
 import java.io.IOException;
 import java.net.Socket;

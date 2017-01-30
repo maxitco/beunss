@@ -61,6 +61,10 @@ public class Client extends Terminal {
         return this.board;
     }  
     
+    public void setOnline(boolean input) {
+        this.online = input;
+    }
+    
     /*@ pure */ public boolean isOnline() {
         return this.online;
     }

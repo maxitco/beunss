@@ -2,7 +2,7 @@ package ss.week6.voteMachine;
 
 import java.util.*;
 
-public class VoteList extends Observable{
+public class VoteList extends Observable {
     Map<String, Integer> map; 
     
     public VoteList() {
@@ -21,7 +21,7 @@ public class VoteList extends Observable{
         notifyObservers("vote");
     }
     
-    public Map<String,Integer> getVotes() {
+    public Map<String, Integer> getVotes() {
         return this.map;
     }
 }

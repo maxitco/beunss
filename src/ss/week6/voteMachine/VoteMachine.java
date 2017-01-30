@@ -27,7 +27,7 @@ public class VoteMachine {
     public VoteMachine() {
         controllerPartyList = new PartyList();
         controllerVoteList = new VoteList();
-        controllerView = new ss.week6.voteMachine.gui.VoteGUIView(this);
+        controllerView = new VoteTUIView(this);
         controllerVoteList.addObserver(controllerView);
         controllerPartyList.addObserver(controllerView);
     }

@@ -63,11 +63,12 @@ public class Server {
         int i = 0;
         //search for game available to join
         while (game == null && i < this.gameList.size()) {
+            //game is available if it is not full
             if (!this.gameList.get(i).isFull()) {
                 System.out.println("game " + i + " was joined");
                 game = this.gameList.get(i);                
             }
-            i++;
+            i++; //continue
         }
         
         //if no game found make a new one
@@ -76,9 +77,11 @@ public class Server {
             game = new Game(); 
             this.gameList.add(game);
         }
-        //add the game to the handler and the handler to the game        
+        //add the handler to the game        
         game.addPlayer(inputPlayer);
+        //add the game to the handler 
         inputPlayer.setPlayerGame(game);
+        
         //start the game if it is full
         if (game.isFull()) {
             game.start();
