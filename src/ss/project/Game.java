@@ -81,20 +81,21 @@ public class Game extends Thread {
     }
     
     //check if the game has ended
-    public void gameEnd() {
+    public boolean gameEnd() {
         //check for winner first, someone could win at turn 64
         if (this.board.isWinner(Mark.Black)) {         
             notifyEnd(this.playerList.get(0).getPlayerId());   
-            this.ended = true;
+            return true;
         } else if (this.board.isWinner(Mark.White)) {
             notifyEnd(this.playerList.get(1).getPlayerId());
-            this.ended = true;
+            return true;
         //then check for draw
         } else if (this.turnCounter == 64) {
             notifyEnd();
-            this.ended = true;
+            return true;
         }  
         //do nothing if not ended
+        return false;
     }
     
     //notify everyone that the game has ended, for win

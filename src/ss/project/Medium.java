@@ -28,20 +28,18 @@ public class Medium implements Difficulty {
         System.out.println(moves.size());
         for (Field field : moves) {
             Board test = board.copy();
+            Board test2 = board.copy();
             test.setField(field, m);
-            System.out.println(m.toString() + ": " + field.toString());
+            test2.setField(field, m.other());
             if (test.isWinner(m)) {
                 result.put(field, new Integer(50));
             }
-            else if (test.isWinner(m.other())) {
+            else if (test2.isWinner(m.other())) {
                 result.put(field, new Integer(40));
-                System.out.println("aaaah");
             }
             else {
-            	System.out.println(m.other());
             	result.put(field, new Integer(countSurroundings(field, board, m)));
             }
-            System.out.println(result.get(field));
         }
         int maxValue = Collections.max(result.values());
         System.out.println(maxValue);
