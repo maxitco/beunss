@@ -105,9 +105,8 @@ public class Client2 {
         try {
             addr = InetAddress.getByName(ip);
         } catch (UnknownHostException e) {
-            sendToView(USAGE);
             sendToView("ERROR: host " + ip + " unknown."); 
-            restart();
+            sendToView("try again");
         }
         
         // try to open a Socket 
@@ -118,7 +117,7 @@ public class Client2 {
         } catch (IOException e) {
             sendToView("ERROR: could not create a socket on " + addr
                     + " and port " + port);            
-            restart();
+            sendToView("try again");
         }        
     }
     
@@ -139,6 +138,7 @@ public class Client2 {
             Client2 aClient = new Client2();
         } catch(IOException e1) {
             System.out.println("could not construct view");
+            System.exit(0);
         }
     }
 }

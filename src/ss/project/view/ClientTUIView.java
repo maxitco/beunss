@@ -42,8 +42,8 @@ public class ClientTUIView extends Terminal implements ClientView, Observer {
             inputSplit[0].equals("start") && this.client.isOnline() 
             && inputSplit.length == 4
             ) {
-                this.client.setPlayerName(inputSplit[3]);
-                this.client.connectToServer(inputSplit[1], inputSplit[2]);
+                this.client.setPlayerName(inputSplit[1]);
+                this.client.connectToServer(inputSplit[2], inputSplit[3]);
                 send("connecting to server...");
             } else if (
             inputSplit[0].equals("start") && !this.client.isOnline() 
