@@ -6,9 +6,11 @@ public enum Mark {
     public Mark other() {
         if (this == Black) {
             return White;
-        } else {
+        }
+        if (this == White) {
             return Black;
         }
+        return null;
     }
     
     public String toString() {

@@ -32,6 +32,7 @@ public class Board {
                field.y >= 0 && field.y <= MAXFIELD &&
                field.z >= 0 && field.z <= MAXFIELD;
     }
+    //@requires field != null && this.isField(field);
     //@pure;
     public boolean isReachableEmptyField(Field field) {
         Field copy = field.copy();
