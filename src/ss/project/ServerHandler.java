@@ -4,9 +4,9 @@ import java.io.IOException;
 import java.net.Socket;
 
 public class ServerHandler extends Terminal {
-    private Client client;
+    private Client2 client;
     
-    ServerHandler(Client inputClient, Socket inSock) throws IOException {
+    ServerHandler(Client2 inputClient, Socket inSock) throws IOException {
         super(inSock.getInputStream(), inSock.getOutputStream());
         this.client = inputClient;
     }
@@ -37,19 +37,19 @@ public class ServerHandler extends Terminal {
                 this.client.setPlayerId(id);
                 //ask for more client input or notify waiting
                 if (client.isOnline()) {
-                    this.client.send("Connection established, waiting for other players"); 
+                    this.client.sendToView("Connection established, waiting for other players"); 
                 } else if (!client.isOnline()){
-                    this.client.send("Enter AI difficulty 'easy'/'medium'/'hard'");
+                    this.client.sendToView("Enter AI difficulty 'easy'/'medium'/'hard'");
                 }
             } catch (NumberFormatException e) {
-                this.client.send("Server is sending rubbish, NumberFormatException");
+                this.client.sendToView("Server is sending rubbish, NumberFormatException");
             }                
         } else if (inputSplit[0].equals(Protocol.Server.STARTGAME)) {
             //notify the client that the game has started and create a board
             this.client.setInGame(true);
-            this.client.send("Game has started");
+            this.client.sendToView("Game has started");
             this.client.refreshBoard();
-            this.client.send(this.client.getBoard().toString());
+            this.client.sendToView(this.client.getBoard().toString());
         } else if (inputSplit[0].equals(Protocol.Server.TURNOFPLAYER) && inputSplit.length == 2) {
             //notify the player whose turn it is
             try {
@@ -59,16 +59,16 @@ public class ServerHandler extends Terminal {
                 
                 //compare current player to clientId to see who it is
                 if (id == client.getPlayerId()) {
-                    this.client.send("It is your turn, type: 'MOVE <x> <y>' to make a move.");
+                    this.client.sendToView("It is your turn, type: 'MOVE <x> <y>' to make a move.");
                 } else {
-                    this.client.send("It is the turn of player " + inputSplit[1]);
+                    this.client.sendToView("It is the turn of player " + inputSplit[1]);
                 }                
             } catch (NumberFormatException e) {
-                this.client.send("Server is sending rubbish, NumberFormatException");
+                this.client.sendToView("Server is sending rubbish, NumberFormatException");
             }            
         } else if (inputSplit[0].equals(Protocol.Server.NOTIFYMOVE) && inputSplit.length == 4) {
             //notify player of the move
-            this.client.send(
+            this.client.sendToView(
                 "Player " + inputSplit[1] 
                 + " has made move x=" + inputSplit[2]
                 + " y=" + inputSplit[3]
@@ -89,10 +89,10 @@ public class ServerHandler extends Terminal {
                     this.client.getBoard().setField(x, y, Mark.White);
                 }
                 //print the current board
-                this.client.send(this.client.getBoard().toString());
+                this.client.sendToView(this.client.getBoard().toString());
                                
             } catch (NumberFormatException e) {
-                this.client.send("Server is sending rubbish, NumberFormatException");
+                this.client.sendToView("Server is sending rubbish, NumberFormatException");
             }
         } else if (inputSplit[0].equals(Protocol.Server.NOTIFYEND) && inputSplit.length == 2) {
           //game has ended in a draw, notify client
@@ -102,15 +102,15 @@ public class ServerHandler extends Terminal {
             //game has ended in win row or ended due to a disconnect
             inputSplit[0].equals(Protocol.Server.NOTIFYEND) && inputSplit.length == 3) {
             if(inputSplit[1].equals("1")) {
-                this.client.send("Player " + inputSplit[2] + " has won.");
+                this.client.sendToView("Player " + inputSplit[2] + " has won.");
             } else {
-                this.client.send("Player " + inputSplit[2] + " has disconnected.");
+                this.client.sendToView("Player " + inputSplit[2] + " has disconnected.");
             }
             this.client.setInGame(false);
         } else if (inputSplit[0].equals("error") && inputSplit.length == 2) {
-            this.client.send(Protocol.getError(inputSplit[1]));
+            this.client.sendToView(Protocol.getError(inputSplit[1]));
         } else {        
-            this.client.send("Server is sending an unknown command");
+            this.client.sendToView("Server is sending an unknown command");
         }
     }
 }

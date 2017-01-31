@@ -12,6 +12,7 @@ import java.io.OutputStream;
 public class Terminal extends Thread {
     private final BufferedReader in;
     private final BufferedWriter out;
+    private boolean exit = false;
         
     public Terminal(InputStream in, OutputStream out) throws IOException {
         this.in = new BufferedReader(new InputStreamReader(in)); 
@@ -27,7 +28,7 @@ public class Terminal extends Thread {
         atStart();        
         try {            
             //continuously read input and print it
-            while ((line = in.readLine()) != null) {
+            while ((line = in.readLine()) != null && !exit) {
                 handleInput(line);
             }             
         } catch (IOException e) { 
@@ -52,5 +53,9 @@ public class Terminal extends Thread {
     
     public void onFailure() {
         System.out.println("Something went wrong with sending through socket");
+    }
+    
+    public void exit() {
+        this.exit = true;
     }
 }
