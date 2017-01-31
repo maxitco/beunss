@@ -13,6 +13,7 @@ public class Game extends Thread {
      */
     private int turnCounter = 0; 
     private boolean ended = false; //used to shutdown the game
+    private int timoutCounter;
     
     public Game() {
         this.board = new Board();
@@ -146,9 +147,11 @@ public class Game extends Thread {
             //set answered on false, is set true when the player whose turn it is makes a move
             this.answered = false;
             //wait for move
+            
             while (!this.answered) {
                 try {
-                    this.sleep(50);                    
+                     
+                    this.sleep(10);                    
                 } catch (InterruptedException e) {
                     //nada
                 }
