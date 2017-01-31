@@ -94,16 +94,15 @@ public class BoardTest {
     @Test
     public void testcheckRow() {
         Mark m0 = Mark.Black;
-        Mark m1 = Mark.White;
         Field start = new Field(0, 0, 0);
         for (int i = 0; i <= Board.MAXFIELD; i++) {
-            board.setField(i, 0, m0);
+            board.setField(i, 0, m0.other());
         }
         for (int i = 1; i <= Board.MAXFIELD; i++) {
-            board.setField(i, i, m1);
+            board.setField(i, i, m0);
         }
-        assertTrue(board.checkRow(start, 1, 0, 0, m0));
-        assertFalse(board.checkRow(start, 1, 1, 0, m1));
+        assertTrue(board.checkRow(start, 1, 0, 0, m0.other()));
+        assertFalse(board.checkRow(start, 1, 1, 0, m0));
         Field wrongstart = new Field(1, 0, 0);
         assertFalse(board.checkRow(wrongstart, 1, 0, 0, m0));
     }

@@ -29,16 +29,19 @@ public class Medium implements Difficulty {
         for (Field field : moves) {
             Board test = board.copy();
             test.setField(field, m);
+            System.out.println(m.toString() + ": " + field.toString());
             if (test.isWinner(m)) {
                 result.put(field, new Integer(50));
             }
-            if (test.isWinner(m.other())) {
+            else if (test.isWinner(m.other())) {
                 result.put(field, new Integer(40));
                 System.out.println("aaaah");
             }
             else {
+            	System.out.println(m.other());
             	result.put(field, new Integer(countSurroundings(field, board, m)));
             }
+            System.out.println(result.get(field));
         }
         int maxValue = Collections.max(result.values());
         System.out.println(maxValue);
@@ -55,6 +58,7 @@ public class Medium implements Difficulty {
         while (it.hasNext()) {
         	Map.Entry<Field,Integer> item = it.next();
         	if (count == next) {
+        		System.out.println(m.toString() + " chose " + item.getKey().toString());
         		return item.getKey();
         	}
         	count++;
