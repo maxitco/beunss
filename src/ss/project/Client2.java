@@ -11,9 +11,6 @@ import java.net.UnknownHostException;
 import ss.project.view.*;
 
 public class Client2 {
-    private static final String USAGE
-        = "usage: java week7.cmdline.Client <name> <address> <port>";
-
     private Socket sock;
     private String playerName;
     private int playerId;

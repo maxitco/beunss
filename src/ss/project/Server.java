@@ -11,8 +11,7 @@ public class Server {
 	private ServerTerminal serverTerminal;
 	public static final String NAME = "ServerJR"; 
 	public static final String CAPABILITIES = ""; //TODO write string
-    private static final String USAGE
-        = "usage: " + Server.class.getName() + " <name> <port>";
+  
     
     private ArrayList<ClientHandler> clientHandlerList = new ArrayList<ClientHandler>();
     private ArrayList<Game> gameList = new ArrayList<Game>();
@@ -96,10 +95,9 @@ public class Server {
         try {
             result = Integer.parseInt(input);
         } catch (NumberFormatException e) {
-            System.out.println(USAGE);
             System.out.println("ERROR: " + input
                                + " is not an integer");
-            System.exit(0);
+            
         }
         return result;
     }
@@ -111,7 +109,6 @@ public class Server {
     public static void main(String[] args) {
     	// check input
     	if (args.length != 1) {
-            System.out.println(USAGE);
             System.out.println("Input is not of length 1");
             System.exit(0);
         }      
