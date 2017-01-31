@@ -168,11 +168,17 @@ public class Board {
         return this.checkPlanes(m) || this.checkZcolums(m);
     }
     
-    public boolean hasWinner() {
-        if (this.isWinner(Mark.Black) ^ this.isWinner(Mark.White)) {
-            return true;
-        }
-        return false;
+    public Mark getWinner() {
+    	Mark m = Mark.Black;
+    	if (this.isWinner(m) && ! this.isWinner(m.other())) {
+    		return m;
+    	}
+    	else if (this.isWinner(m.other())) {
+    		return m.other();
+    	}
+    	else {
+    		return null;
+    	}
     }
     
     public boolean hasEnded() {
