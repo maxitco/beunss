@@ -9,7 +9,7 @@ import java.io.InputStreamReader;
 import java.util.Observable;
 import ss.project.*;
 
-public class ClientTUIView extends Terminal implements ClientView, Observer {
+public class ClientTUIView extends Terminal implements ClientView {
     
     private Client2 client;
     
@@ -20,10 +20,7 @@ public class ClientTUIView extends Terminal implements ClientView, Observer {
     
     public void showBoard() {
         send(this.client.getBoard().toString());        
-    }
-    
-    
-     
+    }  
 
     @Override
     public void handleInput(String input) {
@@ -39,25 +36,25 @@ public class ClientTUIView extends Terminal implements ClientView, Observer {
                 send("Enter 'start <port>' to continue.");                
                 this.client.setOnline(false);
             } else if (
-            inputSplit[0].equals("start") && this.client.isOnline() 
-            && inputSplit.length == 4
+                inputSplit[0].equals("start") && this.client.isOnline() 
+                && inputSplit.length == 4
             ) {
                 this.client.setPlayerName(inputSplit[1]);
                 this.client.connectToServer(inputSplit[2], inputSplit[3]);
                 send("connecting to server...");
             } else if (
-            inputSplit[0].equals("start") && !this.client.isOnline() 
-            && inputSplit.length == 2
+                inputSplit[0].equals("start") && !this.client.isOnline() 
+                && inputSplit.length == 2
             ) {
-                this.client.connectToServer("localhost", inputSplit[1]);
-                send("setting up game...");
+                this.client.connectToServer("localhost", inputSplit[1]);                
             } else if (inputSplit[0].equals("RESTART")) {
                 this.client.restart();
             }
             
             else if (inputSplit[0].equals("EXIT")) {
                 System.exit(0);
-            } else if (inputSplit[0].equals("MOVE") && inputSplit.length == 3 && this.client.isInGame()) {
+            } else if (
+                inputSplit[0].equals("MOVE") && inputSplit.length == 3 && this.client.isInGame()) {
                 this.client.getServerHandler().send(
                         Protocol.Client.MAKEMOVE + " " + inputSplit[1] + " " + inputSplit[2]
                 );
@@ -90,11 +87,6 @@ public class ClientTUIView extends Terminal implements ClientView, Observer {
             "Enter 'singleplayer' to play against AI or "
             + "'multiplayer' to play against other players"
         );
-    }
+    } 
     
-    
-    
-    public void update(Observable o, Object arg) {
-        
-    }
 }

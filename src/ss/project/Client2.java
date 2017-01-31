@@ -19,9 +19,7 @@ public class Client2 {
     private boolean online;
     private boolean inGame = false;
     private int currentTurnId;
-    private ss.project.view.ClientView view;
-    
-    
+    private ss.project.view.ClientView view;  
     
     public Client2() throws IOException {
         this.playerName = "NoNamePepe";     //should be overwritten 
@@ -82,7 +80,7 @@ public class Client2 {
     }
     
     /*@ pure */ public String getCapabilities() {
-        return Protocol.Client.SENDCAPABILITIES + " 2 " + this.playerName + "4 4 4 4 0 0";
+        return Protocol.Client.SENDCAPABILITIES + " 2 " + this.playerName + " 0 4 4 4 4 0 0";
     }
     
     public void sendToServer(String input) {
@@ -111,6 +109,7 @@ public class Client2 {
             sock = new Socket(addr, port);
             this.serverHandler = new ServerHandler(this, sock);
             this.serverHandler.start();
+            sendToView("setting up game...");
         } catch (IOException e) {
             sendToView("ERROR: could not create a socket on " + addr
                     + " and port " + port);            

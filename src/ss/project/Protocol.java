@@ -10,7 +10,7 @@ public class Protocol {
      * @author Merel Meekes
      */
     public class Server {
-
+ 
         public static final String SERVERCAPABILITIES = "serverCapabilities";
 
         public static final String SENDLISTROOMS = "sendListRooms";

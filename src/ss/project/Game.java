@@ -5,14 +5,13 @@ import java.util.ArrayList;
 public class Game extends Thread {
     private ArrayList<ClientHandler> playerList = new ArrayList<ClientHandler>();
     private Board board;
-    private boolean running = false; //used to disable double start by thread
-    private boolean answered; //used for keeping track of client response
+    //answered is used for keeping track of client response, true to enter the while loop at the start
+    private boolean answered = true; 
     /*
      * counts at which turn the game is
      * starts at 0 since turnCounter++ is at the top of the while loop
      */
     private int turnCounter = 0; 
-    private boolean ended = false; //used to shutdown the game
     private int timoutCounter;
     
     public Game() {
@@ -84,25 +83,34 @@ public class Game extends Thread {
     public boolean gameEnd() {
         //check for winner first, someone could win at turn 64
         if (this.board.isWinner(Mark.Black)) {         
-            notifyEnd(this.playerList.get(0).getPlayerId());   
+            notifyEnd(this.playerList.get(0).getPlayerId(), 1);   
             return true;
         } else if (this.board.isWinner(Mark.White)) {
-            notifyEnd(this.playerList.get(1).getPlayerId());
+            notifyEnd(this.playerList.get(1).getPlayerId(), 1);
             return true;
         //then check for draw
         } else if (this.turnCounter == 64) {
             notifyEnd();
             return true;
-        }  
+        }  else if (this.answered == false) {
+            notifyEnd(this.playerList.get(whoseTurn()).getPlayerId(), 3);
+            return true;
+        }
         //do nothing if not ended
         return false;
     }
     
-    //notify everyone that the game has ended, for win
-    public void notifyEnd(int playerId) {
-        for (ClientHandler c: this.playerList) {
-            c.send(Protocol.Server.NOTIFYEND + " 1 " + playerId);
-        }  
+    //notify everyone who has won or who left the game.
+    public void notifyEnd(int playerId, int reason) {
+        if (reason == 1) {        
+            for (ClientHandler c: this.playerList) {
+                c.send(Protocol.Server.NOTIFYEND + " 1 " + playerId);
+            } 
+        } else if (reason == 3) {
+            for (ClientHandler c: this.playerList) {
+                c.send(Protocol.Server.NOTIFYEND + " 3 " + playerId);
+            }  
+        }
     }
     
     //notify everyone that the game has ended, draw
@@ -129,15 +137,15 @@ public class Game extends Thread {
                     + " 4|4|4|4 " 
                     + getPlayerList().get(0).getPlayerId()
                     + "|" + getPlayerList().get(0).getPlayerName()
-                    + "0000ff"
+                    + "|" + "0000ff"
                     + " "
                     + getPlayerList().get(1).getPlayerId()
                     + "|" + getPlayerList().get(1).getPlayerName()
-                    + "ff0000" 
+                    + "|" + "ff0000" 
             );          
         }      
                         
-        while (!this.ended) {     
+        while (!gameEnd()) {     
             this.turnCounter++; //next turn, at top of loop such that not updated when game is ended
             for (ClientHandler c: this.playerList) {
                 c.send(
@@ -148,17 +156,15 @@ public class Game extends Thread {
             //set answered on false, is set true when the player whose turn it is makes a move
             this.answered = false;
             //wait for move
-            
-            while (!this.answered) {
+            this.timoutCounter = 0;
+            while (!this.answered && this.timoutCounter < 20000) {
                 try {
-                     
-                    this.sleep(10);                    
+                    this.timoutCounter += 50;
+                    this.sleep(50);                    
                 } catch (InterruptedException e) {
                     //nada
                 }
-            }   
-            //check if the game has ended
-            gameEnd();            
+            }                
         }
     }
 }

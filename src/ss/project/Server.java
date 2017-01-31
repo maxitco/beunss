@@ -10,7 +10,7 @@ public class Server {
 	private ServerSocket serverSocket;	
 	private ServerTerminal serverTerminal;
 	public static final String NAME = "ServerJR"; 
-	public static final String CAPABILITIES = ""; //TODO write string
+	public static final String CAPABILITIES = " 2 0 4 4 4 4 0";
   
     
     private ArrayList<ClientHandler> clientHandlerList = new ArrayList<ClientHandler>();
