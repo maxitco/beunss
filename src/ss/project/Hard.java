@@ -21,7 +21,6 @@ public class Hard implements Difficulty {
         
         //Choose candidate with highest potential score
         int maxValue = Collections.max(result.values());
-        System.out.println(maxValue);
         Iterator<Map.Entry<Field, Integer>> it = result.entrySet().iterator();
         while (it.hasNext()) {
         	Map.Entry<Field,Integer> item = it.next();
@@ -35,7 +34,6 @@ public class Hard implements Difficulty {
         while (it.hasNext()) {
         	Map.Entry<Field,Integer> item = it.next();
         	if (count == next) {
-        		System.out.println(m.toString() + " chose " + item.getKey().toString());
         		return item.getKey();
         	}
         	count++;
@@ -60,7 +58,6 @@ public class Hard implements Difficulty {
 	public int getFutureImpact(Board board, Mark m) {
 		int result = 0;
 		ArrayList<Field> moves = this.getMoves(board);
-		System.out.println(moves.size());
 		for (Field field : moves) {
 			Board myboard = board.copy();
 			Board enemboard = board.copy();
@@ -70,7 +67,7 @@ public class Hard implements Difficulty {
 				result += 50;
 			}
 			else if (enemboard.isWinner(m.other())) {
-				result -= 20;
+				result -= 50;
 			}
 		}
 		return result;
@@ -79,7 +76,6 @@ public class Hard implements Difficulty {
 	public Map<Field, Integer> getResultMap(Board board, Mark m) {
 		Map<Field, Integer> result = new HashMap<Field, Integer>();
 		ArrayList<Field> moves = this.getMoves(board);
-		System.out.println(moves.size());
 		for (Field field : moves) {
 			Board myboard = board.copy();
 			Board enemboard = board.copy();
@@ -92,9 +88,9 @@ public class Hard implements Difficulty {
 				result.put(field, new Integer(100));
 			}
 			else {
-				result.put(field, new Integer(countSurroundings(field, board, m)));
+				result.put(field, new Integer(countSurroundings(field, board, m) + getFutureImpact(myboard, m)));
 			}
-			result.put(field, result.get(field) + getFutureImpact(myboard, m));
+			//result.put(field, result.get(field) + getFutureImpact(myboard, m));
 		}
 
 		return result;
