@@ -68,8 +68,7 @@ public class Game extends Thread {
 
         } else {
             player.send("error 5"); //not his turn --> return error 5 (invalid move)
-        }
-        
+        }        
     }
     
     //notify all players which move was made

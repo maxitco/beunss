@@ -21,7 +21,7 @@ public class Client2 {
     private int currentTurnId;
     private ss.project.view.ClientView view;  
     private boolean aiEnabled = false;
-    private Player mediumAI = new ComputerPlayer(new Medium());
+    private Player hardAI = new ComputerPlayer(new Hard());
     
     public Client2() throws IOException {
         this.playerName = "NoNamePepe";     //should be overwritten 
@@ -35,6 +35,15 @@ public class Client2 {
             sendToView("AI is now on");
         } else {
             sendToView("AI is now off");
+        }
+    }
+    
+    public String hint() {
+        if (inGame && this.currentTurnId == this.playerId) {
+            Field field = this.hardAI.determineMove(this.board, Mark.Black);
+            return "move(x y): " + field.getMove();
+        }  else {
+            return "hing is only available when it is your turn in game.";
         }
     }
     
@@ -54,7 +63,7 @@ public class Client2 {
                   sendToView("It is your turn, type: 'move <x> <y>' to make a move.");
                   //let the AI make a move for you
                   if (this.aiEnabled) {
-                      Field field = this.mediumAI.determineMove(board, Mark.Black);
+                      Field field = this.hardAI.determineMove(board, Mark.Black);
                       sendToServer(Protocol.Client.MAKEMOVE + " " + field.getMove());
                   }
               } else {

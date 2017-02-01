@@ -47,8 +47,10 @@ public class ClientTUIView extends Terminal implements ClientView {
                 && inputSplit.length == 2
             ) {
                 this.client.connectToServer("localhost", inputSplit[1]);                
-            } else if (inputSplit[0].equals("toggle ai")) {
+            } else if (inputSplit[0].equals("aitoggle")) {
                 this.client.toggleAI(); 
+            } else if (inputSplit[0].equals("hint")) {
+                send(this.client.hint());
             }
             
             else if (inputSplit[0].equals("restart")) {
@@ -84,8 +86,9 @@ public class ClientTUIView extends Terminal implements ClientView {
     
     @Override
     public void atStart() {
-        send("During the application you can always enter:\n"
-                + "'toggle ai' to enable/disable the computer playing for you"
+        send("During the application you can enter:\n"
+                + "'hint' when in game to get a move suggested"
+                + "'aitoggle' to enable/disable the computer playing for you"
                 + "'exit' to exit the application or \n"
                 + "'restart' to restart the application\n\n");
         send(
