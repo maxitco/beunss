@@ -21,26 +21,29 @@ public class Client2 {
     private int currentTurnId;
     private ss.project.view.ClientView view;  
     private boolean aiEnabled = false;
-    private Player hardAI = new ComputerPlayer(new Hard());
+    private Player ai = new ComputerPlayer(new Hard());
     
-    public Client2() throws IOException {
-        this.playerName = "NoNamePepe";     //should be overwritten 
-        this.view = new ClientTUIView(this);
-        this.view.run();
+    public Client2() {
+        this.playerName = "NoNamePepe";     //should be overwritten         
     }
     
-    public void toggleAI() {
-        this.aiEnabled = !this.aiEnabled;
-        if (this.aiEnabled) {
-            sendToView("AI is now on");
-        } else {
-            sendToView("AI is now off");
-        }
+    public void createNewView() {
+        try {
+            this.view = new ClientTUIView(this);
+            this.view.run();
+        } catch (IOException e1) {
+            System.out.println("could not create view");
+            System.exit(0);
+        }       
+    }  
+    
+    public boolean toggleAI() {
+        return this.aiEnabled = !this.aiEnabled;        
     }
     
     public String hint() {
         if (inGame && this.currentTurnId == this.playerId) {
-            Field field = this.hardAI.determineMove(this.board, Mark.Black);
+            Field field = this.ai.determineMove(this.board, Mark.Black);
             return "move(x y): " + field.getMove();
         }  else {
             return "hing is only available when it is your turn in game.";
@@ -50,32 +53,42 @@ public class Client2 {
     /*
      * ServerHandler functions
      */
-    public void atAI() {
-        
+    public void atAI(String[] inputSplit) {
+        Client2 client = new Client2();
+        if(inputSplit[2].equals("easy")) {            
+            client.setAI(new ComputerPlayer(new Easy()));
+        } else if(inputSplit[2].equals("medium")) {
+            client.setAI(new ComputerPlayer(new Medium()));
+        } if(inputSplit[2].equals("hard")) {
+            client.setAI(new ComputerPlayer(new Hard()));
+        }
+        //turn the ai on
+        client.toggleAI();
+        client.connectToServer("localhost", inputSplit[1]);
     }
     
     public void atTurnOfPlayer(String[] inputSplit) {
         //notify the player whose turn it is
-          try {
-              //get the id of the current player
-              int id = Integer.parseInt(inputSplit[1]);
-              setCurrentTurnId(id);
-              
-              //compare current player to clientId to see who it is
-              if (id == getPlayerId()) {
-                  sendToView("It is your turn, type: 'move <x> <y>' to make a move.");
-                  //let the AI make a move for you
-                  if (this.aiEnabled) {
-                      Field field = this.hardAI.determineMove(board, Mark.Black);
-                      sendToServer(Protocol.Client.MAKEMOVE + " " + field.getMove());
-                  }
-              } else {
-                  sendToView("It is the turn of player " + inputSplit[1]);
-              }                
-          } catch (NumberFormatException e) {
-              sendToView("Server is sending rubbish, NumberFormatException");
-          }
-      }
+        try {
+            //get the id of the current player
+            int id = Integer.parseInt(inputSplit[1]);
+            setCurrentTurnId(id);
+
+            //compare current player to clientId to see who it is
+            if (id == getPlayerId()) {
+                sendToView("It is your turn, type: 'move <x> <y>' to make a move.");
+                //let the AI make a move for you
+                if (this.aiEnabled) {
+                    Field field = this.ai.determineMove(board, Mark.Black);
+                    sendToServer(Protocol.Client.MAKEMOVE + " " + field.getMove());
+                }
+            } else {
+                sendToView("It is the turn of player " + inputSplit[1]);
+            }                
+        } catch (NumberFormatException e) {
+            sendToView("Server is sending rubbish, NumberFormatException");
+        }
+    }
     
     public void setOnline(boolean input) {
         this.online = input;
@@ -99,6 +112,10 @@ public class Client2 {
     
     public void setCurrentTurnId(int input) {
         this.currentTurnId = input;
+    }
+    
+    public void setAI(Player player) {
+        this.ai = player;
     }
     
     public int getCurrentTurnId() {
@@ -138,13 +155,15 @@ public class Client2 {
     }
     
     public void sendToView(String input) {
-        this.view.send(input);
+        if(this.view != null) {
+            this.view.send(input);
+        }
     }
     
-    public void connectToServer(String ip, String socket) {
+    public void connectToServer(String ip, String socketPort) {
         InetAddress addr = null;
-        Socket sock = null;
-        int port = Server.getPort(socket);
+        
+        int port = Server.getPort(socketPort);
         
         // check args[1] - the IP-adress
         try {
@@ -156,7 +175,7 @@ public class Client2 {
         
         // try to open a Socket 
         try {
-            sock = new Socket(addr, port);
+            Socket sock = new Socket(addr, port);
             this.serverHandler = new ServerHandler(this, sock);
             this.serverHandler.start();
             sendToView("setting up game...");
@@ -180,11 +199,7 @@ public class Client2 {
     /** Starts a Client application. */
     public static void main(String[] args) {
         //construct a client
-        try {
-            Client2 aClient = new Client2();
-        } catch(IOException e1) {
-            System.out.println("could not construct view");
-            System.exit(0);
-        }
+        Client2 aClient = new Client2();
+        aClient.createNewView();        
     }
 }
