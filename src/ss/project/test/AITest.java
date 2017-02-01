@@ -6,7 +6,7 @@ public class AITest {
 
 	public static void main(String[] args) {
 		Board test = new Board();
-		ComputerPlayer one = new ComputerPlayer(new Hard());
+		ComputerPlayer one = new ComputerPlayer(new Easy());
 		ComputerPlayer two = new ComputerPlayer(new Hard());
 		Mark m = Mark.Black;
 		while(!test.hasEnded()) {

@@ -16,7 +16,12 @@ public class Server {
     private ArrayList<ClientHandler> clientHandlerList = new ArrayList<ClientHandler>();
     private ArrayList<Game> gameList = new ArrayList<Game>();
     
-    //constructor for server, create ServerSocket
+    /**constructor for server, creates ServerSocket
+     * 
+     * @param port 
+     * @throws IOException
+     * @throws PortException
+     */
     public Server(int port) throws IOException, PortException {
     	if (port > 0) {
 			this.serverSocket = new ServerSocket(port);	
@@ -25,10 +30,11 @@ public class Server {
     	} else {
     		throw new PortException();
     	}
-    }    
+    }
     
-    //shutdown, notify all clients that shutdown will happen
-    //exit the program and all its threads
+    /**Notifies all clients that shutdown will happen, 
+     * then exit the program and all its threads
+     */
     public void shutDown() {
         for (ClientHandler client: this.clientHandlerList ) {
             client.send("error 1"); //TODO fix better error
@@ -36,24 +42,39 @@ public class Server {
         System.exit(0);
     }
     
+    /**Returns the server socket
+     * 
+     * @return
+     */
     /*@ pure */ public ServerSocket getServerSocket() {
     	return this.serverSocket;
-    }    
-
+    }
+    
+    /** Returns the List of Clienthandlers
+     * 
+     * @return ArrayList<ClientHandler>
+     */
     /*@ pure */ public ArrayList<ClientHandler> getClientHandlerList() {
         return this.clientHandlerList;
     }
-     
+    
+    /** 
+     * 
+     * @throws IOException
+     */
     public void accepter() throws IOException {
     	while (true) {
     		Socket sock = this.getServerSocket().accept();
     		System.out.println("New client connected!");
     		ClientHandler clientHandler = new ClientHandler(this, sock);
     		this.clientHandlerList.add(clientHandler);
-    		clientHandler.start();    		
+    		clientHandler.start();
     	}
     }
-    
+    /**
+     * 
+     * @param inputPlayer
+     */
     //synchronized to prevent 2 players joining an existing game at the same moment.
     //join an available game or if none is available create a new game for the player.
     public synchronized void joinGame(ClientHandler inputPlayer) {

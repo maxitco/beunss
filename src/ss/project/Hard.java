@@ -54,7 +54,8 @@ public class Hard implements Difficulty {
         }
         return moves;
 	}
-	
+	//@requires board != null;
+	//@requires m != null;
 	public int getFutureImpact(Board board, Mark m) {
 		int result = 0;
 		ArrayList<Field> moves = this.getMoves(board);
