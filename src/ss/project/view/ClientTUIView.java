@@ -32,8 +32,8 @@ public class ClientTUIView extends Terminal implements ClientView {
             if (inputSplit[0].equals("multi")) {
                 send("Enter 'start <playername> <server ip> <port>' to continue.");     
                 this.client.setOnline(true);
-            } else if (inputSplit[0].equals("ai")) {
-                send("Enter 'start <port>' to continue.");                
+            } else if (inputSplit[0].equals("ai") && inputSplit.length ==2) {
+                send("Enter 'start <port> <ai difficulty ('easy'/'medium'/'hard')>' to continue.");
                 this.client.setOnline(false);
             } else if (
                 inputSplit[0].equals("start") && this.client.isOnline() 
@@ -44,14 +44,15 @@ public class ClientTUIView extends Terminal implements ClientView {
                 send("connecting to server...");
             } else if (
                 inputSplit[0].equals("start") && !this.client.isOnline() 
-                && inputSplit.length == 2
+                && inputSplit.length == 3
             ) {
+                this.client.atAI();
                 this.client.connectToServer("localhost", inputSplit[1]);                
             } else if (inputSplit[0].equals("aitoggle")) {
                 this.client.toggleAI(); 
             } else if (inputSplit[0].equals("hint")) {
                 send(this.client.hint());
-            }
+            }  
             
             else if (inputSplit[0].equals("restart")) {
                 this.client.restart();
