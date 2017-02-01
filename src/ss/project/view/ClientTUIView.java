@@ -29,10 +29,10 @@ public class ClientTUIView extends Terminal implements ClientView {
             //split input around spaces
             String[] inputSplit = input.split(" ");
             
-            if (inputSplit[0].equals("multiplayer")) {
+            if (inputSplit[0].equals("multi")) {
                 send("Enter 'start <playername> <server ip> <port>' to continue.");     
                 this.client.setOnline(true);
-            } else if (inputSplit[0].equals("singleplayer")) {
+            } else if (inputSplit[0].equals("ai")) {
                 send("Enter 'start <port>' to continue.");                
                 this.client.setOnline(false);
             } else if (
@@ -47,14 +47,18 @@ public class ClientTUIView extends Terminal implements ClientView {
                 && inputSplit.length == 2
             ) {
                 this.client.connectToServer("localhost", inputSplit[1]);                
-            } else if (inputSplit[0].equals("RESTART")) {
-                this.client.restart();
+            } else if (inputSplit[0].equals("toggle ai")) {
+                this.client.toggleAI(); 
             }
             
-            else if (inputSplit[0].equals("EXIT")) {
+            else if (inputSplit[0].equals("restart")) {
+                this.client.restart();
+            } 
+            
+            else if (inputSplit[0].equals("exit")) {
                 System.exit(0);
             } else if (
-                inputSplit[0].equals("MOVE") && inputSplit.length == 3 && this.client.isInGame()) {
+                inputSplit[0].equals("move") && inputSplit.length == 3 && this.client.isInGame()) {
                 this.client.getServerHandler().send(
                         Protocol.Client.MAKEMOVE + " " + inputSplit[1] + " " + inputSplit[2]
                 );
@@ -81,11 +85,12 @@ public class ClientTUIView extends Terminal implements ClientView {
     @Override
     public void atStart() {
         send("During the application you can always enter:\n"
-                + "'EXIT' to exit the application or \n"
-                + "'RESTART' to restart the application\n\n");
+                + "'toggle ai' to enable/disable the computer playing for you"
+                + "'exit' to exit the application or \n"
+                + "'restart' to restart the application\n\n");
         send(
-            "Enter 'singleplayer' to play against AI or "
-            + "'multiplayer' to play against other players"
+            "Enter 'ai' to play against AI or "
+            + "'multi' to play against other players"
         );
     } 
     

@@ -43,7 +43,7 @@ public class ServerHandler extends Terminal {
         } else if (inputSplit[0].equals(Protocol.Server.STARTGAME)) {
             atStartGame(inputSplit);            
         } else if (inputSplit[0].equals(Protocol.Server.TURNOFPLAYER) && inputSplit.length == 2) {
-            atTurnOfPlayer(inputSplit);                        
+            this.client.atTurnOfPlayer(inputSplit);                        
         } else if (inputSplit[0].equals(Protocol.Server.NOTIFYMOVE) && inputSplit.length == 4) {
             atNotifyMove(inputSplit);            
         } else if (inputSplit[0].equals(Protocol.Server.NOTIFYEND) 
@@ -85,23 +85,7 @@ public class ServerHandler extends Terminal {
         this.client.sendToView(this.client.getBoard().toString());
     }
     
-    public void atTurnOfPlayer(String[] inputSplit) {
-      //notify the player whose turn it is
-        try {
-            //get the id of the current player
-            int id = Integer.parseInt(inputSplit[1]);
-            this.client.setCurrentTurnId(id);
-            
-            //compare current player to clientId to see who it is
-            if (id == client.getPlayerId()) {
-                this.client.sendToView("It is your turn, type: 'MOVE <x> <y>' to make a move.");
-            } else {
-                this.client.sendToView("It is the turn of player " + inputSplit[1]);
-            }                
-        } catch (NumberFormatException e) {
-            this.client.sendToView("Server is sending rubbish, NumberFormatException");
-        }
-    }
+
     
     public void atNotifyMove(String[] inputSplit) {
       //notify player of the move

@@ -20,12 +20,50 @@ public class Client2 {
     private boolean inGame = false;
     private int currentTurnId;
     private ss.project.view.ClientView view;  
+    private boolean aiEnabled = false;
+    private Player mediumAI = new ComputerPlayer(new Medium());
     
     public Client2() throws IOException {
         this.playerName = "NoNamePepe";     //should be overwritten 
         this.view = new ClientTUIView(this);
         this.view.run();
     }
+    
+    public void toggleAI() {
+        this.aiEnabled = !this.aiEnabled;
+        if (this.aiEnabled) {
+            sendToView("AI is now on");
+        } else {
+            sendToView("AI is now off");
+        }
+    }
+    
+    /*
+     * ServerHandler functions
+     */
+    
+    public void atTurnOfPlayer(String[] inputSplit) {
+        //notify the player whose turn it is
+          try {
+              //get the id of the current player
+              int id = Integer.parseInt(inputSplit[1]);
+              setCurrentTurnId(id);
+              
+              //compare current player to clientId to see who it is
+              if (id == getPlayerId()) {
+                  sendToView("It is your turn, type: 'move <x> <y>' to make a move.");
+                  //let the AI make a move for you
+                  if (this.aiEnabled) {
+                      Field field = this.mediumAI.determineMove(board, Mark.Black);
+                      sendToServer(Protocol.Client.MAKEMOVE + " " + field.getMove());
+                  }
+              } else {
+                  sendToView("It is the turn of player " + inputSplit[1]);
+              }                
+          } catch (NumberFormatException e) {
+              sendToView("Server is sending rubbish, NumberFormatException");
+          }
+      }
     
     public void setOnline(boolean input) {
         this.online = input;
