@@ -1,12 +1,19 @@
 package ss.project;
 
 import java.util.ArrayList;
+import java.util.concurrent.locks.ReentrantLock;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.locks.Condition;
 
 public class Game extends Thread {
     private ArrayList<ClientHandler> playerList = new ArrayList<ClientHandler>();
     private Board board;
     //answered is used for keeping track of client response, true to enter the while loop at the start
     private boolean answered = true; 
+    private Lock lock = new ReentrantLock();
+    private Condition notAnswered = lock.newCondition();
+    
     /*
      * counts at which turn the game is
      * starts at 0 since turnCounter++ is at the top of the while loop
@@ -67,16 +74,19 @@ public class Game extends Thread {
     
     //notify all players which move was made
     public void notifyMove(int x, int y, int id) {
+        lock.lock();
         for (ClientHandler c: this.playerList) {
             c.send(Protocol.Server.NOTIFYMOVE + " " + id + " " + x + " " + y);
         }
         //set answered on true such that the game thread can continue
         this.answered = true;
+        this.notAnswered.signal();
+        lock.unlock();
     }
     
     //determine whose turn it is, depending on turn and amount of players
     public int whoseTurn() {
-        return this.turnCounter % (2);
+        return this.turnCounter % this.playerList.size();
     }
     
     //check if the game has ended
@@ -122,6 +132,7 @@ public class Game extends Thread {
     
     @Override
     public void run() {
+        lock.lock();
         //assign an id to each player (their index in the arrayList + 1)
         for (int i = 0; i < this.playerList.size(); i++) {
             int id = i + 1;
@@ -155,16 +166,13 @@ public class Game extends Thread {
             }
             //set answered on false, is set true when the player whose turn it is makes a move
             this.answered = false;
-            //wait for move
-            this.timoutCounter = 0;
-            while (!this.answered && this.timoutCounter < 20000) {
-                try {
-                    this.timoutCounter += 50;
-                    this.sleep(50);                    
-                } catch (InterruptedException e) {
-                    //nada
-                }
-            }                
+            //wait until signaled (when an answer was submitted), or timeout after 20 seconds            
+            try {
+                this.notAnswered.await(20, TimeUnit.SECONDS);                
+            } catch (InterruptedException e) {
+                System.out.println("interrupted game");
+            }                            
         }
+        lock.unlock();
     }
 }

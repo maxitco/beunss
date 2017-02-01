@@ -9,7 +9,7 @@ import java.net.InetAddress;
 import java.net.Socket;
 import java.net.UnknownHostException;
 import ss.project.view.*;
-
+ 
 public class Client2 {
     private Socket sock;
     private String playerName;
