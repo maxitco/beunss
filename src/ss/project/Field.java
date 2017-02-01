@@ -26,7 +26,7 @@ public class Field {
     }
     
     public String getMove() {
-    	return Protocol.Client.MAKEMOVE + " " + this.x + " " + this.y;
+    	return this.x + " " + this.y;
     }
     
     public String toString() {
