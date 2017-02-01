@@ -50,6 +50,9 @@ public class Client2 {
     /*
      * ServerHandler functions
      */
+    public void atAI() {
+        
+    }
     
     public void atTurnOfPlayer(String[] inputSplit) {
         //notify the player whose turn it is
