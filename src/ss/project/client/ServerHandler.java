@@ -3,9 +3,9 @@ package ss.project.client;
 import java.io.IOException;
 import java.net.Socket;
 
-import ss.project.Protocol;
-import ss.project.Protocol.Server;
 import ss.project.game.Mark;
+import ss.project.game.Protocol;
+import ss.project.game.Protocol.Server;
 import ss.project.view.Terminal;
 
 public class ServerHandler extends Terminal {

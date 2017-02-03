@@ -10,10 +10,10 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
 
-import ss.project.Protocol;
-import ss.project.Protocol.Client;
-import ss.project.Protocol.Server;
 import ss.project.game.Game;
+import ss.project.game.Protocol;
+import ss.project.game.Protocol.Client;
+import ss.project.game.Protocol.Server;
 import ss.project.view.Terminal;
 
 public class ClientHandler extends Terminal {
