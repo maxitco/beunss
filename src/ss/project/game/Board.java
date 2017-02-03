@@ -182,7 +182,8 @@ public class Board {
     }
     
     public boolean hasEnded() {
-    	if (this.isWinner(Mark.Black) || this.isWinner(Mark.White) || this.fieldMap.size() == MAXFIELD * MAXFIELD * MAXFIELD) {
+    	if (this.isWinner(Mark.Black) || this.isWinner(Mark.White) ||
+    			this.fieldMap.size() == MAXFIELD * MAXFIELD * MAXFIELD) {
     		return true;
     	}
     	return false;
