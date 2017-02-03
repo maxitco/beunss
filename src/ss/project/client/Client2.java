@@ -1,24 +1,18 @@
 package ss.project.client;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.net.InetAddress;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
 import ss.project.Protocol;
-import ss.project.Protocol.Client;
 import ss.project.game.Board;
 import ss.project.game.Field;
 import ss.project.game.Mark;
 import ss.project.server.Server;
 import ss.project.view.*;
  
-public class Client2 {
-    private Socket sock;
+public class Client2 {    
     private String playerName;
     private int playerId;
     private Board board;
