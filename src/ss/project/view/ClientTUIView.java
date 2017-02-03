@@ -2,7 +2,7 @@ package ss.project.view;
 
 import java.util.Observer;
 
-import ss.project.client.Client2;
+import ss.project.client.Client;
 import ss.project.game.Protocol;
 
 import java.io.BufferedReader;
@@ -13,9 +13,9 @@ import ss.project.*;
 
 public class ClientTUIView extends Terminal implements ClientView {
     
-    private Client2 client;
+    private Client client;
     
-    public ClientTUIView(Client2 client) throws IOException {
+    public ClientTUIView(Client client) throws IOException {
         super(System.in, System.out);        
         this.client = client;         
     }

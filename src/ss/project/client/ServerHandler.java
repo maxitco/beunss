@@ -9,9 +9,9 @@ import ss.project.game.Protocol.Server;
 import ss.project.view.Terminal;
 
 public class ServerHandler extends Terminal {
-    private Client2 client;
+    private Client client;
     
-    ServerHandler(Client2 inputClient, Socket inSock) throws IOException {
+    ServerHandler(Client inputClient, Socket inSock) throws IOException {
         super(inSock.getInputStream(), inSock.getOutputStream());
         this.client = inputClient;
     }

@@ -8,12 +8,10 @@ import ss.project.game.Protocol;
 import ss.project.game.Board;
 import ss.project.game.Field;
 import ss.project.game.Mark;
-import ss.project.game.Protocol;
-import ss.project.game.Protocol.Client;
 import ss.project.server.Server;
 import ss.project.view.*;
  
-public class Client2 {    
+public class Client {    
     private String playerName;
     private int playerId;
     private Board board;
@@ -25,7 +23,7 @@ public class Client2 {
     private boolean aiEnabled = false;
     private Player ai = new ComputerPlayer(new Hard());
     
-    public Client2() {
+    public Client() {
         this.playerName = "NoNamePepe";     //should be overwritten         
     }
     
@@ -56,7 +54,7 @@ public class Client2 {
      * ServerHandler functions
      */
     public void atAI(String[] inputSplit) {
-        Client2 client = new Client2();
+        Client client = new Client();
         if(inputSplit[2].equals("easy")) {            
             client.setAI(new ComputerPlayer(new Easy()));
         } else if(inputSplit[2].equals("medium")) {
@@ -201,7 +199,7 @@ public class Client2 {
     /** Starts a Client application. */
     public static void main(String[] args) {
         //construct a client
-        Client2 aClient = new Client2();
+        Client aClient = new Client();
         aClient.createNewView();        
     }
 }
