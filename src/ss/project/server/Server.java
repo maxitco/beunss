@@ -19,7 +19,7 @@ public class Server {
     private ArrayList<ClientHandler> clientHandlerList = new ArrayList<ClientHandler>();
     private ArrayList<Game> gameList = new ArrayList<Game>();
     
-    /**constructor for server, creates ServerSocket
+    /**constructor for server, creates ServerSocket.
      * 
      * @param port 
      * @throws IOException
@@ -35,17 +35,17 @@ public class Server {
     	}
     }
     
-    /**Notifies all clients that shutdown will happen, 
-     * then exit the program and all its threads
+    /**Notifies all clients that shutdown will happen, then exit the program and all its threads.
+     * 
      */
     public void shutDown() {
-        for (ClientHandler client: this.clientHandlerList ) {
+        for (ClientHandler client: this.clientHandlerList) {
             client.send("error 1"); //TODO fix better error
         }
         System.exit(0);
     }
     
-    /**Returns the server socket
+    /**Returns the server socket.
      * 
      * @return
      */
@@ -53,7 +53,7 @@ public class Server {
     	return this.serverSocket;
     }
     
-    /** Returns the List of Clienthandlers
+    /** Returns the List of Clienthandlers.
      * 
      * @return ArrayList<ClientHandler>
      */

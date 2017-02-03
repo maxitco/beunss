@@ -18,7 +18,7 @@ public class BoardTest {
 
 	@Test
 	public void testisField() {
-		Field badfield = new Field(board.MAXFIELD + 1, 0, 0);
+		Field badfield = new Field(Board.MAXFIELD + 1, 0, 0);
 		Field goodfield = new Field(1, 1, 0);
 		assertTrue(board.isField(goodfield));
 		assertFalse(board.isField(badfield));
@@ -26,7 +26,7 @@ public class BoardTest {
 
 	@Test
 	public void testisEmptyField() {
-		Field filler = new Field (1, 1, 0);
+		Field filler = new Field(1, 1, 0);
 		assertTrue(board.isReachableEmptyField(filler));
 		board.setField(filler, Mark.Black);
 		assertFalse(board.isReachableEmptyField(filler));
@@ -55,7 +55,7 @@ public class BoardTest {
 		assertTrue(board.setField(test1, Mark.Black));
 		assertEquals(board.getMark(test1), Mark.Black);
 		//out of bounds stacking with coordinates
-		for (int i = 0; i <= board.MAXFIELD; i++) {
+		for (int i = 0; i <= Board.MAXFIELD; i++) {
 			assertTrue(board.setField(0, 0, Mark.White));
 		}
 		assertFalse(board.setField(0, 0, Mark.Black));
