@@ -2,8 +2,8 @@ package ss.project.view;
 
 import java.util.Observer;
 
-import ss.project.Protocol;
 import ss.project.client.Client2;
+import ss.project.game.Protocol;
 
 import java.io.BufferedReader;
 import java.io.IOException;

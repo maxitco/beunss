@@ -3,8 +3,7 @@ package ss.project.game;
 import java.util.ArrayList;
 import java.util.concurrent.locks.ReentrantLock;
 
-import ss.project.Protocol;
-import ss.project.Protocol.Server;
+import ss.project.game.Protocol.Server;
 import ss.project.server.ClientHandler;
 
 import java.util.concurrent.locks.Lock;

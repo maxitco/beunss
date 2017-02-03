@@ -9,11 +9,11 @@ import java.net.InetAddress;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
-import ss.project.Protocol;
-import ss.project.Protocol.Client;
 import ss.project.game.Board;
 import ss.project.game.Field;
 import ss.project.game.Mark;
+import ss.project.game.Protocol;
+import ss.project.game.Protocol.Client;
 import ss.project.server.Server;
 import ss.project.view.*;
  
