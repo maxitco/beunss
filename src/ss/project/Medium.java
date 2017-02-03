@@ -13,7 +13,7 @@ public class Medium implements Difficulty {
         return "medium";
     }
 
-    @Override
+    @Override 
     public Field determineMove(Board board, Mark m) {
     	Map<Field, Integer> result = new HashMap<Field, Integer>();
         ArrayList<Field> moves = new ArrayList<Field>();
