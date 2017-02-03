@@ -5,7 +5,7 @@ import java.net.Socket;
 
 import ss.project.game.Mark;
 import ss.project.game.Protocol;
-import ss.project.game.Protocol.Server;
+import ss.project.game.Protocol.ProtServer;
 import ss.project.view.Terminal;
 
 public class ServerHandler extends Terminal {
@@ -40,18 +40,18 @@ public class ServerHandler extends Terminal {
         //split input around spaces
         String[] inputSplit = input.split(" ");
         
-        if (inputSplit[0].equals(Protocol.Server.SERVERCAPABILITIES)) {
+        if (inputSplit[0].equals(Protocol.ProtServer.SERVERCAPABILITIES)) {
             //respond with capabilities of the client
             send(this.client.getCapabilities());
-        } else if (inputSplit[0].equals(Protocol.Server.ASSIGNID)) {
+        } else if (inputSplit[0].equals(Protocol.ProtServer.ASSIGNID)) {
             atAssignId(inputSplit);                
-        } else if (inputSplit[0].equals(Protocol.Server.STARTGAME)) {
+        } else if (inputSplit[0].equals(Protocol.ProtServer.STARTGAME)) {
             atStartGame(inputSplit);            
-        } else if (inputSplit[0].equals(Protocol.Server.TURNOFPLAYER) && inputSplit.length == 2) {
+        } else if (inputSplit[0].equals(Protocol.ProtServer.TURNOFPLAYER) && inputSplit.length == 2) {
             this.client.atTurnOfPlayer(inputSplit);                        
-        } else if (inputSplit[0].equals(Protocol.Server.NOTIFYMOVE) && inputSplit.length == 4) {
+        } else if (inputSplit[0].equals(Protocol.ProtServer.NOTIFYMOVE) && inputSplit.length == 4) {
             atNotifyMove(inputSplit);            
-        } else if (inputSplit[0].equals(Protocol.Server.NOTIFYEND) 
+        } else if (inputSplit[0].equals(Protocol.ProtServer.NOTIFYEND) 
             && inputSplit.length == 2 || inputSplit.length == 3
         ) {
             atNotifyEnd(inputSplit);          

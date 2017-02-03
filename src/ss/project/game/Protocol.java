@@ -9,7 +9,7 @@ public class Protocol {
      * Server to client messages.
      * @author Merel Meekes
      */
-    public class Server {
+    public class ProtServer {
  
         public static final String SERVERCAPABILITIES = "serverCapabilities";
 
@@ -39,7 +39,7 @@ public class Protocol {
      * Client to server messages.
      * @author Merel Meekes
      */
-    public static class Client {
+    public static class ProtClient {
 
         public static final String SENDCAPABILITIES = "sendCapabilities";
 

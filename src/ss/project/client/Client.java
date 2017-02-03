@@ -80,7 +80,7 @@ public class Client {
                 //let the AI make a move for you
                 if (this.aiEnabled) {
                     Field field = this.ai.determineMove(board, Mark.Black);
-                    sendToServer(Protocol.Client.MAKEMOVE + " " + field.getMove());
+                    sendToServer(Protocol.ProtClient.MAKEMOVE + " " + field.getMove());
                 }
             } else {
                 sendToView("It is the turn of player " + inputSplit[1]);
@@ -147,7 +147,7 @@ public class Client {
     }
     
     /*@ pure */ public String getCapabilities() {
-        return Protocol.Client.SENDCAPABILITIES + " 2 " + this.playerName + " 0 4 4 4 4 0 0";
+        return Protocol.ProtClient.SENDCAPABILITIES + " 2 " + this.playerName + " 0 4 4 4 4 0 0";
     }
     
     public void sendToServer(String input) {

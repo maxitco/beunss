@@ -69,7 +69,7 @@ public class ClientTUIView extends Terminal implements ClientView {
             } else if (
                 inputSplit[0].equals("move") && inputSplit.length == 3 && this.client.isInGame()) {
                 this.client.getServerHandler().send(
-                        Protocol.Client.MAKEMOVE + " " + inputSplit[1] + " " + inputSplit[2]
+                        Protocol.ProtClient.MAKEMOVE + " " + inputSplit[1] + " " + inputSplit[2]
                 );
             } else {
                 send(

@@ -12,8 +12,8 @@ import java.util.ArrayList;
 
 import ss.project.game.Game;
 import ss.project.game.Protocol;
-import ss.project.game.Protocol.Client;
-import ss.project.game.Protocol.Server;
+import ss.project.game.Protocol.ProtClient;
+import ss.project.game.Protocol.ProtServer;
 import ss.project.view.Terminal;
 
 public class ClientHandler extends Terminal {
@@ -89,7 +89,7 @@ public class ClientHandler extends Terminal {
 	@Override
 	public void atStart() {
 	    //first action from the server, send capabilities as described in protocol
-	    send(Protocol.Server.SERVERCAPABILITIES + Server.CAPABILITIES); 
+	    send(Protocol.ProtServer.SERVERCAPABILITIES + this.server.CAPABILITIES); 
 	}
 	
 	//function to determine which action should be performed upon receiving input from the client
@@ -99,10 +99,10 @@ public class ClientHandler extends Terminal {
 	    String[] inputSplit = input.split(" ");
 	    
 	    //check which command is given (always the first word)
-	    if (inputSplit[0].equals(Protocol.Client.SENDCAPABILITIES)) {
+	    if (inputSplit[0].equals(Protocol.ProtClient.SENDCAPABILITIES)) {
 	        setClientCapabilities(inputSplit);
-	        server.joinGame(this);
-	    } else if (inputSplit[0].equals(Protocol.Client.MAKEMOVE) && inputSplit.length == 3) {
+	        this.server.joinGame(this);
+	    } else if (inputSplit[0].equals(Protocol.ProtClient.MAKEMOVE) && inputSplit.length == 3) {
 	        try {
 	            int x = Integer.parseInt(inputSplit[1]);
 	            int y = Integer.parseInt(inputSplit[2]);

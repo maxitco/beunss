@@ -3,7 +3,7 @@ package ss.project.game;
 import java.util.ArrayList;
 import java.util.concurrent.locks.ReentrantLock;
 
-import ss.project.game.Protocol.Server;
+import ss.project.game.Protocol.ProtServer;
 import ss.project.server.ClientHandler;
 
 import java.util.concurrent.locks.Lock;
@@ -79,7 +79,7 @@ public class Game extends Thread {
     public void notifyMove(int x, int y, int id) {
         lock.lock();
         for (ClientHandler c: this.playerList) {
-            c.send(Protocol.Server.NOTIFYMOVE + " " + id + " " + x + " " + y);
+            c.send(Protocol.ProtServer.NOTIFYMOVE + " " + id + " " + x + " " + y);
         }
         //set answered on true such that the game thread can continue
         this.answered = true;
@@ -117,11 +117,11 @@ public class Game extends Thread {
     public void notifyEnd(int playerId, int reason) {
         if (reason == 1) {        
             for (ClientHandler c: this.playerList) {
-                c.send(Protocol.Server.NOTIFYEND + " 1 " + playerId);
+                c.send(Protocol.ProtServer.NOTIFYEND + " 1 " + playerId);
             } 
         } else if (reason == 3) {
             for (ClientHandler c: this.playerList) {
-                c.send(Protocol.Server.NOTIFYEND + " 3 " + playerId);
+                c.send(Protocol.ProtServer.NOTIFYEND + " 3 " + playerId);
             }  
         }
     }
@@ -129,7 +129,7 @@ public class Game extends Thread {
     //notify everyone that the game has ended, draw
     public void notifyEnd() {
         for (ClientHandler c: this.playerList) {
-            c.send(Protocol.Server.NOTIFYEND + " 2");
+            c.send(Protocol.ProtServer.NOTIFYEND + " 2");
         }  
     }
     
@@ -140,14 +140,14 @@ public class Game extends Thread {
         for (int i = 0; i < this.playerList.size(); i++) {
             int id = i + 1;
             this.playerList.get(i).setPlayerId(id);
-            this.playerList.get(i).send(Protocol.Server.ASSIGNID + " " + Integer.toString(id));
+            this.playerList.get(i).send(Protocol.ProtServer.ASSIGNID + " " + Integer.toString(id));
         }
         
         //notify players that the game has started   
         //includes game specifications and opponent info
         for (ClientHandler c: this.playerList) {
             c.send(
-                    Protocol.Server.STARTGAME 
+                    Protocol.ProtServer.STARTGAME 
                     + " 4|4|4|4 " 
                     + getPlayerList().get(0).getPlayerId()
                     + "|" + getPlayerList().get(0).getPlayerName()
@@ -163,7 +163,7 @@ public class Game extends Thread {
             this.turnCounter++; //next turn, at top of loop such that not updated when game is ended
             for (ClientHandler c: this.playerList) {
                 c.send(
-                    Protocol.Server.TURNOFPLAYER + " " 
+                    Protocol.ProtServer.TURNOFPLAYER + " " 
                     + Integer.toString(playerList.get(whoseTurn()).getPlayerId())
                 );          
             }
