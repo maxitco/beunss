@@ -21,7 +21,7 @@ public class Client {
     private int currentTurnId;
     private ss.project.view.ClientView view;  
     private boolean aiEnabled = false;
-    private Player ai = new ComputerPlayer(new Hard());
+    private ComputerPlayer ai = new ComputerPlayer(new Hard());
     
     public Client() {
         this.playerName = "NoNamePepe";     //should be overwritten         
@@ -114,7 +114,7 @@ public class Client {
         this.currentTurnId = input;
     }
     
-    public void setAI(Player player) {
+    public void setAI(ComputerPlayer player) {
         this.ai = player;
     }
     
