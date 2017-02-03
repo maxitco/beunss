@@ -1,4 +1,4 @@
-package ss.project;
+package ss.project.test;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -8,6 +8,8 @@ import java.io.OutputStreamWriter;
 import java.net.InetAddress;
 import java.net.Socket;
 import java.net.UnknownHostException;
+
+import ss.project.game.Game;
 
 
 

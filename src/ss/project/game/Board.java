@@ -1,4 +1,4 @@
-package ss.project;
+package ss.project.game;
 
 import java.util.HashMap;
 import java.util.Map;

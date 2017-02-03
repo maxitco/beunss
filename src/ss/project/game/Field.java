@@ -1,4 +1,4 @@
-package ss.project;
+package ss.project.game;
 
 public class Field {
     public int x,y,z;

@@ -1,7 +1,12 @@
-package ss.project;
+package ss.project.client;
 
 import java.io.IOException;
 import java.net.Socket;
+
+import ss.project.Protocol;
+import ss.project.Protocol.Server;
+import ss.project.game.Mark;
+import ss.project.view.Terminal;
 
 public class ServerHandler extends Terminal {
     private Client2 client;

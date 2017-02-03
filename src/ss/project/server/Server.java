@@ -1,10 +1,14 @@
-package ss.project;
+package ss.project.server;
 
 import java.io.IOException;
 import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
+
+import ss.project.PortException;
+import ss.project.game.Game;
+import ss.project.view.ServerTerminal;
 
 public class Server {
 	private ServerSocket serverSocket;	

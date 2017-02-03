@@ -2,8 +2,10 @@ package ss.project.test;
 
 import org.junit.Before;
 import org.junit.Test;
+
+import ss.project.game.Game;
+
 import org.junit.*;
-import ss.project.Game;
 
 public class GameTest {
     

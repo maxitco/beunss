@@ -1,10 +1,14 @@
-package ss.project;
+package ss.project.client;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+
+import ss.project.game.Board;
+import ss.project.game.Field;
+import ss.project.game.Mark;
 
 public class Hard implements Difficulty {
 

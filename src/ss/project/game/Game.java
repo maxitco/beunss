@@ -1,7 +1,12 @@
-package ss.project;
+package ss.project.game;
 
 import java.util.ArrayList;
 import java.util.concurrent.locks.ReentrantLock;
+
+import ss.project.Protocol;
+import ss.project.Protocol.Server;
+import ss.project.server.ClientHandler;
+
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Condition;

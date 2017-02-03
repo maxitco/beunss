@@ -1,6 +1,8 @@
-package ss.project;
+package ss.project.view;
 
 import java.io.IOException;
+
+import ss.project.server.Server;
 
 public class ServerTerminal extends Terminal {
     private final Server server;

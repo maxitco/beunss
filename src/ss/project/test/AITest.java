@@ -1,6 +1,10 @@
 package ss.project.test;
 
 import ss.project.*;
+import ss.project.client.ComputerPlayer;
+import ss.project.client.Hard;
+import ss.project.game.Board;
+import ss.project.game.Mark;
 
 public class AITest {
 
