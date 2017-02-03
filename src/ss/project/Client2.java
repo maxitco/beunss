@@ -35,10 +35,10 @@ public class Client2 {
             System.out.println("could not create view");
             System.exit(0);
         }       
-    }  
+    }
     
     public boolean toggleAI() {
-        return this.aiEnabled = !this.aiEnabled;        
+        return this.aiEnabled = !this.aiEnabled;
     }
     
     public String hint() {

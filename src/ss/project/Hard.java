@@ -99,7 +99,7 @@ public class Hard implements Difficulty {
 	
 	public int countSurroundings(Field field, Board board, Mark m) {
     	int result = 0;
-    	for (int z = -1; z <= 0; z++) {
+    	for (int z = -1; z <= 1; z++) {
     		for (int i = -1; i <= 1; i++) {
     			for (int a = -1; a <= 1; a++) {
     				Field neighbour = board.walkField(field, i, a, z);
@@ -107,7 +107,7 @@ public class Hard implements Difficulty {
     				if (neighbour != null) {
     					Mark nextmark = board.getMark(neighbour);
     					if (nextmark != null && nextmark.equals(m)) {
-        					result++;
+        					result ++;
     					}
     				}
     				//next to boundary
