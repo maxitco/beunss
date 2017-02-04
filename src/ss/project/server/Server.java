@@ -35,15 +35,9 @@ public class Server extends Thread {
     
     /**creates ServerSocket on input port.
      * 
-     * @param port 
+     * @param input
      * @throws IOException     
      */
-    //@requires port > 0;
-    //@ensures this.getServerSocket().isBound();
-    public void setPort(int port) throws IOException {       
-        this.serverSocket = new ServerSocket(port);
-    }
-    
     
     //@ requires !this.running && Integer.parseInt(input) > 0;
     //@ ensures this.running && this.getServerSocket().isBound();
@@ -55,7 +49,7 @@ public class Server extends Thread {
             // parse input - the port
             int port = getPort(input);
             try {
-                setPort(port);
+                this.serverSocket = new ServerSocket(port);
                 this.start();
             } catch (IOException e1) {
                 sendToView("Could not create ServerSocket on port: " + port); 
