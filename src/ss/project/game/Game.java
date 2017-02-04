@@ -106,10 +106,10 @@ public class Game extends Thread {
     public boolean gameEnd() {
         //check for disconnected players, then winner, then draw
         if (this.playerList.get(0).disconnected) {
-            notifyEnd(0, 3);
+            notifyEnd(this.playerList.get(0).getPlayerId(), 3);
             return true;
         } else if (this.playerList.get(1).disconnected) {
-            notifyEnd(1, 3);
+            notifyEnd(this.playerList.get(1).getPlayerId(), 3);
             return true;            
         } else if (this.board.isWinner(Mark.Black)) {         
             notifyEnd(this.playerList.get(0).getPlayerId(), 1);   
