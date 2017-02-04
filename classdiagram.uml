@@ -7,7 +7,7 @@
           <packagedElement xmi:type="uml:Package" xmi:id="_DIBxAusaEeaRPtCCR8m55A" name="game">
             <packagedElement xmi:type="uml:Class" xmi:id="_DIMwIOsaEeaRPtCCR8m55A" name="Game" visibility="public">
               <generalization xmi:type="uml:Generalization" xmi:id="_DIQagesaEeaRPtCCR8m55A" general="_DIN-QOsaEeaRPtCCR8m55A"/>
-              <ownedAttribute xmi:type="uml:Property" xmi:id="_DIUE4OsaEeaRPtCCR8m55A" name="playerList" visibility="private" type="_DIRooesaEeaRPtCCR8m55A" isUnique="false">
+              <ownedAttribute xmi:type="uml:Property" xmi:id="_DIUE4OsaEeaRPtCCR8m55A" name="playerList" visibility="private" type="_sHJnoOsfEeagpPVreqOLZw" isUnique="false">
                 <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_DIUE4esaEeaRPtCCR8m55A"/>
                 <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_DIUr8OsaEeaRPtCCR8m55A" value="*"/>
                 <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_DIUr8esaEeaRPtCCR8m55A" name="defaultValue">
@@ -15,7 +15,7 @@
                   <body>new ArrayList&lt;ClientHandler>()</body>
                 </defaultValue>
               </ownedAttribute>
-              <ownedAttribute xmi:type="uml:Property" xmi:id="_DIVTAesaEeaRPtCCR8m55A" name="board" visibility="private" isUnique="false"/>
+              <ownedAttribute xmi:type="uml:Property" xmi:id="_DIVTAesaEeaRPtCCR8m55A" name="board" visibility="private" type="__exgcOsbEeaGGeTgDT8kcg" isUnique="false"/>
               <ownedAttribute xmi:type="uml:Property" xmi:id="_DImYwOsaEeaRPtCCR8m55A" name="answered" visibility="private" isUnique="false">
                 <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
                 <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_DImYwesaEeaRPtCCR8m55A" name="defaultValue">
@@ -35,7 +35,7 @@
                   <body>lock.newCondition()</body>
                 </defaultValue>
               </ownedAttribute>
-              <ownedAttribute xmi:type="uml:Property" xmi:id="_DIuUkesaEeaRPtCCR8m55A" name="server" visibility="private" type="_DIsfYesaEeaRPtCCR8m55A" isUnique="false"/>
+              <ownedAttribute xmi:type="uml:Property" xmi:id="_DIuUkesaEeaRPtCCR8m55A" name="server" visibility="private" type="_sHK1wesfEeagpPVreqOLZw" isUnique="false"/>
               <ownedAttribute xmi:type="uml:Property" xmi:id="_DIu7oOsaEeaRPtCCR8m55A" name="turnCounter" visibility="private" isUnique="false">
                 <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
                 <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_DIu7oesaEeaRPtCCR8m55A" name="defaultValue">
@@ -91,7 +91,7 @@
         //0 --> black
         if (whoseTurn() == 0) {
             //try to make the move, if valid set answered true 
-            if (board.setField(x, y, Mark.Black)) {
+            if (board.setField(x, y, Mark.X)) {
                 notifyMove(x, y, player.getPlayerId());
             } else {
                 //invalid --> return error 5 (invalid move)
@@ -100,7 +100,7 @@
         //1 --> white
         } else {
             //try to make the move, if valid set answered true 
-            if (board.setField(x, y, Mark.White)) {
+            if (board.setField(x, y, Mark.O)) {
                 notifyMove(x, y, player.getPlayerId());
             } else {
                 //invalid --> return error 5 (invalid move)
@@ -142,10 +142,10 @@
     } else if (this.playerList.get(1).disconnected) {
         notifyEnd(this.playerList.get(1).getPlayerId(), 3);
         return true;
-    } else if (this.board.isWinner(Mark.Black)) {
+    } else if (this.board.isWinner(Mark.X)) {
         notifyEnd(this.playerList.get(0).getPlayerId(), 1);
         return true;
-    } else if (this.board.isWinner(Mark.White)) {
+    } else if (this.board.isWinner(Mark.O)) {
         notifyEnd(this.playerList.get(1).getPlayerId(), 1);
         return true;
     //then check for draw
@@ -219,9 +219,11 @@
               </ownedBehavior>
               <ownedOperation xmi:type="uml:Operation" xmi:id="_DIu7ousaEeaRPtCCR8m55A" name="Game" visibility="public" method="_DIzNEOsaEeaRPtCCR8m55A">
                 <ownedParameter xmi:type="uml:Parameter" xmi:id="_DIymAOsaEeaRPtCCR8m55A" name="inServer" type="_DIsfYesaEeaRPtCCR8m55A"/>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_Hq628OsmEeagpPVreqOLZw" name="inServer" type="_sHK1wesfEeagpPVreqOLZw"/>
               </ownedOperation>
               <ownedOperation xmi:type="uml:Operation" xmi:id="_DIz0IOsaEeaRPtCCR8m55A" name="leaveGame" visibility="public" method="_DIz0IusaEeaRPtCCR8m55A">
                 <ownedParameter xmi:type="uml:Parameter" xmi:id="_DIz0IesaEeaRPtCCR8m55A" name="client" type="_DIRooesaEeaRPtCCR8m55A"/>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_Hq7eAOsmEeagpPVreqOLZw" name="client" type="_sHJnoOsfEeagpPVreqOLZw"/>
               </ownedOperation>
               <ownedOperation xmi:type="uml:Operation" xmi:id="_DIz0I-saEeaRPtCCR8m55A" name="isFull" visibility="public" method="_DI0bMesaEeaRPtCCR8m55A">
                 <ownedParameter xmi:type="uml:Parameter" xmi:id="_DI0bMOsaEeaRPtCCR8m55A" direction="return">
@@ -230,9 +232,10 @@
               </ownedOperation>
               <ownedOperation xmi:type="uml:Operation" xmi:id="_DI0bMusaEeaRPtCCR8m55A" name="addPlayer" visibility="public" method="_DI4FkOsaEeaRPtCCR8m55A">
                 <ownedParameter xmi:type="uml:Parameter" xmi:id="_DI3egesaEeaRPtCCR8m55A" name="inputPlayer" type="_DIRooesaEeaRPtCCR8m55A"/>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_Hq8sIOsmEeagpPVreqOLZw" name="inputPlayer" type="_sHJnoOsfEeagpPVreqOLZw"/>
               </ownedOperation>
               <ownedOperation xmi:type="uml:Operation" xmi:id="_DI4FkesaEeaRPtCCR8m55A" name="getPlayerList" visibility="public" method="_DI5TsOsaEeaRPtCCR8m55A">
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_DI4soOsaEeaRPtCCR8m55A" type="_DIRooesaEeaRPtCCR8m55A" direction="return">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_DI4soOsaEeaRPtCCR8m55A" type="_sHJnoOsfEeagpPVreqOLZw" direction="return">
                   <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_DI4soesaEeaRPtCCR8m55A"/>
                   <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_DI4sousaEeaRPtCCR8m55A" value="*"/>
                 </ownedParameter>
@@ -245,6 +248,7 @@
                   <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
                 </ownedParameter>
                 <ownedParameter xmi:type="uml:Parameter" xmi:id="_DI8XAesaEeaRPtCCR8m55A" name="player" type="_DIRooesaEeaRPtCCR8m55A"/>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_Hq9TMOsmEeagpPVreqOLZw" name="player" type="_sHJnoOsfEeagpPVreqOLZw"/>
               </ownedOperation>
               <ownedOperation xmi:type="uml:Operation" xmi:id="_DI8-EesaEeaRPtCCR8m55A" name="notifyMove" visibility="public" method="_DI-zQusaEeaRPtCCR8m55A">
                 <ownedParameter xmi:type="uml:Parameter" xmi:id="_DI-MMOsaEeaRPtCCR8m55A" name="x">
@@ -2281,9 +2285,6 @@
               </ownedOperation>
               <ownedOperation xmi:type="uml:Operation" xmi:id="_0tiOousfEeagpPVreqOLZw" name="run" visibility="public" method="_0ti1sOsfEeagpPVreqOLZw"/>
             </packagedElement>
-            <packagedElement xmi:type="uml:Class" xmi:id="_2PH9MOsfEeagpPVreqOLZw" name="PortException" visibility="public">
-              <generalization xmi:type="uml:Generalization" xmi:id="_2PLAgOsfEeagpPVreqOLZw" general="_2PIkQOsfEeagpPVreqOLZw"/>
-            </packagedElement>
           </packagedElement>
           <packagedElement xmi:type="uml:Package" xmi:id="_719p4OsfEeagpPVreqOLZw" name="view">
             <packagedElement xmi:type="uml:Interface" xmi:id="_71-Q8OsfEeagpPVreqOLZw" name="ClientView" visibility="public">
@@ -2573,12 +2574,49 @@
       <ownedEnd xmi:type="uml:Property" xmi:id="_N2rn4OshEeagpPVreqOLZw" type="_71-Q8esfEeagpPVreqOLZw" association="_N2qZwOshEeagpPVreqOLZw"/>
       <ownedEnd xmi:type="uml:Property" xmi:id="_N2rA0ushEeagpPVreqOLZw" type="_sHK1wesfEeagpPVreqOLZw" association="_N2qZwOshEeagpPVreqOLZw"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Association" xmi:id="_RrogMOshEeagpPVreqOLZw" memberEnd="_RrpHQushEeagpPVreqOLZw _RrpuUOshEeagpPVreqOLZw">
-      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_RrpHQOshEeagpPVreqOLZw" source="org.eclipse.papyrus">
-        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_RrpHQeshEeagpPVreqOLZw" key="nature" value="UML_Nature"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="_SjYOQOsmEeagpPVreqOLZw" memberEnd="_SjY1UusmEeagpPVreqOLZw _SjZcYOsmEeagpPVreqOLZw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_SjY1UOsmEeagpPVreqOLZw" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_SjY1UesmEeagpPVreqOLZw" key="nature" value="UML_Nature"/>
       </eAnnotations>
-      <ownedEnd xmi:type="uml:Property" xmi:id="_RrpuUOshEeagpPVreqOLZw" type="_sHK1wesfEeagpPVreqOLZw" association="_RrogMOshEeagpPVreqOLZw"/>
-      <ownedEnd xmi:type="uml:Property" xmi:id="_RrpHQushEeagpPVreqOLZw" type="__exgcOsbEeaGGeTgDT8kcg" association="_RrogMOshEeagpPVreqOLZw"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_SjZcYOsmEeagpPVreqOLZw" type="_sHJnoOsfEeagpPVreqOLZw" association="_SjYOQOsmEeagpPVreqOLZw">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_TxK3EOsmEeagpPVreqOLZw"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_TxMsQOsmEeagpPVreqOLZw" value="*"/>
+      </ownedEnd>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_SjY1UusmEeagpPVreqOLZw" type="_sHK1wesfEeagpPVreqOLZw" association="_SjYOQOsmEeagpPVreqOLZw"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_aS6s0OsmEeagpPVreqOLZw" memberEnd="_aS7T4OsmEeagpPVreqOLZw _aS7T4esmEeagpPVreqOLZw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_aS6s0esmEeagpPVreqOLZw" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_aS6s0usmEeagpPVreqOLZw" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_aS7T4esmEeagpPVreqOLZw" type="__exgcOsbEeaGGeTgDT8kcg" association="_aS6s0OsmEeagpPVreqOLZw"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_aS7T4OsmEeagpPVreqOLZw" type="_DIMwIOsaEeaRPtCCR8m55A" association="_aS6s0OsmEeagpPVreqOLZw"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_dY178OsmEeagpPVreqOLZw" memberEnd="_dY2jAusmEeagpPVreqOLZw _dY2jA-smEeagpPVreqOLZw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_dY2jAOsmEeagpPVreqOLZw" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_dY2jAesmEeagpPVreqOLZw" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_dY2jA-smEeagpPVreqOLZw" type="_DIMwIOsaEeaRPtCCR8m55A" association="_dY178OsmEeagpPVreqOLZw">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hgzP0OsmEeagpPVreqOLZw"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hg26MOsmEeagpPVreqOLZw" value="*"/>
+      </ownedEnd>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_dY2jAusmEeagpPVreqOLZw" type="_sHK1wesfEeagpPVreqOLZw" association="_dY178OsmEeagpPVreqOLZw"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_kB4FcOsmEeagpPVreqOLZw" memberEnd="_kB4Fc-smEeagpPVreqOLZw _kB4sgOsmEeagpPVreqOLZw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_kB4FcesmEeagpPVreqOLZw" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_kB4FcusmEeagpPVreqOLZw" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_kB4sgOsmEeagpPVreqOLZw" type="_0tekQOsfEeagpPVreqOLZw" association="_kB4FcOsmEeagpPVreqOLZw"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_kB4Fc-smEeagpPVreqOLZw" type="_sHK1wesfEeagpPVreqOLZw" association="_kB4FcOsmEeagpPVreqOLZw"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_1FKnUOsmEeagpPVreqOLZw" memberEnd="_1FL1cOsmEeagpPVreqOLZw _1FL1cesmEeagpPVreqOLZw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_1FLOYOsmEeagpPVreqOLZw" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_1FLOYesmEeagpPVreqOLZw" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_1FL1cesmEeagpPVreqOLZw" type="_DIMwIOsaEeaRPtCCR8m55A" association="_1FKnUOsmEeagpPVreqOLZw"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_1FL1cOsmEeagpPVreqOLZw" type="_sHJnoOsfEeagpPVreqOLZw" association="_1FKnUOsmEeagpPVreqOLZw">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_3EgB0OsmEeagpPVreqOLZw"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_3Eh3AOsmEeagpPVreqOLZw" value="2"/>
+      </ownedEnd>
     </packagedElement>
     <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_DHeXYOsaEeaRPtCCR8m55A">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_DHflgOsaEeaRPtCCR8m55A" source="http://www.eclipse.org/uml2/2.0.0/UML">
@@ -2614,7 +2652,7 @@
   <standard:Create xmi:id="__e2Y8OsbEeaGGeTgDT8kcg" base_BehavioralFeature="__ezVoesbEeaGGeTgDT8kcg"/>
   <PapyrusJava:External xmi:id="_SH4woOscEeaGGeTgDT8kcg" name="Difficulty" base_Classifier="_StsMYOscEeaGGeTgDT8kcg"/>
   <standard:Create xmi:id="_SH8bAOscEeaGGeTgDT8kcg" base_BehavioralFeature="_SH5XsOscEeaGGeTgDT8kcg"/>
-  <PapyrusJava:External xmi:id="_SIAscOscEeaGGeTgDT8kcg" name="ss.project.game.Board" base_Classifier="__exgcOsbEeaGGeTgDT8kcg"/>
+  <PapyrusJava:External xmi:id="_SIAscOscEeaGGeTgDT8kcg" name="Board" base_Classifier="__exgcOsbEeaGGeTgDT8kcg"/>
   <PapyrusJava:External xmi:id="_57bXMOscEeaGGeTgDT8kcg" name="ServerHandler" base_Classifier="_57YT4escEeaGGeTgDT8kcg"/>
   <PapyrusJava:External xmi:id="_57g2wOscEeaGGeTgDT8kcg" name="ss.project.view.ClientView" base_Classifier="_57dzcescEeaGGeTgDT8kcg"/>
   <PapyrusJava:External xmi:id="_57lIMOscEeaGGeTgDT8kcg" name="ComputerPlayer" base_Classifier="_SH1tUOscEeaGGeTgDT8kcg"/>
@@ -2630,7 +2668,7 @@
   <standard:Create xmi:id="_sHXDAOsfEeagpPVreqOLZw" base_BehavioralFeature="_sHSxkOsfEeagpPVreqOLZw"/>
   <PapyrusJava:External xmi:id="_x6Hr0OsfEeagpPVreqOLZw" name="java.net.ServerSocket" base_Classifier="_x6FPkOsfEeagpPVreqOLZw"/>
   <PapyrusJava:External xmi:id="_x6KIEOsfEeagpPVreqOLZw" name="ss.project.view.View" base_Classifier="_x6IS4OsfEeagpPVreqOLZw"/>
-  <PapyrusJava:External xmi:id="_x6NycOsfEeagpPVreqOLZw" name="ClientHandler" base_Classifier="_sHJnoOsfEeagpPVreqOLZw"/>
+  <PapyrusJava:External xmi:id="_x6NycOsfEeagpPVreqOLZw" name="ss.project.server.ClientHandler" base_Classifier="_sHJnoOsfEeagpPVreqOLZw"/>
   <standard:Create xmi:id="_x6Q1wOsfEeagpPVreqOLZw" base_BehavioralFeature="_x6PAk-sfEeagpPVreqOLZw"/>
   <PapyrusJava:Synchronized xmi:id="_x6eRIOsfEeagpPVreqOLZw" base_Operation="_x6bN0esfEeagpPVreqOLZw"/>
   <standard:Create xmi:id="_0thnkOsfEeagpPVreqOLZw" base_BehavioralFeature="_0tfyYOsfEeagpPVreqOLZw"/>
