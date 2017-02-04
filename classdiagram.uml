@@ -2519,8 +2519,8 @@
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_OpGqsOseEeagpPVreqOLZw" value="1"/>
       </ownedEnd>
       <ownedEnd xmi:type="uml:Property" xmi:id="_7eiTQOsdEeagpPVreqOLZw" type="_SH1tUOscEeaGGeTgDT8kcg" association="_7efP8OsdEeagpPVreqOLZw">
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Q-U1oOseEeagpPVreqOLZw"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Q-emoOseEeagpPVreqOLZw" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Q-U1oOseEeagpPVreqOLZw" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Q-emoOseEeagpPVreqOLZw" value="1"/>
       </ownedEnd>
     </packagedElement>
     <packagedElement xmi:type="uml:Association" xmi:id="_Bv9OAOseEeagpPVreqOLZw" name="has" memberEnd="_Bv91EuseEeagpPVreqOLZw _Bv-cIOseEeagpPVreqOLZw">
@@ -2532,8 +2532,8 @@
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_GOUPsOseEeagpPVreqOLZw" value="1"/>
       </ownedEnd>
       <ownedEnd xmi:type="uml:Property" xmi:id="_Bv91EuseEeagpPVreqOLZw" type="_57VQkOscEeaGGeTgDT8kcg" association="_Bv9OAOseEeagpPVreqOLZw">
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KFKlcOseEeagpPVreqOLZw"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KFWLoOseEeagpPVreqOLZw" value="*"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KFKlcOseEeagpPVreqOLZw" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KFWLoOseEeagpPVreqOLZw" value="1"/>
       </ownedEnd>
     </packagedElement>
     <packagedElement xmi:type="uml:Association" xmi:id="_hfwAkOseEeagpPVreqOLZw" name="uses" memberEnd="_hfwAk-seEeagpPVreqOLZw _hfwnoOseEeagpPVreqOLZw">
