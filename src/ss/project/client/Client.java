@@ -55,6 +55,7 @@ public class Client {
     
     public void setAI(ComputerPlayer player) {
         this.ai = player;
+        this.playerName = player.getName();
     }
     
     public void setInGame(boolean input) {
@@ -240,12 +241,7 @@ public class Client {
           }
           sendToView(result);
       }
-    
-    
-    
-    
-
-    
+      
     public String hint() {
         if (inGame && this.currentTurnId == this.playerId) {
             Field field = this.ai.determineMove(this.board, Mark.X);

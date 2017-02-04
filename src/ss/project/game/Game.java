@@ -42,8 +42,7 @@ public class Game extends Thread {
             lock.unlock();
         } else {
             this.playerList.remove(client);
-        }
-        
+        }        
     }
     
     public boolean isFull() {
