@@ -25,6 +25,8 @@ public class Server {
      * @throws IOException
      * @throws PortException
      */
+    //@requires port > 0;
+    //@ensures this.getServerSocket().isBound();
     public Server(int port) throws IOException, PortException {
     	if (port > 0) {
 			this.serverSocket = new ServerSocket(port);	
@@ -38,6 +40,7 @@ public class Server {
     /**Notifies all clients that shutdown will happen, then exit the program and all its threads.
      * 
      */
+    
     public void shutDown() {
         for (ClientHandler client: this.clientHandlerList) {
             client.send("error 1"); //TODO fix better error
@@ -61,10 +64,17 @@ public class Server {
         return this.clientHandlerList;
     }
     
-    /** 
+    /** Returns gameList.
+     * 
+     */
+    /*@ pure */ public ArrayList<Game> getGameList() {
+    	return this.gameList;
+    }
+    /** Creates ClientHandler for new connection.
      * 
      * @throws IOException
      */
+    //@ensures this.getClientHandlerList().size() == \old(this.getClientHandlerList().size()) + 1;
     public void accepter() throws IOException {
     	while (true) {
     		Socket sock = this.getServerSocket().accept();
@@ -74,12 +84,13 @@ public class Server {
     		clientHandler.start();
     	}
     }
-    /**
+    /**join an available game or if none is available create a new game for the player.
+     * synchronized to prevent 2 players joining an existing game at the same moment.
      * 
      * @param inputPlayer
      */
-    //synchronized to prevent 2 players joining an existing game at the same moment.
-    //join an available game or if none is available create a new game for the player.
+    //@requires inputPlayer != null;
+    //@ensures this.getClientHandlerList().size() - (this.getGameList().size() * 2) < 2;
     public synchronized void joinGame(ClientHandler inputPlayer) {
         //search for available games and start them && and player if found
         Game game = null;
