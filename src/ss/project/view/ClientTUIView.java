@@ -29,7 +29,7 @@ public class ClientTUIView extends Terminal implements ClientView {
             if (inputSplit[0].equals("multi")) {
                 send("Enter 'start <playername> <server ip> <port>' to continue.");     
                 this.client.setOnline(true);
-            } else if (inputSplit[0].equals(Protocol.ProtClient.SENDMESSAGE)) {
+            } else if (inputSplit[0].equals(Protocol.ProtClient.SENDMESSAGE) && this.client.canChat) {
                 this.client.sendToServer(input);
             } else if (inputSplit[0].equals("ai") && inputSplit.length == 1) {
                 send("Enter 'start <port> <ai difficulty ('easy'/'medium'/'hard')>' to continue.");
@@ -91,9 +91,9 @@ public class ClientTUIView extends Terminal implements ClientView {
     @Override
     public void atStart() {
         send("During the application you can enter:\n"
-                + "'sendMessage <message>' to chat"
-                + "'hint' when in game to get a move suggested"
-                + "'aitoggle' to enable/disable the computer playing for you"
+                + "'sendMessage <message>' to chat in multiplayer\n"
+                + "'hint' when in game to get a move suggested\n"
+                + "'aitoggle' to enable/disable the computer playing for you\n"
                 + "'exit' to exit the application or \n"
                 + "'restart' to restart the application\n\n");
         send(

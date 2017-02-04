@@ -15,7 +15,7 @@ public class Server extends Thread {
 	private ServerSocket serverSocket;	
 	private View view;
 	public boolean running = false; 
-	public static final String CAPABILITIES = " 2 0 4 4 4 4 0";
+	public static final String CAPABILITIES = " 2 0 4 4 4 4 1";
 	
     private ArrayList<ClientHandler> clientHandlerList = new ArrayList<ClientHandler>();
     private ArrayList<Game> gameList = new ArrayList<Game>();

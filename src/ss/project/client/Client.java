@@ -14,6 +14,7 @@ import ss.project.view.ClientTUIView;
  
 public class Client {    
     private String playerName;
+    public String opponentName;
     private int playerId;
     private Board board;
     private ServerHandler serverHandler;
@@ -22,12 +23,13 @@ public class Client {
     private int currentTurnId;
     private ClientView view;  
     private boolean aiEnabled = false;
+    public boolean canChat;
     private ComputerPlayer ai = new ComputerPlayer(new Hard());
     
     //set standard name for AI
     //view creation is not done in constructor, as for AI clients it is not desired
     public Client() {
-        this.playerName = "NoNamePepeAI";      
+        this.playerName = "NoNamePepeAI";     
     }
     
     //creates a view for the client
@@ -88,7 +90,7 @@ public class Client {
                     sendToServer(Protocol.ProtClient.MAKEMOVE + " " + field.getMove());
                 }
             } else {
-                sendToView("It is the turn of player " + inputSplit[1]);
+                sendToView("It is the turn of player " + this.opponentName);
             }                
         } catch (NumberFormatException e) {
             sendToView("Server is sending rubbish, NumberFormatException");
@@ -152,7 +154,7 @@ public class Client {
     }
     
     /*@ pure */ public String getCapabilities() {
-        return Protocol.ProtClient.SENDCAPABILITIES + " 2 " + this.playerName + " 0 4 4 4 4 0 0";
+        return Protocol.ProtClient.SENDCAPABILITIES + " 2 " + this.playerName + " 0 4 4 4 4 1 0";
     }
     
     public void sendToServer(String input) {

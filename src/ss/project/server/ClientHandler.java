@@ -13,7 +13,9 @@ public class ClientHandler extends Terminal implements Runnable {
 	private String playerName;
 	private int playerId;
 	private Game game;
+	private boolean canChat;
 	public boolean disconnected = false;
+	
 	/*
 	 * variable below is not necessary since we run the basic game
 	 * private String[] clientCapabilities;
@@ -69,11 +71,16 @@ public class ClientHandler extends Terminal implements Runnable {
 	public void setClientCapabilities(String[] inputSplit) {
         // this.clientCapabilities = inputSplit;
         this.playerName = inputSplit[2];
+        if (inputSplit.length > 8 && inputSplit[8].equals("1")) {
+            this.canChat = true; 
+        } else {
+            this.canChat = false;
+        }
 	}
 	
 	@Override
 	public void send(String input) {
-	    if(!disconnected) {
+	    if (!disconnected) {
 	        super.send(input);
 	    }
 	    this.server.sendToView(input);
@@ -82,7 +89,7 @@ public class ClientHandler extends Terminal implements Runnable {
 	@Override
 	public void atStart() {
 	    //first action from the server, send capabilities as described in protocol
-	    send(Protocol.ProtServer.SERVERCAPABILITIES + this.server.CAPABILITIES); 
+	    send(Protocol.ProtServer.SERVERCAPABILITIES + server.CAPABILITIES); 
 	}
 	
 	@Override
@@ -116,7 +123,7 @@ public class ClientHandler extends Terminal implements Runnable {
 	    if (inputSplit[0].equals(Protocol.ProtClient.SENDCAPABILITIES)) {
 	        setClientCapabilities(inputSplit);
 	        this.server.joinGame(this);
-	    } else if (inputSplit[0].equals(Protocol.ProtClient.SENDMESSAGE)) {
+	    } else if (inputSplit[0].equals(Protocol.ProtClient.SENDMESSAGE) && this.canChat) {
 	        this.server.sendChat(inputSplit, this.playerName);
 	    } else if (inputSplit[0].equals(Protocol.ProtClient.MAKEMOVE) && inputSplit.length == 3) {
 	        try {

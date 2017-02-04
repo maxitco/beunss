@@ -5,11 +5,10 @@ import java.net.Socket;
 
 import ss.project.game.Mark;
 import ss.project.game.Protocol;
-import ss.project.game.Protocol.ProtServer;
 import ss.project.view.Terminal;
 
 public class ServerHandler extends Terminal implements Runnable {
-    private Client client;
+    private Client client;    
     
     ServerHandler(Client inputClient, Socket inSock) throws IOException {
         super(inSock.getInputStream(), inSock.getOutputStream());
@@ -61,15 +60,20 @@ public class ServerHandler extends Terminal implements Runnable {
         if (inputSplit[0].equals(Protocol.ProtServer.SERVERCAPABILITIES)) {
             //respond with capabilities of the client
             send(this.client.getCapabilities());
-        } else if (inputSplit[0].equals(Protocol.ProtServer.NOTIFYMESSAGE)) {
+            if (inputSplit.length > 7 && inputSplit[7].equals("1") && this.client.isOnline()) {
+                this.client.canChat = true;
+            } else {
+                this.client.canChat = false;
+            }
+        } else if (inputSplit[0].equals(Protocol.ProtServer.NOTIFYMESSAGE) && this.client.canChat) {
             atNotifyMessage(inputSplit);
         } else if (inputSplit[0].equals(Protocol.ProtServer.ASSIGNID)) {
             atAssignId(inputSplit);                
         } else if (inputSplit[0].equals(Protocol.ProtServer.STARTGAME)) {
             atStartGame(inputSplit);            
-        } else if (inputSplit[0].equals(Protocol.ProtServer.TURNOFPLAYER) && inputSplit.length == 2) {
+        } else if (inputSplit[0].equals(Protocol.ProtServer.TURNOFPLAYER)) {
             this.client.atTurnOfPlayer(inputSplit);                        
-        } else if (inputSplit[0].equals(Protocol.ProtServer.NOTIFYMOVE) && inputSplit.length == 4) {
+        } else if (inputSplit[0].equals(Protocol.ProtServer.NOTIFYMOVE)) {
             atNotifyMove(inputSplit);            
         } else if (inputSplit[0].equals(Protocol.ProtServer.NOTIFYEND) 
             && inputSplit.length == 2 || inputSplit.length == 3
@@ -80,6 +84,10 @@ public class ServerHandler extends Terminal implements Runnable {
         } else {        
             this.client.sendToView("Server is sending an unknown command");            
         }
+    }
+    
+    public boolean isYou(String inputId) {
+        return Integer.parseInt(inputId) == this.client.getPlayerId();
     }
     
     /**
@@ -108,17 +116,41 @@ public class ServerHandler extends Terminal implements Runnable {
         this.client.sendToView("Game has started");
         this.client.refreshBoard();
         this.client.sendToView(this.client.getBoard().toString());
+        
+        //set opponent name as name of player with not this id
+        String[] inputSplit2 = inputSplit[2].split("\\|");
+        String[] inputSplit3 = inputSplit[3].split("\\|");
+        if (
+            Integer.parseInt(inputSplit2[0]) == this.client.getPlayerId() 
+            && inputSplit3.length > 1
+        ) {
+            this.client.opponentName = inputSplit3[1];
+        } else if (
+                Integer.parseInt(inputSplit3[0]) == this.client.getPlayerId() 
+                && inputSplit2.length > 1
+        ) {
+            this.client.opponentName = inputSplit2[1];
+        } else {
+            this.client.sendToView("Could not obtain opponent playername from game start.");
+        }
     }
     
 
     
     public void atNotifyMove(String[] inputSplit) {
       //notify player of the move
-        this.client.sendToView(
-            "Player " + inputSplit[1] 
-            + " has made move x=" + inputSplit[2]
-            + " y=" + inputSplit[3]
-        );
+        if (isYou(inputSplit[1])) {
+            this.client.sendToView(
+                    "You made move x=" + inputSplit[2]
+                    + " y=" + inputSplit[3]
+            );
+        } else {
+            this.client.sendToView(
+                    this.client.opponentName + " made move x=" + inputSplit[2]
+                    + " y=" + inputSplit[3]
+            );
+        }
+        
         
         //try to add the move to the board, needs to have integers for x and y
         try {
@@ -149,9 +181,14 @@ public class ServerHandler extends Terminal implements Runnable {
                     + "type EXIT to exit the game and start a new one");          
         } else if (inputSplit.length == 3) {
             if (inputSplit[1].equals("1")) {
-                this.client.sendToView("Player " + inputSplit[2] + " has won.");
+                if (isYou(inputSplit[2])) {
+                    this.client.sendToView("You have won.");
+                } else {
+                    this.client.sendToView("Player " + this.client.opponentName + " has won.");
+                }
+                
             } else if (inputSplit[1].equals("3")) {
-                this.client.sendToView("Player " + inputSplit[2] + " has disconnected.");
+                this.client.sendToView("Player " + this.client.opponentName + " has disconnected.");
             } else {
                 this.client.sendToView("Unknown game end condition");
             }            
