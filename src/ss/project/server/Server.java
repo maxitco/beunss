@@ -26,7 +26,7 @@ public class Server {
      * @throws PortException
      */
     //@requires port > 0;
-    //@ensures this.getServerSocket().isBound();
+    //@ensures this.getServerSocket() != null;
     public Server(int port) throws IOException, PortException {
     	if (port > 0) {
 			this.serverSocket = new ServerSocket(port);	
@@ -121,9 +121,12 @@ public class Server {
             game.start();
         }        
     }    
-    
-    //getPort function to retrieve port from input
-    //@requires input != null;
+    /** Retrieves port number from string.
+     * 
+     * @param input
+     * @return
+     */
+    //@requires input != null && input.length() > 0;
     //@ensures \result == Integer.parseInt(input) || \result == 0;
     /*@ pure */ public static int getPort(String input) {
         int result = 0;
@@ -137,10 +140,11 @@ public class Server {
         return result;
     }
     
-    /** Starts a Server-application. */
-    /*
-     * args[0] --> port
+    /** Starts a Server-application.
+     *
+     * @param args[0] --> port
      */
+    //@requires getPort(args[0]) != 0;
     public static void main(String[] args) {
     	// check input
     	if (args.length != 1) {
