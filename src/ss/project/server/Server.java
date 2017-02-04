@@ -193,7 +193,7 @@ public class Server extends Thread {
     //@requires getPort(args[0]) != 0;
     public static void main(String[] args) {
     	//create a new server
-    	Server aServer = new Server();          	
+    	new Server();          	
     }
 
 } // end of class Server
