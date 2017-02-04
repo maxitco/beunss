@@ -1,15 +1,10 @@
 package ss.project.view;
 
-import java.util.Observer;
-
 import ss.project.client.Client;
 import ss.project.game.Protocol;
 
-import java.io.BufferedReader;
+
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.Observable;
-import ss.project.*;
 
 public class ClientTUIView extends Terminal implements ClientView {
     
@@ -34,6 +29,8 @@ public class ClientTUIView extends Terminal implements ClientView {
             if (inputSplit[0].equals("multi")) {
                 send("Enter 'start <playername> <server ip> <port>' to continue.");     
                 this.client.setOnline(true);
+            } else if (inputSplit[0].equals(Protocol.ProtClient.SENDMESSAGE)) {
+                this.client.sendToServer(input);
             } else if (inputSplit[0].equals("ai") && inputSplit.length == 1) {
                 send("Enter 'start <port> <ai difficulty ('easy'/'medium'/'hard')>' to continue.");
                 this.client.setOnline(false);
@@ -94,6 +91,7 @@ public class ClientTUIView extends Terminal implements ClientView {
     @Override
     public void atStart() {
         send("During the application you can enter:\n"
+                + "'sendMessage <message>' to chat"
                 + "'hint' when in game to get a move suggested"
                 + "'aitoggle' to enable/disable the computer playing for you"
                 + "'exit' to exit the application or \n"

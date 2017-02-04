@@ -61,6 +61,8 @@ public class ServerHandler extends Terminal implements Runnable {
         if (inputSplit[0].equals(Protocol.ProtServer.SERVERCAPABILITIES)) {
             //respond with capabilities of the client
             send(this.client.getCapabilities());
+        } else if (inputSplit[0].equals(Protocol.ProtServer.NOTIFYMESSAGE)) {
+            atNotifyMessage(inputSplit);
         } else if (inputSplit[0].equals(Protocol.ProtServer.ASSIGNID)) {
             atAssignId(inputSplit);                
         } else if (inputSplit[0].equals(Protocol.ProtServer.STARTGAME)) {
@@ -155,6 +157,15 @@ public class ServerHandler extends Terminal implements Runnable {
             }            
         }
         this.client.setInGame(false);
+    }
+    
+    public void atNotifyMessage(String[] inputSplit) {
+        String result = inputSplit[1] + ": ";
+        
+        for (int i = 2; i < inputSplit.length; i++) {
+            result = result + inputSplit[i] + " ";
+        }
+        this.client.sendToView(result);
     }
 }
 

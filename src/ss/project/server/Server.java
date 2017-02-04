@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 
 import ss.project.game.Game;
+import ss.project.game.Protocol;
 import ss.project.view.View;
 import ss.project.view.ServerTUIView;
 
@@ -34,6 +35,17 @@ public class Server extends Thread {
         new PingThread(this).start();
     }
     
+    public void sendChat(String inputSplit[], String name) {        
+        String result = Protocol.ProtServer.NOTIFYMESSAGE + " " + name + " ";
+        
+        for (int i = 1; i < inputSplit.length; i++) {
+            result = result + inputSplit[i] + " ";
+        }
+        
+        for (ClientHandler c: clientHandlerList) {
+            c.send(result);
+        }
+    }
     //sends ping to all clients to test if each client is still connected    
     public void pingAll() {
         while (true) {
@@ -88,7 +100,11 @@ public class Server extends Thread {
     }
     
     public void sendToView(String input) {
-        this.view.send(input);
+        if (this.view != null) {
+            this.view.send(input);
+        } else {
+            System.out.println("view not yet constructed");
+        }
     }    
     
     /**Notifies all clients that shutdown will happen, then exit the program and all its threads.
@@ -165,7 +181,7 @@ public class Server extends Thread {
         while (game == null && i < this.gameList.size()) {
             //game is available if it is not full
             if (!this.gameList.get(i).isFull()) {
-                System.out.println("game " + i + " was joined");
+                sendToView("game " + i + " was joined");
                 game = this.gameList.get(i);                
             }
             i++; //continue
@@ -173,7 +189,7 @@ public class Server extends Thread {
         
         //if no game found make a new one
         if (game == null) {
-            System.out.println("new game created");
+            sendToView("new game created");
             game = new Game(this); 
             this.gameList.add(game);
         }

@@ -116,6 +116,8 @@ public class ClientHandler extends Terminal implements Runnable {
 	    if (inputSplit[0].equals(Protocol.ProtClient.SENDCAPABILITIES)) {
 	        setClientCapabilities(inputSplit);
 	        this.server.joinGame(this);
+	    } else if (inputSplit[0].equals(Protocol.ProtClient.SENDMESSAGE)) {
+	        this.server.sendChat(inputSplit, this.playerName);
 	    } else if (inputSplit[0].equals(Protocol.ProtClient.MAKEMOVE) && inputSplit.length == 3) {
 	        try {
 	            int x = Integer.parseInt(inputSplit[1]);

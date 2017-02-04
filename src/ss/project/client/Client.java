@@ -24,10 +24,13 @@ public class Client {
     private boolean aiEnabled = false;
     private ComputerPlayer ai = new ComputerPlayer(new Hard());
     
+    //set standard name for AI
+    //view creation is not done in constructor, as for AI clients it is not desired
     public Client() {
-        this.playerName = "NoNamePepe";     //should be overwritten         
+        this.playerName = "NoNamePepeAI";      
     }
     
+    //creates a view for the client
     public void createNewView() {
         try {
             this.view = new ClientTUIView(this);
@@ -153,7 +156,11 @@ public class Client {
     }
     
     public void sendToServer(String input) {
-        this.serverHandler.send(input);
+        if (this.serverHandler != null) {
+            this.serverHandler.send(input);
+        } else {
+            sendToView("Error connection to server is required for this action.");
+        }
     }
     
     public void sendToView(String input) {
