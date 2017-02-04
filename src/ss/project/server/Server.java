@@ -16,19 +16,12 @@ public class Server extends Thread {
 	public boolean running = false; 
 	public static final String CAPABILITIES = " 2 0 4 4 4 4 0";
 	
-  
-    
     private ArrayList<ClientHandler> clientHandlerList = new ArrayList<ClientHandler>();
     private ArrayList<Game> gameList = new ArrayList<Game>();
     
-    /**constructor for server, creates ServerSocket.
+    /** constructs a Server and its view
      * 
-     * @param port 
-     * @throws IOException
-     * @throws PortException
-     */
-    //@requires port > 0;
-    //@ensures this.getServerSocket().isBound();
+     */    
     public Server() {    		
 		try {
 		    this.view = new ServerTUIView(this);
@@ -39,12 +32,21 @@ public class Server extends Thread {
 		}
     }
     
+    
+    /**creates ServerSocket on input port.
+     * 
+     * @param port 
+     * @throws IOException     
+     */
+    //@requires port > 0;
+    //@ensures this.getServerSocket().isBound();
     public void setPort(int port) throws IOException {       
         this.serverSocket = new ServerSocket(port);
     }
     
     
-    
+    //@ requires !this.running && Integer.parseInt(input) > 0;
+    //@ ensures this.running && this.getServerSocket().isBound();
     public void startServer(String input) {
         if (this.running) {
             sendToView("Server already running, exit and restart to run server on different port.");
@@ -56,8 +58,8 @@ public class Server extends Thread {
                 setPort(port);
                 this.start();
             } catch (IOException e1) {
-                sendToView("Could not create ServerSocket on port: " + port);   
-                sendToView("Try again.");
+                sendToView("Could not create ServerSocket on port: " + port); 
+                sendToView("Try again, note that port should not be in use and higher than 0.");
                 this.running = false;
             }
         }
