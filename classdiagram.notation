@@ -4176,7 +4176,7 @@
         <layoutConstraint xmi:type="notation:Location" xmi:id="_7PNWeesgEeagpPVreqOLZw" y="20"/>
       </children>
       <children xmi:type="notation:DecorationNode" xmi:id="_7PNWeusgEeagpPVreqOLZw" type="Association_TargetMultiplicityLabel">
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_7PNWe-sgEeagpPVreqOLZw" y="-20"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_7PNWe-sgEeagpPVreqOLZw" x="-12" y="-17"/>
       </children>
       <styles xmi:type="notation:FontStyle" xmi:id="_7PMvYesgEeagpPVreqOLZw"/>
       <element xmi:type="uml:Association" href="classdiagram.uml#_7OgL0OsgEeagpPVreqOLZw"/>

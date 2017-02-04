@@ -2564,8 +2564,14 @@
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_7OgL0esgEeagpPVreqOLZw" source="org.eclipse.papyrus">
         <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_7OgL0usgEeagpPVreqOLZw" key="nature" value="UML_Nature"/>
       </eAnnotations>
-      <ownedEnd xmi:type="uml:Property" xmi:id="_7OgL1OsgEeagpPVreqOLZw" type="_57VQkOscEeaGGeTgDT8kcg" association="_7OgL0OsgEeagpPVreqOLZw"/>
-      <ownedEnd xmi:type="uml:Property" xmi:id="_7OgL0-sgEeagpPVreqOLZw" type="_71-Q8OsfEeagpPVreqOLZw" association="_7OgL0OsgEeagpPVreqOLZw"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_7OgL1OsgEeagpPVreqOLZw" type="_57VQkOscEeaGGeTgDT8kcg" association="_7OgL0OsgEeagpPVreqOLZw">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1sLSEOsoEeagpPVreqOLZw" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1sSm0OsoEeagpPVreqOLZw" value="1"/>
+      </ownedEnd>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_7OgL0-sgEeagpPVreqOLZw" type="_71-Q8OsfEeagpPVreqOLZw" association="_7OgL0OsgEeagpPVreqOLZw">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_28-yoOsoEeagpPVreqOLZw"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_29IjoOsoEeagpPVreqOLZw" value="1"/>
+      </ownedEnd>
     </packagedElement>
     <packagedElement xmi:type="uml:Association" xmi:id="_N2qZwOshEeagpPVreqOLZw" name="has" memberEnd="_N2rA0ushEeagpPVreqOLZw _N2rn4OshEeagpPVreqOLZw">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_N2rA0OshEeagpPVreqOLZw" source="org.eclipse.papyrus">
