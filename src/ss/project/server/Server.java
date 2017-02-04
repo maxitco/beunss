@@ -69,7 +69,7 @@ public class Server extends Thread {
     
     public void sendToView(String input) {
         this.view.send(input);
-    }
+    }    
     
     /**Notifies all clients that shutdown will happen, then exit the program and all its threads.
      * 
@@ -167,9 +167,12 @@ public class Server extends Thread {
             game.start();
         }        
     }    
-    
-    //getPort function to retrieve port from input
-    //@requires input != null;
+    /** Retrieves port number from string.
+     * 
+     * @param input
+     * @return
+     */
+    //@requires input != null && input.length() > 0;
     //@ensures \result == Integer.parseInt(input) || \result == 0;
     /*@ pure */ public static int getPort(String input) {
         int result = 0;
@@ -183,10 +186,11 @@ public class Server extends Thread {
         return result;
     }
     
-    /** Starts a Server-application. */
-    /*
-     * args[0] --> port
+    /** Starts a Server-application.
+     *
+     * @param args[0] --> port
      */
+    //@requires getPort(args[0]) != 0;
     public static void main(String[] args) {
     	//create a new server
     	Server aServer = new Server();          	
