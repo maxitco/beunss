@@ -186,11 +186,10 @@ public class Server extends Thread {
         return result;
     }
     
-    /** Starts a Server-application.
+    /** Starts a Server-application by creating a new Server.
      *
-     * @param args[0] --> port
+     *
      */
-    //@requires getPort(args[0]) != 0;
     public static void main(String[] args) {
     	//create a new server
     	new Server();          	
