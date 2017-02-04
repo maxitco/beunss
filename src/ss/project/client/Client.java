@@ -13,18 +13,19 @@ import ss.project.view.ClientView;
 import ss.project.view.ClientTUIView;
  
 public class Client {    
-    private String playerName;
-    public String opponentName;
+    private String playerName;    
+    private String opponentName;
     private int playerId;
-    private Board board;
-    private ServerHandler serverHandler;
+    private int currentTurnId;
     private boolean online;
     private boolean inGame = false;
-    private int currentTurnId;
+    private boolean aiEnabled = false;      
+    private Board board;
+    private ServerHandler serverHandler;
     private ClientView view;  
-    private boolean aiEnabled = false;
-    public boolean canChat;
     private ComputerPlayer ai = new ComputerPlayer(new Hard());
+        
+    public boolean canChat;
     
     //set standard name for AI
     //view creation is not done in constructor, as for AI clients it is not desired
@@ -43,23 +44,58 @@ public class Client {
         }       
     }
     
+    //set functions
+    public void setOnline(boolean input) {
+        this.online = input;
+    }
+    
+    public void setPlayerName(String input) {
+        this.playerName = input;        
+    }   
+    
+    public void setAI(ComputerPlayer player) {
+        this.ai = player;
+    }
+    
+    public void setInGame(boolean input) {
+        this.inGame = input;
+    }
+    
+    //get, is and toggle functions
+    /*@ pure */ public ServerHandler getServerHandler() {
+        return this.serverHandler;
+    } 
+      
+    public int getCurrentTurnId() {
+        return this.currentTurnId;
+    }
+    
+    /*@ pure */ public int getPlayerId() {
+        return this.playerId;
+    }  
+    
+    /*@ pure */ public Board getBoard() {
+        return this.board;
+    }  
+    
+    /*@ pure */ public String getCapabilities() {
+        return Protocol.ProtClient.SENDCAPABILITIES + " 2 " + this.playerName + " 0 4 4 4 4 1 0";
+    }
+    
+    /*@ pure */ public boolean isOnline() {
+        return this.online;
+    }
+    
+    /*@ pure */ public boolean isInGame() {
+        return this.inGame;
+    }    
+
     public boolean toggleAI() {
         this.aiEnabled = !this.aiEnabled;
         return aiEnabled;
-    }
+    }    
     
-    public String hint() {
-        if (inGame && this.currentTurnId == this.playerId) {
-            Field field = this.ai.determineMove(this.board, Mark.X);
-            return "move(x y): " + field.getMove();
-        }  else {
-            return "Hint is only available when it is your turn in game.";
-        }
-    }
-    
-    /*
-     * ServerHandler functions
-     */
+    //at functions, linked to serverHandler
     public void atAI(String[] inputSplit) {
         Client client = new Client();
         if (inputSplit[2].equals("easy")) {            
@@ -78,11 +114,10 @@ public class Client {
         //notify the player whose turn it is
         try {
             //get the id of the current player
-            int id = Integer.parseInt(inputSplit[1]);
-            setCurrentTurnId(id);
+            this.currentTurnId = Integer.parseInt(inputSplit[1]);            
 
             //compare current player to clientId to see who it is
-            if (id == getPlayerId()) {
+            if (this.currentTurnId == getPlayerId()) {
                 sendToView("It is your turn, type: 'move <x> <y>' to make a move.");
                 //let the AI make a move for you
                 if (this.aiEnabled) {
@@ -97,64 +132,127 @@ public class Client {
         }
     }
     
-    public void setOnline(boolean input) {
-        this.online = input;
-    }
-    
-    /*@ pure */ public ServerHandler getServerHandler() {
-        return this.serverHandler;
-    } 
+    public void atAssignId(String[] inputSplit) {
+        //set player ID
+          try {
+              this.playerId = Integer.parseInt(inputSplit[1]);              
+              //ask for more client input or notify waiting
+              if (isOnline()) {
+                  sendToView("Connection established, waiting for other players"); 
+              } else if (!isOnline()) {
+                  sendToView("Enter AI difficulty 'easy'/'medium'/'hard'");
+              }
+          } catch (NumberFormatException e) {
+              sendToView("Server is sending rubbish, NumberFormatException");
+          }
+      }
       
-    public void refreshBoard() {
-        this.board = new Board();
-    }
+      public void atStartGame(String[] inputSplit) {
+        //notify the client that the game has started and create a board
+          this.inGame = true;
+          sendToView("Game has started");
+          refreshBoard();
+          sendToView(this.board.toString());
+          
+          //set opponent name as name of player with not this id
+          String[] inputSplit2 = inputSplit[2].split("\\|");
+          String[] inputSplit3 = inputSplit[3].split("\\|");
+          if (
+              Integer.parseInt(inputSplit2[0]) == this.playerId 
+              && inputSplit3.length > 1
+          ) {
+              opponentName = inputSplit3[1];
+          } else if (
+                  Integer.parseInt(inputSplit3[0]) == this.playerId 
+                  && inputSplit2.length > 1
+          ) {
+              opponentName = inputSplit2[1];
+          } else {
+              sendToView("Could not obtain opponent playername from game start.");
+          }
+      }
+      
+
+      
+      public void atNotifyMove(String[] inputSplit) {
+        //notify player of the move
+          if (this.serverHandler.isYou(inputSplit[1])) {
+              sendToView(
+                      "You made move x=" + inputSplit[2]
+                      + " y=" + inputSplit[3]
+              );
+          } else {
+              sendToView(
+                      this.opponentName + " made move x=" + inputSplit[2]
+                      + " y=" + inputSplit[3]
+              );
+          }        
+          
+          //try to add the move to the board, needs to have integers for x and y
+          try {
+              
+              int id = Integer.parseInt(inputSplit[1]);
+              int x = Integer.parseInt(inputSplit[2]);
+              int y = Integer.parseInt(inputSplit[3]);
+              
+              //player is always displayed/playing as Mark.Black
+              if (id == this.playerId) {
+                  this.board.setField(x, y, Mark.X);
+              } else {
+              //opponent is always displayed/playing as Mark.White
+                  this.board.setField(x, y, Mark.O);
+              }
+              //print the current board
+              sendToView(this.board.toString());
+                             
+          } catch (NumberFormatException e) {
+              sendToView("Server is sending rubbish, NumberFormatException");
+          }        
+      }
+      
+      public void atNotifyEnd(String[] inputSplit) {
+          if (inputSplit.length == 2) {
+              //game has ended in a draw, notify client
+              this.serverHandler.send("The game has ended in a draw, "
+                      + "type EXIT to exit the game and start a new one");          
+          } else if (inputSplit.length == 3) {
+              if (inputSplit[1].equals("1")) {
+                  if (this.serverHandler.isYou(inputSplit[2])) {
+                      sendToView("You have won.");
+                  } else {
+                      sendToView("Player " + this.opponentName + " has won.");
+                  }
+                  
+              } else if (inputSplit[1].equals("3")) {
+                  sendToView("Player " + this.opponentName + " has disconnected.");
+              } else {
+                  sendToView("Unknown game end condition");
+              }            
+          }
+          this.inGame = false;
+      }
+      
+      public void atNotifyMessage(String[] inputSplit) {
+          String result = inputSplit[1] + ": ";
+          
+          for (int i = 2; i < inputSplit.length; i++) {
+              result = result + inputSplit[i] + " ";
+          }
+          sendToView(result);
+      }
     
-    public void setPlayerName(String input) {
-        this.playerName = input;        
-    }
     
-    public void setPlayerId(int input) {
-        this.playerId = input;
-    }
     
-    public void setCurrentTurnId(int input) {
-        this.currentTurnId = input;
-    }
     
-    public void setAI(ComputerPlayer player) {
-        this.ai = player;
-    }
+
     
-    public int getCurrentTurnId() {
-        return this.currentTurnId;
-    }
-    
-    public void setInGame(boolean input) {
-        this.inGame = input;
-    }
-    
-    /*@ pure */ public String getPlayerName() {
-        return this.playerName;
-    }  
-    
-    /*@ pure */ public int getPlayerId() {
-        return this.playerId;
-    }  
-    
-    /*@ pure */ public Board getBoard() {
-        return this.board;
-    }  
-    
-    /*@ pure */ public boolean isOnline() {
-        return this.online;
-    }
-    
-    /*@ pure */ public boolean isInGame() {
-        return this.inGame;
-    }
-    
-    /*@ pure */ public String getCapabilities() {
-        return Protocol.ProtClient.SENDCAPABILITIES + " 2 " + this.playerName + " 0 4 4 4 4 1 0";
+    public String hint() {
+        if (inGame && this.currentTurnId == this.playerId) {
+            Field field = this.ai.determineMove(this.board, Mark.X);
+            return "move(x y): " + field.getMove();
+        }  else {
+            return "Hint is only available when it is your turn in game.";
+        }
     }
     
     public void sendToServer(String input) {
@@ -196,6 +294,11 @@ public class Client {
             sendToView("try again");
         }        
     }
+    
+    public void refreshBoard() {
+        this.board = new Board();
+    }
+    
     
     //resets the client
     public void restart() {
