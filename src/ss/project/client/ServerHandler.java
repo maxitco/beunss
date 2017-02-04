@@ -53,7 +53,7 @@ public class ServerHandler extends Terminal implements Runnable {
     
     @Override
     public void handleInput(String input) {
-        System.out.println("server sends: " + input); //for testing
+        //System.out.println("server sends: " + input); //for testing
         //split input around spaces
         String[] inputSplit = input.split(" ");
         

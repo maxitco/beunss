@@ -13,7 +13,8 @@ import ss.project.server.Server;
 public class Game extends Thread {
     private ArrayList<ClientHandler> playerList = new ArrayList<ClientHandler>();
     private Board board;
-    //answered is used for keeping track of client response, true to enter the while loop at the start
+    //answered is used for keeping track of client response, 
+    //true to enter the while loop at the start
     private boolean answered = true; 
     private Lock lock = new ReentrantLock();
     private Condition notAnswered = lock.newCondition();

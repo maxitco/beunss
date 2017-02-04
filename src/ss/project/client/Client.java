@@ -53,7 +53,7 @@ public class Client {
             Field field = this.ai.determineMove(this.board, Mark.Black);
             return "move(x y): " + field.getMove();
         }  else {
-            return "hing is only available when it is your turn in game.";
+            return "Hint is only available when it is your turn in game.";
         }
     }
     

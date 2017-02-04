@@ -83,7 +83,8 @@ public class ClientHandler extends Terminal implements Runnable {
 	    if (!disconnected) {
 	        super.send(input);
 	    }
-	    this.server.sendToView(input);
+	    //send all communication to serverTUI as required
+	    this.server.sendToView("sent(To " + this.playerName + "): " + input);
 	}
 	
 	@Override
@@ -116,6 +117,8 @@ public class ClientHandler extends Terminal implements Runnable {
 	//function to determine which action should be performed upon receiving input from the client
 	@Override
 	public void handleInput(String input) {
+	    //send communication to serverTUI as required
+	    this.server.sendToView("client (" + this.playerName + "): " + input);
 	    //split input around spaces
 	    String[] inputSplit = input.split(" ");
 	    
