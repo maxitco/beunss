@@ -9,7 +9,8 @@ import ss.project.game.Board;
 import ss.project.game.Field;
 import ss.project.game.Mark;
 import ss.project.server.Server;
-import ss.project.view.*;
+import ss.project.view.ClientView;
+import ss.project.view.ClientTUIView;
  
 public class Client {    
     private String playerName;
@@ -19,7 +20,7 @@ public class Client {
     private boolean online;
     private boolean inGame = false;
     private int currentTurnId;
-    private ss.project.view.ClientView view;  
+    private ClientView view;  
     private boolean aiEnabled = false;
     private ComputerPlayer ai = new ComputerPlayer(new Hard());
     
@@ -38,7 +39,8 @@ public class Client {
     }
     
     public boolean toggleAI() {
-        return this.aiEnabled = !this.aiEnabled;
+        this.aiEnabled = !this.aiEnabled;
+        return aiEnabled;
     }
     
     public String hint() {
@@ -55,11 +57,11 @@ public class Client {
      */
     public void atAI(String[] inputSplit) {
         Client client = new Client();
-        if(inputSplit[2].equals("easy")) {            
+        if (inputSplit[2].equals("easy")) {            
             client.setAI(new ComputerPlayer(new Easy()));
-        } else if(inputSplit[2].equals("medium")) {
+        } else if (inputSplit[2].equals("medium")) {
             client.setAI(new ComputerPlayer(new Medium()));
-        } if(inputSplit[2].equals("hard")) {
+        } if (inputSplit[2].equals("hard")) {
             client.setAI(new ComputerPlayer(new Hard()));
         }
         //turn the ai on
@@ -155,7 +157,7 @@ public class Client {
     }
     
     public void sendToView(String input) {
-        if(this.view != null) {
+        if (this.view != null) {
             this.view.send(input);
         }
     }
@@ -189,7 +191,7 @@ public class Client {
     //resets the client
     public void restart() {
         sendToView("\n\nRestarting...");
-        if(this.serverHandler != null) {
+        if (this.serverHandler != null) {
             this.serverHandler.exit();
         }
         this.inGame = false;

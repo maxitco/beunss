@@ -24,12 +24,14 @@ public class Terminal extends Thread {
     }
     
     public void run() {
-        String line = null; 
+        
         atStart();        
-        try {            
+        try {        
+            String line = in.readLine(); 
             //continuously read input and print it
-            while ((line = in.readLine()) != null && !exit) {
+            while (line != null && !exit) {
                 handleInput(line);
+                line = in.readLine();
             }             
         } catch (IOException e) { 
             send("error 4"); 
@@ -43,7 +45,7 @@ public class Terminal extends Thread {
             out.newLine();
             out.flush();
         } catch (IOException e) { 
-             onFailure();
+            onFailure();
         } 
     }
     

@@ -1,19 +1,21 @@
 package ss.project.server;
 
 import java.io.IOException;
-import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
 
-import ss.project.game.Game;
-import ss.project.view.ServerTerminal;
 
-public class Server {
+import ss.project.game.Game;
+import ss.project.view.View;
+import ss.project.view.ServerTUIView;
+
+public class Server extends Thread {
 	private ServerSocket serverSocket;	
-	private ServerTerminal serverTerminal;
-	public static final String NAME = "ServerJR"; 
+	private View view;
+	public boolean running = false; 
 	public static final String CAPABILITIES = " 2 0 4 4 4 4 0";
+	
   
     
     private ArrayList<ClientHandler> clientHandlerList = new ArrayList<ClientHandler>();
@@ -27,14 +29,46 @@ public class Server {
      */
     //@requires port > 0;
     //@ensures this.getServerSocket().isBound();
-    public Server(int port) throws IOException, PortException {
-    	if (port > 0) {
-			this.serverSocket = new ServerSocket(port);	
-			this.serverTerminal = new ServerTerminal(this);
-			serverTerminal.start();
-    	} else {
-    		throw new PortException();
-    	}
+    public Server() {    		
+		try {
+		    this.view = new ServerTUIView(this);
+		    this.view.run();
+		} catch (IOException e1) {
+		    System.out.println("Could not create TUI vor server.");
+		    System.exit(0);
+		}
+    }
+    
+    public void setPort(int port) throws IOException {       
+        this.serverSocket = new ServerSocket(port);
+    }
+    
+    
+    
+    public void startServer(String input) {
+        if (this.running) {
+            sendToView("Server already running, exit and restart to run server on different port.");
+        } else {
+            this.running = true;
+            // parse input - the port
+            int port = getPort(input);
+            try {
+                setPort(port);
+                this.start();
+            } catch (IOException e1) {
+                sendToView("Could not create ServerSocket on port: " + port);   
+                sendToView("Try again.");
+                this.running = false;
+            }
+        }
+    }
+    
+    public void run() {
+        accepter(); 
+    }
+    
+    public void sendToView(String input) {
+        this.view.send(input);
     }
     
     /**Notifies all clients that shutdown will happen, then exit the program and all its threads.
@@ -43,7 +77,7 @@ public class Server {
     
     public void shutDown() {
         for (ClientHandler client: this.clientHandlerList) {
-            client.send("error 1"); //TODO fix better error
+            client.send("serverdown");
         }
         System.exit(0);
     }
@@ -75,13 +109,25 @@ public class Server {
      * @throws IOException
      */
     //@ensures this.getClientHandlerList().size() == \old(this.getClientHandlerList().size()) + 1;
-    public void accepter() throws IOException {
-    	while (true) {
-    		Socket sock = this.getServerSocket().accept();
-    		System.out.println("New client connected!");
-    		ClientHandler clientHandler = new ClientHandler(this, sock);
-    		this.clientHandlerList.add(clientHandler);
-    		clientHandler.start();
+    public void accepter() {
+        
+        sendToView("Server started, ready to accept incoming connections");
+        while (true) {
+    	    Socket sock = null;
+    	    try {
+    	        sock = this.getServerSocket().accept();
+    	        sendToView("New client connected!");
+    	    } catch (IOException e1) {
+    	        sendToView("Could not accept connection on serversocket.");
+    	    }
+    	    
+    	    try {
+    	        ClientHandler clientHandler = new ClientHandler(this, sock);
+    	        this.clientHandlerList.add(clientHandler);
+    	        clientHandler.start();
+    	    } catch (IOException e1) {
+                sendToView("Could not create client handler.");
+            }
     	}
     }
     /**join an available game or if none is available create a new game for the player.
@@ -142,27 +188,8 @@ public class Server {
      * args[0] --> port
      */
     public static void main(String[] args) {
-    	// check input
-    	if (args.length != 1) {
-            System.out.println("Input is not of length 1");
-            System.exit(0);
-        }      
-        
-        // parse args[0] - the port
-        int port = getPort(args[0]);
-	  
-    	// create a Server       
-    	try {
-    	    
-    		new Server(port).accepter();
-    		
-    	} catch (IOException e1) {    		
-    		System.out.println("ERROR: could not create a serversocket on port" + port);    		
-    		System.exit(0);
-    	} catch (PortException e2) {
-    		System.out.println("port should be larger than 0, but was:" + port);    		
-    		System.exit(0);
-    	}   	
+    	//create a new server
+    	Server aServer = new Server();          	
     }
 
 } // end of class Server
