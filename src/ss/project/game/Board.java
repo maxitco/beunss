@@ -169,7 +169,7 @@ public class Board {
 	}
 
 	public Mark getWinner() {
-		Mark m = Mark.Black;
+		Mark m = Mark.X;
 		if (this.isWinner(m) && !this.isWinner(m.other())) {
 			return m;
 		}
@@ -182,7 +182,7 @@ public class Board {
 	}
 
 	public boolean hasEnded() {
-		if (this.isWinner(Mark.Black) || this.isWinner(Mark.White) ||
+		if (this.isWinner(Mark.X) || this.isWinner(Mark.O) ||
 				this.fieldMap.size() == MAXFIELD * MAXFIELD * MAXFIELD) {
 			return true;
 		}

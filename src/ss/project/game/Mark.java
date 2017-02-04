@@ -1,23 +1,24 @@
 package ss.project.game;
 
 public enum Mark {
-    Black,White;
+    X, O;
+	
     
     public Mark other() {
-        if (this == Black) {
-            return White;
+        if (this == X) {
+            return O;
         }
-        if (this == White) {
-            return Black;
+        if (this == O) {
+            return X;
         }
         return null;
     }
     
     public String toString() {
-        if (this == Black) {
+        if (this == X) {
             return new String("X");
         }
-        if (this == White) {
+        if (this == O) {
             return new String("O");
         }
         return "";
