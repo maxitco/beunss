@@ -89,7 +89,7 @@ public class ClientHandler extends Terminal implements Runnable {
 	public void onFailure() {
 	    this.disconnected = true;
 	    if (this.game != null) {
-	        this.game.leaveGame();
+	        this.game.leaveGame(this);
 	    }
 	    
 	    if (this.server != null) {

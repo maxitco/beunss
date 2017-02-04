@@ -19,17 +19,34 @@ public class Server extends Thread {
     private ArrayList<ClientHandler> clientHandlerList = new ArrayList<ClientHandler>();
     private ArrayList<Game> gameList = new ArrayList<Game>();
     
-    /** constructs a Server and its view
+    /** constructs a Server, its view and pingthread
      *  
      */    
-    public Server() {    		
-		try {
+    public Server() {
+        try {
 		    this.view = new ServerTUIView(this);
-		    this.view.run();
+		    this.view.run();		    
 		} catch (IOException e1) {
 		    System.out.println("Could not create TUI vor server.");
 		    System.exit(0);
 		}
+        
+        new PingThread(this).start();
+    }
+    
+    //sends ping to all clients to test if each client is still connected    
+    public void pingAll() {
+        while (true) {
+            for (ClientHandler c: clientHandlerList) {
+                c.send("ping");
+            }
+            
+            try { 
+                wait(100);
+            } catch (InterruptedException e1) {
+                sendToView("pinger interrupted.");
+            }
+        }
     }
     
     public void leaveServer(ClientHandler client) {

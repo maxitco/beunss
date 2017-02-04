@@ -33,10 +33,16 @@ public class Game extends Thread {
     
 
     //break game thread out of the waiting time to go to gameEnd
-    public void leaveGame() {
-        lock.lock();
-        notAnswered.signal();
-        lock.unlock();
+    //or if the game has not started remove dced client from playerList
+    public void leaveGame(ClientHandler client) {
+        if (this.isAlive()) {
+            lock.lock();
+            notAnswered.signal();
+            lock.unlock();
+        } else {
+            this.playerList.remove(client);
+        }
+        
     }
     
     public boolean isFull() {
