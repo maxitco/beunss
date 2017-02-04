@@ -96,8 +96,10 @@ public class ClientHandler extends Terminal implements Runnable {
 	        this.server.leaveServer(this);
 	    }
 	    
+	    //exit the terminal and close its streams.
 	    super.exit();
 	    try {
+	        super.out.flush();
 	        super.in.close();
 	        super.out.close();
 	    } catch (IOException e) {

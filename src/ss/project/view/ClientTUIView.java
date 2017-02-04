@@ -41,9 +41,9 @@ public class ClientTUIView extends Terminal implements ClientView {
                 inputSplit[0].equals("start") && this.client.isOnline() 
                 && inputSplit.length == 4
             ) {
-                this.client.setPlayerName(inputSplit[1]);
-                this.client.connectToServer(inputSplit[2], inputSplit[3]);
                 send("connecting to server...");
+                this.client.setPlayerName(inputSplit[1]);
+                this.client.connectToServer(inputSplit[2], inputSplit[3]);                
             } else if (
                 inputSplit[0].equals("start") && !this.client.isOnline() 
                 && inputSplit.length == 3
