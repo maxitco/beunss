@@ -2,13 +2,13 @@ package ss.project.game;
 
 import java.util.ArrayList;
 import java.util.concurrent.locks.ReentrantLock;
-
-import ss.project.game.Protocol.ProtServer;
-import ss.project.server.ClientHandler;
-
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Condition;
+
+import ss.project.server.ClientHandler;
+import ss.project.server.Server;
+
 
 public class Game extends Thread {
     private ArrayList<ClientHandler> playerList = new ArrayList<ClientHandler>();
@@ -17,16 +17,26 @@ public class Game extends Thread {
     private boolean answered = true; 
     private Lock lock = new ReentrantLock();
     private Condition notAnswered = lock.newCondition();
+    private Server server;
     
     /*
      * counts at which turn the game is
      * starts at 0 since turnCounter++ is at the top of the while loop
      */
     private int turnCounter = 0; 
-    private int timoutCounter;
     
-    public Game() {
+    
+    public Game(Server inServer) {
         this.board = new Board();
+        this.server = inServer;
+    }
+    
+
+    //break game thread out of the waiting time to go to gameEnd
+    public void leaveGame() {
+        lock.lock();
+        notAnswered.signal();
+        lock.unlock();
     }
     
     public boolean isFull() {
@@ -94,8 +104,14 @@ public class Game extends Thread {
     
     //check if the game has ended
     public boolean gameEnd() {
-        //check for winner first, someone could win at turn 64
-        if (this.board.isWinner(Mark.Black)) {         
+        //check for disconnected players, then winner, then draw
+        if (this.playerList.get(0).disconnected) {
+            notifyEnd(0, 3);
+            return true;
+        } else if (this.playerList.get(1).disconnected) {
+            notifyEnd(1, 3);
+            return true;            
+        } else if (this.board.isWinner(Mark.Black)) {         
             notifyEnd(this.playerList.get(0).getPlayerId(), 1);   
             return true;
         } else if (this.board.isWinner(Mark.White)) {
@@ -173,9 +189,15 @@ public class Game extends Thread {
             try {
                 this.notAnswered.await(120, TimeUnit.SECONDS);                
             } catch (InterruptedException e) {
-                System.out.println("interrupted game");
+                for (ClientHandler c: this.playerList) {
+                    c.send(
+                        "Game interrupted."
+                    );          
+                }
             }                            
         }
+        
+        this.server.removeGame(this);
         lock.unlock();
     }
 }

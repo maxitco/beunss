@@ -32,6 +32,13 @@ public class Server extends Thread {
 		}
     }
     
+    public void leaveServer(ClientHandler client) {
+        clientHandlerList.remove(client);
+    }
+    
+    public void removeGame(Game game) {
+        this.gameList.remove(game);
+    }
     
     /**creates ServerSocket on input port.
      * 
@@ -150,7 +157,7 @@ public class Server extends Thread {
         //if no game found make a new one
         if (game == null) {
             System.out.println("new game created");
-            game = new Game(); 
+            game = new Game(this); 
             this.gameList.add(game);
         }
         //add the handler to the game        

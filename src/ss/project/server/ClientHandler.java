@@ -1,29 +1,19 @@
 package ss.project.server;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.net.InetAddress;
-import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.ArrayList;
-import java.lang.Runnable;
 
 import ss.project.game.Game;
 import ss.project.game.Protocol;
-import ss.project.game.Protocol.ProtClient;
-import ss.project.game.Protocol.ProtServer;
 import ss.project.view.Terminal;
 
 
 public class ClientHandler extends Terminal implements Runnable {
 	private final Server server;
-	private final Socket sock;
 	private String playerName;
 	private int playerId;
 	private Game game;
+	public boolean disconnected = false;
 	/*
 	 * variable below is not necessary since we run the basic game
 	 * private String[] clientCapabilities;
@@ -31,8 +21,7 @@ public class ClientHandler extends Terminal implements Runnable {
     
 	public ClientHandler(Server inServer, Socket inSock) throws IOException {
     	super(inSock.getInputStream(), inSock.getOutputStream());
-    	this.server = inServer;
-    	this.sock = inSock;  		
+    	this.server = inServer;    			
     } 
 	
 
@@ -84,8 +73,10 @@ public class ClientHandler extends Terminal implements Runnable {
 	
 	@Override
 	public void send(String input) {
-	    super.send(input);
-	    System.out.println(input);
+	    if(!disconnected) {
+	        super.send(input);
+	    }
+	    this.server.sendToView(input);
 	}
 	
 	@Override
@@ -94,6 +85,17 @@ public class ClientHandler extends Terminal implements Runnable {
 	    send(Protocol.ProtServer.SERVERCAPABILITIES + this.server.CAPABILITIES); 
 	}
 	
+	@Override
+	public void onFailure() {
+	    this.disconnected = true;
+	    if (this.game != null) {
+	        this.game.leaveGame();
+	    }
+	    
+	    if (this.server != null) {
+	        this.server.leaveServer(this);
+	    }
+	}
 	//function to determine which action should be performed upon receiving input from the client
 	@Override
 	public void handleInput(String input) {
