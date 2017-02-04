@@ -12,7 +12,7 @@ public class AITest {
 		Board test = new Board();
 		ComputerPlayer one = new ComputerPlayer(new Hard());
 		ComputerPlayer two = new ComputerPlayer(new Hard());
-		Mark m = Mark.Black;
+		Mark m = Mark.X;
 		while(!test.hasEnded()) {
 			test.setField(one.determineMove(test, m), m);
 			if (test.isWinner(m)) {

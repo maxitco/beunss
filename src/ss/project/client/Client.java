@@ -50,7 +50,7 @@ public class Client {
     
     public String hint() {
         if (inGame && this.currentTurnId == this.playerId) {
-            Field field = this.ai.determineMove(this.board, Mark.Black);
+            Field field = this.ai.determineMove(this.board, Mark.X);
             return "move(x y): " + field.getMove();
         }  else {
             return "Hint is only available when it is your turn in game.";
@@ -86,7 +86,7 @@ public class Client {
                 sendToView("It is your turn, type: 'move <x> <y>' to make a move.");
                 //let the AI make a move for you
                 if (this.aiEnabled) {
-                    Field field = this.ai.determineMove(board, Mark.Black);
+                    Field field = this.ai.determineMove(board, Mark.X);
                     sendToServer(Protocol.ProtClient.MAKEMOVE + " " + field.getMove());
                 }
             } else {

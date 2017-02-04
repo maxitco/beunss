@@ -28,7 +28,7 @@ public class BoardTest {
 	public void testisEmptyField() {
 		Field filler = new Field(1, 1, 0);
 		assertTrue(board.isReachableEmptyField(filler));
-		board.setField(filler, Mark.Black);
+		board.setField(filler, Mark.X);
 		assertFalse(board.isReachableEmptyField(filler));
 	}
 
@@ -37,7 +37,7 @@ public class BoardTest {
 		Field free0 = board.getEmptyField(1, 1);
 		Field expected0 = new Field(1, 1, 0);
 		assertEquals(expected0, free0);
-		board.setField(free0, Mark.Black);
+		board.setField(free0, Mark.X);
 		Field free1 = board.getEmptyField(1, 1);
 		Field expected1 = new Field(1, 1, 1);
 		assertEquals(expected1, free1);
@@ -48,20 +48,20 @@ public class BoardTest {
 	public void testsetField() {
 		//wrong move
 		Field test0 = new Field(1, 1, 1);
-		assertFalse(board.setField(test0, Mark.White));
+		assertFalse(board.setField(test0, Mark.O));
 		assertTrue(board.getMark(test0) == null);
 		//correct move
 		Field test1 = new Field(1, 1, 0);
-		assertTrue(board.setField(test1, Mark.Black));
-		assertEquals(board.getMark(test1), Mark.Black);
+		assertTrue(board.setField(test1, Mark.X));
+		assertEquals(board.getMark(test1), Mark.X);
 		//out of bounds stacking with coordinates
 		for (int i = 0; i <= Board.MAXFIELD; i++) {
-			assertTrue(board.setField(0, 0, Mark.White));
+			assertTrue(board.setField(0, 0, Mark.O));
 		}
-		assertFalse(board.setField(0, 0, Mark.Black));
+		assertFalse(board.setField(0, 0, Mark.X));
 		//check coordinate setting worked correctly
 		Field coord = new Field(0, 0, 0);
-		assertEquals(board.getMark(coord), Mark.White);
+		assertEquals(board.getMark(coord), Mark.O);
 	}
 
 	@Test
@@ -76,8 +76,8 @@ public class BoardTest {
 	public void testgetMark() {
 		Field test = new Field(0, 0, 0);
 		assertEquals(null, board.getMark(test));
-		board.setField(test, Mark.Black);
-		assertEquals(Mark.Black, board.getMark(test));
+		board.setField(test, Mark.X);
+		assertEquals(Mark.X, board.getMark(test));
 		Field badfield = new Field(-1, 0, 0);
 		assertEquals(null, board.getMark(badfield));
 	}
@@ -85,15 +85,15 @@ public class BoardTest {
 	@Test
 	public void testreset() {
 		Field test = new Field(0, 0, 0);
-		board.setField(test, Mark.Black);
-		assertEquals(Mark.Black, board.getMark(test));
+		board.setField(test, Mark.X);
+		assertEquals(Mark.X, board.getMark(test));
 		board.reset();
 		assertEquals(null, board.getMark(test));
 	}
 
 	@Test
 	public void testcheckRow() {
-		Mark m0 = Mark.Black;
+		Mark m0 = Mark.X;
 		Field start = new Field(0, 0, 0);
 		for (int i = 0; i <= Board.MAXFIELD; i++) {
 			board.setField(i, 0, m0.other());
@@ -111,38 +111,38 @@ public class BoardTest {
 	public void testcheckZColums() {
 		//horizontal row
 		for (int i = 0; i <= Board.MAXFIELD; i++) {
-			board.setField(i, 0, Mark.Black);
+			board.setField(i, 0, Mark.X);
 		}
-		assertFalse(board.checkZcolums(Mark.Black));
+		assertFalse(board.checkZcolums(Mark.X));
 		//stack column
 		for (int i = 0; i <= Board.MAXFIELD; i++) {
-			board.setField(1, 1, Mark.Black);
+			board.setField(1, 1, Mark.X);
 		}
-		assertTrue(board.checkZcolums(Mark.Black));
+		assertTrue(board.checkZcolums(Mark.X));
 	}
 
 	@Test
 	public void testcheckPlanes() {
 		//horizontal row in xy-plane
 		for (int i = 0; i <= Board.MAXFIELD; i++) {
-			board.setField(i, 1, Mark.Black);
+			board.setField(i, 1, Mark.X);
 		}
-		assertTrue(board.checkPlanes(Mark.Black));
+		assertTrue(board.checkPlanes(Mark.X));
 		board.reset();
 
 		//vertical row in xy-plane, z=1
-		board.setField(0, 0, Mark.White);
-		board.setField(0, 0, Mark.White);
+		board.setField(0, 0, Mark.O);
+		board.setField(0, 0, Mark.O);
 		for (int i = 1; i <= Board.MAXFIELD; i++) {
-			board.setField(0, i, Mark.Black);
-			board.setField(0, i, Mark.White);
+			board.setField(0, i, Mark.X);
+			board.setField(0, i, Mark.O);
 		}
-		assertFalse(board.checkPlanes(Mark.Black));
-		assertTrue(board.checkPlanes(Mark.White));
+		assertFalse(board.checkPlanes(Mark.X));
+		assertTrue(board.checkPlanes(Mark.O));
 		board.reset();
 
 		//check diagonal plane line (1,0,0 to 1,3,3)
-		Mark m = Mark.Black;
+		Mark m = Mark.X;
 		for (int i = 0; i <= Board.MAXFIELD; i++) {
 			//winning stone
 			board.setField(1, i, m);
@@ -208,7 +208,7 @@ public class BoardTest {
 
 	@Test
 	public void testisWinner() {
-		Mark m = Mark.Black;
+		Mark m = Mark.X;
 		for (int i = 0; i <= Board.MAXFIELD; i++) {
 			board.setField(i, i, m);
 		}
@@ -217,7 +217,7 @@ public class BoardTest {
 
 	@Test
 	public void testgetWinner() {
-		Mark m = Mark.Black;
+		Mark m = Mark.X;
 		assertEquals(null, board.getWinner());
 		for (int i = 0; i <= Board.MAXFIELD; i++) {
 			board.setField(i, 0, m);

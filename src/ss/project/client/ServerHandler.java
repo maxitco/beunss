@@ -161,10 +161,10 @@ public class ServerHandler extends Terminal implements Runnable {
             
             //player is always displayed/playing as Mark.Black
             if (id == this.client.getPlayerId()) {
-                this.client.getBoard().setField(x, y, Mark.Black);
+                this.client.getBoard().setField(x, y, Mark.X);
             } else {
             //opponent is always displayed/playing as Mark.White
-                this.client.getBoard().setField(x, y, Mark.White);
+                this.client.getBoard().setField(x, y, Mark.O);
             }
             //print the current board
             this.client.sendToView(this.client.getBoard().toString());

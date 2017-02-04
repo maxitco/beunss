@@ -72,7 +72,7 @@ public class Game extends Thread {
             //0 --> black
             if (whoseTurn() == 0) {
                 //try to make the move, if valid set answered true 
-                if (board.setField(x, y, Mark.Black)) {
+                if (board.setField(x, y, Mark.X)) {
                     notifyMove(x, y, player.getPlayerId());                    
                 } else {
                     player.send("error 5"); //invalid --> return error 5 (invalid move)
@@ -80,7 +80,7 @@ public class Game extends Thread {
             //1 --> white
             } else {
               //try to make the move, if valid set answered true 
-                if (board.setField(x, y, Mark.White)) {
+                if (board.setField(x, y, Mark.O)) {
                     notifyMove(x, y, player.getPlayerId());                    
                 } else {
                     player.send("error 5"); //invalid --> return error 5 (invalid move)
@@ -118,10 +118,10 @@ public class Game extends Thread {
         } else if (this.playerList.get(1).disconnected) {
             notifyEnd(this.playerList.get(1).getPlayerId(), 3);
             return true;            
-        } else if (this.board.isWinner(Mark.Black)) {         
+        } else if (this.board.isWinner(Mark.X)) {         
             notifyEnd(this.playerList.get(0).getPlayerId(), 1);   
             return true;
-        } else if (this.board.isWinner(Mark.White)) {
+        } else if (this.board.isWinner(Mark.O)) {
             notifyEnd(this.playerList.get(1).getPlayerId(), 1);
             return true;
         //then check for draw
