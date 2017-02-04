@@ -9,6 +9,7 @@ import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
+import java.lang.Runnable;
 
 import ss.project.game.Game;
 import ss.project.game.Protocol;
@@ -16,7 +17,8 @@ import ss.project.game.Protocol.ProtClient;
 import ss.project.game.Protocol.ProtServer;
 import ss.project.view.Terminal;
 
-public class ClientHandler extends Terminal {
+
+public class ClientHandler extends Terminal implements Runnable {
 	private final Server server;
 	private final Socket sock;
 	private String playerName;

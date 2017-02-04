@@ -61,7 +61,7 @@ public class Client {
             client.setAI(new ComputerPlayer(new Easy()));
         } else if (inputSplit[2].equals("medium")) {
             client.setAI(new ComputerPlayer(new Medium()));
-        } if (inputSplit[2].equals("hard")) {
+        } else if (inputSplit[2].equals("hard")) {
             client.setAI(new ComputerPlayer(new Hard()));
         }
         //turn the ai on
@@ -179,7 +179,7 @@ public class Client {
         try {
             Socket sock = new Socket(addr, port);
             this.serverHandler = new ServerHandler(this, sock);
-            this.serverHandler.start();
+            new Thread(this.serverHandler).start();
             sendToView("setting up game...");
         } catch (IOException e) {
             sendToView("ERROR: could not create a socket on " + addr

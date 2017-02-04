@@ -8,7 +8,7 @@ import ss.project.game.Protocol;
 import ss.project.game.Protocol.ProtServer;
 import ss.project.view.Terminal;
 
-public class ServerHandler extends Terminal {
+public class ServerHandler extends Terminal implements Runnable {
     private Client client;
     
     ServerHandler(Client inputClient, Socket inSock) throws IOException {

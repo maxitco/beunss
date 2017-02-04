@@ -20,7 +20,7 @@ public class Server extends Thread {
     private ArrayList<Game> gameList = new ArrayList<Game>();
     
     /** constructs a Server and its view
-     * 
+     *  
      */    
     public Server() {    		
 		try {
@@ -120,7 +120,7 @@ public class Server extends Thread {
     	    try {
     	        ClientHandler clientHandler = new ClientHandler(this, sock);
     	        this.clientHandlerList.add(clientHandler);
-    	        clientHandler.start();
+    	        new Thread(clientHandler).start();
     	    } catch (IOException e1) {
                 sendToView("Could not create client handler.");
             }

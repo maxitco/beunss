@@ -9,7 +9,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 
 
-public class Terminal extends Thread {
+public class Terminal {
     private final BufferedReader in;
     private final BufferedWriter out;
     private boolean exit = false;
