@@ -95,6 +95,14 @@ public class ClientHandler extends Terminal implements Runnable {
 	    if (this.server != null) {
 	        this.server.leaveServer(this);
 	    }
+	    
+	    super.exit();
+	    try {
+	        super.in.close();
+	        super.out.close();
+	    } catch (IOException e) {
+	        this.server.sendToView("could not close streams onFailure of ClientHandler.");
+	    }	    
 	}
 	//function to determine which action should be performed upon receiving input from the client
 	@Override

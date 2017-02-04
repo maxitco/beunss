@@ -10,8 +10,8 @@ import java.io.OutputStream;
 
 
 public class Terminal {
-    private final BufferedReader in;
-    private final BufferedWriter out;
+    protected final BufferedReader in;
+    protected final BufferedWriter out;
     private boolean exit = false;
         
     public Terminal(InputStream in, OutputStream out) throws IOException {
@@ -34,7 +34,7 @@ public class Terminal {
                 line = in.readLine();
             }             
         } catch (IOException e) { 
-            send("error 4"); 
+            onFailure(); 
         } 
     }
     
