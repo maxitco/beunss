@@ -5,16 +5,6 @@
       <packagedElement xmi:type="uml:Package" xmi:id="_DIBxAOsaEeaRPtCCR8m55A" name="ss">
         <packagedElement xmi:type="uml:Package" xmi:id="_DIBxAesaEeaRPtCCR8m55A" name="project">
           <packagedElement xmi:type="uml:Package" xmi:id="_DIBxAusaEeaRPtCCR8m55A" name="game">
-            <packagedElement xmi:type="uml:Enumeration" xmi:id="_DICYEOsaEeaRPtCCR8m55A" name="Mark" visibility="public">
-              <ownedOperation xmi:type="uml:Operation" xmi:id="_DIDmMOsaEeaRPtCCR8m55A" name="other" visibility="public">
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_DIDmMesaEeaRPtCCR8m55A" type="_DICYEOsaEeaRPtCCR8m55A" direction="return"/>
-              </ownedOperation>
-              <ownedOperation xmi:type="uml:Operation" xmi:id="_DIENQOsaEeaRPtCCR8m55A" name="toString" visibility="public">
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_DIIesOsaEeaRPtCCR8m55A" type="_DIE0UOsaEeaRPtCCR8m55A" direction="return"/>
-              </ownedOperation>
-              <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_DICYEesaEeaRPtCCR8m55A" name="Black"/>
-              <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_DIC_IOsaEeaRPtCCR8m55A" name="White"/>
-            </packagedElement>
             <packagedElement xmi:type="uml:Class" xmi:id="_DIMwIOsaEeaRPtCCR8m55A" name="Game" visibility="public">
               <generalization xmi:type="uml:Generalization" xmi:id="_DIQagesaEeaRPtCCR8m55A" general="_DIN-QOsaEeaRPtCCR8m55A"/>
               <ownedAttribute xmi:type="uml:Property" xmi:id="_DIUE4OsaEeaRPtCCR8m55A" name="playerList" visibility="private" type="_DIRooesaEeaRPtCCR8m55A" isUnique="false">
@@ -288,89 +278,6 @@
               <ownedOperation xmi:type="uml:Operation" xmi:id="_DJBPgOsaEeaRPtCCR8m55A" name="notifyEnd" visibility="public" method="_DJBPgesaEeaRPtCCR8m55A"/>
               <ownedOperation xmi:type="uml:Operation" xmi:id="_DJBPgusaEeaRPtCCR8m55A" name="run" visibility="public" method="_DJBPg-saEeaRPtCCR8m55A"/>
             </packagedElement>
-            <packagedElement xmi:type="uml:Class" xmi:id="_DJM1susaEeaRPtCCR8m55A" name="Field" visibility="public">
-              <ownedAttribute xmi:type="uml:Property" xmi:id="_DJctUOsaEeaRPtCCR8m55A" name="x" visibility="public" isUnique="false">
-                <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
-              </ownedAttribute>
-              <ownedAttribute xmi:type="uml:Property" xmi:id="_DJctUesaEeaRPtCCR8m55A" name="y" visibility="public" isUnique="false">
-                <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
-              </ownedAttribute>
-              <ownedAttribute xmi:type="uml:Property" xmi:id="_DJdUYOsaEeaRPtCCR8m55A" name="z" visibility="public" isUnique="false">
-                <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
-              </ownedAttribute>
-              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_DJg-wusaEeaRPtCCR8m55A" name="Field" specification="_DJdUYesaEeaRPtCCR8m55A">
-                <language>JAVA</language>
-                <body>
-    this.x = newx;
-    this.y = newy;
-    this.z = newz;
-</body>
-              </ownedBehavior>
-              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_DJjbAusaEeaRPtCCR8m55A" name="equals" specification="_DJiz8esaEeaRPtCCR8m55A">
-                <language>JAVA</language>
-                <body>
-    if (o instanceof Field) {
-        return this.hashCode() == ((Field) o).hashCode();
-    }
-    return false;
-</body>
-              </ownedBehavior>
-              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_DJkCEusaEeaRPtCCR8m55A" name="hashCode" specification="_DJkCEOsaEeaRPtCCR8m55A">
-                <language>JAVA</language>
-                <body>
-    return x * 100 + y * 10 + z;
-</body>
-              </ownedBehavior>
-              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_DJkpIesaEeaRPtCCR8m55A" name="copy" specification="_DJkCE-saEeaRPtCCR8m55A">
-                <language>JAVA</language>
-                <body>
-    return new Field(this.x, this.y, this.z);
-</body>
-              </ownedBehavior>
-              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_DJlQMOsaEeaRPtCCR8m55A" name="getMove" specification="_DJkpIusaEeaRPtCCR8m55A">
-                <language>JAVA</language>
-                <body>
-    return this.x + &quot; &quot; + this.y;
-</body>
-              </ownedBehavior>
-              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_DJl3QOsaEeaRPtCCR8m55A" name="toString" specification="_DJlQMesaEeaRPtCCR8m55A">
-                <language>JAVA</language>
-                <body>
-    return &quot;(&quot; + this.x + &quot;,&quot; + this.y + &quot;,&quot; + this.z + &quot;)&quot;;
-</body>
-              </ownedBehavior>
-              <ownedOperation xmi:type="uml:Operation" xmi:id="_DJdUYesaEeaRPtCCR8m55A" name="Field" visibility="public" method="_DJg-wusaEeaRPtCCR8m55A">
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_DJgXsOsaEeaRPtCCR8m55A" name="newx">
-                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
-                </ownedParameter>
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_DJg-wOsaEeaRPtCCR8m55A" name="newy">
-                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
-                </ownedParameter>
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_DJg-wesaEeaRPtCCR8m55A" name="newz">
-                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
-                </ownedParameter>
-              </ownedOperation>
-              <ownedOperation xmi:type="uml:Operation" xmi:id="_DJiz8esaEeaRPtCCR8m55A" name="equals" visibility="public" method="_DJjbAusaEeaRPtCCR8m55A">
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_DJjbAOsaEeaRPtCCR8m55A" direction="return">
-                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
-                </ownedParameter>
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_DJjbAesaEeaRPtCCR8m55A" name="o" type="_DJg-w-saEeaRPtCCR8m55A"/>
-              </ownedOperation>
-              <ownedOperation xmi:type="uml:Operation" xmi:id="_DJkCEOsaEeaRPtCCR8m55A" name="hashCode" visibility="public" method="_DJkCEusaEeaRPtCCR8m55A">
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_DJkCEesaEeaRPtCCR8m55A" direction="return">
-                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
-                </ownedParameter>
-              </ownedOperation>
-              <ownedOperation xmi:type="uml:Operation" xmi:id="_DJkCE-saEeaRPtCCR8m55A" name="copy" visibility="public" method="_DJkpIesaEeaRPtCCR8m55A">
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_DJkpIOsaEeaRPtCCR8m55A" type="_DJM1susaEeaRPtCCR8m55A" direction="return"/>
-              </ownedOperation>
-              <ownedOperation xmi:type="uml:Operation" xmi:id="_DJkpIusaEeaRPtCCR8m55A" name="getMove" visibility="public" method="_DJlQMOsaEeaRPtCCR8m55A">
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_DJkpI-saEeaRPtCCR8m55A" type="_DIE0UOsaEeaRPtCCR8m55A" direction="return"/>
-              </ownedOperation>
-              <ownedOperation xmi:type="uml:Operation" xmi:id="_DJlQMesaEeaRPtCCR8m55A" name="toString" visibility="public" method="_DJl3QOsaEeaRPtCCR8m55A">
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_DJlQMusaEeaRPtCCR8m55A" type="_DIE0UOsaEeaRPtCCR8m55A" direction="return"/>
-              </ownedOperation>
-            </packagedElement>
             <packagedElement xmi:type="uml:Class" xmi:id="_DJo6kOsaEeaRPtCCR8m55A" name="Protocol" visibility="public">
               <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_DJ2V8OsaEeaRPtCCR8m55A" name="getError" specification="_DJ1H0OsaEeaRPtCCR8m55A">
                 <language>JAVA</language>
@@ -541,6 +448,2014 @@
                 </ownedAttribute>
               </nestedClassifier>
             </packagedElement>
+            <packagedElement xmi:type="uml:Class" xmi:id="__exgcOsbEeaGGeTgDT8kcg" name="Board" visibility="public">
+              <ownedAttribute xmi:type="uml:Property" xmi:id="__eyHgOsbEeaGGeTgDT8kcg" name="MAXFIELD" visibility="public" isLeaf="true" isStatic="true" isUnique="false">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+                <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="__eyukOsbEeaGGeTgDT8kcg" name="defaultValue">
+                  <language>JAVA</language>
+                  <body>3</body>
+                </defaultValue>
+              </ownedAttribute>
+              <ownedAttribute xmi:type="uml:Property" xmi:id="__eyukesbEeaGGeTgDT8kcg" name="fieldMap" visibility="private" type="_DJGIAusaEeaRPtCCR8m55A" isUnique="false">
+                <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="__ezVoOsbEeaGGeTgDT8kcg" name="defaultValue">
+                  <language>JAVA</language>
+                  <body>new HashMap&lt;Field, Mark>()</body>
+                </defaultValue>
+              </ownedAttribute>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="__e4OIOsbEeaGGeTgDT8kcg" name="Board" specification="__ezVoesbEeaGGeTgDT8kcg">
+                <language>JAVA</language>
+                <body>
+    this.reset();
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="__e41MusbEeaGGeTgDT8kcg" name="copy" specification="__e41MOsbEeaGGeTgDT8kcg">
+                <language>JAVA</language>
+                <body>
+    Board copy = new Board();
+    for (int x = 0; x &lt;= MAXFIELD; x++) {
+        for (int y = 0; y &lt;= MAXFIELD; y++) {
+            for (int z = 0; z &lt;= MAXFIELD; z++) {
+                Field field = new Field(x, y, z);
+                if (!this.isEmptyField(field)) {
+                    copy.fieldMap.put(field, this.getMark(field));
+                }
+            }
+        }
+    }
+    return copy;
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="__e6qYOsbEeaGGeTgDT8kcg" name="isField" specification="__e5cQOsbEeaGGeTgDT8kcg">
+                <language>JAVA</language>
+                <body>
+    return field.x >= 0 &amp;&amp; field.x &lt;= MAXFIELD &amp;&amp; field.y >= 0 &amp;&amp; field.y &lt;= MAXFIELD &amp;&amp; field.z >= 0 &amp;&amp; field.z &lt;= MAXFIELD;
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="__e7RcusbEeaGGeTgDT8kcg" name="isReachableEmptyField" specification="__e6qYesbEeaGGeTgDT8kcg">
+                <language>JAVA</language>
+                <body>
+    Field copy = field.copy();
+    //check fields below
+    while ((copy = this.walkField(copy, 0, 0, -1)) != null) {
+        if (!this.fieldMap.containsKey(copy)) {
+            return false;
+        }
+    }
+    return this.isField(field) &amp;&amp; !this.fieldMap.containsKey(field);
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="__e8fkesbEeaGGeTgDT8kcg" name="isEmptyField" specification="__e74gOsbEeaGGeTgDT8kcg">
+                <language>JAVA</language>
+                <body>
+    return !this.fieldMap.containsKey(field);
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="__e9tsOsbEeaGGeTgDT8kcg" name="getEmptyField" specification="__e8fkusbEeaGGeTgDT8kcg">
+                <language>JAVA</language>
+                <body>
+    Field empty = new Field(x, y, 0);
+    if (this.isReachableEmptyField(empty)) {
+        return empty;
+    } else {
+        while ((empty = walkField(empty, 0, 0, 1)) != null) {
+            if (this.isReachableEmptyField(empty)) {
+                return empty;
+            }
+        }
+    }
+    return null;
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="__fDNQOsbEeaGGeTgDT8kcg" name="setField" specification="__fBYEOsbEeaGGeTgDT8kcg">
+                <language>JAVA</language>
+                <body>
+    if (this.isReachableEmptyField(field)) {
+        this.fieldMap.put(field, m);
+        return true;
+    }
+    return false;
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="__fGQkusbEeaGGeTgDT8kcg" name="walkField" specification="__fD0UOsbEeaGGeTgDT8kcg">
+                <language>JAVA</language>
+                <body>
+    Field nextfield = new Field(field.x + xoff, field.y + yoff, field.z + zoff);
+    if (this.isField(nextfield)) {
+        return nextfield;
+    }
+    return null;
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="__fIFwesbEeaGGeTgDT8kcg" name="setField" specification="__fG3oOsbEeaGGeTgDT8kcg">
+                <language>JAVA</language>
+                <body>
+    Field newfield = this.getEmptyField(x, y);
+    if (newfield != null) {
+        return this.setField(newfield, m);
+    }
+    return false;
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="__fJT4OsbEeaGGeTgDT8kcg" name="getMark" specification="__fIFwusbEeaGGeTgDT8kcg">
+                <language>JAVA</language>
+                <body>
+    if (this.isField(field)) {
+        return this.fieldMap.get(field);
+    }
+    return null;
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="__fJT4usbEeaGGeTgDT8kcg" name="reset" specification="__fJT4esbEeaGGeTgDT8kcg">
+                <language>JAVA</language>
+                <body>
+    this.fieldMap.clear();
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="__fLJEusbEeaGGeTgDT8kcg" name="checkRow" specification="__fJ68OsbEeaGGeTgDT8kcg">
+                <language>JAVA</language>
+                <body>
+    Field checker = start.copy();
+    int count = 0;
+    do {
+        if (this.isEmptyField(checker) || !this.getMark(checker).equals(m)) {
+            return false;
+        }
+        count++;
+        checker = this.walkField(checker, xdir, ydir, zdir);
+    } while (checker != null);
+    if (count == MAXFIELD + 1) {
+        return true;
+    }
+    return false;
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="__fMXMOsbEeaGGeTgDT8kcg" name="checkZcolums" specification="__fLwIOsbEeaGGeTgDT8kcg">
+                <language>JAVA</language>
+                <body>
+    for (int x = 0; x &lt;= MAXFIELD; x++) {
+        for (int y = 0; y &lt;= MAXFIELD; y++) {
+            Field zchecker = new Field(x, y, 0);
+            if (this.checkRow(zchecker, 0, 0, 1, m)) {
+                return true;
+            }
+        }
+    }
+    return false;
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="__fNlUOsbEeaGGeTgDT8kcg" name="checkPlanes" specification="__fMXMesbEeaGGeTgDT8kcg">
+                <language>JAVA</language>
+                <body>
+    for (int i = 0; i &lt;= MAXFIELD; i++) {
+        //check all x-y planes
+        for (int z = 0; z &lt;= MAXFIELD; z++) {
+            Field xchecker = new Field(0, i, z);
+            Field ychecker = new Field(i, 0, z);
+            if (this.checkRow(xchecker, 1, 0, 0, m) || this.checkRow(ychecker, 0, 1, 0, m)) {
+                return true;
+            }
+        }
+        //check diagonal planes
+        //startpoint x axis
+        Field yzchecker = new Field(i, 0, 0);
+        //startpoint y axis
+        Field xzchecker = new Field(0, i, 0);
+        //opposite startpoint x axis
+        Field yzdownchecker = new Field(i, MAXFIELD, 0);
+        //opposite startpoint y axis
+        Field xzdownchecker = new Field(MAXFIELD, i, 0);
+        //check cross-planes
+        Field crosschecker = new Field(0, 0, i);
+        Field crossdownchecker = new Field(0, MAXFIELD, i);
+        if (this.checkRow(yzchecker, 0, 1, 1, m) || this.checkRow(xzchecker, 1, 0, 1, m) || this.checkRow(yzdownchecker, 0, -1, 1, m) || this.checkRow(xzdownchecker, -1, 0, 1, m) || this.checkRow(crosschecker, 1, 1, 0, m) || this.checkRow(crossdownchecker, 1, -1, 0, m)) {
+            return true;
+        }
+    }
+    return false;
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="__fOzcOsbEeaGGeTgDT8kcg" name="isWinner" specification="__fNlUesbEeaGGeTgDT8kcg">
+                <language>JAVA</language>
+                <body>
+    return this.checkPlanes(m) || this.checkZcolums(m);
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="__fPagOsbEeaGGeTgDT8kcg" name="getWinner" specification="__fOzcesbEeaGGeTgDT8kcg">
+                <language>JAVA</language>
+                <body>
+    Mark m = Mark.X;
+    if (this.isWinner(m) &amp;&amp; !this.isWinner(m.other())) {
+        return m;
+    } else if (this.isWinner(m.other())) {
+        return m.other();
+    } else {
+        return null;
+    }
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="__fPag-sbEeaGGeTgDT8kcg" name="hasEnded" specification="__fPagesbEeaGGeTgDT8kcg">
+                <language>JAVA</language>
+                <body>
+    if (this.isWinner(Mark.X) || this.isWinner(Mark.O) || this.fieldMap.size() == MAXFIELD * MAXFIELD * MAXFIELD) {
+        return true;
+    }
+    return false;
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="__fQooOsbEeaGGeTgDT8kcg" name="toString" specification="__fQBkOsbEeaGGeTgDT8kcg">
+                <language>JAVA</language>
+                <body>
+    String result = &quot;&quot;;
+    for (int y = MAXFIELD; y >= 0; y--) {
+        for (int z = 0; z &lt;= MAXFIELD; z++) {
+            result = result + y;
+            for (int x = 0; x &lt;= MAXFIELD; x++) {
+                Field out = new Field(x, y, z);
+                if (this.isEmptyField(out)) {
+                    result = result + &quot;[ ]&quot;;
+                } else {
+                    result = result + &quot;[&quot; + this.getMark(out).toString() + &quot;]&quot;;
+                }
+            }
+            result = result + &quot;   &quot;;
+        }
+        result = result + &quot;\n&quot;;
+    }
+    return result;
+</body>
+              </ownedBehavior>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="__ezVoesbEeaGGeTgDT8kcg" name="Board" visibility="public" method="__e4OIOsbEeaGGeTgDT8kcg"/>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="__e41MOsbEeaGGeTgDT8kcg" name="copy" visibility="public" method="__e41MusbEeaGGeTgDT8kcg">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="__e41MesbEeaGGeTgDT8kcg" type="__exgcOsbEeaGGeTgDT8kcg" direction="return"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="__e5cQOsbEeaGGeTgDT8kcg" name="isField" visibility="public" method="__e6qYOsbEeaGGeTgDT8kcg">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="__e6DUOsbEeaGGeTgDT8kcg" direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
+                </ownedParameter>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="__e6DUesbEeaGGeTgDT8kcg" name="field"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="__e6qYesbEeaGGeTgDT8kcg" name="isReachableEmptyField" visibility="public" method="__e7RcusbEeaGGeTgDT8kcg">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="__e7RcOsbEeaGGeTgDT8kcg" direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
+                </ownedParameter>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="__e7RcesbEeaGGeTgDT8kcg" name="field"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="__e74gOsbEeaGGeTgDT8kcg" name="isEmptyField" visibility="public" method="__e8fkesbEeaGGeTgDT8kcg">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="__e74gesbEeaGGeTgDT8kcg" direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
+                </ownedParameter>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="__e8fkOsbEeaGGeTgDT8kcg" name="field"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="__e8fkusbEeaGGeTgDT8kcg" name="getEmptyField" visibility="public" method="__e9tsOsbEeaGGeTgDT8kcg">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="__e9GoOsbEeaGGeTgDT8kcg" direction="return"/>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="__e9GoesbEeaGGeTgDT8kcg" name="x">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+                </ownedParameter>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="__e9GousbEeaGGeTgDT8kcg" name="y">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+                </ownedParameter>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="__fBYEOsbEeaGGeTgDT8kcg" name="setField" visibility="public" method="__fDNQOsbEeaGGeTgDT8kcg">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="__fB_IOsbEeaGGeTgDT8kcg" direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
+                </ownedParameter>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="__fB_IesbEeaGGeTgDT8kcg" name="field"/>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="__fCmMOsbEeaGGeTgDT8kcg" name="m"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="__fD0UOsbEeaGGeTgDT8kcg" name="walkField" visibility="public" method="__fGQkusbEeaGGeTgDT8kcg">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="__fEbYOsbEeaGGeTgDT8kcg" direction="return"/>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="__fFCcOsbEeaGGeTgDT8kcg" name="field"/>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="__fFpgOsbEeaGGeTgDT8kcg" name="xoff">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+                </ownedParameter>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="__fGQkOsbEeaGGeTgDT8kcg" name="yoff">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+                </ownedParameter>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="__fGQkesbEeaGGeTgDT8kcg" name="zoff">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+                </ownedParameter>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="__fG3oOsbEeaGGeTgDT8kcg" name="setField" visibility="public" method="__fIFwesbEeaGGeTgDT8kcg">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="__fHesOsbEeaGGeTgDT8kcg" direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
+                </ownedParameter>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="__fHesesbEeaGGeTgDT8kcg" name="x">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+                </ownedParameter>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="__fHesusbEeaGGeTgDT8kcg" name="y">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+                </ownedParameter>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="__fIFwOsbEeaGGeTgDT8kcg" name="m"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="__fIFwusbEeaGGeTgDT8kcg" name="getMark" visibility="public" method="__fJT4OsbEeaGGeTgDT8kcg">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="__fIs0OsbEeaGGeTgDT8kcg" direction="return"/>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="__fIs0esbEeaGGeTgDT8kcg" name="field"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="__fJT4esbEeaGGeTgDT8kcg" name="reset" visibility="public" method="__fJT4usbEeaGGeTgDT8kcg"/>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="__fJ68OsbEeaGGeTgDT8kcg" name="checkRow" visibility="public" method="__fLJEusbEeaGGeTgDT8kcg">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="__fJ68esbEeaGGeTgDT8kcg" direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
+                </ownedParameter>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="__fKiAOsbEeaGGeTgDT8kcg" name="start"/>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="__fKiAesbEeaGGeTgDT8kcg" name="xdir">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+                </ownedParameter>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="__fKiAusbEeaGGeTgDT8kcg" name="ydir">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+                </ownedParameter>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="__fLJEOsbEeaGGeTgDT8kcg" name="zdir">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+                </ownedParameter>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="__fLJEesbEeaGGeTgDT8kcg" name="m"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="__fLwIOsbEeaGGeTgDT8kcg" name="checkZcolums" visibility="public" method="__fMXMOsbEeaGGeTgDT8kcg">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="__fLwIesbEeaGGeTgDT8kcg" direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
+                </ownedParameter>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="__fLwIusbEeaGGeTgDT8kcg" name="m"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="__fMXMesbEeaGGeTgDT8kcg" name="checkPlanes" visibility="public" method="__fNlUOsbEeaGGeTgDT8kcg">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="__fM-QOsbEeaGGeTgDT8kcg" direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
+                </ownedParameter>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="__fM-QesbEeaGGeTgDT8kcg" name="m"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="__fNlUesbEeaGGeTgDT8kcg" name="isWinner" visibility="public" method="__fOzcOsbEeaGGeTgDT8kcg">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="__fOMYOsbEeaGGeTgDT8kcg" direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
+                </ownedParameter>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="__fOMYesbEeaGGeTgDT8kcg" name="m"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="__fOzcesbEeaGGeTgDT8kcg" name="getWinner" visibility="public" method="__fPagOsbEeaGGeTgDT8kcg">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="__fOzcusbEeaGGeTgDT8kcg" direction="return"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="__fPagesbEeaGGeTgDT8kcg" name="hasEnded" visibility="public" method="__fPag-sbEeaGGeTgDT8kcg">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="__fPagusbEeaGGeTgDT8kcg" direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
+                </ownedParameter>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="__fQBkOsbEeaGGeTgDT8kcg" name="toString" visibility="public" method="__fQooOsbEeaGGeTgDT8kcg">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="__fQBkesbEeaGGeTgDT8kcg" type="_DIE0UOsaEeaRPtCCR8m55A" direction="return"/>
+              </ownedOperation>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Enumeration" xmi:id="_BwkckOsfEeagpPVreqOLZw" name="Mark" visibility="public">
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_BwmRwesfEeagpPVreqOLZw" name="other" visibility="public">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_Bwm40OsfEeagpPVreqOLZw" type="_BwkckOsfEeagpPVreqOLZw" direction="return"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_Bwnf4OsfEeagpPVreqOLZw" name="toString" visibility="public">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_Bwnf4esfEeagpPVreqOLZw" type="_DIE0UOsaEeaRPtCCR8m55A" direction="return"/>
+              </ownedOperation>
+              <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_BwlqsOsfEeagpPVreqOLZw" name="X"/>
+              <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_BwmRwOsfEeagpPVreqOLZw" name="O"/>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Class" xmi:id="_Inc_YOsgEeagpPVreqOLZw" name="Field" visibility="public">
+              <ownedAttribute xmi:type="uml:Property" xmi:id="_IndmcOsgEeagpPVreqOLZw" name="x" visibility="public" isUnique="false">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+              </ownedAttribute>
+              <ownedAttribute xmi:type="uml:Property" xmi:id="_IndmcesgEeagpPVreqOLZw" name="y" visibility="public" isUnique="false">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+              </ownedAttribute>
+              <ownedAttribute xmi:type="uml:Property" xmi:id="_IndmcusgEeagpPVreqOLZw" name="z" visibility="public" isUnique="false">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+              </ownedAttribute>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_InhQ0OsgEeagpPVreqOLZw" name="Field" specification="_Indmc-sgEeagpPVreqOLZw">
+                <language>JAVA</language>
+                <body>
+    this.x = newx;
+    this.y = newy;
+    this.z = newz;
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_Inh34usgEeagpPVreqOLZw" name="equals" specification="_InhQ0esgEeagpPVreqOLZw">
+                <language>JAVA</language>
+                <body>
+    if (o instanceof Field) {
+        return this.hashCode() == ((Field) o).hashCode();
+    }
+    return false;
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_Inie8esgEeagpPVreqOLZw" name="hashCode" specification="_Inh34-sgEeagpPVreqOLZw">
+                <language>JAVA</language>
+                <body>
+    return x * 100 + y * 10 + z;
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_InjGAOsgEeagpPVreqOLZw" name="copy" specification="_Inie8usgEeagpPVreqOLZw">
+                <language>JAVA</language>
+                <body>
+    return new Field(this.x, this.y, this.z);
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_InjGA-sgEeagpPVreqOLZw" name="getMove" specification="_InjGAesgEeagpPVreqOLZw">
+                <language>JAVA</language>
+                <body>
+    return this.x + &quot; &quot; + this.y;
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_InjtEusgEeagpPVreqOLZw" name="toString" specification="_InjtEOsgEeagpPVreqOLZw">
+                <language>JAVA</language>
+                <body>
+    return &quot;(&quot; + this.x + &quot;,&quot; + this.y + &quot;,&quot; + this.z + &quot;)&quot;;
+</body>
+              </ownedBehavior>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_Indmc-sgEeagpPVreqOLZw" name="Field" visibility="public" method="_InhQ0OsgEeagpPVreqOLZw">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_IngpwOsgEeagpPVreqOLZw" name="newx">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+                </ownedParameter>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_IngpwesgEeagpPVreqOLZw" name="newy">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+                </ownedParameter>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_IngpwusgEeagpPVreqOLZw" name="newz">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+                </ownedParameter>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_InhQ0esgEeagpPVreqOLZw" name="equals" visibility="public" method="_Inh34usgEeagpPVreqOLZw">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_Inh34OsgEeagpPVreqOLZw" direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
+                </ownedParameter>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_Inh34esgEeagpPVreqOLZw" name="o" type="_DJg-w-saEeaRPtCCR8m55A"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_Inh34-sgEeagpPVreqOLZw" name="hashCode" visibility="public" method="_Inie8esgEeagpPVreqOLZw">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_Inie8OsgEeagpPVreqOLZw" direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+                </ownedParameter>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_Inie8usgEeagpPVreqOLZw" name="copy" visibility="public" method="_InjGAOsgEeagpPVreqOLZw">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_Inie8-sgEeagpPVreqOLZw" type="_Inc_YOsgEeagpPVreqOLZw" direction="return"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_InjGAesgEeagpPVreqOLZw" name="getMove" visibility="public" method="_InjGA-sgEeagpPVreqOLZw">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_InjGAusgEeagpPVreqOLZw" type="_DIE0UOsaEeaRPtCCR8m55A" direction="return"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_InjtEOsgEeagpPVreqOLZw" name="toString" visibility="public" method="_InjtEusgEeagpPVreqOLZw">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_InjtEesgEeagpPVreqOLZw" type="_DIE0UOsaEeaRPtCCR8m55A" direction="return"/>
+              </ownedOperation>
+            </packagedElement>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Package" xmi:id="_SH1GQOscEeaGGeTgDT8kcg" name="client">
+            <packagedElement xmi:type="uml:Class" xmi:id="_SH1tUOscEeaGGeTgDT8kcg" name="ComputerPlayer" visibility="public">
+              <ownedAttribute xmi:type="uml:Property" xmi:id="_SH4woescEeaGGeTgDT8kcg" name="difficulty" visibility="private" type="_StsMYOscEeaGGeTgDT8kcg" isUnique="false"/>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_SH9CEescEeaGGeTgDT8kcg" name="ComputerPlayer" specification="_SH5XsOscEeaGGeTgDT8kcg">
+                <language>JAVA</language>
+                <body>
+    this.difficulty = newdiff;
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_SH9pIuscEeaGGeTgDT8kcg" name="getName" specification="_SH9pIOscEeaGGeTgDT8kcg">
+                <language>JAVA</language>
+                <body>
+    return this.difficulty.getName() + &quot; Computer Player&quot;;
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_SIB6kescEeaGGeTgDT8kcg" name="determineMove" specification="_SIAscescEeaGGeTgDT8kcg">
+                <language>JAVA</language>
+                <body>
+    return this.difficulty.determineMove(board, m);
+</body>
+              </ownedBehavior>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_SH5XsOscEeaGGeTgDT8kcg" name="ComputerPlayer" visibility="public" method="_SH9CEescEeaGGeTgDT8kcg">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_SH9CEOscEeaGGeTgDT8kcg" name="newdiff" type="_StsMYOscEeaGGeTgDT8kcg"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_SH9pIOscEeaGGeTgDT8kcg" name="getName" visibility="public" method="_SH9pIuscEeaGGeTgDT8kcg">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_SH9pIescEeaGGeTgDT8kcg" type="_DIE0UOsaEeaRPtCCR8m55A" direction="return"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_SIAscescEeaGGeTgDT8kcg" name="determineMove" visibility="public" method="_SIB6kescEeaGGeTgDT8kcg">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_SIBTgOscEeaGGeTgDT8kcg" direction="return"/>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_SIBTgescEeaGGeTgDT8kcg" name="board" type="__exgcOsbEeaGGeTgDT8kcg"/>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_SIB6kOscEeaGGeTgDT8kcg" name="m"/>
+              </ownedOperation>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Interface" xmi:id="_StsMYOscEeaGGeTgDT8kcg" name="Difficulty" visibility="public">
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_StuooOscEeaGGeTgDT8kcg" name="getName" visibility="public">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_StvPsOscEeaGGeTgDT8kcg" type="_DIE0UOsaEeaRPtCCR8m55A" direction="return"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_Stv2wOscEeaGGeTgDT8kcg" name="determineMove" visibility="public">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_Stv2wescEeaGGeTgDT8kcg" direction="return"/>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_Stv2wuscEeaGGeTgDT8kcg" name="board" type="__exgcOsbEeaGGeTgDT8kcg"/>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_Stwd0OscEeaGGeTgDT8kcg" name="m"/>
+              </ownedOperation>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Class" xmi:id="_TnPDgOscEeaGGeTgDT8kcg" name="Easy" visibility="public">
+              <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_TnUjEOscEeaGGeTgDT8kcg" client="_TnPDgOscEeaGGeTgDT8kcg" supplier="_StsMYOscEeaGGeTgDT8kcg" contract="_StsMYOscEeaGGeTgDT8kcg"/>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_TnVxMOscEeaGGeTgDT8kcg" name="getName" specification="_TnVKIOscEeaGGeTgDT8kcg">
+                <language>JAVA</language>
+                <body>
+    return &quot;easy&quot;;
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_TnXmYOscEeaGGeTgDT8kcg" name="determineMove" specification="_TnVxMescEeaGGeTgDT8kcg">
+                <language>JAVA</language>
+                <body>
+    ArrayList&lt;Field> moves = new ArrayList&lt;Field>();
+    for (int x = 0; x &lt;= Board.MAXFIELD; x++) {
+        for (int y = 0; y &lt;= Board.MAXFIELD; y++) {
+            Field empty = board.getEmptyField(x, y);
+            if (empty != null) {
+                moves.add(empty);
+            }
+        }
+    }
+    return moves.get((int) (Math.random() * moves.size()));
+</body>
+              </ownedBehavior>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_TnVKIOscEeaGGeTgDT8kcg" name="getName" visibility="public" method="_TnVxMOscEeaGGeTgDT8kcg">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_TnVKIescEeaGGeTgDT8kcg" type="_DIE0UOsaEeaRPtCCR8m55A" direction="return"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_TnVxMescEeaGGeTgDT8kcg" name="determineMove" visibility="public" method="_TnXmYOscEeaGGeTgDT8kcg">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_TnWYQOscEeaGGeTgDT8kcg" direction="return"/>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_TnWYQescEeaGGeTgDT8kcg" name="board" type="__exgcOsbEeaGGeTgDT8kcg"/>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_TnW_UOscEeaGGeTgDT8kcg" name="m"/>
+              </ownedOperation>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Class" xmi:id="_TndtAOscEeaGGeTgDT8kcg" name="Hard" visibility="public">
+              <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_TneUEOscEeaGGeTgDT8kcg" client="_TndtAOscEeaGGeTgDT8kcg" supplier="_StsMYOscEeaGGeTgDT8kcg" contract="_StsMYOscEeaGGeTgDT8kcg"/>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_Tne7IescEeaGGeTgDT8kcg" name="getName" specification="_TneUEescEeaGGeTgDT8kcg">
+                <language>JAVA</language>
+                <body>
+    return &quot;hard&quot;;
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_TngwUOscEeaGGeTgDT8kcg" name="determineMove" specification="_TnfiMOscEeaGGeTgDT8kcg">
+                <language>JAVA</language>
+                <body>
+    ArrayList&lt;Field> moves = this.getMoves(board);
+    Map&lt;Field, Integer> result = this.getResultMap(board, m);
+    //Choose candidate with highest potential score
+    int maxValue = Collections.max(result.values());
+    Iterator&lt;Map.Entry&lt;Field, Integer>> it = result.entrySet().iterator();
+    while (it.hasNext()) {
+        Map.Entry&lt;Field, Integer> item = it.next();
+        if (item.getValue().intValue() &lt; maxValue) {
+            it.remove();
+        }
+    }
+    it = result.entrySet().iterator();
+    int next = (int) (Math.random() * new Double(result.size()));
+    int count = 0;
+    while (it.hasNext()) {
+        Map.Entry&lt;Field, Integer> item = it.next();
+        if (count == next) {
+            return item.getKey();
+        }
+        count++;
+    }
+    return null;
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_TnjMkOscEeaGGeTgDT8kcg" name="getMoves" specification="_TnhXYOscEeaGGeTgDT8kcg">
+                <language>JAVA</language>
+                <body>
+    ArrayList&lt;Field> moves = new ArrayList&lt;Field>();
+    for (int x = 0; x &lt;= Board.MAXFIELD; x++) {
+        for (int y = 0; y &lt;= Board.MAXFIELD; y++) {
+            Field empty = board.getEmptyField(x, y);
+            if (empty != null) {
+                moves.add(empty);
+            }
+        }
+    }
+    return moves;
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_TnlBwOscEeaGGeTgDT8kcg" name="getFutureImpact" specification="_TnjzoOscEeaGGeTgDT8kcg">
+                <language>JAVA</language>
+                <body>
+    int result = 0;
+    ArrayList&lt;Field> moves = this.getMoves(board);
+    for (Field field : moves) {
+        Board myboard = board.copy();
+        Board enemboard = board.copy();
+        myboard.setField(field, m);
+        enemboard.setField(field, m.other());
+        if (myboard.isWinner(m)) {
+            result += 50;
+        } else if (enemboard.isWinner(m.other())) {
+            result -= 50;
+        }
+    }
+    return result;
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_Tnm28OscEeaGGeTgDT8kcg" name="getResultMap" specification="_TnlBwescEeaGGeTgDT8kcg">
+                <language>JAVA</language>
+                <body>
+    Map&lt;Field, Integer> result = new HashMap&lt;Field, Integer>();
+    ArrayList&lt;Field> moves = this.getMoves(board);
+    for (Field field : moves) {
+        Board myboard = board.copy();
+        Board enemboard = board.copy();
+        myboard.setField(field, m);
+        enemboard.setField(field, m.other());
+        if (myboard.isWinner(m)) {
+            result.put(field, new Integer(500));
+        } else if (enemboard.isWinner(m.other())) {
+            result.put(field, new Integer(100));
+        } else {
+            result.put(field, new Integer(countSurroundings(field, board, m) + getFutureImpact(myboard, m)));
+        }
+    //result.put(field, result.get(field) + getFutureImpact(myboard, m));
+    }
+    return result;
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_Tnp6QOscEeaGGeTgDT8kcg" name="countSurroundings" specification="_TnoFEOscEeaGGeTgDT8kcg">
+                <language>JAVA</language>
+                <body>
+    int result = 0;
+    for (int z = -1; z &lt;= 1; z++) {
+        for (int i = -1; i &lt;= 1; i++) {
+            for (int a = -1; a &lt;= 1; a++) {
+                Field neighbour = board.walkField(field, i, a, z);
+                //next to field of same color
+                if (neighbour != null) {
+                    Mark nextmark = board.getMark(neighbour);
+                    if (nextmark != null &amp;&amp; nextmark.equals(m)) {
+                        result++;
+                    }
+                } else //next to boundary
+                if (neighbour == null) {
+                    result++;
+                }
+            }
+        }
+    }
+    return result;
+</body>
+              </ownedBehavior>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_TneUEescEeaGGeTgDT8kcg" name="getName" visibility="public" method="_Tne7IescEeaGGeTgDT8kcg">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_Tne7IOscEeaGGeTgDT8kcg" type="_DIE0UOsaEeaRPtCCR8m55A" direction="return"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_TnfiMOscEeaGGeTgDT8kcg" name="determineMove" visibility="public" method="_TngwUOscEeaGGeTgDT8kcg">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_TnfiMescEeaGGeTgDT8kcg" direction="return"/>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_TngJQOscEeaGGeTgDT8kcg" name="board" type="__exgcOsbEeaGGeTgDT8kcg"/>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_TngJQescEeaGGeTgDT8kcg" name="m"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_TnhXYOscEeaGGeTgDT8kcg" name="getMoves" visibility="public" method="_TnjMkOscEeaGGeTgDT8kcg">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_Tnh-cOscEeaGGeTgDT8kcg" direction="return">
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Tnh-cescEeaGGeTgDT8kcg"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_TnilgOscEeaGGeTgDT8kcg" value="*"/>
+                </ownedParameter>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_TnilgescEeaGGeTgDT8kcg" name="board" type="__exgcOsbEeaGGeTgDT8kcg"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_TnjzoOscEeaGGeTgDT8kcg" name="getFutureImpact" visibility="public" method="_TnlBwOscEeaGGeTgDT8kcg">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_TnjzoescEeaGGeTgDT8kcg" direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+                </ownedParameter>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_TnkasOscEeaGGeTgDT8kcg" name="board" type="__exgcOsbEeaGGeTgDT8kcg"/>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_TnkasescEeaGGeTgDT8kcg" name="m"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_TnlBwescEeaGGeTgDT8kcg" name="getResultMap" visibility="public" method="_Tnm28OscEeaGGeTgDT8kcg">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_Tnlo0OscEeaGGeTgDT8kcg" type="_DJGIAusaEeaRPtCCR8m55A" direction="return"/>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_TnmP4OscEeaGGeTgDT8kcg" name="board" type="__exgcOsbEeaGGeTgDT8kcg"/>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_TnmP4escEeaGGeTgDT8kcg" name="m"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_TnoFEOscEeaGGeTgDT8kcg" name="countSurroundings" visibility="public" method="_Tnp6QOscEeaGGeTgDT8kcg">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_TnoFEescEeaGGeTgDT8kcg" direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+                </ownedParameter>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_TnosIOscEeaGGeTgDT8kcg" name="field"/>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_TnosIescEeaGGeTgDT8kcg" name="board" type="__exgcOsbEeaGGeTgDT8kcg"/>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_TnpTMOscEeaGGeTgDT8kcg" name="m"/>
+              </ownedOperation>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Class" xmi:id="_TnuywOscEeaGGeTgDT8kcg" name="Medium" visibility="public">
+              <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_TnvZ0OscEeaGGeTgDT8kcg" client="_TnuywOscEeaGGeTgDT8kcg" supplier="_StsMYOscEeaGGeTgDT8kcg" contract="_StsMYOscEeaGGeTgDT8kcg"/>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_Tnwn8OscEeaGGeTgDT8kcg" name="getName" specification="_TnwA4OscEeaGGeTgDT8kcg">
+                <language>JAVA</language>
+                <body>
+    return &quot;medium&quot;;
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_TnydIOscEeaGGeTgDT8kcg" name="determineMove" specification="_TnxPAOscEeaGGeTgDT8kcg">
+                <language>JAVA</language>
+                <body>
+    Map&lt;Field, Integer> result = new HashMap&lt;Field, Integer>();
+    ArrayList&lt;Field> moves = new ArrayList&lt;Field>();
+    for (int x = 0; x &lt;= Board.MAXFIELD; x++) {
+        for (int y = 0; y &lt;= Board.MAXFIELD; y++) {
+            Field empty = board.getEmptyField(x, y);
+            if (empty != null) {
+                moves.add(empty);
+            }
+        }
+    }
+    System.out.println(moves.size());
+    for (Field field : moves) {
+        Board test = board.copy();
+        Board test2 = board.copy();
+        test.setField(field, m);
+        test2.setField(field, m.other());
+        if (test.isWinner(m)) {
+            result.put(field, new Integer(50));
+        } else if (test2.isWinner(m.other())) {
+            result.put(field, new Integer(40));
+        } else {
+            result.put(field, new Integer(countSurroundings(field, board, m)));
+        }
+    }
+    int maxValue = Collections.max(result.values());
+    System.out.println(maxValue);
+    Iterator&lt;Map.Entry&lt;Field, Integer>> it = result.entrySet().iterator();
+    while (it.hasNext()) {
+        Map.Entry&lt;Field, Integer> item = it.next();
+        if (item.getValue().intValue() &lt; maxValue) {
+            it.remove();
+        }
+    }
+    it = result.entrySet().iterator();
+    int next = (int) (Math.random() * new Double(result.size()));
+    int count = 0;
+    while (it.hasNext()) {
+        Map.Entry&lt;Field, Integer> item = it.next();
+        if (count == next) {
+            System.out.println(m.toString() + &quot; chose &quot; + item.getKey().toString());
+            return item.getKey();
+        }
+        count++;
+    }
+    return null;
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_Tn05YOscEeaGGeTgDT8kcg" name="countSurroundings" specification="_TnzEMOscEeaGGeTgDT8kcg">
+                <language>JAVA</language>
+                <body>
+    int result = 0;
+    for (int z = -1; z &lt;= 0; z++) {
+        for (int i = -1; i &lt;= 1; i++) {
+            for (int a = -1; a &lt;= 1; a++) {
+                Field neighbour = board.walkField(field, i, a, z);
+                //next to field of same color
+                if (neighbour != null) {
+                    Mark nextmark = board.getMark(neighbour);
+                    if (nextmark != null &amp;&amp; nextmark.equals(m)) {
+                        result++;
+                    }
+                } else //next to boundary
+                if (neighbour == null) {
+                    result++;
+                }
+            }
+        }
+    }
+    return result;
+</body>
+              </ownedBehavior>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_TnwA4OscEeaGGeTgDT8kcg" name="getName" visibility="public" method="_Tnwn8OscEeaGGeTgDT8kcg">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_TnwA4escEeaGGeTgDT8kcg" type="_DIE0UOsaEeaRPtCCR8m55A" direction="return"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_TnxPAOscEeaGGeTgDT8kcg" name="determineMove" visibility="public" method="_TnydIOscEeaGGeTgDT8kcg">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_TnxPAescEeaGGeTgDT8kcg" direction="return"/>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_Tnx2EOscEeaGGeTgDT8kcg" name="board" type="__exgcOsbEeaGGeTgDT8kcg"/>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_Tnx2EescEeaGGeTgDT8kcg" name="m"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_TnzEMOscEeaGGeTgDT8kcg" name="countSurroundings" visibility="public" method="_Tn05YOscEeaGGeTgDT8kcg">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_TnzrQOscEeaGGeTgDT8kcg" direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+                </ownedParameter>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_TnzrQescEeaGGeTgDT8kcg" name="field"/>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_Tn0SUOscEeaGGeTgDT8kcg" name="board" type="__exgcOsbEeaGGeTgDT8kcg"/>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_Tn0SUescEeaGGeTgDT8kcg" name="m"/>
+              </ownedOperation>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Class" xmi:id="_57VQkOscEeaGGeTgDT8kcg" name="Client" visibility="public">
+              <ownedAttribute xmi:type="uml:Property" xmi:id="_57WesOscEeaGGeTgDT8kcg" name="playerName" visibility="private" type="_DIE0UOsaEeaRPtCCR8m55A" isUnique="false"/>
+              <ownedAttribute xmi:type="uml:Property" xmi:id="_57XFwOscEeaGGeTgDT8kcg" name="opponentName" visibility="public" type="_DIE0UOsaEeaRPtCCR8m55A" isUnique="false"/>
+              <ownedAttribute xmi:type="uml:Property" xmi:id="_57Xs0OscEeaGGeTgDT8kcg" name="playerId" visibility="private" isUnique="false">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+              </ownedAttribute>
+              <ownedAttribute xmi:type="uml:Property" xmi:id="_57YT4OscEeaGGeTgDT8kcg" name="board" visibility="private" type="__exgcOsbEeaGGeTgDT8kcg" isUnique="false"/>
+              <ownedAttribute xmi:type="uml:Property" xmi:id="_57b-QOscEeaGGeTgDT8kcg" name="serverHandler" visibility="private" type="_57YT4escEeaGGeTgDT8kcg" isUnique="false"/>
+              <ownedAttribute xmi:type="uml:Property" xmi:id="_57b-QescEeaGGeTgDT8kcg" name="online" visibility="private" isUnique="false">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
+              </ownedAttribute>
+              <ownedAttribute xmi:type="uml:Property" xmi:id="_57clUOscEeaGGeTgDT8kcg" name="inGame" visibility="private" isUnique="false">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
+                <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_57clUescEeaGGeTgDT8kcg" name="defaultValue">
+                  <language>JAVA</language>
+                  <body>false</body>
+                </defaultValue>
+              </ownedAttribute>
+              <ownedAttribute xmi:type="uml:Property" xmi:id="_57dMYOscEeaGGeTgDT8kcg" name="currentTurnId" visibility="private" isUnique="false">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+              </ownedAttribute>
+              <ownedAttribute xmi:type="uml:Property" xmi:id="_57g2wescEeaGGeTgDT8kcg" name="view" visibility="private" type="_57dzcescEeaGGeTgDT8kcg" isUnique="false"/>
+              <ownedAttribute xmi:type="uml:Property" xmi:id="_57hd0OscEeaGGeTgDT8kcg" name="aiEnabled" visibility="private" isUnique="false">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
+                <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_57hd0escEeaGGeTgDT8kcg" name="defaultValue">
+                  <language>JAVA</language>
+                  <body>false</body>
+                </defaultValue>
+              </ownedAttribute>
+              <ownedAttribute xmi:type="uml:Property" xmi:id="_57iE4OscEeaGGeTgDT8kcg" name="canChat" visibility="public" isUnique="false">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
+              </ownedAttribute>
+              <ownedAttribute xmi:type="uml:Property" xmi:id="_57lIMescEeaGGeTgDT8kcg" name="ai" visibility="private" type="_SH1tUOscEeaGGeTgDT8kcg" isUnique="false">
+                <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_57lIMuscEeaGGeTgDT8kcg" name="defaultValue">
+                  <language>JAVA</language>
+                  <body>new ComputerPlayer(new Hard())</body>
+                </defaultValue>
+              </ownedAttribute>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_57pZoOscEeaGGeTgDT8kcg" name="Client" specification="_57lvQOscEeaGGeTgDT8kcg">
+                <language>JAVA</language>
+                <body>
+    this.playerName = &quot;NoNamePepeAI&quot;;
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_57qAsOscEeaGGeTgDT8kcg" name="createNewView" specification="_57pZoescEeaGGeTgDT8kcg">
+                <language>JAVA</language>
+                <body>
+    try {
+        this.view = new ClientTUIView(this);
+        this.view.run();
+    } catch (IOException e1) {
+        System.out.println(&quot;could not create view&quot;);
+        System.exit(0);
+    }
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_57qnwescEeaGGeTgDT8kcg" name="toggleAI" specification="_57qAsescEeaGGeTgDT8kcg">
+                <language>JAVA</language>
+                <body>
+    this.aiEnabled = !this.aiEnabled;
+    return aiEnabled;
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_57rO0uscEeaGGeTgDT8kcg" name="hint" specification="_57rO0OscEeaGGeTgDT8kcg">
+                <language>JAVA</language>
+                <body>
+    if (inGame &amp;&amp; this.currentTurnId == this.playerId) {
+        Field field = this.ai.determineMove(this.board, Mark.Black);
+        return &quot;move(x y): &quot; + field.getMove();
+    } else {
+        return &quot;hing is only available when it is your turn in game.&quot;;
+    }
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_57sc8uscEeaGGeTgDT8kcg" name="atAI" specification="_57r14OscEeaGGeTgDT8kcg">
+                <language>JAVA</language>
+                <body>
+    Client client = new Client();
+    if (inputSplit[2].equals(&quot;easy&quot;)) {
+        client.setAI(new ComputerPlayer(new Easy()));
+    } else if (inputSplit[2].equals(&quot;medium&quot;)) {
+        client.setAI(new ComputerPlayer(new Medium()));
+    } else if (inputSplit[2].equals(&quot;hard&quot;)) {
+        client.setAI(new ComputerPlayer(new Hard()));
+    }
+    //turn the ai on
+    client.toggleAI();
+    client.connectToServer(&quot;localhost&quot;, inputSplit[1]);
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_57uSIescEeaGGeTgDT8kcg" name="atTurnOfPlayer" specification="_57trEOscEeaGGeTgDT8kcg">
+                <language>JAVA</language>
+                <body>
+    //notify the player whose turn it is
+    try {
+        //get the id of the current player
+        int id = Integer.parseInt(inputSplit[1]);
+        setCurrentTurnId(id);
+        //compare current player to clientId to see who it is
+        if (id == getPlayerId()) {
+            sendToView(&quot;It is your turn, type: 'move &lt;x> &lt;y>' to make a move.&quot;);
+            //let the AI make a move for you
+            if (this.aiEnabled) {
+                Field field = this.ai.determineMove(board, Mark.Black);
+                sendToServer(Protocol.ProtClient.MAKEMOVE + &quot; &quot; + field.getMove());
+            }
+        } else {
+            sendToView(&quot;It is the turn of player &quot; + this.opponentName);
+        }
+    } catch (NumberFormatException e) {
+        sendToView(&quot;Server is sending rubbish, NumberFormatException&quot;);
+    }
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_57u5MescEeaGGeTgDT8kcg" name="setOnline" specification="_57uSIuscEeaGGeTgDT8kcg">
+                <language>JAVA</language>
+                <body>
+    this.online = input;
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_57vgQuscEeaGGeTgDT8kcg" name="getServerHandler" specification="_57vgQOscEeaGGeTgDT8kcg">
+                <language>JAVA</language>
+                <body>
+    return this.serverHandler;
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_57wHUescEeaGGeTgDT8kcg" name="refreshBoard" specification="_57wHUOscEeaGGeTgDT8kcg">
+                <language>JAVA</language>
+                <body>
+    this.board = new Board();
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_57xVcescEeaGGeTgDT8kcg" name="setPlayerName" specification="_57wuYOscEeaGGeTgDT8kcg">
+                <language>JAVA</language>
+                <body>
+    this.playerName = input;
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_57x8gescEeaGGeTgDT8kcg" name="setPlayerId" specification="_57xVcuscEeaGGeTgDT8kcg">
+                <language>JAVA</language>
+                <body>
+    this.playerId = input;
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_57zKoOscEeaGGeTgDT8kcg" name="setCurrentTurnId" specification="_57yjkOscEeaGGeTgDT8kcg">
+                <language>JAVA</language>
+                <body>
+    this.currentTurnId = input;
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_57zxsescEeaGGeTgDT8kcg" name="setAI" specification="_57zKoescEeaGGeTgDT8kcg">
+                <language>JAVA</language>
+                <body>
+    this.ai = player;
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_570YwuscEeaGGeTgDT8kcg" name="getCurrentTurnId" specification="_570YwOscEeaGGeTgDT8kcg">
+                <language>JAVA</language>
+                <body>
+    return this.currentTurnId;
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_571m4OscEeaGGeTgDT8kcg" name="setInGame" specification="_570_0OscEeaGGeTgDT8kcg">
+                <language>JAVA</language>
+                <body>
+    this.inGame = input;
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_572N8escEeaGGeTgDT8kcg" name="getPlayerName" specification="_571m4escEeaGGeTgDT8kcg">
+                <language>JAVA</language>
+                <body>
+    return this.playerName;
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_5721AescEeaGGeTgDT8kcg" name="getPlayerId" specification="_572N8uscEeaGGeTgDT8kcg">
+                <language>JAVA</language>
+                <body>
+    return this.playerId;
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_573cEescEeaGGeTgDT8kcg" name="getBoard" specification="_5721AuscEeaGGeTgDT8kcg">
+                <language>JAVA</language>
+                <body>
+    return this.board;
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_574DIescEeaGGeTgDT8kcg" name="isOnline" specification="_573cEuscEeaGGeTgDT8kcg">
+                <language>JAVA</language>
+                <body>
+    return this.online;
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_574qMescEeaGGeTgDT8kcg" name="isInGame" specification="_574DIuscEeaGGeTgDT8kcg">
+                <language>JAVA</language>
+                <body>
+    return this.inGame;
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_575RQescEeaGGeTgDT8kcg" name="getCapabilities" specification="_574qMuscEeaGGeTgDT8kcg">
+                <language>JAVA</language>
+                <body>
+    return Protocol.ProtClient.SENDCAPABILITIES + &quot; 2 &quot; + this.playerName + &quot; 0 4 4 4 4 1 0&quot;;
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_5754UescEeaGGeTgDT8kcg" name="sendToServer" specification="_575RQuscEeaGGeTgDT8kcg">
+                <language>JAVA</language>
+                <body>
+    if (this.serverHandler != null) {
+        this.serverHandler.send(input);
+    } else {
+        sendToView(&quot;Error connection to server is required for this action.&quot;);
+    }
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_576fYuscEeaGGeTgDT8kcg" name="sendToView" specification="_576fYOscEeaGGeTgDT8kcg">
+                <language>JAVA</language>
+                <body>
+    if (this.view != null) {
+        this.view.send(input);
+    }
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_577tgOscEeaGGeTgDT8kcg" name="connectToServer" specification="_577GcOscEeaGGeTgDT8kcg">
+                <language>JAVA</language>
+                <body>
+    InetAddress addr = null;
+    int port = Server.getPort(socketPort);
+    // check args[1] - the IP-adress
+    try {
+        addr = InetAddress.getByName(ip);
+    } catch (UnknownHostException e) {
+        sendToView(&quot;ERROR: host &quot; + ip + &quot; unknown.&quot;);
+        sendToView(&quot;try again&quot;);
+    }
+    // try to open a Socket 
+    try {
+        Socket sock = new Socket(addr, port);
+        this.serverHandler = new ServerHandler(this, sock);
+        new Thread(this.serverHandler).start();
+        sendToView(&quot;setting up game...&quot;);
+    } catch (IOException e) {
+        sendToView(&quot;ERROR: could not create a socket on &quot; + addr + &quot; and port &quot; + port);
+        sendToView(&quot;try again&quot;);
+    }
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_577tguscEeaGGeTgDT8kcg" name="restart" specification="_577tgescEeaGGeTgDT8kcg">
+                <language>JAVA</language>
+                <body>
+    sendToView(&quot;\n\nRestarting...&quot;);
+    if (this.serverHandler != null) {
+        this.serverHandler.exit();
+    }
+    this.inGame = false;
+    this.view.atStart();
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_578UlOscEeaGGeTgDT8kcg" name="main" specification="_578UkOscEeaGGeTgDT8kcg">
+                <language>JAVA</language>
+                <body>
+    //construct a client
+    Client aClient = new Client();
+    aClient.createNewView();
+</body>
+              </ownedBehavior>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_57lvQOscEeaGGeTgDT8kcg" name="Client" visibility="public" method="_57pZoOscEeaGGeTgDT8kcg"/>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_57pZoescEeaGGeTgDT8kcg" name="createNewView" visibility="public" method="_57qAsOscEeaGGeTgDT8kcg"/>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_57qAsescEeaGGeTgDT8kcg" name="toggleAI" visibility="public" method="_57qnwescEeaGGeTgDT8kcg">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_57qnwOscEeaGGeTgDT8kcg" direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
+                </ownedParameter>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_57rO0OscEeaGGeTgDT8kcg" name="hint" visibility="public" method="_57rO0uscEeaGGeTgDT8kcg">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_57rO0escEeaGGeTgDT8kcg" type="_DIE0UOsaEeaRPtCCR8m55A" direction="return"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_57r14OscEeaGGeTgDT8kcg" name="atAI" visibility="public" method="_57sc8uscEeaGGeTgDT8kcg">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_57r14escEeaGGeTgDT8kcg" name="inputSplit" type="_DIE0UOsaEeaRPtCCR8m55A">
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_57sc8OscEeaGGeTgDT8kcg"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_57sc8escEeaGGeTgDT8kcg" value="*"/>
+                </ownedParameter>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_57trEOscEeaGGeTgDT8kcg" name="atTurnOfPlayer" visibility="public" method="_57uSIescEeaGGeTgDT8kcg">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_57trEescEeaGGeTgDT8kcg" name="inputSplit" type="_DIE0UOsaEeaRPtCCR8m55A">
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_57trEuscEeaGGeTgDT8kcg"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_57uSIOscEeaGGeTgDT8kcg" value="*"/>
+                </ownedParameter>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_57uSIuscEeaGGeTgDT8kcg" name="setOnline" visibility="public" method="_57u5MescEeaGGeTgDT8kcg">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_57u5MOscEeaGGeTgDT8kcg" name="input">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
+                </ownedParameter>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_57vgQOscEeaGGeTgDT8kcg" name="getServerHandler" visibility="public" method="_57vgQuscEeaGGeTgDT8kcg">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_57vgQescEeaGGeTgDT8kcg" type="_57YT4escEeaGGeTgDT8kcg" direction="return"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_57wHUOscEeaGGeTgDT8kcg" name="refreshBoard" visibility="public" method="_57wHUescEeaGGeTgDT8kcg"/>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_57wuYOscEeaGGeTgDT8kcg" name="setPlayerName" visibility="public" method="_57xVcescEeaGGeTgDT8kcg">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_57xVcOscEeaGGeTgDT8kcg" name="input" type="_DIE0UOsaEeaRPtCCR8m55A"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_57xVcuscEeaGGeTgDT8kcg" name="setPlayerId" visibility="public" method="_57x8gescEeaGGeTgDT8kcg">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_57x8gOscEeaGGeTgDT8kcg" name="input">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+                </ownedParameter>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_57yjkOscEeaGGeTgDT8kcg" name="setCurrentTurnId" visibility="public" method="_57zKoOscEeaGGeTgDT8kcg">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_57yjkescEeaGGeTgDT8kcg" name="input">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+                </ownedParameter>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_57zKoescEeaGGeTgDT8kcg" name="setAI" visibility="public" method="_57zxsescEeaGGeTgDT8kcg">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_57zxsOscEeaGGeTgDT8kcg" name="player" type="_SH1tUOscEeaGGeTgDT8kcg"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_570YwOscEeaGGeTgDT8kcg" name="getCurrentTurnId" visibility="public" method="_570YwuscEeaGGeTgDT8kcg">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_570YwescEeaGGeTgDT8kcg" direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+                </ownedParameter>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_570_0OscEeaGGeTgDT8kcg" name="setInGame" visibility="public" method="_571m4OscEeaGGeTgDT8kcg">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_570_0escEeaGGeTgDT8kcg" name="input">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
+                </ownedParameter>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_571m4escEeaGGeTgDT8kcg" name="getPlayerName" visibility="public" method="_572N8escEeaGGeTgDT8kcg">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_572N8OscEeaGGeTgDT8kcg" type="_DIE0UOsaEeaRPtCCR8m55A" direction="return"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_572N8uscEeaGGeTgDT8kcg" name="getPlayerId" visibility="public" method="_5721AescEeaGGeTgDT8kcg">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_5721AOscEeaGGeTgDT8kcg" direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+                </ownedParameter>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_5721AuscEeaGGeTgDT8kcg" name="getBoard" visibility="public" method="_573cEescEeaGGeTgDT8kcg">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_573cEOscEeaGGeTgDT8kcg" type="__exgcOsbEeaGGeTgDT8kcg" direction="return"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_573cEuscEeaGGeTgDT8kcg" name="isOnline" visibility="public" method="_574DIescEeaGGeTgDT8kcg">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_574DIOscEeaGGeTgDT8kcg" direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
+                </ownedParameter>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_574DIuscEeaGGeTgDT8kcg" name="isInGame" visibility="public" method="_574qMescEeaGGeTgDT8kcg">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_574qMOscEeaGGeTgDT8kcg" direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
+                </ownedParameter>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_574qMuscEeaGGeTgDT8kcg" name="getCapabilities" visibility="public" method="_575RQescEeaGGeTgDT8kcg">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_575RQOscEeaGGeTgDT8kcg" type="_DIE0UOsaEeaRPtCCR8m55A" direction="return"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_575RQuscEeaGGeTgDT8kcg" name="sendToServer" visibility="public" method="_5754UescEeaGGeTgDT8kcg">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_5754UOscEeaGGeTgDT8kcg" name="input" type="_DIE0UOsaEeaRPtCCR8m55A"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_576fYOscEeaGGeTgDT8kcg" name="sendToView" visibility="public" method="_576fYuscEeaGGeTgDT8kcg">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_576fYescEeaGGeTgDT8kcg" name="input" type="_DIE0UOsaEeaRPtCCR8m55A"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_577GcOscEeaGGeTgDT8kcg" name="connectToServer" visibility="public" method="_577tgOscEeaGGeTgDT8kcg">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_577GcescEeaGGeTgDT8kcg" name="ip" type="_DIE0UOsaEeaRPtCCR8m55A"/>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_577GcuscEeaGGeTgDT8kcg" name="socketPort" type="_DIE0UOsaEeaRPtCCR8m55A"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_577tgescEeaGGeTgDT8kcg" name="restart" visibility="public" method="_577tguscEeaGGeTgDT8kcg"/>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_578UkOscEeaGGeTgDT8kcg" name="main" visibility="public" isStatic="true" method="_578UlOscEeaGGeTgDT8kcg">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_578UkescEeaGGeTgDT8kcg" name="args" type="_DIE0UOsaEeaRPtCCR8m55A">
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_578UkuscEeaGGeTgDT8kcg"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_578Uk-scEeaGGeTgDT8kcg" value="*"/>
+                </ownedParameter>
+              </ownedOperation>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Class" xmi:id="_57YT4escEeaGGeTgDT8kcg" name="ServerHandler" visibility="public">
+              <generalization xmi:type="uml:Generalization" xmi:id="_-46k4OscEeaGGeTgDT8kcg" general="_-43hkOscEeaGGeTgDT8kcg"/>
+              <ownedAttribute xmi:type="uml:Property" xmi:id="_-4_dYOscEeaGGeTgDT8kcg" name="client" visibility="private" type="_57VQkOscEeaGGeTgDT8kcg" isUnique="false"/>
+              <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_-49BIescEeaGGeTgDT8kcg" name="ServerHandler implements Runnable" client="_57YT4escEeaGGeTgDT8kcg" supplier="_-47L8OscEeaGGeTgDT8kcg" contract="_-47L8OscEeaGGeTgDT8kcg"/>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_-5HZMOscEeaGGeTgDT8kcg" name="ServerHandler" specification="_-5BSkescEeaGGeTgDT8kcg">
+                <language>JAVA</language>
+                <body>
+    super(inSock.getInputStream(), inSock.getOutputStream());
+    this.client = inputClient;
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_-5IAQescEeaGGeTgDT8kcg" name="onFailure" specification="_-5IAQOscEeaGGeTgDT8kcg">
+                <language>JAVA</language>
+                <body>
+    //exit the terminal and close its streams.
+    this.client.setInGame(false);
+    super.exit();
+    try {
+        super.out.flush();
+        super.in.close();
+        super.out.close();
+    } catch (IOException e) {
+        this.client.sendToView(&quot;could not close streams onFailure of ServerHandler.&quot;);
+    }
+    this.client.sendToView(&quot;Connection to the server was lost.&quot;);
+    this.client.sendToView(&quot;Enter restart to reconnect to a server.&quot;);
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_-5InUOscEeaGGeTgDT8kcg" name="atStart" specification="_-5IAQuscEeaGGeTgDT8kcg">
+                <language>JAVA</language>
+                <body>
+//nada, wait for capabilities from server first
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_-5JOYescEeaGGeTgDT8kcg" name="send" specification="_-5InUescEeaGGeTgDT8kcg">
+                <language>JAVA</language>
+                <body>
+    super.send(input);
+    System.out.println(input);
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_-5KcgOscEeaGGeTgDT8kcg" name="handleInput" specification="_-5J1cOscEeaGGeTgDT8kcg">
+                <language>JAVA</language>
+                <body>
+    //for testing
+    System.out.println(&quot;server sends: &quot; + input);
+    //split input around spaces
+    String[] inputSplit = input.split(&quot; &quot;);
+    if (inputSplit[0].equals(Protocol.ProtServer.SERVERCAPABILITIES)) {
+        //respond with capabilities of the client
+        send(this.client.getCapabilities());
+        if (inputSplit.length > 7 &amp;&amp; inputSplit[7].equals(&quot;1&quot;) &amp;&amp; this.client.isOnline()) {
+            this.client.canChat = true;
+        } else {
+            this.client.canChat = false;
+        }
+    } else if (inputSplit[0].equals(Protocol.ProtServer.NOTIFYMESSAGE) &amp;&amp; this.client.canChat) {
+        atNotifyMessage(inputSplit);
+    } else if (inputSplit[0].equals(Protocol.ProtServer.ASSIGNID)) {
+        atAssignId(inputSplit);
+    } else if (inputSplit[0].equals(Protocol.ProtServer.STARTGAME)) {
+        atStartGame(inputSplit);
+    } else if (inputSplit[0].equals(Protocol.ProtServer.TURNOFPLAYER)) {
+        this.client.atTurnOfPlayer(inputSplit);
+    } else if (inputSplit[0].equals(Protocol.ProtServer.NOTIFYMOVE)) {
+        atNotifyMove(inputSplit);
+    } else if (inputSplit[0].equals(Protocol.ProtServer.NOTIFYEND) &amp;&amp; inputSplit.length == 2 || inputSplit.length == 3) {
+        atNotifyEnd(inputSplit);
+    } else if (inputSplit[0].equals(&quot;error&quot;) &amp;&amp; inputSplit.length == 2) {
+        this.client.sendToView(Protocol.getError(inputSplit[1]));
+    } else {
+        this.client.sendToView(&quot;Server is sending an unknown command&quot;);
+    }
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_-5MRsOscEeaGGeTgDT8kcg" name="isYou" specification="_-5LDkOscEeaGGeTgDT8kcg">
+                <language>JAVA</language>
+                <body>
+    return Integer.parseInt(inputId) == this.client.getPlayerId();
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_-5Nf0escEeaGGeTgDT8kcg" name="atAssignId" specification="_-5M4wOscEeaGGeTgDT8kcg">
+                <language>JAVA</language>
+                <body>
+    //set player ID
+    try {
+        int id = Integer.parseInt(inputSplit[1]);
+        this.client.setPlayerId(id);
+        //ask for more client input or notify waiting
+        if (client.isOnline()) {
+            this.client.sendToView(&quot;Connection established, waiting for other players&quot;);
+        } else if (!client.isOnline()) {
+            this.client.sendToView(&quot;Enter AI difficulty 'easy'/'medium'/'hard'&quot;);
+        }
+    } catch (NumberFormatException e) {
+        this.client.sendToView(&quot;Server is sending rubbish, NumberFormatException&quot;);
+    }
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_-5Ot8escEeaGGeTgDT8kcg" name="atStartGame" specification="_-5OG4OscEeaGGeTgDT8kcg">
+                <language>JAVA</language>
+                <body>
+    //notify the client that the game has started and create a board
+    this.client.setInGame(true);
+    this.client.sendToView(&quot;Game has started&quot;);
+    this.client.refreshBoard();
+    this.client.sendToView(this.client.getBoard().toString());
+    //set opponent name as name of player with not this id
+    String[] inputSplit2 = inputSplit[2].split(&quot;\\|&quot;);
+    String[] inputSplit3 = inputSplit[3].split(&quot;\\|&quot;);
+    if (Integer.parseInt(inputSplit2[0]) == this.client.getPlayerId() &amp;&amp; inputSplit3.length > 1) {
+        this.client.opponentName = inputSplit3[1];
+    } else if (Integer.parseInt(inputSplit3[0]) == this.client.getPlayerId() &amp;&amp; inputSplit2.length > 1) {
+        this.client.opponentName = inputSplit2[1];
+    } else {
+        this.client.sendToView(&quot;Could not obtain opponent playername from game start.&quot;);
+    }
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_-5P8EOscEeaGGeTgDT8kcg" name="atNotifyMove" specification="_-5PVAOscEeaGGeTgDT8kcg">
+                <language>JAVA</language>
+                <body>
+    //notify player of the move
+    if (isYou(inputSplit[1])) {
+        this.client.sendToView(&quot;You made move x=&quot; + inputSplit[2] + &quot; y=&quot; + inputSplit[3]);
+    } else {
+        this.client.sendToView(this.client.opponentName + &quot; made move x=&quot; + inputSplit[2] + &quot; y=&quot; + inputSplit[3]);
+    }
+    //try to add the move to the board, needs to have integers for x and y
+    try {
+        int id = Integer.parseInt(inputSplit[1]);
+        int x = Integer.parseInt(inputSplit[2]);
+        int y = Integer.parseInt(inputSplit[3]);
+        //player is always displayed/playing as Mark.Black
+        if (id == this.client.getPlayerId()) {
+            this.client.getBoard().setField(x, y, Mark.Black);
+        } else {
+            //opponent is always displayed/playing as Mark.White
+            this.client.getBoard().setField(x, y, Mark.White);
+        }
+        //print the current board
+        this.client.sendToView(this.client.getBoard().toString());
+    } catch (NumberFormatException e) {
+        this.client.sendToView(&quot;Server is sending rubbish, NumberFormatException&quot;);
+    }
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_-5RKMescEeaGGeTgDT8kcg" name="atNotifyEnd" specification="_-5QjIOscEeaGGeTgDT8kcg">
+                <language>JAVA</language>
+                <body>
+    if (inputSplit.length == 2) {
+        //game has ended in a draw, notify client
+        send(&quot;The game has ended in a draw, &quot; + &quot;type EXIT to exit the game and start a new one&quot;);
+    } else if (inputSplit.length == 3) {
+        if (inputSplit[1].equals(&quot;1&quot;)) {
+            if (isYou(inputSplit[2])) {
+                this.client.sendToView(&quot;You have won.&quot;);
+            } else {
+                this.client.sendToView(&quot;Player &quot; + this.client.opponentName + &quot; has won.&quot;);
+            }
+        } else if (inputSplit[1].equals(&quot;3&quot;)) {
+            this.client.sendToView(&quot;Player &quot; + this.client.opponentName + &quot; has disconnected.&quot;);
+        } else {
+            this.client.sendToView(&quot;Unknown game end condition&quot;);
+        }
+    }
+    this.client.setInGame(false);
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_-5SYUOscEeaGGeTgDT8kcg" name="atNotifyMessage" specification="_-5RKMuscEeaGGeTgDT8kcg">
+                <language>JAVA</language>
+                <body>
+    String result = inputSplit[1] + &quot;: &quot;;
+    for (int i = 2; i &lt; inputSplit.length; i++) {
+        result = result + inputSplit[i] + &quot; &quot;;
+    }
+    this.client.sendToView(result);
+</body>
+              </ownedBehavior>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_-5BSkescEeaGGeTgDT8kcg" name="ServerHandler" visibility="private" method="_-5HZMOscEeaGGeTgDT8kcg" raisedException="_-5EV4uscEeaGGeTgDT8kcg">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_-5Du0escEeaGGeTgDT8kcg" name="inputClient" type="_57VQkOscEeaGGeTgDT8kcg"/>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_-5EV4OscEeaGGeTgDT8kcg" name="inSock" type="_-4_dYuscEeaGGeTgDT8kcg"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_-5IAQOscEeaGGeTgDT8kcg" name="onFailure" visibility="public" method="_-5IAQescEeaGGeTgDT8kcg"/>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_-5IAQuscEeaGGeTgDT8kcg" name="atStart" visibility="public" method="_-5InUOscEeaGGeTgDT8kcg"/>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_-5InUescEeaGGeTgDT8kcg" name="send" visibility="public" method="_-5JOYescEeaGGeTgDT8kcg">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_-5JOYOscEeaGGeTgDT8kcg" name="input" type="_DIE0UOsaEeaRPtCCR8m55A"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_-5J1cOscEeaGGeTgDT8kcg" name="handleInput" visibility="public" method="_-5KcgOscEeaGGeTgDT8kcg">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_-5J1cescEeaGGeTgDT8kcg" name="input" type="_DIE0UOsaEeaRPtCCR8m55A"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_-5LDkOscEeaGGeTgDT8kcg" name="isYou" visibility="public" method="_-5MRsOscEeaGGeTgDT8kcg">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_-5LqoOscEeaGGeTgDT8kcg" direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
+                </ownedParameter>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_-5LqoescEeaGGeTgDT8kcg" name="inputId" type="_DIE0UOsaEeaRPtCCR8m55A"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_-5M4wOscEeaGGeTgDT8kcg" name="atAssignId" visibility="public" method="_-5Nf0escEeaGGeTgDT8kcg">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_-5M4wescEeaGGeTgDT8kcg" name="inputSplit" type="_DIE0UOsaEeaRPtCCR8m55A">
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_-5M4wuscEeaGGeTgDT8kcg"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_-5Nf0OscEeaGGeTgDT8kcg" value="*"/>
+                </ownedParameter>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_-5OG4OscEeaGGeTgDT8kcg" name="atStartGame" visibility="public" method="_-5Ot8escEeaGGeTgDT8kcg">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_-5OG4escEeaGGeTgDT8kcg" name="inputSplit" type="_DIE0UOsaEeaRPtCCR8m55A">
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_-5OG4uscEeaGGeTgDT8kcg"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_-5Ot8OscEeaGGeTgDT8kcg" value="*"/>
+                </ownedParameter>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_-5PVAOscEeaGGeTgDT8kcg" name="atNotifyMove" visibility="public" method="_-5P8EOscEeaGGeTgDT8kcg">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_-5PVAescEeaGGeTgDT8kcg" name="inputSplit" type="_DIE0UOsaEeaRPtCCR8m55A">
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_-5PVAuscEeaGGeTgDT8kcg"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_-5PVA-scEeaGGeTgDT8kcg" value="*"/>
+                </ownedParameter>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_-5QjIOscEeaGGeTgDT8kcg" name="atNotifyEnd" visibility="public" method="_-5RKMescEeaGGeTgDT8kcg">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_-5QjIescEeaGGeTgDT8kcg" name="inputSplit" type="_DIE0UOsaEeaRPtCCR8m55A">
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_-5QjIuscEeaGGeTgDT8kcg"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_-5RKMOscEeaGGeTgDT8kcg" value="*"/>
+                </ownedParameter>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_-5RKMuscEeaGGeTgDT8kcg" name="atNotifyMessage" visibility="public" method="_-5SYUOscEeaGGeTgDT8kcg">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_-5RxQOscEeaGGeTgDT8kcg" name="inputSplit" type="_DIE0UOsaEeaRPtCCR8m55A">
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_-5RxQescEeaGGeTgDT8kcg"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_-5RxQuscEeaGGeTgDT8kcg" value="*"/>
+                </ownedParameter>
+              </ownedOperation>
+            </packagedElement>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Package" xmi:id="_sHHycOsfEeagpPVreqOLZw" name="server">
+            <packagedElement xmi:type="uml:Class" xmi:id="_sHJnoOsfEeagpPVreqOLZw" name="ClientHandler" visibility="public">
+              <generalization xmi:type="uml:Generalization" xmi:id="_sHKOsOsfEeagpPVreqOLZw" general="_-43hkOscEeaGGeTgDT8kcg"/>
+              <ownedAttribute xmi:type="uml:Property" xmi:id="_sHN5EesfEeagpPVreqOLZw" name="server" visibility="private" isLeaf="true" type="_sHK1wesfEeagpPVreqOLZw" isUnique="false"/>
+              <ownedAttribute xmi:type="uml:Property" xmi:id="_sHOgIOsfEeagpPVreqOLZw" name="playerName" visibility="private" type="_DIE0UOsaEeaRPtCCR8m55A" isUnique="false"/>
+              <ownedAttribute xmi:type="uml:Property" xmi:id="_sHOgIesfEeagpPVreqOLZw" name="playerId" visibility="private" isUnique="false">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+              </ownedAttribute>
+              <ownedAttribute xmi:type="uml:Property" xmi:id="_sHRjcesfEeagpPVreqOLZw" name="game" visibility="private" type="_DIMwIOsaEeaRPtCCR8m55A" isUnique="false"/>
+              <ownedAttribute xmi:type="uml:Property" xmi:id="_sHSKgOsfEeagpPVreqOLZw" name="canChat" visibility="private" isUnique="false">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
+              </ownedAttribute>
+              <ownedAttribute xmi:type="uml:Property" xmi:id="_sHSKgesfEeagpPVreqOLZw" name="disconnected" visibility="public" isUnique="false">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
+                <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_sHSKgusfEeagpPVreqOLZw" name="defaultValue">
+                  <language>JAVA</language>
+                  <body>false</body>
+                </defaultValue>
+              </ownedAttribute>
+              <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_sHK1wOsfEeagpPVreqOLZw" name="ClientHandler implements Runnable" client="_sHJnoOsfEeagpPVreqOLZw" supplier="_-47L8OscEeaGGeTgDT8kcg" contract="_-47L8OscEeaGGeTgDT8kcg"/>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_sHY4MOsfEeagpPVreqOLZw" name="ClientHandler" specification="_sHSxkOsfEeagpPVreqOLZw">
+                <language>JAVA</language>
+                <body>
+    super(inSock.getInputStream(), inSock.getOutputStream());
+    this.server = inServer;
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_sHaGUOsfEeagpPVreqOLZw" name="setPlayerName" specification="_sHZfQOsfEeagpPVreqOLZw">
+                <language>JAVA</language>
+                <body>
+    this.playerName = input;
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_sHatYesfEeagpPVreqOLZw" name="setPlayerId" specification="_sHaGUesfEeagpPVreqOLZw">
+                <language>JAVA</language>
+                <body>
+    this.playerId = id;
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_sHb7gesfEeagpPVreqOLZw" name="setPlayerGame" specification="_sHbUcOsfEeagpPVreqOLZw">
+                <language>JAVA</language>
+                <body>
+    this.game = inputGame;
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_sHdJoesfEeagpPVreqOLZw" name="getPlayerName" specification="_sHcikOsfEeagpPVreqOLZw">
+                <language>JAVA</language>
+                <body>
+    return this.playerName;
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_sHdwsesfEeagpPVreqOLZw" name="getPlayerId" specification="_sHdJousfEeagpPVreqOLZw">
+                <language>JAVA</language>
+                <body>
+    return this.playerId;
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_sHeXwesfEeagpPVreqOLZw" name="getPlayerGame" specification="_sHdwsusfEeagpPVreqOLZw">
+                <language>JAVA</language>
+                <body>
+    return this.game;
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_sHgM8OsfEeagpPVreqOLZw" name="setClientCapabilities" specification="_sHe-0OsfEeagpPVreqOLZw">
+                <language>JAVA</language>
+                <body>
+    // this.clientCapabilities = inputSplit;
+    this.playerName = inputSplit[2];
+    if (inputSplit.length > 8 &amp;&amp; inputSplit[8].equals(&quot;1&quot;)) {
+        this.canChat = true;
+    } else {
+        this.canChat = false;
+    }
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_sHhbEOsfEeagpPVreqOLZw" name="send" specification="_sHg0AOsfEeagpPVreqOLZw">
+                <language>JAVA</language>
+                <body>
+    if (!disconnected) {
+        super.send(input);
+    }
+    this.server.sendToView(input);
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_sHiCIesfEeagpPVreqOLZw" name="atStart" specification="_sHiCIOsfEeagpPVreqOLZw">
+                <language>JAVA</language>
+                <body>
+    //first action from the server, send capabilities as described in protocol
+    send(Protocol.ProtServer.SERVERCAPABILITIES + server.CAPABILITIES);
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_sHipMOsfEeagpPVreqOLZw" name="onFailure" specification="_sHiCIusfEeagpPVreqOLZw">
+                <language>JAVA</language>
+                <body>
+    this.disconnected = true;
+    if (this.game != null) {
+        this.game.leaveGame(this);
+    }
+    if (this.server != null) {
+        this.server.leaveServer(this);
+    }
+    //exit the terminal and close its streams.
+    super.exit();
+    try {
+        super.out.flush();
+        super.in.close();
+        super.out.close();
+    } catch (IOException e) {
+        this.server.sendToView(&quot;could not close streams onFailure of ClientHandler.&quot;);
+    }
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_sHj3UOsfEeagpPVreqOLZw" name="handleInput" specification="_sHjQQOsfEeagpPVreqOLZw">
+                <language>JAVA</language>
+                <body>
+    //split input around spaces
+    String[] inputSplit = input.split(&quot; &quot;);
+    //check which command is given (always the first word)
+    if (inputSplit[0].equals(Protocol.ProtClient.SENDCAPABILITIES)) {
+        setClientCapabilities(inputSplit);
+        this.server.joinGame(this);
+    } else if (inputSplit[0].equals(Protocol.ProtClient.SENDMESSAGE) &amp;&amp; this.canChat) {
+        this.server.sendChat(inputSplit, this.playerName);
+    } else if (inputSplit[0].equals(Protocol.ProtClient.MAKEMOVE) &amp;&amp; inputSplit.length == 3) {
+        try {
+            int x = Integer.parseInt(inputSplit[1]);
+            int y = Integer.parseInt(inputSplit[2]);
+            this.game.makeMove(x, y, this);
+        } catch (NumberFormatException e) {
+            send(&quot;error 4&quot;);
+        }
+    } else {
+        //error 4 ==> invalidCommand
+        send(&quot;error 4&quot;);
+    }
+</body>
+              </ownedBehavior>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_sHSxkOsfEeagpPVreqOLZw" name="ClientHandler" visibility="public" method="_sHY4MOsfEeagpPVreqOLZw" raisedException="_-5EV4uscEeaGGeTgDT8kcg">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_sHXqEOsfEeagpPVreqOLZw" name="inServer" type="_sHK1wesfEeagpPVreqOLZw"/>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_sHYRIOsfEeagpPVreqOLZw" name="inSock" type="_-4_dYuscEeaGGeTgDT8kcg"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_sHZfQOsfEeagpPVreqOLZw" name="setPlayerName" visibility="public" method="_sHaGUOsfEeagpPVreqOLZw">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_sHZfQesfEeagpPVreqOLZw" name="input" type="_DIE0UOsaEeaRPtCCR8m55A"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_sHaGUesfEeagpPVreqOLZw" name="setPlayerId" visibility="public" method="_sHatYesfEeagpPVreqOLZw">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_sHatYOsfEeagpPVreqOLZw" name="id">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+                </ownedParameter>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_sHbUcOsfEeagpPVreqOLZw" name="setPlayerGame" visibility="public" method="_sHb7gesfEeagpPVreqOLZw">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_sHb7gOsfEeagpPVreqOLZw" name="inputGame" type="_DIMwIOsaEeaRPtCCR8m55A"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_sHcikOsfEeagpPVreqOLZw" name="getPlayerName" visibility="public" method="_sHdJoesfEeagpPVreqOLZw">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_sHdJoOsfEeagpPVreqOLZw" type="_DIE0UOsaEeaRPtCCR8m55A" direction="return"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_sHdJousfEeagpPVreqOLZw" name="getPlayerId" visibility="public" method="_sHdwsesfEeagpPVreqOLZw">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_sHdwsOsfEeagpPVreqOLZw" direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+                </ownedParameter>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_sHdwsusfEeagpPVreqOLZw" name="getPlayerGame" visibility="public" method="_sHeXwesfEeagpPVreqOLZw">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_sHeXwOsfEeagpPVreqOLZw" type="_DIMwIOsaEeaRPtCCR8m55A" direction="return"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_sHe-0OsfEeagpPVreqOLZw" name="setClientCapabilities" visibility="public" method="_sHgM8OsfEeagpPVreqOLZw">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_sHfl4OsfEeagpPVreqOLZw" name="inputSplit" type="_DIE0UOsaEeaRPtCCR8m55A">
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_sHfl4esfEeagpPVreqOLZw"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_sHfl4usfEeagpPVreqOLZw" value="*"/>
+                </ownedParameter>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_sHg0AOsfEeagpPVreqOLZw" name="send" visibility="public" method="_sHhbEOsfEeagpPVreqOLZw">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_sHg0AesfEeagpPVreqOLZw" name="input" type="_DIE0UOsaEeaRPtCCR8m55A"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_sHiCIOsfEeagpPVreqOLZw" name="atStart" visibility="public" method="_sHiCIesfEeagpPVreqOLZw"/>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_sHiCIusfEeagpPVreqOLZw" name="onFailure" visibility="public" method="_sHipMOsfEeagpPVreqOLZw"/>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_sHjQQOsfEeagpPVreqOLZw" name="handleInput" visibility="public" method="_sHj3UOsfEeagpPVreqOLZw">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_sHjQQesfEeagpPVreqOLZw" name="input" type="_DIE0UOsaEeaRPtCCR8m55A"/>
+              </ownedOperation>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Class" xmi:id="_sHK1wesfEeagpPVreqOLZw" name="Server" visibility="public">
+              <generalization xmi:type="uml:Generalization" xmi:id="_x6EogOsfEeagpPVreqOLZw" general="_DIN-QOsaEeaRPtCCR8m55A"/>
+              <ownedAttribute xmi:type="uml:Property" xmi:id="_x6Hr0esfEeagpPVreqOLZw" name="serverSocket" visibility="private" type="_x6FPkOsfEeagpPVreqOLZw" isUnique="false"/>
+              <ownedAttribute xmi:type="uml:Property" xmi:id="_x6KvIOsfEeagpPVreqOLZw" name="view" visibility="private" type="_x6IS4OsfEeagpPVreqOLZw" isUnique="false"/>
+              <ownedAttribute xmi:type="uml:Property" xmi:id="_x6KvIesfEeagpPVreqOLZw" name="running" visibility="public" isUnique="false">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
+                <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_x6KvIusfEeagpPVreqOLZw" name="defaultValue">
+                  <language>JAVA</language>
+                  <body>false</body>
+                </defaultValue>
+              </ownedAttribute>
+              <ownedAttribute xmi:type="uml:Property" xmi:id="_x6LWMOsfEeagpPVreqOLZw" name="CAPABILITIES" visibility="public" isLeaf="true" isStatic="true" type="_DIE0UOsaEeaRPtCCR8m55A" isUnique="false">
+                <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_x6LWMesfEeagpPVreqOLZw" name="defaultValue">
+                  <language>JAVA</language>
+                  <body>&quot; 2 0 4 4 4 4 1&quot;</body>
+                </defaultValue>
+              </ownedAttribute>
+              <ownedAttribute xmi:type="uml:Property" xmi:id="_x6OZgOsfEeagpPVreqOLZw" name="clientHandlerList" visibility="private" type="_sHJnoOsfEeagpPVreqOLZw" isUnique="false">
+                <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_x6OZgesfEeagpPVreqOLZw"/>
+                <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_x6OZgusfEeagpPVreqOLZw" value="*"/>
+                <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_x6OZg-sfEeagpPVreqOLZw" name="defaultValue">
+                  <language>JAVA</language>
+                  <body>new ArrayList&lt;ClientHandler>()</body>
+                </defaultValue>
+              </ownedAttribute>
+              <ownedAttribute xmi:type="uml:Property" xmi:id="_x6OZhOsfEeagpPVreqOLZw" name="gameList" visibility="private" type="_DIMwIOsaEeaRPtCCR8m55A" isUnique="false">
+                <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_x6PAkOsfEeagpPVreqOLZw"/>
+                <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_x6PAkesfEeagpPVreqOLZw" value="*"/>
+                <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_x6PAkusfEeagpPVreqOLZw" name="defaultValue">
+                  <language>JAVA</language>
+                  <body>new ArrayList&lt;Game>()</body>
+                </defaultValue>
+              </ownedAttribute>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_x6Rc0OsfEeagpPVreqOLZw" name="Server" specification="_x6PAk-sfEeagpPVreqOLZw">
+                <language>JAVA</language>
+                <body>
+    try {
+        this.view = new ServerTUIView(this);
+        this.view.run();
+    } catch (IOException e1) {
+        System.out.println(&quot;Could not create TUI vor server.&quot;);
+        System.exit(0);
+    }
+    new PingThread(this).start();
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_x6Sq8OsfEeagpPVreqOLZw" name="sendChat" specification="_x6SD4OsfEeagpPVreqOLZw">
+                <language>JAVA</language>
+                <body>
+    String result = Protocol.ProtServer.NOTIFYMESSAGE + &quot; &quot; + name + &quot; &quot;;
+    for (int i = 1; i &lt; inputSplit.length; i++) {
+        result = result + inputSplit[i] + &quot; &quot;;
+    }
+    for (ClientHandler c : clientHandlerList) {
+        c.send(result);
+    }
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_x6Sq8usfEeagpPVreqOLZw" name="pingAll" specification="_x6Sq8esfEeagpPVreqOLZw">
+                <language>JAVA</language>
+                <body>
+    while (true) {
+        for (ClientHandler c : clientHandlerList) {
+            c.send(&quot;ping&quot;);
+        }
+        try {
+            wait(100);
+        } catch (InterruptedException e1) {
+            sendToView(&quot;pinger interrupted.&quot;);
+        }
+    }
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_x6T5EOsfEeagpPVreqOLZw" name="leaveServer" specification="_x6TSAOsfEeagpPVreqOLZw">
+                <language>JAVA</language>
+                <body>
+    clientHandlerList.remove(client);
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_x6UgIesfEeagpPVreqOLZw" name="removeGame" specification="_x6T5EesfEeagpPVreqOLZw">
+                <language>JAVA</language>
+                <body>
+    this.gameList.remove(game);
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_x6VuQOsfEeagpPVreqOLZw" name="startServer" specification="_x6VHMOsfEeagpPVreqOLZw">
+                <language>JAVA</language>
+                <body>
+    if (this.running) {
+        sendToView(&quot;Server already running, exit and restart to run server on different port.&quot;);
+    } else {
+        this.running = true;
+        // parse input - the port
+        int port = getPort(input);
+        try {
+            this.serverSocket = new ServerSocket(port);
+            this.start();
+        } catch (IOException e1) {
+            sendToView(&quot;Could not create ServerSocket on port: &quot; + port);
+            sendToView(&quot;Try again, note that port should not be in use and higher than 0.&quot;);
+            this.running = false;
+        }
+    }
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_x6WVUesfEeagpPVreqOLZw" name="run" specification="_x6WVUOsfEeagpPVreqOLZw">
+                <language>JAVA</language>
+                <body>
+    accepter();
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_x6W8YesfEeagpPVreqOLZw" name="sendToView" specification="_x6WVUusfEeagpPVreqOLZw">
+                <language>JAVA</language>
+                <body>
+    if (this.view != null) {
+        this.view.send(input);
+    } else {
+        System.out.println(&quot;view not yet constructed&quot;);
+    }
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_x6XjcesfEeagpPVreqOLZw" name="shutDown" specification="_x6XjcOsfEeagpPVreqOLZw">
+                <language>JAVA</language>
+                <body>
+    for (ClientHandler client : this.clientHandlerList) {
+        client.send(&quot;serverdown&quot;);
+    }
+    System.exit(0);
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_x6YKgusfEeagpPVreqOLZw" name="getServerSocket" specification="_x6YKgOsfEeagpPVreqOLZw">
+                <language>JAVA</language>
+                <body>
+    return this.serverSocket;
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_x6ZYousfEeagpPVreqOLZw" name="getClientHandlerList" specification="_x6YxkOsfEeagpPVreqOLZw">
+                <language>JAVA</language>
+                <body>
+    return this.clientHandlerList;
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_x6amwesfEeagpPVreqOLZw" name="getGameList" specification="_x6Z_sOsfEeagpPVreqOLZw">
+                <language>JAVA</language>
+                <body>
+    return this.gameList;
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_x6bN0OsfEeagpPVreqOLZw" name="accepter" specification="_x6amwusfEeagpPVreqOLZw">
+                <language>JAVA</language>
+                <body>
+    sendToView(&quot;Server started, ready to accept incoming connections&quot;);
+    while (true) {
+        Socket sock = null;
+        try {
+            sock = this.getServerSocket().accept();
+            sendToView(&quot;New client connected!&quot;);
+        } catch (IOException e1) {
+            sendToView(&quot;Could not accept connection on serversocket.&quot;);
+        }
+        try {
+            ClientHandler clientHandler = new ClientHandler(this, sock);
+            this.clientHandlerList.add(clientHandler);
+            new Thread(clientHandler).start();
+        } catch (IOException e1) {
+            sendToView(&quot;Could not create client handler.&quot;);
+        }
+    }
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_x6ffQOsfEeagpPVreqOLZw" name="joinGame" specification="_x6bN0esfEeagpPVreqOLZw">
+                <language>JAVA</language>
+                <body>
+    //search for available games and start them &amp;&amp; and player if found
+    Game game = null;
+    int i = 0;
+    //search for game available to join
+    while (game == null &amp;&amp; i &lt; this.gameList.size()) {
+        //game is available if it is not full
+        if (!this.gameList.get(i).isFull()) {
+            sendToView(&quot;game &quot; + i + &quot; was joined&quot;);
+            game = this.gameList.get(i);
+        }
+        //continue
+        i++;
+    }
+    //if no game found make a new one
+    if (game == null) {
+        sendToView(&quot;new game created&quot;);
+        game = new Game(this);
+        this.gameList.add(game);
+    }
+    //add the handler to the game        
+    game.addPlayer(inputPlayer);
+    //add the game to the handler 
+    inputPlayer.setPlayerGame(game);
+    //start the game if it is full
+    if (game.isFull()) {
+        game.start();
+    }
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_x6gtYOsfEeagpPVreqOLZw" name="getPort" specification="_x6ffQesfEeagpPVreqOLZw">
+                <language>JAVA</language>
+                <body>
+    int result = 0;
+    try {
+        result = Integer.parseInt(input);
+    } catch (NumberFormatException e) {
+        System.out.println(&quot;ERROR: &quot; + input + &quot; is not an integer&quot;);
+    }
+    return result;
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_x6iikOsfEeagpPVreqOLZw" name="main" specification="_x6hUcOsfEeagpPVreqOLZw">
+                <language>JAVA</language>
+                <body>
+    //create a new server
+    new Server();
+</body>
+              </ownedBehavior>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_x6PAk-sfEeagpPVreqOLZw" name="Server" visibility="public" method="_x6Rc0OsfEeagpPVreqOLZw"/>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_x6SD4OsfEeagpPVreqOLZw" name="sendChat" visibility="public" method="_x6Sq8OsfEeagpPVreqOLZw">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_x6SD4esfEeagpPVreqOLZw" name="inputSplit" type="_DIE0UOsaEeaRPtCCR8m55A"/>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_x6SD4usfEeagpPVreqOLZw" name="name" type="_DIE0UOsaEeaRPtCCR8m55A"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_x6Sq8esfEeagpPVreqOLZw" name="pingAll" visibility="public" method="_x6Sq8usfEeagpPVreqOLZw"/>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_x6TSAOsfEeagpPVreqOLZw" name="leaveServer" visibility="public" method="_x6T5EOsfEeagpPVreqOLZw">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_x6TSAesfEeagpPVreqOLZw" name="client" type="_sHJnoOsfEeagpPVreqOLZw"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_x6T5EesfEeagpPVreqOLZw" name="removeGame" visibility="public" method="_x6UgIesfEeagpPVreqOLZw">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_x6UgIOsfEeagpPVreqOLZw" name="game" type="_DIMwIOsaEeaRPtCCR8m55A"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_x6VHMOsfEeagpPVreqOLZw" name="startServer" visibility="public" method="_x6VuQOsfEeagpPVreqOLZw">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_x6VHMesfEeagpPVreqOLZw" name="input" type="_DIE0UOsaEeaRPtCCR8m55A"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_x6WVUOsfEeagpPVreqOLZw" name="run" visibility="public" method="_x6WVUesfEeagpPVreqOLZw"/>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_x6WVUusfEeagpPVreqOLZw" name="sendToView" visibility="public" method="_x6W8YesfEeagpPVreqOLZw">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_x6W8YOsfEeagpPVreqOLZw" name="input" type="_DIE0UOsaEeaRPtCCR8m55A"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_x6XjcOsfEeagpPVreqOLZw" name="shutDown" visibility="public" method="_x6XjcesfEeagpPVreqOLZw"/>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_x6YKgOsfEeagpPVreqOLZw" name="getServerSocket" visibility="public" method="_x6YKgusfEeagpPVreqOLZw">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_x6YKgesfEeagpPVreqOLZw" type="_x6FPkOsfEeagpPVreqOLZw" direction="return"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_x6YxkOsfEeagpPVreqOLZw" name="getClientHandlerList" visibility="public" method="_x6ZYousfEeagpPVreqOLZw">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_x6YxkesfEeagpPVreqOLZw" type="_sHJnoOsfEeagpPVreqOLZw" direction="return">
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_x6ZYoOsfEeagpPVreqOLZw"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_x6ZYoesfEeagpPVreqOLZw" value="*"/>
+                </ownedParameter>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_x6Z_sOsfEeagpPVreqOLZw" name="getGameList" visibility="public" method="_x6amwesfEeagpPVreqOLZw">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_x6Z_sesfEeagpPVreqOLZw" type="_DIMwIOsaEeaRPtCCR8m55A" direction="return">
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_x6Z_susfEeagpPVreqOLZw"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_x6amwOsfEeagpPVreqOLZw" value="*"/>
+                </ownedParameter>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_x6amwusfEeagpPVreqOLZw" name="accepter" visibility="public" method="_x6bN0OsfEeagpPVreqOLZw"/>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_x6bN0esfEeagpPVreqOLZw" name="joinGame" visibility="public" method="_x6ffQOsfEeagpPVreqOLZw">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_x6e4MOsfEeagpPVreqOLZw" name="inputPlayer" type="_sHJnoOsfEeagpPVreqOLZw"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_x6ffQesfEeagpPVreqOLZw" name="getPort" visibility="public" isStatic="true" method="_x6gtYOsfEeagpPVreqOLZw">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_x6gGUOsfEeagpPVreqOLZw" direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+                </ownedParameter>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_x6gGUesfEeagpPVreqOLZw" name="input" type="_DIE0UOsaEeaRPtCCR8m55A"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_x6hUcOsfEeagpPVreqOLZw" name="main" visibility="public" isStatic="true" method="_x6iikOsfEeagpPVreqOLZw">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_x6h7gOsfEeagpPVreqOLZw" name="args" type="_DIE0UOsaEeaRPtCCR8m55A">
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_x6h7gesfEeagpPVreqOLZw"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_x6h7gusfEeagpPVreqOLZw" value="*"/>
+                </ownedParameter>
+              </ownedOperation>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Class" xmi:id="_0tekQOsfEeagpPVreqOLZw" name="PingThread" visibility="public">
+              <generalization xmi:type="uml:Generalization" xmi:id="_0tfLUOsfEeagpPVreqOLZw" general="_DIN-QOsaEeaRPtCCR8m55A"/>
+              <ownedAttribute xmi:type="uml:Property" xmi:id="_0tfLUesfEeagpPVreqOLZw" name="server" visibility="private" type="_sHK1wesfEeagpPVreqOLZw" isUnique="false"/>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_0tiOoesfEeagpPVreqOLZw" name="PingThread" specification="_0tfyYOsfEeagpPVreqOLZw">
+                <language>JAVA</language>
+                <body>
+    this.server = inServer;
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_0ti1sOsfEeagpPVreqOLZw" name="run" specification="_0tiOousfEeagpPVreqOLZw">
+                <language>JAVA</language>
+                <body>
+    this.server.pingAll();
+</body>
+              </ownedBehavior>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_0tfyYOsfEeagpPVreqOLZw" name="PingThread" visibility="public" method="_0tiOoesfEeagpPVreqOLZw">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_0tiOoOsfEeagpPVreqOLZw" name="inServer" type="_sHK1wesfEeagpPVreqOLZw"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_0tiOousfEeagpPVreqOLZw" name="run" visibility="public" method="_0ti1sOsfEeagpPVreqOLZw"/>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Class" xmi:id="_2PH9MOsfEeagpPVreqOLZw" name="PortException" visibility="public">
+              <generalization xmi:type="uml:Generalization" xmi:id="_2PLAgOsfEeagpPVreqOLZw" general="_2PIkQOsfEeagpPVreqOLZw"/>
+            </packagedElement>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Package" xmi:id="_719p4OsfEeagpPVreqOLZw" name="view">
+            <packagedElement xmi:type="uml:Interface" xmi:id="_71-Q8OsfEeagpPVreqOLZw" name="ClientView" visibility="public">
+              <generalization xmi:type="uml:Generalization" xmi:id="_71-Q8usfEeagpPVreqOLZw" general="_71-Q8esfEeagpPVreqOLZw"/>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_71-4AOsfEeagpPVreqOLZw" name="showBoard" visibility="public"/>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Interface" xmi:id="_71-Q8esfEeagpPVreqOLZw" name="View" visibility="public">
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_MJEE8OsgEeagpPVreqOLZw" name="run" visibility="public"/>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_MJEsAOsgEeagpPVreqOLZw" name="atStart" visibility="public"/>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_MJEsAesgEeagpPVreqOLZw" name="handleInput" visibility="public">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_MJEsAusgEeagpPVreqOLZw" name="input" type="_DIE0UOsaEeaRPtCCR8m55A"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_MJFTEOsgEeagpPVreqOLZw" name="send" visibility="public">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_MJFTEesgEeagpPVreqOLZw" name="inpt" type="_DIE0UOsaEeaRPtCCR8m55A"/>
+              </ownedOperation>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Class" xmi:id="_9u46YOsfEeagpPVreqOLZw" name="ServerTUIView" visibility="public">
+              <generalization xmi:type="uml:Generalization" xmi:id="_9u7WoesfEeagpPVreqOLZw" general="_9u5hcOsfEeagpPVreqOLZw"/>
+              <ownedAttribute xmi:type="uml:Property" xmi:id="_9u79sOsfEeagpPVreqOLZw" name="server" visibility="private" isLeaf="true" type="_sHK1wesfEeagpPVreqOLZw" isUnique="false"/>
+              <ownedAttribute xmi:type="uml:Property" xmi:id="_9u8kwOsfEeagpPVreqOLZw" name="START" visibility="private" isLeaf="true" isStatic="true" type="_DIE0UOsaEeaRPtCCR8m55A" isUnique="false">
+                <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_9u8kwesfEeagpPVreqOLZw" name="defaultValue">
+                  <language>JAVA</language>
+                  <body>&quot;start&quot;</body>
+                </defaultValue>
+              </ownedAttribute>
+              <ownedAttribute xmi:type="uml:Property" xmi:id="_9u9L0OsfEeagpPVreqOLZw" name="EXIT" visibility="private" isLeaf="true" isStatic="true" type="_DIE0UOsaEeaRPtCCR8m55A" isUnique="false">
+                <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_9u9L0esfEeagpPVreqOLZw" name="defaultValue">
+                  <language>JAVA</language>
+                  <body>&quot;exit&quot;</body>
+                </defaultValue>
+              </ownedAttribute>
+              <ownedAttribute xmi:type="uml:Property" xmi:id="_9u9y4OsfEeagpPVreqOLZw" name="HELP" visibility="private" isLeaf="true" isStatic="true" type="_DIE0UOsaEeaRPtCCR8m55A" isUnique="false">
+                <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_9u9y4esfEeagpPVreqOLZw" name="defaultValue">
+                  <language>JAVA</language>
+                  <body>&quot;help&quot;</body>
+                </defaultValue>
+              </ownedAttribute>
+              <ownedAttribute xmi:type="uml:Property" xmi:id="_9u-Z8OsfEeagpPVreqOLZw" name="SWITCH" visibility="private" isLeaf="true" isStatic="true" type="_DIE0UOsaEeaRPtCCR8m55A" isUnique="false">
+                <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_9u-Z8esfEeagpPVreqOLZw" name="defaultValue">
+                  <language>JAVA</language>
+                  <body>&quot;switch&quot;</body>
+                </defaultValue>
+              </ownedAttribute>
+              <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_9u7WousfEeagpPVreqOLZw" name="implements" client="_9u46YOsfEeagpPVreqOLZw" supplier="_71-Q8esfEeagpPVreqOLZw" contract="_71-Q8esfEeagpPVreqOLZw"/>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_9vCrYOsfEeagpPVreqOLZw" name="ServerTUIView" specification="_9u_BAOsfEeagpPVreqOLZw">
+                <language>JAVA</language>
+                <body>
+    super(System.in, System.out);
+    this.server = inServer;
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_9vDScesfEeagpPVreqOLZw" name="atStart" specification="_9vDScOsfEeagpPVreqOLZw">
+                <language>JAVA</language>
+                <body>
+    send(&quot;Enter 'start &lt;port>' to start the server.&quot;);
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_9vEgkOsfEeagpPVreqOLZw" name="handleInput" specification="_9vD5gOsfEeagpPVreqOLZw">
+                <language>JAVA</language>
+                <body>
+    String[] inputSplit = input.split(&quot; &quot;);
+    if (input.equals(EXIT)) {
+        super.send(&quot;Server is shutting down...&quot;);
+        server.shutDown();
+    } else if (inputSplit[0].equals(START) &amp;&amp; inputSplit.length == 2) {
+        this.server.startServer(inputSplit[1]);
+    } else if (input.equals(HELP)) {
+        super.send(&quot;&quot;);
+        super.send(&quot;VALID COMMANDS&quot;);
+        super.send(&quot;Command:'&quot; + START + &quot;' ==> starts the server on port.&quot;);
+        super.send(&quot;Command:'&quot; + EXIT + &quot;' ==> shutdown the server.&quot;);
+        super.send(&quot;&quot;);
+        super.send(&quot;Enter a command below.&quot;);
+    } else if (input.equals(SWITCH)) {
+        super.send(&quot;&quot;);
+    } else {
+        super.send(&quot;Invalid command, type 'HELP' to see valid commands.&quot;);
+    }
+</body>
+              </ownedBehavior>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_9u_BAOsfEeagpPVreqOLZw" name="ServerTUIView" visibility="public" method="_9vCrYOsfEeagpPVreqOLZw" raisedException="_-5EV4uscEeaGGeTgDT8kcg">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_9vCEUOsfEeagpPVreqOLZw" name="inServer" type="_sHK1wesfEeagpPVreqOLZw"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_9vDScOsfEeagpPVreqOLZw" name="atStart" visibility="public" method="_9vDScesfEeagpPVreqOLZw"/>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_9vD5gOsfEeagpPVreqOLZw" name="handleInput" visibility="public" method="_9vEgkOsfEeagpPVreqOLZw">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_9vD5gesfEeagpPVreqOLZw" name="input" type="_DIE0UOsaEeaRPtCCR8m55A"/>
+              </ownedOperation>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Class" xmi:id="_9u5hcOsfEeagpPVreqOLZw" name="Terminal"/>
+            <packagedElement xmi:type="uml:Class" xmi:id="_RPiPgOsgEeagpPVreqOLZw" name="ClientTUIView" visibility="public">
+              <generalization xmi:type="uml:Generalization" xmi:id="_RPi2kOsgEeagpPVreqOLZw" general="_9u5hcOsfEeagpPVreqOLZw"/>
+              <ownedAttribute xmi:type="uml:Property" xmi:id="_RPlS0OsgEeagpPVreqOLZw" name="client" visibility="private" type="_57VQkOscEeaGGeTgDT8kcg" isUnique="false"/>
+              <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_RPkrwesgEeagpPVreqOLZw" name="implements" client="_RPiPgOsgEeagpPVreqOLZw" supplier="_71-Q8OsfEeagpPVreqOLZw" contract="_71-Q8OsfEeagpPVreqOLZw"/>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_RPoWIOsgEeagpPVreqOLZw" name="ClientTUIView" specification="_RPlS0esgEeagpPVreqOLZw">
+                <language>JAVA</language>
+                <body>
+    super(System.in, System.out);
+    this.client = client;
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_RPo9MOsgEeagpPVreqOLZw" name="showBoard" specification="_RPoWIesgEeagpPVreqOLZw">
+                <language>JAVA</language>
+                <body>
+    send(this.client.getBoard().toString());
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_RPpkQOsgEeagpPVreqOLZw" name="handleInput" specification="_RPo9MesgEeagpPVreqOLZw">
+                <language>JAVA</language>
+                <body>
+    if (input != null) {
+        //split input around spaces
+        String[] inputSplit = input.split(&quot; &quot;);
+        if (inputSplit[0].equals(&quot;multi&quot;)) {
+            send(&quot;Enter 'start &lt;playername> &lt;server ip> &lt;port>' to continue.&quot;);
+            this.client.setOnline(true);
+        } else if (inputSplit[0].equals(Protocol.ProtClient.SENDMESSAGE) &amp;&amp; this.client.canChat) {
+            this.client.sendToServer(input);
+        } else if (inputSplit[0].equals(&quot;ai&quot;) &amp;&amp; inputSplit.length == 1) {
+            send(&quot;Enter 'start &lt;port> &lt;ai difficulty ('easy'/'medium'/'hard')>' to continue.&quot;);
+            this.client.setOnline(false);
+        } else if (inputSplit[0].equals(&quot;start&quot;) &amp;&amp; this.client.isOnline() &amp;&amp; inputSplit.length == 4) {
+            send(&quot;connecting to server...&quot;);
+            this.client.setPlayerName(inputSplit[1]);
+            this.client.connectToServer(inputSplit[2], inputSplit[3]);
+        } else if (inputSplit[0].equals(&quot;start&quot;) &amp;&amp; !this.client.isOnline() &amp;&amp; inputSplit.length == 3) {
+            this.client.atAI(inputSplit);
+            this.client.connectToServer(&quot;localhost&quot;, inputSplit[1]);
+        } else if (inputSplit[0].equals(&quot;aitoggle&quot;)) {
+            if (this.client.toggleAI()) {
+                this.client.sendToView(&quot;ai is now on&quot;);
+            } else {
+                this.client.sendToView(&quot;ai is now off&quot;);
+            }
+        } else if (inputSplit[0].equals(&quot;hint&quot;)) {
+            send(this.client.hint());
+        } else if (inputSplit[0].equals(&quot;restart&quot;)) {
+            this.client.restart();
+        } else if (inputSplit[0].equals(&quot;exit&quot;)) {
+            System.exit(0);
+        } else if (inputSplit[0].equals(&quot;move&quot;) &amp;&amp; inputSplit.length == 3 &amp;&amp; this.client.isInGame()) {
+            this.client.getServerHandler().send(Protocol.ProtClient.MAKEMOVE + &quot; &quot; + inputSplit[1] + &quot; &quot; + inputSplit[2]);
+        } else {
+            send(&quot;You entered: '&quot; + input + &quot;' which is not valid input or can only be done if it is your turn in the game.&quot;);
+            if (this.client.isInGame()) {
+                if (this.client.getCurrentTurnId() != this.client.getPlayerId()) {
+                    send(&quot;Note that it is not your turn now&quot;);
+                }
+            } else {
+                send(&quot;Note that you are not in game right now&quot;);
+            }
+        }
+    } else {
+        send(&quot;null input, y u do this?&quot;);
+    }
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_RPpkQusgEeagpPVreqOLZw" name="atStart" specification="_RPpkQesgEeagpPVreqOLZw">
+                <language>JAVA</language>
+                <body>
+    send(&quot;During the application you can enter:\n&quot; + &quot;'sendMessage &lt;message>' to chat in multiplayer\n&quot; + &quot;'hint' when in game to get a move suggested\n&quot; + &quot;'aitoggle' to enable/disable the computer playing for you\n&quot; + &quot;'exit' to exit the application or \n&quot; + &quot;'restart' to restart the application\n\n&quot;);
+    send(&quot;Enter 'ai' to play against AI or &quot; + &quot;'multi' to play against other players&quot;);
+</body>
+              </ownedBehavior>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_RPlS0esgEeagpPVreqOLZw" name="ClientTUIView" visibility="public" method="_RPoWIOsgEeagpPVreqOLZw" raisedException="_-5EV4uscEeaGGeTgDT8kcg">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_RPnvEesgEeagpPVreqOLZw" name="client" type="_57VQkOscEeaGGeTgDT8kcg"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_RPoWIesgEeagpPVreqOLZw" name="showBoard" visibility="public" method="_RPo9MOsgEeagpPVreqOLZw"/>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_RPo9MesgEeagpPVreqOLZw" name="handleInput" visibility="public" method="_RPpkQOsgEeagpPVreqOLZw">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_RPo9MusgEeagpPVreqOLZw" name="input" type="_DIE0UOsaEeaRPtCCR8m55A"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_RPpkQesgEeagpPVreqOLZw" name="atStart" visibility="public" method="_RPpkQusgEeagpPVreqOLZw"/>
+            </packagedElement>
           </packagedElement>
         </packagedElement>
       </packagedElement>
@@ -551,6 +2466,8 @@
           <packagedElement xmi:type="uml:Class" xmi:id="_DIE0UOsaEeaRPtCCR8m55A" name="String"/>
           <packagedElement xmi:type="uml:Class" xmi:id="_DIN-QOsaEeaRPtCCR8m55A" name="Thread"/>
           <packagedElement xmi:type="uml:Class" xmi:id="_DJg-w-saEeaRPtCCR8m55A" name="Object"/>
+          <packagedElement xmi:type="uml:Interface" xmi:id="_-47L8OscEeaGGeTgDT8kcg" name="Runnable"/>
+          <packagedElement xmi:type="uml:Class" xmi:id="_2PIkQOsfEeagpPVreqOLZw" name="Exception"/>
         </packagedElement>
         <packagedElement xmi:type="uml:Package" xmi:id="_DIm_0OsaEeaRPtCCR8m55A" name="util">
           <packagedElement xmi:type="uml:Package" xmi:id="_DIm_0esaEeaRPtCCR8m55A" name="concurrent">
@@ -561,6 +2478,13 @@
           </packagedElement>
           <packagedElement xmi:type="uml:Class" xmi:id="_DJGIAusaEeaRPtCCR8m55A" name="Map"/>
         </packagedElement>
+        <packagedElement xmi:type="uml:Package" xmi:id="_-4_dYescEeaGGeTgDT8kcg" name="net">
+          <packagedElement xmi:type="uml:Class" xmi:id="_-4_dYuscEeaGGeTgDT8kcg" name="Socket"/>
+          <packagedElement xmi:type="uml:Class" xmi:id="_x6FPkOsfEeagpPVreqOLZw" name="ServerSocket"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Package" xmi:id="_-5EV4escEeaGGeTgDT8kcg" name="io">
+          <packagedElement xmi:type="uml:Class" xmi:id="_-5EV4uscEeaGGeTgDT8kcg" name="IOException"/>
+        </packagedElement>
       </packagedElement>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_DIRBkOsaEeaRPtCCR8m55A" name="importedTypes">
@@ -570,8 +2494,91 @@
             <packagedElement xmi:type="uml:Class" xmi:id="_DIRooesaEeaRPtCCR8m55A" name="ClientHandler"/>
             <packagedElement xmi:type="uml:Class" xmi:id="_DIsfYesaEeaRPtCCR8m55A" name="Server"/>
           </packagedElement>
+          <packagedElement xmi:type="uml:Package" xmi:id="_57dzcOscEeaGGeTgDT8kcg" name="view">
+            <packagedElement xmi:type="uml:Class" xmi:id="_57dzcescEeaGGeTgDT8kcg" name="ClientView"/>
+            <packagedElement xmi:type="uml:Class" xmi:id="_-43hkOscEeaGGeTgDT8kcg" name="Terminal"/>
+            <packagedElement xmi:type="uml:Class" xmi:id="_x6IS4OsfEeagpPVreqOLZw" name="View"/>
+          </packagedElement>
         </packagedElement>
       </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_mrpIkOscEeaGGeTgDT8kcg" memberEnd="_mrtaAOscEeaGGeTgDT8kcg _mruBEOscEeaGGeTgDT8kcg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_mrsL4OscEeaGGeTgDT8kcg" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_mrsy8OscEeaGGeTgDT8kcg" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_mruBEOscEeaGGeTgDT8kcg" type="_StsMYOscEeaGGeTgDT8kcg" association="_mrpIkOscEeaGGeTgDT8kcg"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_mrtaAOscEeaGGeTgDT8kcg" type="_SH1tUOscEeaGGeTgDT8kcg" association="_mrpIkOscEeaGGeTgDT8kcg"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_7efP8OsdEeagpPVreqOLZw" memberEnd="_7eiTQOsdEeagpPVreqOLZw _7ei6UOsdEeagpPVreqOLZw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_7ehsMOsdEeagpPVreqOLZw" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_7ehsMesdEeagpPVreqOLZw" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_7ei6UOsdEeagpPVreqOLZw" type="_StsMYOscEeaGGeTgDT8kcg" association="_7efP8OsdEeagpPVreqOLZw">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Oo-u4OseEeagpPVreqOLZw" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_OpGqsOseEeagpPVreqOLZw" value="1"/>
+      </ownedEnd>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_7eiTQOsdEeagpPVreqOLZw" type="_SH1tUOscEeaGGeTgDT8kcg" association="_7efP8OsdEeagpPVreqOLZw">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Q-U1oOseEeagpPVreqOLZw"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Q-emoOseEeagpPVreqOLZw" value="*"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_Bv9OAOseEeagpPVreqOLZw" name="has" memberEnd="_Bv91EuseEeagpPVreqOLZw _Bv-cIOseEeagpPVreqOLZw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Bv91EOseEeagpPVreqOLZw" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_Bv91EeseEeagpPVreqOLZw" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_Bv-cIOseEeagpPVreqOLZw" type="_SH1tUOscEeaGGeTgDT8kcg" association="_Bv9OAOseEeagpPVreqOLZw">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_GOOwIOseEeagpPVreqOLZw" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_GOUPsOseEeagpPVreqOLZw" value="1"/>
+      </ownedEnd>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_Bv91EuseEeagpPVreqOLZw" type="_57VQkOscEeaGGeTgDT8kcg" association="_Bv9OAOseEeagpPVreqOLZw">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KFKlcOseEeagpPVreqOLZw"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KFWLoOseEeagpPVreqOLZw" value="*"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_hfwAkOseEeagpPVreqOLZw" name="uses" memberEnd="_hfwAk-seEeagpPVreqOLZw _hfwnoOseEeagpPVreqOLZw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_hfwAkeseEeagpPVreqOLZw" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_hfwAkuseEeagpPVreqOLZw" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_hfwnoOseEeagpPVreqOLZw" type="_57VQkOscEeaGGeTgDT8kcg" association="_hfwAkOseEeagpPVreqOLZw"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_hfwAk-seEeagpPVreqOLZw" type="_57YT4escEeaGGeTgDT8kcg" association="_hfwAkOseEeagpPVreqOLZw"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_i07OUOsfEeagpPVreqOLZw" name="accounts changes of" memberEnd="_i071YusfEeagpPVreqOLZw _i08ccOsfEeagpPVreqOLZw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_i071YOsfEeagpPVreqOLZw" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_i071YesfEeagpPVreqOLZw" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_i08ccOsfEeagpPVreqOLZw" type="_57VQkOscEeaGGeTgDT8kcg" association="_i07OUOsfEeagpPVreqOLZw"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_i071YusfEeagpPVreqOLZw" type="__exgcOsbEeaGGeTgDT8kcg" association="_i07OUOsfEeagpPVreqOLZw"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_vLpd8OsgEeagpPVreqOLZw" memberEnd="_vLqFAusgEeagpPVreqOLZw _vLqsEOsgEeagpPVreqOLZw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_vLqFAOsgEeagpPVreqOLZw" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_vLqFAesgEeagpPVreqOLZw" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_vLqsEOsgEeagpPVreqOLZw" type="__exgcOsbEeaGGeTgDT8kcg" association="_vLpd8OsgEeagpPVreqOLZw"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_vLqFAusgEeagpPVreqOLZw" type="_BwkckOsfEeagpPVreqOLZw" association="_vLpd8OsgEeagpPVreqOLZw">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_wjwgYOsgEeagpPVreqOLZw"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_wjyVkOsgEeagpPVreqOLZw" value="*"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_7OgL0OsgEeagpPVreqOLZw" name="has" memberEnd="_7OgL0-sgEeagpPVreqOLZw _7OgL1OsgEeagpPVreqOLZw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_7OgL0esgEeagpPVreqOLZw" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_7OgL0usgEeagpPVreqOLZw" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_7OgL1OsgEeagpPVreqOLZw" type="_57VQkOscEeaGGeTgDT8kcg" association="_7OgL0OsgEeagpPVreqOLZw"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_7OgL0-sgEeagpPVreqOLZw" type="_71-Q8OsfEeagpPVreqOLZw" association="_7OgL0OsgEeagpPVreqOLZw"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_N2qZwOshEeagpPVreqOLZw" name="has" memberEnd="_N2rA0ushEeagpPVreqOLZw _N2rn4OshEeagpPVreqOLZw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_N2rA0OshEeagpPVreqOLZw" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_N2rA0eshEeagpPVreqOLZw" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_N2rn4OshEeagpPVreqOLZw" type="_71-Q8esfEeagpPVreqOLZw" association="_N2qZwOshEeagpPVreqOLZw"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_N2rA0ushEeagpPVreqOLZw" type="_sHK1wesfEeagpPVreqOLZw" association="_N2qZwOshEeagpPVreqOLZw"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_RrogMOshEeagpPVreqOLZw" memberEnd="_RrpHQushEeagpPVreqOLZw _RrpuUOshEeagpPVreqOLZw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_RrpHQOshEeagpPVreqOLZw" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_RrpHQeshEeagpPVreqOLZw" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_RrpuUOshEeagpPVreqOLZw" type="_sHK1wesfEeagpPVreqOLZw" association="_RrogMOshEeagpPVreqOLZw"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_RrpHQushEeagpPVreqOLZw" type="__exgcOsbEeaGGeTgDT8kcg" association="_RrogMOshEeagpPVreqOLZw"/>
     </packagedElement>
     <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_DHeXYOsaEeaRPtCCR8m55A">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_DHflgOsaEeaRPtCCR8m55A" source="http://www.eclipse.org/uml2/2.0.0/UML">
@@ -602,9 +2609,35 @@
   <PapyrusJava:Synchronized xmi:id="_DI3egOsaEeaRPtCCR8m55A" base_Operation="_DI0bMusaEeaRPtCCR8m55A"/>
   <PapyrusJava:Synchronized xmi:id="_DI7v8OsaEeaRPtCCR8m55A" base_Operation="_DI56wOsaEeaRPtCCR8m55A"/>
   <PapyrusJava:External xmi:id="_DJH9MOsaEeaRPtCCR8m55A" name="java.util.Map" base_Classifier="_DJGIAusaEeaRPtCCR8m55A"/>
-  <standard:Create xmi:id="_DJfwoOsaEeaRPtCCR8m55A" base_BehavioralFeature="_DJdUYesaEeaRPtCCR8m55A"/>
   <PapyrusJava:External xmi:id="_DJiz8OsaEeaRPtCCR8m55A" name="java.lang.Object" base_Classifier="_DJg-w-saEeaRPtCCR8m55A"/>
   <PapyrusJava:StaticClassifier xmi:id="_DJw2YOsaEeaRPtCCR8m55A" base_Classifier="_DJuaIesaEeaRPtCCR8m55A"/>
-  <PapyrusJava:External xmi:id="_6hcgQOsaEeaRPtCCR8m55A" name="Field" base_Classifier="_DJM1susaEeaRPtCCR8m55A"/>
-  <PapyrusJava:External xmi:id="_6hwpUOsaEeaRPtCCR8m55A" name="Mark" base_Classifier="_DICYEOsaEeaRPtCCR8m55A"/>
+  <standard:Create xmi:id="__e2Y8OsbEeaGGeTgDT8kcg" base_BehavioralFeature="__ezVoesbEeaGGeTgDT8kcg"/>
+  <PapyrusJava:External xmi:id="_SH4woOscEeaGGeTgDT8kcg" name="Difficulty" base_Classifier="_StsMYOscEeaGGeTgDT8kcg"/>
+  <standard:Create xmi:id="_SH8bAOscEeaGGeTgDT8kcg" base_BehavioralFeature="_SH5XsOscEeaGGeTgDT8kcg"/>
+  <PapyrusJava:External xmi:id="_SIAscOscEeaGGeTgDT8kcg" name="ss.project.game.Board" base_Classifier="__exgcOsbEeaGGeTgDT8kcg"/>
+  <PapyrusJava:External xmi:id="_57bXMOscEeaGGeTgDT8kcg" name="ServerHandler" base_Classifier="_57YT4escEeaGGeTgDT8kcg"/>
+  <PapyrusJava:External xmi:id="_57g2wOscEeaGGeTgDT8kcg" name="ss.project.view.ClientView" base_Classifier="_57dzcescEeaGGeTgDT8kcg"/>
+  <PapyrusJava:External xmi:id="_57lIMOscEeaGGeTgDT8kcg" name="ComputerPlayer" base_Classifier="_SH1tUOscEeaGGeTgDT8kcg"/>
+  <standard:Create xmi:id="_57oykOscEeaGGeTgDT8kcg" base_BehavioralFeature="_57lvQOscEeaGGeTgDT8kcg"/>
+  <PapyrusJava:External xmi:id="_-4590OscEeaGGeTgDT8kcg" name="ss.project.view.Terminal" base_Classifier="_-43hkOscEeaGGeTgDT8kcg"/>
+  <PapyrusJava:External xmi:id="_-49BIOscEeaGGeTgDT8kcg" name="java.lang.Runnable" base_Classifier="_-47L8OscEeaGGeTgDT8kcg"/>
+  <PapyrusJava:External xmi:id="_-4-2UOscEeaGGeTgDT8kcg" name="ss.project.client.Client" base_Classifier="_57VQkOscEeaGGeTgDT8kcg"/>
+  <PapyrusJava:External xmi:id="_-5BSkOscEeaGGeTgDT8kcg" name="java.net.Socket" base_Classifier="_-4_dYuscEeaGGeTgDT8kcg"/>
+  <standard:Create xmi:id="_-5Du0OscEeaGGeTgDT8kcg" base_BehavioralFeature="_-5BSkescEeaGGeTgDT8kcg"/>
+  <PapyrusJava:External xmi:id="_-5GyIOscEeaGGeTgDT8kcg" name="java.io.IOException" base_Classifier="_-5EV4uscEeaGGeTgDT8kcg"/>
+  <PapyrusJava:External xmi:id="_sHN5EOsfEeagpPVreqOLZw" name="ss.project.server.Server" base_Classifier="_sHK1wesfEeagpPVreqOLZw"/>
+  <PapyrusJava:External xmi:id="_sHRjcOsfEeagpPVreqOLZw" name="ss.project.game.Game" base_Classifier="_DIMwIOsaEeaRPtCCR8m55A"/>
+  <standard:Create xmi:id="_sHXDAOsfEeagpPVreqOLZw" base_BehavioralFeature="_sHSxkOsfEeagpPVreqOLZw"/>
+  <PapyrusJava:External xmi:id="_x6Hr0OsfEeagpPVreqOLZw" name="java.net.ServerSocket" base_Classifier="_x6FPkOsfEeagpPVreqOLZw"/>
+  <PapyrusJava:External xmi:id="_x6KIEOsfEeagpPVreqOLZw" name="ss.project.view.View" base_Classifier="_x6IS4OsfEeagpPVreqOLZw"/>
+  <PapyrusJava:External xmi:id="_x6NycOsfEeagpPVreqOLZw" name="ClientHandler" base_Classifier="_sHJnoOsfEeagpPVreqOLZw"/>
+  <standard:Create xmi:id="_x6Q1wOsfEeagpPVreqOLZw" base_BehavioralFeature="_x6PAk-sfEeagpPVreqOLZw"/>
+  <PapyrusJava:Synchronized xmi:id="_x6eRIOsfEeagpPVreqOLZw" base_Operation="_x6bN0esfEeagpPVreqOLZw"/>
+  <standard:Create xmi:id="_0thnkOsfEeagpPVreqOLZw" base_BehavioralFeature="_0tfyYOsfEeagpPVreqOLZw"/>
+  <PapyrusJava:External xmi:id="_2PKZcOsfEeagpPVreqOLZw" name="java.lang.Exception" base_Classifier="_2PIkQOsfEeagpPVreqOLZw"/>
+  <PapyrusJava:External xmi:id="_9u7WoOsfEeagpPVreqOLZw" name="Terminal" base_Classifier="_9u5hcOsfEeagpPVreqOLZw"/>
+  <standard:Create xmi:id="_9vBdQOsfEeagpPVreqOLZw" base_BehavioralFeature="_9u_BAOsfEeagpPVreqOLZw"/>
+  <standard:Create xmi:id="_IngCsOsgEeagpPVreqOLZw" base_BehavioralFeature="_Indmc-sgEeagpPVreqOLZw"/>
+  <PapyrusJava:External xmi:id="_RPkrwOsgEeagpPVreqOLZw" name="ClientView" base_Classifier="_71-Q8OsfEeagpPVreqOLZw"/>
+  <standard:Create xmi:id="_RPnvEOsgEeagpPVreqOLZw" base_BehavioralFeature="_RPlS0esgEeagpPVreqOLZw"/>
 </xmi:XMI>
