@@ -313,12 +313,12 @@ public class Client implements Observer {
 
     //resets the client
     public void restart() {
-        //restart blocked for aiclients without view
+        
+        if (this.serverHandler != null) {
+            this.serverHandler.exit();
+        }
         if(this.view != null) {
-            sendToView("\n\nRestarting...");
-            if (this.serverHandler != null) {
-                this.serverHandler.exit();
-            }
+            sendToView("\n\nRestarting...");            
             this.inGame = false;
             this.view.atStart();    
         }

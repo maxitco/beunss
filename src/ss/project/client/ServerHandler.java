@@ -18,12 +18,9 @@ public class ServerHandler extends Terminal implements Runnable {
     @Override
     public void onFailure() {
       //exit the terminal and close its streams.
-        this.client.setInGame(false);
         
-        super.exit();
-                
-        this.client.sendToView("Connection to the server dropped.");
-        this.client.sendToView("Enter restart to reconnect to a server.");
+        this.client.restart();      
+        
     }
     
     @Override
