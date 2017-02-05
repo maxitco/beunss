@@ -39,7 +39,7 @@ public class Server extends Thread {
             System.exit(0);
         }
     }
-    
+     
     public void sendChat(String[] inputSplit, String name) {        
         String result = Protocol.ProtServer.NOTIFYMESSAGE + " " + name + " ";
         

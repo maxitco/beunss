@@ -7,7 +7,7 @@ public class ServerTestThread extends Thread {
     
     public void run() {
         this.server = new Server();
-        this.server.createView();
+        this.server.createView();        
     }
     
     

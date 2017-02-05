@@ -59,5 +59,12 @@ public class Terminal {
     
     public void exit() {
         this.exit = true;
+        try {
+            out.flush();
+            in.close();
+            out.close();
+        } catch (IOException e) {
+            System.out.println("Could not close streams.");
+        }       
     }
 }

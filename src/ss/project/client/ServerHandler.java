@@ -21,15 +21,8 @@ public class ServerHandler extends Terminal implements Runnable {
         this.client.setInGame(false);
         
         super.exit();
-        try {
-            super.out.flush();
-            super.in.close();
-            super.out.close();
-        } catch (IOException e) {
-            this.client.sendToView("could not close streams onFailure of ServerHandler.");
-        }
-        
-        this.client.sendToView("Connection to the server was lost.");
+                
+        this.client.sendToView("Connection to the server dropped.");
         this.client.sendToView("Enter restart to reconnect to a server.");
     }
     

@@ -10,7 +10,7 @@ import ss.project.view.Terminal;
 
 public class ClientHandler extends Terminal implements Runnable {
 	private final Server server;
-	private String playerName;
+	private String playerName = "notSendYet";
 	private int playerId;
 	private Game game;
 	private boolean canChat;
@@ -83,8 +83,10 @@ public class ClientHandler extends Terminal implements Runnable {
 	    if (!disconnected) {
 	        super.send(input);
 	    }
-	    //send all communication to serverTUI as required
-	    this.server.sendToView("sent(To " + this.playerName + "): " + input);
+	    //send all communication (except pings) to serverTUI as required
+	    if (!input.equals("ping")) {
+	        this.server.sendToView("sent(To " + this.playerName + "): " + input);
+	    }
 	}
 	
 	@Override
@@ -105,14 +107,7 @@ public class ClientHandler extends Terminal implements Runnable {
 	    }
 	    
 	    //exit the terminal and close its streams.
-	    super.exit();
-	    try {
-	        super.out.flush();
-	        super.in.close();
-	        super.out.close();
-	    } catch (IOException e) {
-	        this.server.sendToView("could not close streams onFailure of ClientHandler.");
-	    }	    
+	    super.exit();	    
 	}
 	//function to determine which action should be performed upon receiving input from the client
 	@Override

@@ -110,6 +110,9 @@ public class Client implements Observer {
 
     //at functions, linked to serverHandler
     public void atAI(String[] inputSplit) {
+        Server aServer = new Server();
+        aServer.startServer(inputSplit[1]);
+        
         Client client = new Client();
         if (inputSplit[2].equals("easy")) {            
             client.setAI(new ComputerPlayer(new Easy()));
@@ -241,6 +244,7 @@ public class Client implements Observer {
             }            
         }
         this.inGame = false;
+        restart();
     }
 
     public void atNotifyMessage(String[] inputSplit) {
