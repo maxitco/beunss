@@ -123,6 +123,10 @@ public class Server extends Thread {
      */
     
     public void shutDown() {        
+        for (ClientHandler c: this.clientHandlerList) {
+            c.send("byebye");
+        }
+        
         this.running = false;
         if (this.view != null) {
             this.view.exit();
