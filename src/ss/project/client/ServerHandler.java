@@ -45,7 +45,7 @@ public class ServerHandler extends Terminal implements Runnable {
     }
     
     /**
-     * handleInput() description
+     * handleInput() description.
      * split input around spaces, and determine what action needs to be taken 
      * longer actions are placed in separate functions starting with "at"
      * these functions can be found below handleInput()

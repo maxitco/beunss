@@ -11,7 +11,9 @@ public class Board extends Observable {
 	public Board() {
 		this.reset();		
 	}
-
+	/*
+	 * Create a copy of the current board.
+	 */
 	public Board copy() {
 		Board copy = new Board();
 		for (int x = 0; x <= MAXFIELD; x++) {
@@ -26,14 +28,21 @@ public class Board extends Observable {
 		}
 		return copy;
 	}
-
+	
+	/*
+	 * Returns true if Field lies within the board boundaries.
+	 */
 	//@pure;
 	public boolean isField(Field field) {
 		return field.x >= 0 && field.x <= MAXFIELD &&
 				field.y >= 0 && field.y <= MAXFIELD &&
 				field.z >= 0 && field.z <= MAXFIELD;
 	}
-	//@requires field != null && this.isField(field);
+	
+	/*
+	 * Returns true if stack below empty field is filled.
+	 */
+	//@requires field != null && this.isEmptyField(field);
 	//@pure;
 	public boolean isReachableEmptyField(Field field) {
 		Field copy = field.copy();
@@ -45,17 +54,28 @@ public class Board extends Observable {
 		}
 		return this.isField(field) && !this.fieldMap.containsKey(field);
 	}
-
+	
+	/*
+	 * Returns true if Field is not in fieldMap.
+	 */
+	//@requires field != null && this.isField(field);
+	//@pure;
 	public boolean isEmptyField(Field field) {
 		return !this.fieldMap.containsKey(field);
 	}
 
+	/*
+	 * Returns empty Field based on x y coordinates and z stack hight.
+	 */
+	//@requires x >= 0 && x <= MAXFIELD;
+	//@requires y >= 0 && y <= MAXFIELD;
+	//@ensures (\result == null) || isReachableEmptyField(\result);
+	//@pure;
 	public Field getEmptyField(int x, int y) {
 		Field empty = new Field(x, y, 0);
 		if (this.isReachableEmptyField(empty)) {
 			return empty;
-		}
-		else {
+		} else {
 			while ((empty = walkField(empty, 0, 0, 1)) != null) {
 				if (this.isReachableEmptyField(empty)) {
 					return empty;
@@ -64,7 +84,11 @@ public class Board extends Observable {
 		}
 		return null;
 	}
-
+	/*
+	 * Registers Field with Mark in fieldMap.
+	 */
+	//@requires isReachableEmptyField(field);
+	//@ensures getMark(field) == m;
 	public boolean setField(Field field, Mark m) {
 		if (this.isReachableEmptyField(field)) {
 			this.fieldMap.put(field, m);
@@ -75,7 +99,13 @@ public class Board extends Observable {
 		}
 		return false;
 	}
-
+	/*
+	 * Move a Field into any direction. Returns neighbor field.
+	 */
+	//@requires field != null;
+	//@requires field.x + xoff <= MAXFIELD && field.y + yoff <= MAXFIELD;
+	//@requires field.z + zoff <= MAXFIELD;
+	//@ensures \result == null || isField(\result);
 	public Field walkField(Field field, int xoff, int yoff, int zoff) {
 		Field nextfield = new Field(field.x + xoff, field.y + yoff, field.z + zoff);
 		if (this.isField(nextfield)) {
@@ -83,7 +113,12 @@ public class Board extends Observable {
 		}
 		return null;
 	}
-
+	/*
+	 * Registers empty Field on coordinate with Mark in fieldMap.
+	 */
+	//@requires x > 0 && x <= MAXFIELD;
+	//@requires y > 0 && y <= MAXFIELD;
+	//@ensures getMark(getEmptyField(x, y)) == m;
 	public boolean setField(int x, int y, Mark m) {
 		Field newfield = this.getEmptyField(x, y);
 		if (newfield != null) {
@@ -91,19 +126,29 @@ public class Board extends Observable {
 		}
 		return false;
 	}
-
+	/*
+	 * Returns Mark of given Field, or null if Field is empty.
+	 */
+	//@requires isField(field);
+	//@pure;
 	public Mark getMark(Field field) {
 		if (this.isField(field)) {
 			return this.fieldMap.get(field);
 		}
 		return null;
 	}
-
+	/*
+	 * Empties the board.
+	 */
 	public void reset() {
 		this.fieldMap.clear();
 		setChanged();
         notifyObservers("boardchanged");
 	}
+	/*
+	 * Checks a row for equal Marks along a direction.
+	 * Starting Field must be along the boarder of the playing field.
+	 */
 	/*@ requires (start.x == MAXFIELD || start.x == 0) ||
                  (start.y == MAXFIELD || start.y == 0) ||
                  (start.z == MAXFIELD || start.z == 0);
@@ -124,7 +169,10 @@ public class Board extends Observable {
 		}
 		return false;
 	}
-
+	/*
+	 * Checks if there is a column filled with the same mark.
+	 */
+	//@pure;
 	public boolean checkZcolums(Mark m) {
 		for (int x = 0; x <= MAXFIELD; x++) {
 			for (int y = 0; y <= MAXFIELD; y++) {
@@ -136,7 +184,10 @@ public class Board extends Observable {
 		}
 		return false;
 	}
-
+	/*
+	 * Checks all but the z-columns for winning rows of the same mark
+	 */
+	//@pure;
 	public boolean checkPlanes(Mark m) {
 		for (int i = 0; i <= MAXFIELD; i++) {
 			//check all x-y planes
@@ -169,24 +220,33 @@ public class Board extends Observable {
 		}
 		return false;
 	}
-
+	/*
+	 * Returns true if any row is filled completely by Mark m.
+	 */
+	//@ensures checkPlanes(m) || checkZcolums(m);
+	//@pure;
 	public boolean isWinner(Mark m) {
 		return this.checkPlanes(m) || this.checkZcolums(m);
 	}
-
+	/*
+	 * Returns the mark of the winner, or null if there is no winner.
+	 */
+	//@ensures isWinner(\result) || \result == null;
+	//@pure;
 	public Mark getWinner() {
 		Mark m = Mark.X;
 		if (this.isWinner(m) && !this.isWinner(m.other())) {
 			return m;
-		}
-		else if (this.isWinner(m.other())) {
+		} else if (this.isWinner(m.other())) {
 			return m.other();
-		}
-		else {
+		} else {
 			return null;
 		}
 	}
-
+	/*
+	 * Returns true if the board has a winner or the board is full.
+	 */
+	//@pure;
 	public boolean hasEnded() {
 		if (this.isWinner(Mark.X) || this.isWinner(Mark.O) ||
 				this.fieldMap.size() == MAXFIELD * MAXFIELD * MAXFIELD) {
@@ -194,7 +254,10 @@ public class Board extends Observable {
 		}
 		return false;
 	}
-
+	/*
+	 * (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
 	public String toString() {
 		String result = "";
 		for (int y = MAXFIELD; y >= 0; y--) {
@@ -204,8 +267,7 @@ public class Board extends Observable {
 					Field out = new Field(x, y, z);
 					if (this.isEmptyField(out)) {
 						result = result + "[ ]";
-					}
-					else {
+					} else {
 						result = result + "[" + this.getMark(out).toString() + "]";
 					}
 				}
