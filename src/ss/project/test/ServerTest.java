@@ -15,7 +15,7 @@ public class ServerTest {
     private Server serv;
     
     public Server getServer() {
-        if(this.serverThread != null) {
+        if (this.serverThread != null) {
             return this.serverThread.server;
         } else {
             return this.serv;
@@ -29,7 +29,7 @@ public class ServerTest {
         //sleep 0.1 sec to make sure server started
         try {
             Thread.sleep(100);
-        } catch(InterruptedException e) {
+        } catch (InterruptedException e) {
             
         }
     }
@@ -37,7 +37,7 @@ public class ServerTest {
     @Test
     //requires visual inspection of console
     public void sendToViewTest() {        
-        if(getServer() != null) {
+        if (getServer() != null) {
             getServer().sendToView("hi");
         } else {
             System.out.println("no server?");
@@ -67,7 +67,7 @@ public class ServerTest {
         //give some starting time to new thread
         try {
             Thread.sleep(100);
-        } catch(InterruptedException e) {
+        } catch (InterruptedException e) {
         //nada     
         }
         
@@ -77,11 +77,11 @@ public class ServerTest {
         //wait for it to start
         try {
             Thread.sleep(100);
-        } catch(InterruptedException e) {
+        } catch (InterruptedException e) {
         //nada     
         }
         
-        for (int i = 0; i<1001;i++) {
+        for (int i = 0; i < 1001; i++) {
             Client client = new Client();
             client.setOnline(true);
             int nr = i + 1;
@@ -92,7 +92,7 @@ public class ServerTest {
         //give server some time to deal with connects
         try {
             Thread.sleep(5000);
-        } catch(InterruptedException e) {
+        } catch (InterruptedException e) {
         //nada     
         }
         
@@ -118,7 +118,7 @@ public class ServerTest {
         //give some starting time to new thread
         try {
             Thread.sleep(100);
-        } catch(InterruptedException e) {
+        } catch (InterruptedException e) {
         //nada     
         }
         
@@ -128,11 +128,11 @@ public class ServerTest {
         //wait for it to start
         try {
             Thread.sleep(100);
-        } catch(InterruptedException e) {
+        } catch (InterruptedException e) {
         //nada     
         }
         
-        for (int i = 0; i<5;i++) {
+        for (int i = 0; i < 5; i++) {
             Client client = new Client();
             client.setOnline(true);
             int nr = i + 1;
@@ -145,7 +145,7 @@ public class ServerTest {
         //give server a minute time to let games run
         try {
             Thread.sleep(10000);
-        } catch(InterruptedException e) {
+        } catch (InterruptedException e) {
         //nada     
         }
         

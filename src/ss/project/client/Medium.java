@@ -50,7 +50,7 @@ public class Medium implements Difficulty {
         System.out.println(maxValue);
         Iterator<Map.Entry<Field, Integer>> it = result.entrySet().iterator();
         while (it.hasNext()) {
-        	Map.Entry<Field,Integer> item = it.next();
+        	Map.Entry<Field, Integer> item = it.next();
         	if (item.getValue().intValue() < maxValue) {
         		it.remove();
         	}
@@ -59,7 +59,7 @@ public class Medium implements Difficulty {
         int next = (int) (Math.random() * new Double(result.size()));
         int count = 0;
         while (it.hasNext()) {
-        	Map.Entry<Field,Integer> item = it.next();
+        	Map.Entry<Field, Integer> item = it.next();
         	if (count == next) {
         		System.out.println(m.toString() + " chose " + item.getKey().toString());
         		return item.getKey();

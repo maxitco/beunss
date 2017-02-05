@@ -19,15 +19,13 @@ public class Hard implements Difficulty {
 
 	@Override
 	public Field determineMove(Board board, Mark m) {
-		
-        ArrayList<Field> moves = this.getMoves(board);
         Map<Field, Integer> result = this.getResultMap(board, m);
         
         //Choose candidate with highest potential score
         int maxValue = Collections.max(result.values());
         Iterator<Map.Entry<Field, Integer>> it = result.entrySet().iterator();
         while (it.hasNext()) {
-        	Map.Entry<Field,Integer> item = it.next();
+        	Map.Entry<Field, Integer> item = it.next();
         	if (item.getValue().intValue() < maxValue) {
         		it.remove();
         	}
@@ -36,7 +34,7 @@ public class Hard implements Difficulty {
         int next = (int) (Math.random() * new Double(result.size()));
         int count = 0;
         while (it.hasNext()) {
-        	Map.Entry<Field,Integer> item = it.next();
+        	Map.Entry<Field, Integer> item = it.next();
         	if (count == next) {
         		return item.getKey();
         	}
@@ -70,8 +68,7 @@ public class Hard implements Difficulty {
 			enemboard.setField(field, m.other());
 			if (myboard.isWinner(m)) {
 				result += 50;
-			}
-			else if (enemboard.isWinner(m.other())) {
+			} else if (enemboard.isWinner(m.other())) {
 				result -= 50;
 			}
 		}
@@ -88,12 +85,11 @@ public class Hard implements Difficulty {
 			enemboard.setField(field, m.other());
 			if (myboard.isWinner(m)) {
 				result.put(field, new Integer(500));
-			}
-			else if (enemboard.isWinner(m.other())) {
+			} else if (enemboard.isWinner(m.other())) {
 				result.put(field, new Integer(100));
-			}
-			else {
-				result.put(field, new Integer(countSurroundings(field, board, m) + getFutureImpact(myboard, m)));
+			} else {
+				result.put(field, new Integer(countSurroundings(field, board, m)
+						+ getFutureImpact(myboard, m)));
 			}
 			//result.put(field, result.get(field) + getFutureImpact(myboard, m));
 		}
@@ -111,11 +107,9 @@ public class Hard implements Difficulty {
     				if (neighbour != null) {
     					Mark nextmark = board.getMark(neighbour);
     					if (nextmark != null && nextmark.equals(m)) {
-        					result ++;
+        					result++;
     					}
-    				}
-    				//next to boundary
-    				else if (neighbour == null) {
+    				} else if (neighbour == null) { //next to boundary
     					result++;
     				}
     			}

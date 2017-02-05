@@ -156,7 +156,7 @@ public class Client implements Observer {
     //at functions, linked to serverHandler
     
     /**
-     * Method to detect and set AI difficulty
+     * Method to detect and set AI difficulty.
      * @param inputSplit
      */
     public void atAI(String[] inputSplit) {  
