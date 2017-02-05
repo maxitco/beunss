@@ -140,10 +140,12 @@ public class Game extends Thread {
         if (reason == 1) {        
             for (ClientHandler c: this.playerList) {
                 c.send(Protocol.ProtServer.NOTIFYEND + " 1 " + playerId);
+                c.onFailure();
             } 
         } else if (reason == 3) {
             for (ClientHandler c: this.playerList) {
                 c.send(Protocol.ProtServer.NOTIFYEND + " 3 " + playerId);
+                c.onFailure();
             }  
         }
     }
@@ -151,7 +153,8 @@ public class Game extends Thread {
     //notify everyone that the game has ended, draw
     public void notifyEnd() {
         for (ClientHandler c: this.playerList) {
-            c.send(Protocol.ProtServer.NOTIFYEND + " 2");
+            c.send(Protocol.ProtServer.NOTIFYEND + " 2");            
+            c.onFailure();
         }  
     }
     

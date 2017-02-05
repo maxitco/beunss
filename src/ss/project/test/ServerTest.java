@@ -144,13 +144,14 @@ public class ServerTest {
         
         //give server a minute time to let games run
         try {
-            Thread.sleep(20000);
+            Thread.sleep(10000);
         } catch(InterruptedException e) {
         //nada     
         }
         
-        //other games should finish, so only lone client remains
-        assertEquals(5, getServer().getClientHandlerList().size());
+        //clients are kicked if their game ends
+        assertEquals(1, getServer().getClientHandlerList().size());
+        //other games should finish, so only game remains
         assertEquals(1, getServer().getGameList().size()); 
     }
 }
