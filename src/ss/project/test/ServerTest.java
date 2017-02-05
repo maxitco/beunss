@@ -20,9 +20,9 @@ public class ServerTest {
     public void setUp() {
         this.serverThread = new ServerTestThread();
         this.serverThread.start();
-        //5 sec to enter port 10
+        //sleep 1 sec to make sure server started
         try {
-            Thread.sleep(5000);
+            Thread.sleep(1000);
         } catch(InterruptedException e) {
             
         }

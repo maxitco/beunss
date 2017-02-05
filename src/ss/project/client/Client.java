@@ -4,6 +4,9 @@ import java.io.IOException;
 import java.net.InetAddress;
 import java.net.Socket;
 import java.net.UnknownHostException;
+import java.util.Observable;
+import java.util.Observer;
+
 import ss.project.game.Protocol;
 import ss.project.game.Board;
 import ss.project.game.Field;
@@ -11,8 +14,9 @@ import ss.project.game.Mark;
 import ss.project.server.Server;
 import ss.project.view.ClientView;
 import ss.project.view.ClientTUIView;
+ 
 
-public class Client {    
+public class Client implements Observer {    
     private String playerName;    
     private String opponentName;
     private int playerId;
@@ -42,6 +46,12 @@ public class Client {
             System.out.println("could not create view");
             System.exit(0);
         }       
+    }
+    
+    public void update(Observable obs, Object obj) {
+        if(this.view != null && obj.equals("boardchanged")) {
+            this.view.showBoard();
+        }
     }
 
     //set functions
@@ -152,7 +162,7 @@ public class Client {
         //notify the client that the game has started and create a board
         this.inGame = true;
         sendToView("Game has started");
-        refreshBoard();
+        refreshBoard();        
         sendToView(this.board.toString());
 
         //set opponent name as name of player with not this id
@@ -202,9 +212,7 @@ public class Client {
             } else {
                 //opponent is always displayed/playing as Mark.White
                 this.board.setField(x, y, Mark.O);
-            }
-            //print the current board
-            sendToView(this.board.toString());
+            }    
 
         } catch (NumberFormatException e) {
             sendToView("Server is sending rubbish, NumberFormatException");
@@ -293,6 +301,7 @@ public class Client {
 
     public void refreshBoard() {
         this.board = new Board();
+        this.board.addObserver(this);
     }
 
 

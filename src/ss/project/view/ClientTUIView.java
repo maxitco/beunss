@@ -1,10 +1,12 @@
 package ss.project.view;
 
+
 import ss.project.client.Client;
 import ss.project.game.Protocol;
 
 
 import java.io.IOException;
+
 
 public class ClientTUIView extends Terminal implements ClientView {
     
@@ -13,7 +15,7 @@ public class ClientTUIView extends Terminal implements ClientView {
     public ClientTUIView(Client client) throws IOException {
         super(System.in, System.out);        
         this.client = client;         
-    }
+    }    
     
     public void showBoard() {
         send(this.client.getBoard().toString());        

@@ -2,13 +2,14 @@ package ss.project.game;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Observable;
 
-public class Board {
+public class Board extends Observable {
 	public final static int MAXFIELD = 3;
 	private Map<Field, Mark> fieldMap = new HashMap<Field, Mark>();
 
 	public Board() {
-		this.reset();
+		this.reset();		
 	}
 
 	public Board copy() {
@@ -67,7 +68,10 @@ public class Board {
 	public boolean setField(Field field, Mark m) {
 		if (this.isReachableEmptyField(field)) {
 			this.fieldMap.put(field, m);
-			return true;
+			//use observer pattern to signal board change
+			setChanged();
+			notifyObservers("boardchanged");
+			return true;			
 		}
 		return false;
 	}
@@ -97,6 +101,8 @@ public class Board {
 
 	public void reset() {
 		this.fieldMap.clear();
+		setChanged();
+        notifyObservers("boardchanged");
 	}
 	/*@ requires (start.x == MAXFIELD || start.x == 0) ||
                  (start.y == MAXFIELD || start.y == 0) ||

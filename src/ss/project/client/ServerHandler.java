@@ -81,6 +81,8 @@ public class ServerHandler extends Terminal implements Runnable {
             this.client.atNotifyEnd(inputSplit);          
         } else if (inputSplit[0].equals("error") && inputSplit.length == 2) {
             this.client.sendToView(Protocol.getError(inputSplit[1]));
+        } else if (inputSplit[0].equals("ping")) {
+            //nothing
         } else {        
             this.client.sendToView("Server is sending an unknown command");            
         }

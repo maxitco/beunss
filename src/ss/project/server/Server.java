@@ -59,7 +59,7 @@ public class Server extends Thread {
             }
             
             try { 
-                this.currentThread().sleep(100);
+                this.currentThread().sleep(1000);
             } catch (InterruptedException e1) {
                 sendToView("pinger interrupted.");
             }
