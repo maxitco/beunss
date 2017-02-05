@@ -12,7 +12,7 @@ import java.io.OutputStream;
 public class Terminal {
     protected final BufferedReader in;
     protected final BufferedWriter out;
-    private boolean exit = false;
+    protected boolean exit = false;
         
     public Terminal(InputStream in, OutputStream out) throws IOException {
         this.in = new BufferedReader(new InputStreamReader(in)); 

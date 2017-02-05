@@ -27,7 +27,7 @@ public class Server extends Thread {
      *  
      */    
     public Server() {        
-        new PingThread(this).start();
+        //new PingThread(this).start();
     }
     
     public void createView() {
@@ -51,6 +51,8 @@ public class Server extends Thread {
             c.send(result);
         }
     }
+    
+    /*
     //sends ping to all clients to test if each client is still connected    
     public void pingAll() {
         while (true) {
@@ -65,6 +67,8 @@ public class Server extends Thread {
             }
         }
     }
+    
+    */
     
     public void leaveServer(ClientHandler client) {
         clientHandlerList.remove(client);
@@ -107,20 +111,25 @@ public class Server extends Thread {
     public void sendToView(String input) {
         if (this.view != null) {
             this.view.send(input);
-        } else {
-            System.out.println("view not yet constructed");
-        }
+        } 
     }    
     
     /**Notifies all clients that shutdown will happen, then exit the program and all its threads.
      * 
      */
     
-    public void shutDown() {
-        for (ClientHandler client: this.clientHandlerList) {
-            client.send("serverdown");
+    public void shutDown() {        
+        this.running = false;
+        if (this.view != null) {
+            this.view.exit();
         }
-        System.exit(0);
+        if (this.serverSocket != null) {
+            try {
+                this.serverSocket.close();
+            } catch (IOException e) {
+                sendToView("could not close serversocket");
+            }
+        }
     }    
     
     /** Returns the ServerSocket of this server.
@@ -153,7 +162,7 @@ public class Server extends Thread {
     public void accepter() {
         
         sendToView("Server started, ready to accept incoming connections");
-        while (true) {
+        while (this.running) {
     	    Socket sock = null;
     	    try {
     	        sock = this.serverSocket.accept();
@@ -161,14 +170,15 @@ public class Server extends Thread {
     	    } catch (IOException e1) {
     	        sendToView("Could not accept connection on serversocket.");
     	    }
-    	    
-    	    try {
-    	        ClientHandler clientHandler = new ClientHandler(this, sock);
-    	        this.clientHandlerList.add(clientHandler);
-    	        new Thread(clientHandler).start();
-    	    } catch (IOException e1) {
-                sendToView("Could not create client handler.");
-            }
+    	    if (!this.serverSocket.isClosed()) {
+        	    try {
+        	        ClientHandler clientHandler = new ClientHandler(this, sock);
+        	        this.clientHandlerList.add(clientHandler);
+        	        new Thread(clientHandler).start();
+        	    } catch (IOException e1) {
+                    sendToView("Could not create client handler.");
+                }
+    	    }
     	}
     }
     /**join an available game or if none is available create a new game for the player.
