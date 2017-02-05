@@ -34,7 +34,9 @@ public class Client implements Observer {
     //set standard name for AI
     //view creation is not done in constructor, as for AI clients it is not desired
     public Client() {
-        this.playerName = "NoNamePepeAI";     
+        this.playerName = "NoNamePepeAI";   
+        this.board = new Board();
+        this.board.addObserver(this);
     }
 
     //creates a view for the client
@@ -163,7 +165,7 @@ public class Client implements Observer {
         this.inGame = true;
         sendToView("Game has started");
         refreshBoard();        
-        sendToView(this.board.toString());
+        
 
         //set opponent name as name of player with not this id
         String[] inputSplit2 = inputSplit[2].split("\\|");
@@ -300,8 +302,7 @@ public class Client implements Observer {
     }
 
     public void refreshBoard() {
-        this.board = new Board();
-        this.board.addObserver(this);
+        this.board.reset();        
     }
 
 
