@@ -6,11 +6,13 @@ import ss.project.game.Mark;
 
 public class AITest {
 	/**
-	 * Little test environment to test strenght of ai against itself or other difficulties.
+	 * Little test environment to test strength of AI against itself or other difficulties.
+	 * Complete game will be print to output terminal.
 	 * @param args
 	 */
 	public static void main(String[] args) {
 		Board test = new Board();
+		//change difficulty to test different AI settings
 		ComputerPlayer one = new ComputerPlayer(new Hard());
 		ComputerPlayer two = new ComputerPlayer(new Hard());
 		Mark m = Mark.X;

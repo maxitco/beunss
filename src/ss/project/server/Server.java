@@ -21,7 +21,7 @@ public class Server extends Thread {
     private ArrayList<Game> gameList = new ArrayList<Game>();
     
 
-    /** constructs a Server, its view and pingthread
+    /** constructs a Server, its view and pingthread.
      *   
      */    
     public Server() {        
@@ -83,7 +83,7 @@ public class Server extends Thread {
      */
     
     //@ requires !this.running && Integer.parseInt(input) > 0;
-    //@ ensures this.running && this.getServerSocket().isBound();
+    //@ ensures this.running;
     public void startServer(String input) {
         if (this.running) {
             sendToView("Server already running, exit and restart to run server on different port.");
