@@ -975,7 +975,7 @@
               <ownedAttribute xmi:type="uml:Property" xmi:id="_57Xs0OscEeaGGeTgDT8kcg" name="playerId" visibility="private" isUnique="false">
                 <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
               </ownedAttribute>
-              <ownedAttribute xmi:type="uml:Property" xmi:id="_57YT4OscEeaGGeTgDT8kcg" name="board" visibility="private" isUnique="false"/>
+              <ownedAttribute xmi:type="uml:Property" xmi:id="_57YT4OscEeaGGeTgDT8kcg" name="board" visibility="private" type="_LECKAOs1Eea7AqSsB_lc7w" isUnique="false"/>
               <ownedAttribute xmi:type="uml:Property" xmi:id="_57b-QOscEeaGGeTgDT8kcg" name="serverHandler" visibility="private" type="_57YT4escEeaGGeTgDT8kcg" isUnique="false"/>
               <ownedAttribute xmi:type="uml:Property" xmi:id="_57b-QescEeaGGeTgDT8kcg" name="online" visibility="private" isUnique="false">
                 <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
@@ -1001,7 +1001,7 @@
               <ownedAttribute xmi:type="uml:Property" xmi:id="_57iE4OscEeaGGeTgDT8kcg" name="canChat" visibility="public" isUnique="false">
                 <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
               </ownedAttribute>
-              <ownedAttribute xmi:type="uml:Property" xmi:id="_57lIMescEeaGGeTgDT8kcg" name="ai" visibility="private" isUnique="false">
+              <ownedAttribute xmi:type="uml:Property" xmi:id="_57lIMescEeaGGeTgDT8kcg" name="ai" visibility="private" type="_jZtpgOs3Eea7AqSsB_lc7w" isUnique="false">
                 <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_57lIMuscEeaGGeTgDT8kcg" name="defaultValue">
                   <language>JAVA</language>
                   <body>new ComputerPlayer(new Hard())</body>
@@ -3095,6 +3095,7 @@
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_egbUcOs5Eea7AqSsB_lc7w" name="ClientTUIView" visibility="public">
       <generalization xmi:type="uml:Generalization" xmi:id="_egbUces5Eea7AqSsB_lc7w" general="_9u5hcOsfEeagpPVreqOLZw"/>
+      <generalization xmi:type="uml:Generalization" xmi:id="_9ekxwOu0Eeao2KzjhbjEkg" general="_2o23IOu0Eeao2KzjhbjEkg"/>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_egbUcus5Eea7AqSsB_lc7w" name="client" visibility="private" type="_57VQkOscEeaGGeTgDT8kcg" isUnique="false"/>
       <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_egbUc-s5Eea7AqSsB_lc7w" name="implements" client="_egbUcOs5Eea7AqSsB_lc7w" supplier="_egcikOs5Eea7AqSsB_lc7w" contract="_egcikOs5Eea7AqSsB_lc7w"/>
       <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_egbUdOs5Eea7AqSsB_lc7w" name="ClientTUIView" specification="_egbUeOs5Eea7AqSsB_lc7w">
@@ -3188,6 +3189,7 @@
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_egb7h-s5Eea7AqSsB_lc7w" name="ServerTUIView" visibility="public">
       <generalization xmi:type="uml:Generalization" xmi:id="_egb7iOs5Eea7AqSsB_lc7w" general="_9u5hcOsfEeagpPVreqOLZw"/>
+      <generalization xmi:type="uml:Generalization" xmi:id="_-LOcYOu0Eeao2KzjhbjEkg" general="_2o23IOu0Eeao2KzjhbjEkg"/>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_egb7ies5Eea7AqSsB_lc7w" name="server" visibility="private" isLeaf="true" type="_sHK1wesfEeagpPVreqOLZw" isUnique="false"/>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_egb7ius5Eea7AqSsB_lc7w" name="START" visibility="private" isLeaf="true" isStatic="true" type="_DIE0UOsaEeaRPtCCR8m55A" isUnique="false">
         <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_egb7i-s5Eea7AqSsB_lc7w" name="defaultValue">
@@ -3283,6 +3285,129 @@
       <ownedEnd xmi:type="uml:Property" xmi:id="_hFeOoOs6Eea7AqSsB_lc7w" type="_Inc_YOsgEeagpPVreqOLZw" association="_hFdnkOs6Eea7AqSsB_lc7w"/>
       <ownedEnd xmi:type="uml:Property" xmi:id="_hFdnk-s6Eea7AqSsB_lc7w" type="_cg_wIOs1Eea7AqSsB_lc7w" association="_hFdnkOs6Eea7AqSsB_lc7w"/>
     </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_Y-A-4Ou0Eeao2KzjhbjEkg" name="ComputerPlayer" visibility="public">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Y-A-4eu0Eeao2KzjhbjEkg" name="difficulty" visibility="private" type="_qb8WIOs3Eea7AqSsB_lc7w" isUnique="false"/>
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_Y-A-4uu0Eeao2KzjhbjEkg" name="ComputerPlayer" specification="_Y-A-5eu0Eeao2KzjhbjEkg">
+        <language>JAVA</language>
+        <body>
+    this.difficulty = newdiff;
+</body>
+      </ownedBehavior>
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_Y-A-4-u0Eeao2KzjhbjEkg" name="getName" specification="_Y-A-5-u0Eeao2KzjhbjEkg">
+        <language>JAVA</language>
+        <body>
+    return this.difficulty.getName() + &quot; Computer Player&quot;;
+</body>
+      </ownedBehavior>
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_Y-A-5Ou0Eeao2KzjhbjEkg" name="determineMove" specification="_Y-A-6eu0Eeao2KzjhbjEkg">
+        <language>JAVA</language>
+        <body>
+    return this.difficulty.determineMove(board, m);
+</body>
+      </ownedBehavior>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_Y-A-5eu0Eeao2KzjhbjEkg" name="ComputerPlayer" visibility="public" method="_Y-A-4uu0Eeao2KzjhbjEkg">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_Y-A-5uu0Eeao2KzjhbjEkg" name="newdiff" type="_qb8WIOs3Eea7AqSsB_lc7w"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_Y-A-5-u0Eeao2KzjhbjEkg" name="getName" visibility="public" method="_Y-A-4-u0Eeao2KzjhbjEkg">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_Y-A-6Ou0Eeao2KzjhbjEkg" type="_DIE0UOsaEeaRPtCCR8m55A" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_Y-A-6eu0Eeao2KzjhbjEkg" name="determineMove" visibility="public" method="_Y-A-5Ou0Eeao2KzjhbjEkg">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_Y-A-6uu0Eeao2KzjhbjEkg" type="_Inc_YOsgEeagpPVreqOLZw" direction="return"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_Y-A-6-u0Eeao2KzjhbjEkg" name="board" type="_LECKAOs1Eea7AqSsB_lc7w"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_Y-A-7Ou0Eeao2KzjhbjEkg" name="m" type="_BwkckOsfEeagpPVreqOLZw"/>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_jEOZ4Ou0Eeao2KzjhbjEkg" memberEnd="_jEPoAOu0Eeao2KzjhbjEkg _jEPoAeu0Eeao2KzjhbjEkg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_jEPA8Ou0Eeao2KzjhbjEkg" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_jEPA8eu0Eeao2KzjhbjEkg" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_jEPoAeu0Eeao2KzjhbjEkg" type="_Y-A-4Ou0Eeao2KzjhbjEkg" association="_jEOZ4Ou0Eeao2KzjhbjEkg"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_jEPoAOu0Eeao2KzjhbjEkg" type="_57VQkOscEeaGGeTgDT8kcg" association="_jEOZ4Ou0Eeao2KzjhbjEkg"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_2o23IOu0Eeao2KzjhbjEkg" name="Terminal" visibility="public">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_2o23Ieu0Eeao2KzjhbjEkg" name="in" visibility="protected" isLeaf="true" type="_FBbmYOuNEeanyfTPa8UQ4w" isUnique="false"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_2o23Iuu0Eeao2KzjhbjEkg" name="out" visibility="protected" isLeaf="true" type="_FBmlgOuNEeanyfTPa8UQ4w" isUnique="false"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_2o23I-u0Eeao2KzjhbjEkg" name="exit" visibility="private" isUnique="false">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
+        <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_2o23JOu0Eeao2KzjhbjEkg" name="defaultValue">
+          <language>JAVA</language>
+          <body>false</body>
+        </defaultValue>
+      </ownedAttribute>
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_2o23Jeu0Eeao2KzjhbjEkg" name="Terminal" specification="_2o23LOu0Eeao2KzjhbjEkg">
+        <language>JAVA</language>
+        <body>
+    this.in = new BufferedReader(new InputStreamReader(in));
+    this.out = new BufferedWriter(new OutputStreamWriter(out));
+</body>
+      </ownedBehavior>
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_2o23Juu0Eeao2KzjhbjEkg" name="atStart" specification="_2o23L-u0Eeao2KzjhbjEkg">
+        <language>JAVA</language>
+        <body>
+    send(&quot;terminal started&quot;);
+</body>
+      </ownedBehavior>
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_2o23J-u0Eeao2KzjhbjEkg" name="run" specification="_2o23MOu0Eeao2KzjhbjEkg">
+        <language>JAVA</language>
+        <body>
+    atStart();
+    try {
+        String line = in.readLine();
+        //continuously read input and print it
+        while (line != null &amp;&amp; !exit) {
+            handleInput(line);
+            line = in.readLine();
+        }
+    } catch (IOException e) {
+        onFailure();
+    }
+</body>
+      </ownedBehavior>
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_2o23KOu0Eeao2KzjhbjEkg" name="send" specification="_2o23Meu0Eeao2KzjhbjEkg">
+        <language>JAVA</language>
+        <body>
+    try {
+        out.write(input);
+        out.newLine();
+        out.flush();
+    } catch (IOException e) {
+        onFailure();
+    }
+</body>
+      </ownedBehavior>
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_2o23Keu0Eeao2KzjhbjEkg" name="handleInput" specification="_2o23M-u0Eeao2KzjhbjEkg">
+        <language>JAVA</language>
+        <body>
+    send(input);
+</body>
+      </ownedBehavior>
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_2o23Kuu0Eeao2KzjhbjEkg" name="onFailure" specification="_2o23Neu0Eeao2KzjhbjEkg">
+        <language>JAVA</language>
+        <body>
+    System.out.println(&quot;Something went wrong with sending through socket&quot;);
+</body>
+      </ownedBehavior>
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_2o23K-u0Eeao2KzjhbjEkg" name="exit" specification="_2o23Nuu0Eeao2KzjhbjEkg">
+        <language>JAVA</language>
+        <body>
+    this.exit = true;
+</body>
+      </ownedBehavior>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_2o23LOu0Eeao2KzjhbjEkg" name="Terminal" visibility="public" method="_2o23Jeu0Eeao2KzjhbjEkg" raisedException="_-5EV4uscEeaGGeTgDT8kcg">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_2o23Leu0Eeao2KzjhbjEkg" name="in" type="_FB0A4OuNEeanyfTPa8UQ4w"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_2o23Luu0Eeao2KzjhbjEkg" name="out" type="_FB3EMOuNEeanyfTPa8UQ4w"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_2o23L-u0Eeao2KzjhbjEkg" name="atStart" visibility="public" method="_2o23Juu0Eeao2KzjhbjEkg"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_2o23MOu0Eeao2KzjhbjEkg" name="run" visibility="public" method="_2o23J-u0Eeao2KzjhbjEkg"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_2o23Meu0Eeao2KzjhbjEkg" name="send" visibility="public" method="_2o23KOu0Eeao2KzjhbjEkg">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_2o23Muu0Eeao2KzjhbjEkg" name="input" type="_DIE0UOsaEeaRPtCCR8m55A"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_2o23M-u0Eeao2KzjhbjEkg" name="handleInput" visibility="public" method="_2o23Keu0Eeao2KzjhbjEkg">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_2o23NOu0Eeao2KzjhbjEkg" name="input" type="_DIE0UOsaEeaRPtCCR8m55A"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_2o23Neu0Eeao2KzjhbjEkg" name="onFailure" visibility="public" method="_2o23Kuu0Eeao2KzjhbjEkg"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_2o23Nuu0Eeao2KzjhbjEkg" name="exit" visibility="public" method="_2o23K-u0Eeao2KzjhbjEkg"/>
+    </packagedElement>
     <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_DHeXYOsaEeaRPtCCR8m55A">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_DHflgOsaEeaRPtCCR8m55A" source="http://www.eclipse.org/uml2/2.0.0/UML">
         <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/PapyrusJava/1#/"/>
@@ -3359,4 +3484,7 @@
   <PapyrusJava:External xmi:id="_FB2dIOuNEeanyfTPa8UQ4w" name="java.io.InputStream" base_Classifier="_FB0A4OuNEeanyfTPa8UQ4w"/>
   <PapyrusJava:External xmi:id="_FB45YOuNEeanyfTPa8UQ4w" name="java.io.OutputStream" base_Classifier="_FB3EMOuNEeanyfTPa8UQ4w"/>
   <standard:Create xmi:id="_FB78sOuNEeanyfTPa8UQ4w" base_BehavioralFeature="_FB5gcOuNEeanyfTPa8UQ4w"/>
+  <standard:Create xmi:id="_Y-EpQOu0Eeao2KzjhbjEkg" base_BehavioralFeature="_Y-A-5eu0Eeao2KzjhbjEkg"/>
+  <standard:Create xmi:id="_2o5TYOu0Eeao2KzjhbjEkg" base_BehavioralFeature="_2o23LOu0Eeao2KzjhbjEkg"/>
+  <PapyrusJava:External xmi:id="_2o7IkOu0Eeao2KzjhbjEkg" name="ss.project.view.Terminal" base_Classifier="_2o23IOu0Eeao2KzjhbjEkg"/>
 </xmi:XMI>
