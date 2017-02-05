@@ -13,7 +13,7 @@ public class Board extends Observable {
 	}
 	/**
 	 * Create a copy of the current board.
-	 * @return
+	 * @return New instance of board with all fields copied
 	 */
 	public Board copy() {
 		Board copy = new Board();
@@ -31,9 +31,8 @@ public class Board extends Observable {
 	}
 	
 	/**
-	 * Returns true if Field lies within the board boundaries.
 	 * @param field
-	 * @return
+	 * @return true if Field lies within the board boundaries.
 	 */
 	//@pure;
 	public boolean isField(Field field) {
@@ -43,9 +42,8 @@ public class Board extends Observable {
 	}
 	
 	/**
-	 * Returns true if stack below empty field is filled.
 	 * @param field
-	 * @return
+	 * @return true if stack below empty field is filled.
 	 */
 	//@requires field != null && this.isEmptyField(field);
 	//@pure;
@@ -61,9 +59,8 @@ public class Board extends Observable {
 	}
 	
 	/**
-	 * Returns true if Field is not in fieldMap.
 	 * @param field
-	 * @return
+	 * @return true if Field is not in fieldMap.
 	 */
 	//@requires field != null && this.isField(field);
 	//@pure;
@@ -72,10 +69,9 @@ public class Board extends Observable {
 	}
 
 	/**
-	 * Returns empty Field based on x y coordinates and z stack hight.
-	 * @param x
-	 * @param y
-	 * @return
+	 * @param x coordinate value
+	 * @param y coordinate value
+	 * @return empty Field based on x y coordinates and z stack hight.
 	 */
 	//@requires x >= 0 && x <= MAXFIELD;
 	//@requires y >= 0 && y <= MAXFIELD;
@@ -95,10 +91,10 @@ public class Board extends Observable {
 		return null;
 	}
 	/**
-	 * Registers Field with Mark in fieldMap.
+	 * Registers Field with Mark in fieldMap and inform observer.
 	 * @param field
 	 * @param m
-	 * @return
+	 * @return true on success.
 	 */
 	//@requires isReachableEmptyField(field);
 	//@ensures getMark(field) == m;
@@ -113,12 +109,12 @@ public class Board extends Observable {
 		return false;
 	}
 	/**
-	 * Move a Field into any direction. Returns neighbor field.
+	 * Move a Field into any direction.
 	 * @param field
 	 * @param xoff
 	 * @param yoff
 	 * @param zoff
-	 * @return
+	 * @return Neighbor field
 	 */
 	//@requires field != null;
 	//@requires field.x + xoff <= MAXFIELD && field.y + yoff <= MAXFIELD;
@@ -136,7 +132,7 @@ public class Board extends Observable {
 	 * @param x
 	 * @param y
 	 * @param m
-	 * @return
+	 * @return true on success
 	 */
 	//@requires x > 0 && x <= MAXFIELD;
 	//@requires y > 0 && y <= MAXFIELD;
@@ -149,9 +145,8 @@ public class Board extends Observable {
 		return false;
 	}
 	/**
-	 * Returns Mark of given Field, or null if Field is empty.
 	 * @param field
-	 * @return
+	 * @return Mark of given Field, or null if Field is empty.
 	 */
 	//@requires isField(field);
 	//@pure;
@@ -177,7 +172,7 @@ public class Board extends Observable {
 	 * @param ydir
 	 * @param zdir
 	 * @param m
-	 * @return
+	 * @return true if complete row has same Mark
 	 */
 	/*@ requires (start.x == MAXFIELD || start.x == 0) ||
                  (start.y == MAXFIELD || start.y == 0) ||
@@ -202,7 +197,7 @@ public class Board extends Observable {
 	/**
 	 * Checks if there is a column filled with the same mark.
 	 * @param m
-	 * @return
+	 * @return true if one of the columns has same Mark.
 	 */
 	//@pure;
 	public boolean checkZcolums(Mark m) {
@@ -219,7 +214,7 @@ public class Board extends Observable {
 	/**
 	 * Checks all but the z-columns for winning rows of the same mark.
 	 * @param m
-	 * @return
+	 * @return true if there is a complete row with same mark
 	 */
 	//@pure;
 	public boolean checkPlanes(Mark m) {
@@ -255,9 +250,8 @@ public class Board extends Observable {
 		return false;
 	}
 	/**
-	 * Returns true if any row is filled completely by Mark m.
 	 * @param m
-	 * @return
+	 * @return true if any row is filled completely by Mark m.
 	 */
 	//@ensures checkPlanes(m) || checkZcolums(m);
 	//@pure;
@@ -265,8 +259,7 @@ public class Board extends Observable {
 		return this.checkPlanes(m) || this.checkZcolums(m);
 	}
 	/**
-	 * Returns the mark of the winner, or null if there is no winner.
-	 * @return
+	 * @return mark of the winner, or null if there is no winner.
 	 */
 	//@ensures isWinner(\result) || \result == null;
 	//@pure;
@@ -281,8 +274,7 @@ public class Board extends Observable {
 		}
 	}
 	/**
-	 * Returns true if the board has a winner or the board is full.
-	 * @return
+	 * @return true if the board has a winner or the board is full.
 	 */
 	//@pure;
 	public boolean hasEnded() {

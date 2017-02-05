@@ -214,7 +214,18 @@ public class BoardTest {
 		}
 		assertTrue(board.isWinner(m));
 	}
-
+	
+	@Test
+	public void testhasEnded() {
+		Mark m = Mark.X;
+		assertFalse(board.hasEnded());
+		for (int i = 0; i <= Board.MAXFIELD; i++) {
+			board.setField(i, i, m);
+		}
+		assertTrue(board.hasEnded());
+		
+	}
+	
 	@Test
 	public void testgetWinner() {
 		Mark m = Mark.X;
@@ -230,4 +241,23 @@ public class BoardTest {
 
 	}
 
+	@Test
+	public void testCopy() {
+		for (int i = 0; i <= Board.MAXFIELD; i++) {
+			board.setField(i, 1, Mark.O);
+		}
+		Board board2 = board.copy();
+		
+		for (int x = 0; x <= Board.MAXFIELD; x++) {
+			for (int y = 0; y <= Board.MAXFIELD; y++) {
+				for (int z = 0; z <= Board.MAXFIELD; z++) {
+					Field field = new Field(x, y, z);
+					if (!board.isEmptyField(field)) {
+						assertTrue(board.getMark(field).equals(board2.getMark(field)));
+					}
+				}
+			}
+		}
+	}
+	
 }
