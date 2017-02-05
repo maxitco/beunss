@@ -1335,6 +1335,7 @@
             </packagedElement>
             <packagedElement xmi:type="uml:Class" xmi:id="_57YT4escEeaGGeTgDT8kcg" name="ServerHandler" visibility="public">
               <generalization xmi:type="uml:Generalization" xmi:id="_-46k4OscEeaGGeTgDT8kcg" general="_-43hkOscEeaGGeTgDT8kcg"/>
+              <generalization xmi:type="uml:Generalization" xmi:id="_UbW9wOuNEeanyfTPa8UQ4w" general="_9u5hcOsfEeagpPVreqOLZw"/>
               <ownedAttribute xmi:type="uml:Property" xmi:id="_-4_dYOscEeaGGeTgDT8kcg" name="client" visibility="private" type="_57VQkOscEeaGGeTgDT8kcg" isUnique="false"/>
               <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_-49BIescEeaGGeTgDT8kcg" name="ServerHandler implements Runnable" client="_57YT4escEeaGGeTgDT8kcg" supplier="_-47L8OscEeaGGeTgDT8kcg" contract="_-47L8OscEeaGGeTgDT8kcg"/>
               <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_-5HZMOscEeaGGeTgDT8kcg" name="ServerHandler" specification="_-5BSkescEeaGGeTgDT8kcg">
@@ -2449,7 +2450,90 @@
                 <ownedParameter xmi:type="uml:Parameter" xmi:id="_9vD5gesfEeagpPVreqOLZw" name="input" type="_DIE0UOsaEeaRPtCCR8m55A"/>
               </ownedOperation>
             </packagedElement>
-            <packagedElement xmi:type="uml:Class" xmi:id="_9u5hcOsfEeagpPVreqOLZw" name="Terminal"/>
+            <packagedElement xmi:type="uml:Class" xmi:id="_9u5hcOsfEeagpPVreqOLZw" name="Terminal" visibility="public">
+              <ownedAttribute xmi:type="uml:Property" xmi:id="_FBkJQOuNEeanyfTPa8UQ4w" name="in" visibility="protected" isLeaf="true" type="_FBbmYOuNEeanyfTPa8UQ4w" isUnique="false"/>
+              <ownedAttribute xmi:type="uml:Property" xmi:id="_FBssIOuNEeanyfTPa8UQ4w" name="out" visibility="protected" isLeaf="true" type="_FBmlgOuNEeanyfTPa8UQ4w" isUnique="false"/>
+              <ownedAttribute xmi:type="uml:Property" xmi:id="_FBt6QOuNEeanyfTPa8UQ4w" name="exit" visibility="private" isUnique="false">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
+                <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_FBuhUOuNEeanyfTPa8UQ4w" name="defaultValue">
+                  <language>JAVA</language>
+                  <body>false</body>
+                </defaultValue>
+              </ownedAttribute>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_FB-Y8OuNEeanyfTPa8UQ4w" name="Terminal" specification="_FB5gcOuNEeanyfTPa8UQ4w">
+                <language>JAVA</language>
+                <body>
+    this.in = new BufferedReader(new InputStreamReader(in));
+    this.out = new BufferedWriter(new OutputStreamWriter(out));
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_FB_AAeuNEeanyfTPa8UQ4w" name="atStart" specification="_FB_AAOuNEeanyfTPa8UQ4w">
+                <language>JAVA</language>
+                <body>
+    send(&quot;terminal started&quot;);
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_FCAOIOuNEeanyfTPa8UQ4w" name="run" specification="_FB_nEOuNEeanyfTPa8UQ4w">
+                <language>JAVA</language>
+                <body>
+    atStart();
+    try {
+        String line = in.readLine();
+        //continuously read input and print it
+        while (line != null &amp;&amp; !exit) {
+            handleInput(line);
+            line = in.readLine();
+        }
+    } catch (IOException e) {
+        onFailure();
+    }
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_FCCDUeuNEeanyfTPa8UQ4w" name="send" specification="_FCBcQOuNEeanyfTPa8UQ4w">
+                <language>JAVA</language>
+                <body>
+    try {
+        out.write(input);
+        out.newLine();
+        out.flush();
+    } catch (IOException e) {
+        onFailure();
+    }
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_FCDRceuNEeanyfTPa8UQ4w" name="handleInput" specification="_FCCqYOuNEeanyfTPa8UQ4w">
+                <language>JAVA</language>
+                <body>
+    send(input);
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_FCFGoOuNEeanyfTPa8UQ4w" name="onFailure" specification="_FCD4gOuNEeanyfTPa8UQ4w">
+                <language>JAVA</language>
+                <body>
+    System.out.println(&quot;Something went wrong with sending through socket&quot;);
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_FCFtsOuNEeanyfTPa8UQ4w" name="exit" specification="_FCFGoeuNEeanyfTPa8UQ4w">
+                <language>JAVA</language>
+                <body>
+    this.exit = true;
+</body>
+              </ownedBehavior>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_FB5gcOuNEeanyfTPa8UQ4w" name="Terminal" visibility="public" method="_FB-Y8OuNEeanyfTPa8UQ4w" raisedException="_-5EV4uscEeaGGeTgDT8kcg">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_FB8jwOuNEeanyfTPa8UQ4w" name="in" type="_FB0A4OuNEeanyfTPa8UQ4w"/>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_FB9K0OuNEeanyfTPa8UQ4w" name="out" type="_FB3EMOuNEeanyfTPa8UQ4w"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_FB_AAOuNEeanyfTPa8UQ4w" name="atStart" visibility="public" method="_FB_AAeuNEeanyfTPa8UQ4w"/>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_FB_nEOuNEeanyfTPa8UQ4w" name="run" visibility="public" method="_FCAOIOuNEeanyfTPa8UQ4w"/>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_FCBcQOuNEeanyfTPa8UQ4w" name="send" visibility="public" method="_FCCDUeuNEeanyfTPa8UQ4w">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_FCCDUOuNEeanyfTPa8UQ4w" name="input" type="_DIE0UOsaEeaRPtCCR8m55A"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_FCCqYOuNEeanyfTPa8UQ4w" name="handleInput" visibility="public" method="_FCDRceuNEeanyfTPa8UQ4w">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_FCDRcOuNEeanyfTPa8UQ4w" name="input" type="_DIE0UOsaEeaRPtCCR8m55A"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_FCD4gOuNEeanyfTPa8UQ4w" name="onFailure" visibility="public" method="_FCFGoOuNEeanyfTPa8UQ4w"/>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_FCFGoeuNEeanyfTPa8UQ4w" name="exit" visibility="public" method="_FCFtsOuNEeanyfTPa8UQ4w"/>
+            </packagedElement>
             <packagedElement xmi:type="uml:Class" xmi:id="_RPiPgOsgEeagpPVreqOLZw" name="ClientTUIView" visibility="public">
               <generalization xmi:type="uml:Generalization" xmi:id="_RPi2kOsgEeagpPVreqOLZw" general="_9u5hcOsfEeagpPVreqOLZw"/>
               <ownedAttribute xmi:type="uml:Property" xmi:id="_RPlS0OsgEeagpPVreqOLZw" name="client" visibility="private" type="_57VQkOscEeaGGeTgDT8kcg" isUnique="false"/>
@@ -2561,6 +2645,10 @@
         </packagedElement>
         <packagedElement xmi:type="uml:Package" xmi:id="_-5EV4escEeaGGeTgDT8kcg" name="io">
           <packagedElement xmi:type="uml:Class" xmi:id="_-5EV4uscEeaGGeTgDT8kcg" name="IOException"/>
+          <packagedElement xmi:type="uml:Class" xmi:id="_FBbmYOuNEeanyfTPa8UQ4w" name="BufferedReader"/>
+          <packagedElement xmi:type="uml:Class" xmi:id="_FBmlgOuNEeanyfTPa8UQ4w" name="BufferedWriter"/>
+          <packagedElement xmi:type="uml:Class" xmi:id="_FB0A4OuNEeanyfTPa8UQ4w" name="InputStream"/>
+          <packagedElement xmi:type="uml:Class" xmi:id="_FB3EMOuNEeanyfTPa8UQ4w" name="OutputStream"/>
         </packagedElement>
       </packagedElement>
     </packagedElement>
@@ -3266,4 +3354,9 @@
   <PapyrusJava:External xmi:id="_ege-0Os5Eea7AqSsB_lc7w" name="ss.project.view.View" base_Classifier="_egb7gOs5Eea7AqSsB_lc7w"/>
   <standard:Create xmi:id="_ege-0es5Eea7AqSsB_lc7w" base_BehavioralFeature="_egb7lus5Eea7AqSsB_lc7w"/>
   <PapyrusJava:External xmi:id="_egfl4Os5Eea7AqSsB_lc7w" name="ClientView" base_Classifier="_egcikOs5Eea7AqSsB_lc7w"/>
+  <PapyrusJava:External xmi:id="_FBhtAOuNEeanyfTPa8UQ4w" name="java.io.BufferedReader" base_Classifier="_FBbmYOuNEeanyfTPa8UQ4w"/>
+  <PapyrusJava:External xmi:id="_FBq28OuNEeanyfTPa8UQ4w" name="java.io.BufferedWriter" base_Classifier="_FBmlgOuNEeanyfTPa8UQ4w"/>
+  <PapyrusJava:External xmi:id="_FB2dIOuNEeanyfTPa8UQ4w" name="java.io.InputStream" base_Classifier="_FB0A4OuNEeanyfTPa8UQ4w"/>
+  <PapyrusJava:External xmi:id="_FB45YOuNEeanyfTPa8UQ4w" name="java.io.OutputStream" base_Classifier="_FB3EMOuNEeanyfTPa8UQ4w"/>
+  <standard:Create xmi:id="_FB78sOuNEeanyfTPa8UQ4w" base_BehavioralFeature="_FB5gcOuNEeanyfTPa8UQ4w"/>
 </xmi:XMI>
