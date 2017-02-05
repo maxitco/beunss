@@ -23,8 +23,6 @@ public class Server extends Thread {
 
     /** constructs a Server, its view and pingthread
      *   
-    /** constructs a Server, its view and pingthread.
-     *  
      */    
     public Server() {        
         //new PingThread(this).start();
