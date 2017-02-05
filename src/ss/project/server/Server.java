@@ -20,7 +20,7 @@ public class Server extends Thread {
     private ArrayList<ClientHandler> clientHandlerList = new ArrayList<ClientHandler>();
     private ArrayList<Game> gameList = new ArrayList<Game>();
     
-    /** constructs a Server, its view and pingthread
+    /** constructs a Server, its view and pingthread.
      *  
      */    
     public Server() {
@@ -35,7 +35,7 @@ public class Server extends Thread {
         new PingThread(this).start();
     }
     
-    public void sendChat(String inputSplit[], String name) {        
+    public void sendChat(String[] inputSplit, String name) {        
         String result = Protocol.ProtServer.NOTIFYMESSAGE + " " + name + " ";
         
         for (int i = 1; i < inputSplit.length; i++) {
