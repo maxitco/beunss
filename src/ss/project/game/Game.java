@@ -26,15 +26,21 @@ public class Game extends Thread {
      */
     private int turnCounter = 0; 
     
-    
+    /**
+     * Constructs a game, requires a server.
+     * @param inServer
+     */
+    //@requires inServer.running;
     public Game(Server inServer) {
         this.board = new Board();
         this.server = inServer;
     }
     
+    /**    break game thread out of the waiting time to go to gameEnd,
+   	 *	   or if the game has not started remove dead client from playerList.
+     * 
+     */
 
-    //break game thread out of the waiting time to go to gameEnd
-    //or if the game has not started remove dced client from playerList
     public void leaveGame(ClientHandler client) {
         if (this.isAlive()) {
             lock.lock();
@@ -44,7 +50,10 @@ public class Game extends Thread {
             this.playerList.remove(client);
         }        
     }
-    
+    /**
+     * 
+     * @return true if 2 players are connected.
+     */
     public boolean isFull() {
         if (playerList.size() == 2) {
             return true;
@@ -52,16 +61,28 @@ public class Game extends Thread {
             return false;
         }
     }
-    
+    /**
+     * Adds a new player to the game.
+     * @param inputPlayer
+     */
     public synchronized void addPlayer(ClientHandler inputPlayer) {
         playerList.add(inputPlayer);
     }
-    
+    /**
+     * 
+     * @return ArrayList Playerlist.
+     */
     public ArrayList<ClientHandler> getPlayerList() {
         return this.playerList;
     }  
     
-    //make move depending on input, player input is to identify who is trying to make a move
+    /**
+     * make move on board depending on input,
+     * player input is to identify who is trying to make a move.
+     * @param x
+     * @param y
+     * @param player
+     */
     public synchronized void makeMove(int x, int y, ClientHandler player) {
         //check if it is the turn of the player that calls the function
         
@@ -91,7 +112,12 @@ public class Game extends Thread {
         }        
     }
     
-    //notify all players which move was made
+    /**
+     * notifies all players which move was made.
+     * @param x
+     * @param y
+     * @param id
+     */
     public void notifyMove(int x, int y, int id) {
         lock.lock();
         for (ClientHandler c: this.playerList) {
@@ -103,12 +129,18 @@ public class Game extends Thread {
         lock.unlock();
     }
     
-    //determine whose turn it is, depending on turn and amount of players
+    /**
+     * determine whose turn it is, depending on turn and amount of players.
+     * @return 
+     */
     public int whoseTurn() {
         return this.turnCounter % this.playerList.size();
     }
     
-    //check if the game has ended
+    /**
+     * check if the game has ended.
+     * @return
+     */
     public boolean gameEnd() {
         //check for disconnected players, then winner, then draw
         if (this.playerList.get(0).disconnected) {
@@ -135,7 +167,11 @@ public class Game extends Thread {
         return false;
     }
     
-    //notify everyone who has won or who left the game.
+    /**
+     * notify everyone who has won or who left the game.
+     * @param playerId
+     * @param reason
+     */
     public void notifyEnd(int playerId, int reason) {
         if (reason == 1) {        
             for (ClientHandler c: this.playerList) {
@@ -150,7 +186,9 @@ public class Game extends Thread {
         }
     }
     
-    //notify everyone that the game has ended, draw
+    /**
+     * notify everyone that the game has ended, draw.
+     */
     public void notifyEnd() {
         for (ClientHandler c: this.playerList) {
             c.send(Protocol.ProtServer.NOTIFYEND + " 2");            
@@ -194,7 +232,8 @@ public class Game extends Thread {
             }
             //set answered on false, is set true when the player whose turn it is makes a move
             this.answered = false;
-            //wait until signaled (when an answer was submitted), or timeout after 20 seconds            
+            //wait until signaled (when an answer was submitted),
+            //or timeout after 20 seconds            
             try {
                 this.notAnswered.await(120, TimeUnit.SECONDS);                
             } catch (InterruptedException e) {

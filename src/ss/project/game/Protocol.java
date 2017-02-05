@@ -70,15 +70,16 @@ public class Protocol {
             result = "Client has not yet sent capabilities message, Server cannot proceed";
         } else if (number.equals("2")) {
             result = "Room sent in message joinRoom does not exist";
-        } else if (number.equals("3")){
-            result = "The chosen room is no longer available, either it already filled up or was empty for too long";
-        } else if (number.equals("4")){
+        } else if (number.equals("3")) {
+            result = "The chosen room is no longer available,"
+            		+ "either it already filled up or was empty for too long";
+        } else if (number.equals("4")) {
             result = "The input given by the client is not valid at this moment";
-        } else if (number.equals("5")){
+        } else if (number.equals("5")) {
             result = "The given move is not possible on this board";
-        } else if (number.equals("6")){
+        } else if (number.equals("6")) {
             result = "Client is not allowed to leave the room after the game has started";
-        } else if (number.equals("7")){
+        } else if (number.equals("7")) {
             result = "A message with piping in a wrong place was received";
         } else {
             result = "unknown error";
@@ -89,13 +90,13 @@ public class Protocol {
 
     public static String getWin(String number){
         String result = null;
-        if(number.equals("1")){
+        if (number.equals("1")) {
             result = "The game was won!";
-        } else if(number.equals("2")){
+        } else if (number.equals("2")) {
             result = "Draw! The board is full.";
-        } else if(number.equals("3")){
+        } else if (number.equals("3")) {
             result = "Player disconnected. The game cannot continue.";
-        } else if(number.equals("4")){
+        } else if (number.equals("4")) {
             result = "Player didn't respond. The game cannot continue.";
         } else {
             result = "unknown win condition";

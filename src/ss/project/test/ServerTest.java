@@ -6,7 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 import ss.project.server.*;
 import ss.project.client.*;
-import java.io.IOException;
+//import java.io.IOException;
 
 
 
@@ -45,7 +45,7 @@ public class ServerTest {
     }
     
     @Test
-    public void InitialTest() {
+    public void initialTest() {
         assertEquals(0, getServer().getGameList().size());
         assertEquals(0, getServer().getClientHandlerList().size());
         
