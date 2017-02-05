@@ -87,13 +87,19 @@ public class Server extends Thread {
     public void startServer(String input) {
         if (this.running) {
             sendToView("Server already running, exit and restart to run server on different port.");
-        } else {
-            this.running = true;
+        } else {            
             // parse input - the port
             int port = getPort(input);
             try {
-                this.serverSocket = new ServerSocket(port);
-                this.start();
+                if (port == 0) {
+                    sendToView("Could not create ServerSocket on port: " + port); 
+                    sendToView("Try again, note that port should not be in use and higher than 0.");
+                    this.running = false;
+                } else {
+                    this.serverSocket = new ServerSocket(port);
+                    this.start();
+                    this.running = true;
+                }
             } catch (IOException e1) {
                 sendToView("Could not create ServerSocket on port: " + port); 
                 sendToView("Try again, note that port should not be in use and higher than 0.");

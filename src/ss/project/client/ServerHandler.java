@@ -30,8 +30,7 @@ public class ServerHandler extends Terminal implements Runnable {
     
     @Override
     public void send(String input) {
-        super.send(input);
-        System.out.println(input);
+        super.send(input);        
     }
     
     /**
