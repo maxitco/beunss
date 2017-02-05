@@ -28,6 +28,7 @@ public class Client implements Observer {
     private ServerHandler serverHandler;
     private ClientView view;  
     private ComputerPlayer ai = new ComputerPlayer(new Hard());
+    private Server aServer;
 
     public boolean canChat;
 
@@ -110,8 +111,8 @@ public class Client implements Observer {
 
     //at functions, linked to serverHandler
     public void atAI(String[] inputSplit) {
-        Server aServer = new Server();
-        aServer.startServer(inputSplit[1]);
+        this.aServer = new Server();
+        this.aServer.startServer(inputSplit[1]);
         
         Client client = new Client();
         if (inputSplit[2].equals("easy")) {            
@@ -312,12 +313,19 @@ public class Client implements Observer {
 
     //resets the client
     public void restart() {
-        sendToView("\n\nRestarting...");
-        if (this.serverHandler != null) {
-            this.serverHandler.exit();
+        //restart blocked for aiclients without view
+        if(this.view != null) {
+            sendToView("\n\nRestarting...");
+            if (this.serverHandler != null) {
+                this.serverHandler.exit();
+            }
+            this.inGame = false;
+            this.view.atStart();    
         }
-        this.inGame = false;
-        this.view.atStart();        
+        //shutdown server if has one
+        if (this.aServer != null) {
+            this.aServer.shutDown();
+        }
     }
 
     /** Starts a Client application. */

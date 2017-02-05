@@ -14,6 +14,10 @@ public class ServerTUIView extends Terminal implements View {
         super(System.in, System.out);
         this.server = inServer;      
     } 
+    @Override
+    public void exit() {
+        super.exit();
+    }
     
     @Override
     public void atStart() {

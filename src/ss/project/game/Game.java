@@ -193,7 +193,7 @@ public class Game extends Thread {
             this.answered = false;
             //wait until signaled (when an answer was submitted), or timeout after 20 seconds            
             try {
-                this.notAnswered.await(120, TimeUnit.SECONDS);                
+                this.notAnswered.await(10, TimeUnit.SECONDS);                
             } catch (InterruptedException e) {
                 for (ClientHandler c: this.playerList) {
                     c.send(

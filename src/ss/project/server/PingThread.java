@@ -8,6 +8,6 @@ public class PingThread extends Thread {
     }
     
     public void run() {
-        this.server.pingAll();
+        //this.server.pingAll();
     }
 }

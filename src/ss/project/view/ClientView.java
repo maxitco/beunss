@@ -4,4 +4,5 @@ public interface ClientView extends View {
     
     public void showBoard();
     
+    
 }
