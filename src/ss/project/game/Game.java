@@ -40,7 +40,7 @@ public class Game extends Thread {
    	 *	   or if the game has not started remove dead client from playerList.
      * 
      */
-
+    //@ensures this.getPlayerList().size() == \old(this.getPlayerList().size()) -1;
     public void leaveGame(ClientHandler client) {
         if (this.isAlive()) {
             lock.lock();
@@ -54,6 +54,8 @@ public class Game extends Thread {
      * 
      * @return true if 2 players are connected.
      */
+    //@ensures (this.getPlayerList().size() == 2) ? true : false;
+    //@pure;
     public boolean isFull() {
         if (playerList.size() == 2) {
             return true;
@@ -65,6 +67,8 @@ public class Game extends Thread {
      * Adds a new player to the game.
      * @param inputPlayer
      */
+    //@requires !this.isFull();
+    //@ensures this.getPlayerList().size() == \old(this.getPlayerList().size()) + 1;
     public synchronized void addPlayer(ClientHandler inputPlayer) {
         playerList.add(inputPlayer);
     }
@@ -72,6 +76,7 @@ public class Game extends Thread {
      * 
      * @return ArrayList Playerlist.
      */
+    //@pure;
     public ArrayList<ClientHandler> getPlayerList() {
         return this.playerList;
     }  
@@ -83,6 +88,7 @@ public class Game extends Thread {
      * @param y
      * @param player
      */
+    //@requires player != null;
     public synchronized void makeMove(int x, int y, ClientHandler player) {
         //check if it is the turn of the player that calls the function
         
@@ -133,6 +139,7 @@ public class Game extends Thread {
      * determine whose turn it is, depending on turn and amount of players.
      * @return 
      */
+    //@pure;
     public int whoseTurn() {
         return this.turnCounter % this.playerList.size();
     }
