@@ -21,18 +21,20 @@ public class Server extends Thread {
     private ArrayList<Game> gameList = new ArrayList<Game>();
     
     /** constructs a Server, its view and pingthread
-     *  
+     *   
      */    
-    public Server() {
-        try {
-		    this.view = new ServerTUIView(this);
-		    this.view.run();		    
-		} catch (IOException e1) {
-		    System.out.println("Could not create TUI vor server.");
-		    System.exit(0);
-		}
-        
+    public Server() {        
         new PingThread(this).start();
+    }
+    
+    public void createView() {
+        try {
+            this.view = new ServerTUIView(this);
+            this.view.run();            
+        } catch (IOException e1) {
+            System.out.println("Could not create TUI vor server.");
+            System.exit(0);
+        }
     }
     
     public void sendChat(String inputSplit[], String name) {        
@@ -54,7 +56,7 @@ public class Server extends Thread {
             }
             
             try { 
-                wait(100);
+                this.currentThread().sleep(100);
             } catch (InterruptedException e1) {
                 sendToView("pinger interrupted.");
             }
@@ -116,14 +118,14 @@ public class Server extends Thread {
             client.send("serverdown");
         }
         System.exit(0);
-    }
+    }    
     
-    /**Returns the server socket.
+    /** Returns the ServerSocket of this server.
      * 
-     * @return
+     * @return ServerSocket
      */
     /*@ pure */ public ServerSocket getServerSocket() {
-    	return this.serverSocket;
+        return this.serverSocket;
     }
     
     /** Returns the List of Clienthandlers.
@@ -151,7 +153,7 @@ public class Server extends Thread {
         while (true) {
     	    Socket sock = null;
     	    try {
-    	        sock = this.getServerSocket().accept();
+    	        sock = this.serverSocket.accept();
     	        sendToView("New client connected!");
     	    } catch (IOException e1) {
     	        sendToView("Could not accept connection on serversocket.");
@@ -228,7 +230,8 @@ public class Server extends Thread {
      */
     public static void main(String[] args) {
     	//create a new server
-    	new Server();          	
+    	Server aServer = new Server();
+    	aServer.createView();
     }
 
 } // end of class Server
