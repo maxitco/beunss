@@ -18,9 +18,9 @@ public class ServerHandler extends Terminal implements Runnable {
     @Override
     public void onFailure() {
       //exit the terminal and close its streams.
-        
-        this.client.restart();      
-        
+        if (!super.exit) {
+            this.client.restart();
+        }        
     }
     
     @Override
