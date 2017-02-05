@@ -110,21 +110,27 @@ public class Client implements Observer {
     }    
 
     //at functions, linked to serverHandler
-    public void atAI(String[] inputSplit) {
-        this.aServer = new Server();
-        this.aServer.startServer(inputSplit[1]);
-        
-        Client client = new Client();
-        if (inputSplit[2].equals("easy")) {            
-            client.setAI(new ComputerPlayer(new Easy()));
+    public void atAI(String[] inputSplit) {  
+        if (inputSplit[2].equals("easy")) {  
+            createAiGame(inputSplit[1], new Easy());
         } else if (inputSplit[2].equals("medium")) {
-            client.setAI(new ComputerPlayer(new Medium()));
+            createAiGame(inputSplit[1], new Medium());
         } else if (inputSplit[2].equals("hard")) {
-            client.setAI(new ComputerPlayer(new Hard()));
+            createAiGame(inputSplit[1], new Hard());
+        } else {
+            sendToView("Retry and enter a valid difficulty");
+            restart();
         }
-        //turn the ai on
+        
+    }
+    
+    public void createAiGame(String input, Difficulty dif) {
+        this.aServer = new Server();
+        this.aServer.startServer(input);
+        Client client = new Client();
+        client.setAI(new ComputerPlayer(dif));          
         client.toggleAI();
-        client.connectToServer("localhost", inputSplit[1]);
+        client.connectToServer("localhost", input);
     }
 
     public void atTurnOfPlayer(String[] inputSplit) {
