@@ -29,39 +29,38 @@ public class ClientTUIView extends Terminal implements ClientView {
             if (inputSplit[0].equals("multi")) {
                 send("Enter 'start <playername> <server ip> <port>' to continue.");     
                 this.client.setOnline(true);
-            } else if (inputSplit[0].equals(Protocol.ProtClient.SENDMESSAGE) && this.client.canChat) {
+            } else if (inputSplit[0].equals(Protocol.ProtClient.SENDMESSAGE)
+            		&& this.client.canChat) {
                 this.client.sendToServer(input);
             } else if (inputSplit[0].equals("ai") && inputSplit.length == 1) {
                 send("Enter 'start <port> <ai difficulty ('easy'/'medium'/'hard')>' to continue.");
                 this.client.setOnline(false);
             } else if (
                 inputSplit[0].equals("start") && this.client.isOnline() 
-                && inputSplit.length == 4
+                    && inputSplit.length == 4
             ) {
                 send("connecting to server...");
                 this.client.setPlayerName(inputSplit[1]);
                 this.client.connectToServer(inputSplit[2], inputSplit[3]);                
             } else if (
                 inputSplit[0].equals("start") && !this.client.isOnline() 
-                && inputSplit.length == 3
+                    && inputSplit.length == 3
             ) {
                 this.client.atAI(inputSplit);
                 this.client.connectToServer("localhost", inputSplit[1]);                
             } else if (inputSplit[0].equals("aitoggle")) {
-                if(this.client.toggleAI()) {
+                if (this.client.toggleAI()) {
                     this.client.sendToView("ai is now on");
                 } else {
                     this.client.sendToView("ai is now off");
                 } 
             } else if (inputSplit[0].equals("hint")) {
                 send(this.client.hint());
-            }  
             
-            else if (inputSplit[0].equals("restart")) {
+            } else if (inputSplit[0].equals("restart")) {
                 this.client.restart();
-            } 
             
-            else if (inputSplit[0].equals("exit")) {
+            } else if (inputSplit[0].equals("exit")) {
                 System.exit(0);
             } else if (
                 inputSplit[0].equals("move") && inputSplit.length == 3 && this.client.isInGame()) {
@@ -71,7 +70,7 @@ public class ClientTUIView extends Terminal implements ClientView {
             } else {
                 send(
                     "You entered: '" + input 
-                    + "' which is not valid input or can only be done if it is your turn in the game."                    
+                    + "' which is not valid input or it is not your turn in the game."
                 );
                 
                 if (this.client.isInGame()) {
