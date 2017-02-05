@@ -32,15 +32,19 @@ public class Client implements Observer {
 
     public boolean canChat;
 
-    //set standard name for AI
-    //view creation is not done in constructor, as for AI clients it is not desired
+    /**
+     * set standard name for AI.
+     * view creation is not done in constructor, as for AI clients it is not desired.
+     */
     public Client() {
         this.playerName = "NoNamePepeAI";   
         this.board = new Board();
         this.board.addObserver(this);
     }
 
-    //creates a view for the client
+    /**
+     * creates a view for the client.
+     */
     public void createNewView() {
         try {
             this.view = new ClientTUIView(this);
@@ -50,66 +54,111 @@ public class Client implements Observer {
             System.exit(0);
         }       
     }
-    
+    /**
+     * Shows the new board situation if the board changes.
+     */
     public void update(Observable obs, Object obj) {
-        if(this.view != null && obj.equals("boardchanged")) {
+        if (this.view != null && obj.equals("boardchanged")) {
             this.view.showBoard();
         }
     }
 
-    //set functions
+    /**
+     * Switches gametype to online.
+     * @param input
+     */
     public void setOnline(boolean input) {
         this.online = input;
     }
-
+    /**
+     * Sets the player name.
+     * @param input
+     */
+    //@requires input.length() > 0;
     public void setPlayerName(String input) {
         this.playerName = input;        
     }   
-
+    /**
+     * Activates an AI player.
+     * @param player
+     */
+    //@requires player != null;
     public void setAI(ComputerPlayer player) {
         this.ai = player;
         this.playerName = player.getName();
     }
-
+    /**
+     * Updates the inGame boolean.
+     * @param input
+     */
     public void setInGame(boolean input) {
         this.inGame = input;
     }
 
     //get, is and toggle functions
+    /**
+     * @return ServerHandler
+     */
     /*@ pure */ public ServerHandler getServerHandler() {
         return this.serverHandler;
     } 
-
+    /**
+     * 
+     * @return int CurrentTurnId
+     */
     public int getCurrentTurnId() {
         return this.currentTurnId;
     }
-
+    /**
+     * 
+     * @return int playerId
+     */
     /*@ pure */ public int getPlayerId() {
         return this.playerId;
     }  
-
+    /**
+     * 
+     * @return Board
+     */
     /*@ pure */ public Board getBoard() {
         return this.board;
     }  
-
+    /**
+     * 
+     * @return String Capabilities
+     */
     /*@ pure */ public String getCapabilities() {
         return Protocol.ProtClient.SENDCAPABILITIES + " 2 " + this.playerName + " 0 4 4 4 4 1 0";
     }
-
+    /**
+     * 
+     * @return true if game is online
+     */
     /*@ pure */ public boolean isOnline() {
         return this.online;
     }
-
+    /**
+     * 
+     * @return true if client is connected to a game
+     */
     /*@ pure */ public boolean isInGame() {
         return this.inGame;
     }    
-
+    /**
+     * Switches AI on or off.
+     * @return
+     */
     public boolean toggleAI() {
         this.aiEnabled = !this.aiEnabled;
         return aiEnabled;
     }    
 
     //at functions, linked to serverHandler
+    
+    /**
+     * Method to detect and set AI difficulty
+     * @param inputSplit
+     */
     public void atAI(String[] inputSplit) {  
         if (inputSplit[2].equals("easy")) {  
             createAiGame(inputSplit[1], new Easy());
@@ -123,7 +172,11 @@ public class Client implements Observer {
         }
         
     }
-    
+    /**
+     * Method to start a local server and play against an AI.
+     * @param input
+     * @param dif
+     */
     public void createAiGame(String input, Difficulty dif) {
         this.aServer = new Server();
         this.aServer.startServer(input);
