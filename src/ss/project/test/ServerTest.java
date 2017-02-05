@@ -49,8 +49,8 @@ public class ServerTest {
         assertEquals(0, getServer().getGameList().size());
         assertEquals(0, getServer().getClientHandlerList().size());
         
-        assertEquals(10, getServer().getPort("10"));
-        assertEquals(0, getServer().getPort("yoyo"));
+        assertEquals(10, Server.getPort("10"));
+        assertEquals(0, Server.getPort("yoyo"));
     }
     
     

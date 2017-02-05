@@ -4314,7 +4314,7 @@
     <packagedElement xmi:type="uml:Class" xmi:id="_g9FxoOvdEeaFWsKBBqDStg" name="Server" visibility="public">
       <generalization xmi:type="uml:Generalization" xmi:id="_g9FxoevdEeaFWsKBBqDStg" general="_DIN-QOsaEeaRPtCCR8m55A"/>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_g9FxouvdEeaFWsKBBqDStg" name="serverSocket" visibility="private" type="_x6FPkOsfEeagpPVreqOLZw" isUnique="false"/>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_g9Fxo-vdEeaFWsKBBqDStg" name="view" visibility="private" isUnique="false"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_g9Fxo-vdEeaFWsKBBqDStg" name="view" visibility="private" type="_9u46YOsfEeagpPVreqOLZw" isUnique="false"/>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_g9FxpOvdEeaFWsKBBqDStg" name="running" visibility="public" isUnique="false">
         <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
         <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_g9FxpevdEeaFWsKBBqDStg" name="defaultValue">
