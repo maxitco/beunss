@@ -15,439 +15,6 @@
               <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_BwlqsOsfEeagpPVreqOLZw" name="X"/>
               <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_BwmRwOsfEeagpPVreqOLZw" name="O"/>
             </packagedElement>
-            <packagedElement xmi:type="uml:Class" xmi:id="_Inc_YOsgEeagpPVreqOLZw" name="Field" visibility="public">
-              <ownedAttribute xmi:type="uml:Property" xmi:id="_IndmcOsgEeagpPVreqOLZw" name="x" visibility="public" isUnique="false">
-                <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
-              </ownedAttribute>
-              <ownedAttribute xmi:type="uml:Property" xmi:id="_IndmcesgEeagpPVreqOLZw" name="y" visibility="public" isUnique="false">
-                <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
-              </ownedAttribute>
-              <ownedAttribute xmi:type="uml:Property" xmi:id="_IndmcusgEeagpPVreqOLZw" name="z" visibility="public" isUnique="false">
-                <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
-              </ownedAttribute>
-              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_InhQ0OsgEeagpPVreqOLZw" name="Field" specification="_Indmc-sgEeagpPVreqOLZw">
-                <language>JAVA</language>
-                <body>
-    this.x = newx;
-    this.y = newy;
-    this.z = newz;
-</body>
-              </ownedBehavior>
-              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_Inh34usgEeagpPVreqOLZw" name="equals" specification="_InhQ0esgEeagpPVreqOLZw">
-                <language>JAVA</language>
-                <body>
-    if (o instanceof Field) {
-        return this.hashCode() == ((Field) o).hashCode();
-    }
-    return false;
-</body>
-              </ownedBehavior>
-              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_Inie8esgEeagpPVreqOLZw" name="hashCode" specification="_Inh34-sgEeagpPVreqOLZw">
-                <language>JAVA</language>
-                <body>
-    return x * 100 + y * 10 + z;
-</body>
-              </ownedBehavior>
-              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_InjGAOsgEeagpPVreqOLZw" name="copy" specification="_Inie8usgEeagpPVreqOLZw">
-                <language>JAVA</language>
-                <body>
-    return new Field(this.x, this.y, this.z);
-</body>
-              </ownedBehavior>
-              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_InjGA-sgEeagpPVreqOLZw" name="getMove" specification="_InjGAesgEeagpPVreqOLZw">
-                <language>JAVA</language>
-                <body>
-    return this.x + &quot; &quot; + this.y;
-</body>
-              </ownedBehavior>
-              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_InjtEusgEeagpPVreqOLZw" name="toString" specification="_InjtEOsgEeagpPVreqOLZw">
-                <language>JAVA</language>
-                <body>
-    return &quot;(&quot; + this.x + &quot;,&quot; + this.y + &quot;,&quot; + this.z + &quot;)&quot;;
-</body>
-              </ownedBehavior>
-              <ownedOperation xmi:type="uml:Operation" xmi:id="_Indmc-sgEeagpPVreqOLZw" name="Field" visibility="public" method="_InhQ0OsgEeagpPVreqOLZw">
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_IngpwOsgEeagpPVreqOLZw" name="newx">
-                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
-                </ownedParameter>
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_IngpwesgEeagpPVreqOLZw" name="newy">
-                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
-                </ownedParameter>
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_IngpwusgEeagpPVreqOLZw" name="newz">
-                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
-                </ownedParameter>
-              </ownedOperation>
-              <ownedOperation xmi:type="uml:Operation" xmi:id="_InhQ0esgEeagpPVreqOLZw" name="equals" visibility="public" method="_Inh34usgEeagpPVreqOLZw">
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_Inh34OsgEeagpPVreqOLZw" direction="return">
-                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
-                </ownedParameter>
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_Inh34esgEeagpPVreqOLZw" name="o" type="_DJg-w-saEeaRPtCCR8m55A"/>
-              </ownedOperation>
-              <ownedOperation xmi:type="uml:Operation" xmi:id="_Inh34-sgEeagpPVreqOLZw" name="hashCode" visibility="public" method="_Inie8esgEeagpPVreqOLZw">
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_Inie8OsgEeagpPVreqOLZw" direction="return">
-                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
-                </ownedParameter>
-              </ownedOperation>
-              <ownedOperation xmi:type="uml:Operation" xmi:id="_Inie8usgEeagpPVreqOLZw" name="copy" visibility="public" method="_InjGAOsgEeagpPVreqOLZw">
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_Inie8-sgEeagpPVreqOLZw" type="_Inc_YOsgEeagpPVreqOLZw" direction="return"/>
-              </ownedOperation>
-              <ownedOperation xmi:type="uml:Operation" xmi:id="_InjGAesgEeagpPVreqOLZw" name="getMove" visibility="public" method="_InjGA-sgEeagpPVreqOLZw">
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_InjGAusgEeagpPVreqOLZw" type="_DIE0UOsaEeaRPtCCR8m55A" direction="return"/>
-              </ownedOperation>
-              <ownedOperation xmi:type="uml:Operation" xmi:id="_InjtEOsgEeagpPVreqOLZw" name="toString" visibility="public" method="_InjtEusgEeagpPVreqOLZw">
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_InjtEesgEeagpPVreqOLZw" type="_DIE0UOsaEeaRPtCCR8m55A" direction="return"/>
-              </ownedOperation>
-            </packagedElement>
-            <packagedElement xmi:type="uml:Class" xmi:id="_LECKAOs1Eea7AqSsB_lc7w" name="Board" visibility="public">
-              <ownedAttribute xmi:type="uml:Property" xmi:id="_LECxEOs1Eea7AqSsB_lc7w" name="MAXFIELD" visibility="public" isLeaf="true" isStatic="true" isUnique="false">
-                <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
-                <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_LEDYIOs1Eea7AqSsB_lc7w" name="defaultValue">
-                  <language>JAVA</language>
-                  <body>3</body>
-                </defaultValue>
-              </ownedAttribute>
-              <ownedAttribute xmi:type="uml:Property" xmi:id="_LED_MOs1Eea7AqSsB_lc7w" name="fieldMap" visibility="private" type="_DJGIAusaEeaRPtCCR8m55A" isUnique="false">
-                <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_LED_Mes1Eea7AqSsB_lc7w" name="defaultValue">
-                  <language>JAVA</language>
-                  <body>new HashMap&lt;Field, Mark>()</body>
-                </defaultValue>
-              </ownedAttribute>
-              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_LEHpkOs1Eea7AqSsB_lc7w" name="Board" specification="_LED_Mus1Eea7AqSsB_lc7w">
-                <language>JAVA</language>
-                <body>
-    this.reset();
-</body>
-              </ownedBehavior>
-              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_LEIQous1Eea7AqSsB_lc7w" name="copy" specification="_LEIQoOs1Eea7AqSsB_lc7w">
-                <language>JAVA</language>
-                <body>
-    Board copy = new Board();
-    for (int x = 0; x &lt;= MAXFIELD; x++) {
-        for (int y = 0; y &lt;= MAXFIELD; y++) {
-            for (int z = 0; z &lt;= MAXFIELD; z++) {
-                Field field = new Field(x, y, z);
-                if (!this.isEmptyField(field)) {
-                    copy.fieldMap.put(field, this.getMark(field));
-                }
-            }
-        }
-    }
-    return copy;
-</body>
-              </ownedBehavior>
-              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_LEJewes1Eea7AqSsB_lc7w" name="isField" specification="_LEI3sOs1Eea7AqSsB_lc7w">
-                <language>JAVA</language>
-                <body>
-    return field.x >= 0 &amp;&amp; field.x &lt;= MAXFIELD &amp;&amp; field.y >= 0 &amp;&amp; field.y &lt;= MAXFIELD &amp;&amp; field.z >= 0 &amp;&amp; field.z &lt;= MAXFIELD;
-</body>
-              </ownedBehavior>
-              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_LELT8es1Eea7AqSsB_lc7w" name="isReachableEmptyField" specification="_LEKF0Os1Eea7AqSsB_lc7w">
-                <language>JAVA</language>
-                <body>
-    Field copy = field.copy();
-    //check fields below
-    while ((copy = this.walkField(copy, 0, 0, -1)) != null) {
-        if (!this.fieldMap.containsKey(copy)) {
-            return false;
-        }
-    }
-    return this.isField(field) &amp;&amp; !this.fieldMap.containsKey(field);
-</body>
-              </ownedBehavior>
-              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_LEL7A-s1Eea7AqSsB_lc7w" name="isEmptyField" specification="_LEL7AOs1Eea7AqSsB_lc7w">
-                <language>JAVA</language>
-                <body>
-    return !this.fieldMap.containsKey(field);
-</body>
-              </ownedBehavior>
-              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_LENJIes1Eea7AqSsB_lc7w" name="getEmptyField" specification="_LEMiEOs1Eea7AqSsB_lc7w">
-                <language>JAVA</language>
-                <body>
-    Field empty = new Field(x, y, 0);
-    if (this.isReachableEmptyField(empty)) {
-        return empty;
-    } else {
-        while ((empty = walkField(empty, 0, 0, 1)) != null) {
-            if (this.isReachableEmptyField(empty)) {
-                return empty;
-            }
-        }
-    }
-    return null;
-</body>
-              </ownedBehavior>
-              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_LEO-UOs1Eea7AqSsB_lc7w" name="setField" specification="_LENwMOs1Eea7AqSsB_lc7w">
-                <language>JAVA</language>
-                <body>
-    if (this.isReachableEmptyField(field)) {
-        this.fieldMap.put(field, m);
-        return true;
-    }
-    return false;
-</body>
-              </ownedBehavior>
-              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_LEQMces1Eea7AqSsB_lc7w" name="walkField" specification="_LEO-Ues1Eea7AqSsB_lc7w">
-                <language>JAVA</language>
-                <body>
-    Field nextfield = new Field(field.x + xoff, field.y + yoff, field.z + zoff);
-    if (this.isField(nextfield)) {
-        return nextfield;
-    }
-    return null;
-</body>
-              </ownedBehavior>
-              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_LEQzg-s1Eea7AqSsB_lc7w" name="setField" specification="_LEQMcus1Eea7AqSsB_lc7w">
-                <language>JAVA</language>
-                <body>
-    Field newfield = this.getEmptyField(x, y);
-    if (newfield != null) {
-        return this.setField(newfield, m);
-    }
-    return false;
-</body>
-              </ownedBehavior>
-              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_LESBoOs1Eea7AqSsB_lc7w" name="getMark" specification="_LERakOs1Eea7AqSsB_lc7w">
-                <language>JAVA</language>
-                <body>
-    if (this.isField(field)) {
-        return this.fieldMap.get(field);
-    }
-    return null;
-</body>
-              </ownedBehavior>
-              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_LESBous1Eea7AqSsB_lc7w" name="reset" specification="_LESBoes1Eea7AqSsB_lc7w">
-                <language>JAVA</language>
-                <body>
-    this.fieldMap.clear();
-</body>
-              </ownedBehavior>
-              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_LET20es1Eea7AqSsB_lc7w" name="checkRow" specification="_LESosOs1Eea7AqSsB_lc7w">
-                <language>JAVA</language>
-                <body>
-    Field checker = start.copy();
-    int count = 0;
-    do {
-        if (this.isEmptyField(checker) || !this.getMark(checker).equals(m)) {
-            return false;
-        }
-        count++;
-        checker = this.walkField(checker, xdir, ydir, zdir);
-    } while (checker != null);
-    if (count == MAXFIELD + 1) {
-        return true;
-    }
-    return false;
-</body>
-              </ownedBehavior>
-              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_LEUd4-s1Eea7AqSsB_lc7w" name="checkZcolums" specification="_LEUd4Os1Eea7AqSsB_lc7w">
-                <language>JAVA</language>
-                <body>
-    for (int x = 0; x &lt;= MAXFIELD; x++) {
-        for (int y = 0; y &lt;= MAXFIELD; y++) {
-            Field zchecker = new Field(x, y, 0);
-            if (this.checkRow(zchecker, 0, 0, 1, m)) {
-                return true;
-            }
-        }
-    }
-    return false;
-</body>
-              </ownedBehavior>
-              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_LEWTEOs1Eea7AqSsB_lc7w" name="checkPlanes" specification="_LEVE8Os1Eea7AqSsB_lc7w">
-                <language>JAVA</language>
-                <body>
-    for (int i = 0; i &lt;= MAXFIELD; i++) {
-        //check all x-y planes
-        for (int z = 0; z &lt;= MAXFIELD; z++) {
-            Field xchecker = new Field(0, i, z);
-            Field ychecker = new Field(i, 0, z);
-            if (this.checkRow(xchecker, 1, 0, 0, m) || this.checkRow(ychecker, 0, 1, 0, m)) {
-                return true;
-            }
-        }
-        //check diagonal planes
-        //startpoint x axis
-        Field yzchecker = new Field(i, 0, 0);
-        //startpoint y axis
-        Field xzchecker = new Field(0, i, 0);
-        //opposite startpoint x axis
-        Field yzdownchecker = new Field(i, MAXFIELD, 0);
-        //opposite startpoint y axis
-        Field xzdownchecker = new Field(MAXFIELD, i, 0);
-        //check cross-planes
-        Field crosschecker = new Field(0, 0, i);
-        Field crossdownchecker = new Field(0, MAXFIELD, i);
-        if (this.checkRow(yzchecker, 0, 1, 1, m) || this.checkRow(xzchecker, 1, 0, 1, m) || this.checkRow(yzdownchecker, 0, -1, 1, m) || this.checkRow(xzdownchecker, -1, 0, 1, m) || this.checkRow(crosschecker, 1, 1, 0, m) || this.checkRow(crossdownchecker, 1, -1, 0, m)) {
-            return true;
-        }
-    }
-    return false;
-</body>
-              </ownedBehavior>
-              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_LEXhMus1Eea7AqSsB_lc7w" name="isWinner" specification="_LEW6IOs1Eea7AqSsB_lc7w">
-                <language>JAVA</language>
-                <body>
-    return this.checkPlanes(m) || this.checkZcolums(m);
-</body>
-              </ownedBehavior>
-              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_LEYIQus1Eea7AqSsB_lc7w" name="getWinner" specification="_LEYIQOs1Eea7AqSsB_lc7w">
-                <language>JAVA</language>
-                <body>
-    Mark m = Mark.X;
-    if (this.isWinner(m) &amp;&amp; !this.isWinner(m.other())) {
-        return m;
-    } else if (this.isWinner(m.other())) {
-        return m.other();
-    } else {
-        return null;
-    }
-</body>
-              </ownedBehavior>
-              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_LEYvUus1Eea7AqSsB_lc7w" name="hasEnded" specification="_LEYvUOs1Eea7AqSsB_lc7w">
-                <language>JAVA</language>
-                <body>
-    if (this.isWinner(Mark.X) || this.isWinner(Mark.O) || this.fieldMap.size() == MAXFIELD * MAXFIELD * MAXFIELD) {
-        return true;
-    }
-    return false;
-</body>
-              </ownedBehavior>
-              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_LEZWYes1Eea7AqSsB_lc7w" name="toString" specification="_LEYvU-s1Eea7AqSsB_lc7w">
-                <language>JAVA</language>
-                <body>
-    String result = &quot;&quot;;
-    for (int y = MAXFIELD; y >= 0; y--) {
-        for (int z = 0; z &lt;= MAXFIELD; z++) {
-            result = result + y;
-            for (int x = 0; x &lt;= MAXFIELD; x++) {
-                Field out = new Field(x, y, z);
-                if (this.isEmptyField(out)) {
-                    result = result + &quot;[ ]&quot;;
-                } else {
-                    result = result + &quot;[&quot; + this.getMark(out).toString() + &quot;]&quot;;
-                }
-            }
-            result = result + &quot;   &quot;;
-        }
-        result = result + &quot;\n&quot;;
-    }
-    return result;
-</body>
-              </ownedBehavior>
-              <ownedOperation xmi:type="uml:Operation" xmi:id="_LED_Mus1Eea7AqSsB_lc7w" name="Board" visibility="public" method="_LEHpkOs1Eea7AqSsB_lc7w"/>
-              <ownedOperation xmi:type="uml:Operation" xmi:id="_LEIQoOs1Eea7AqSsB_lc7w" name="copy" visibility="public" method="_LEIQous1Eea7AqSsB_lc7w">
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_LEIQoes1Eea7AqSsB_lc7w" type="_LECKAOs1Eea7AqSsB_lc7w" direction="return"/>
-              </ownedOperation>
-              <ownedOperation xmi:type="uml:Operation" xmi:id="_LEI3sOs1Eea7AqSsB_lc7w" name="isField" visibility="public" method="_LEJewes1Eea7AqSsB_lc7w">
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_LEI3ses1Eea7AqSsB_lc7w" direction="return">
-                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
-                </ownedParameter>
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_LEJewOs1Eea7AqSsB_lc7w" name="field" type="_Inc_YOsgEeagpPVreqOLZw"/>
-              </ownedOperation>
-              <ownedOperation xmi:type="uml:Operation" xmi:id="_LEKF0Os1Eea7AqSsB_lc7w" name="isReachableEmptyField" visibility="public" method="_LELT8es1Eea7AqSsB_lc7w">
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_LEKs4Os1Eea7AqSsB_lc7w" direction="return">
-                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
-                </ownedParameter>
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_LELT8Os1Eea7AqSsB_lc7w" name="field" type="_Inc_YOsgEeagpPVreqOLZw"/>
-              </ownedOperation>
-              <ownedOperation xmi:type="uml:Operation" xmi:id="_LEL7AOs1Eea7AqSsB_lc7w" name="isEmptyField" visibility="public" method="_LEL7A-s1Eea7AqSsB_lc7w">
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_LEL7Aes1Eea7AqSsB_lc7w" direction="return">
-                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
-                </ownedParameter>
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_LEL7Aus1Eea7AqSsB_lc7w" name="field" type="_Inc_YOsgEeagpPVreqOLZw"/>
-              </ownedOperation>
-              <ownedOperation xmi:type="uml:Operation" xmi:id="_LEMiEOs1Eea7AqSsB_lc7w" name="getEmptyField" visibility="public" method="_LENJIes1Eea7AqSsB_lc7w">
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_LEMiEes1Eea7AqSsB_lc7w" type="_Inc_YOsgEeagpPVreqOLZw" direction="return"/>
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_LEMiEus1Eea7AqSsB_lc7w" name="x">
-                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
-                </ownedParameter>
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_LENJIOs1Eea7AqSsB_lc7w" name="y">
-                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
-                </ownedParameter>
-              </ownedOperation>
-              <ownedOperation xmi:type="uml:Operation" xmi:id="_LENwMOs1Eea7AqSsB_lc7w" name="setField" visibility="public" method="_LEO-UOs1Eea7AqSsB_lc7w">
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_LENwMes1Eea7AqSsB_lc7w" direction="return">
-                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
-                </ownedParameter>
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_LEOXQOs1Eea7AqSsB_lc7w" name="field" type="_Inc_YOsgEeagpPVreqOLZw"/>
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_LEOXQes1Eea7AqSsB_lc7w" name="m" type="_BwkckOsfEeagpPVreqOLZw"/>
-              </ownedOperation>
-              <ownedOperation xmi:type="uml:Operation" xmi:id="_LEO-Ues1Eea7AqSsB_lc7w" name="walkField" visibility="public" method="_LEQMces1Eea7AqSsB_lc7w">
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_LEO-Uus1Eea7AqSsB_lc7w" type="_Inc_YOsgEeagpPVreqOLZw" direction="return"/>
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_LEPlYOs1Eea7AqSsB_lc7w" name="field" type="_Inc_YOsgEeagpPVreqOLZw"/>
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_LEPlYes1Eea7AqSsB_lc7w" name="xoff">
-                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
-                </ownedParameter>
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_LEPlYus1Eea7AqSsB_lc7w" name="yoff">
-                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
-                </ownedParameter>
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_LEQMcOs1Eea7AqSsB_lc7w" name="zoff">
-                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
-                </ownedParameter>
-              </ownedOperation>
-              <ownedOperation xmi:type="uml:Operation" xmi:id="_LEQMcus1Eea7AqSsB_lc7w" name="setField" visibility="public" method="_LEQzg-s1Eea7AqSsB_lc7w">
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_LEQMc-s1Eea7AqSsB_lc7w" direction="return">
-                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
-                </ownedParameter>
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_LEQzgOs1Eea7AqSsB_lc7w" name="x">
-                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
-                </ownedParameter>
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_LEQzges1Eea7AqSsB_lc7w" name="y">
-                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
-                </ownedParameter>
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_LEQzgus1Eea7AqSsB_lc7w" name="m" type="_BwkckOsfEeagpPVreqOLZw"/>
-              </ownedOperation>
-              <ownedOperation xmi:type="uml:Operation" xmi:id="_LERakOs1Eea7AqSsB_lc7w" name="getMark" visibility="public" method="_LESBoOs1Eea7AqSsB_lc7w">
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_LERakes1Eea7AqSsB_lc7w" type="_BwkckOsfEeagpPVreqOLZw" direction="return"/>
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_LERakus1Eea7AqSsB_lc7w" name="field" type="_Inc_YOsgEeagpPVreqOLZw"/>
-              </ownedOperation>
-              <ownedOperation xmi:type="uml:Operation" xmi:id="_LESBoes1Eea7AqSsB_lc7w" name="reset" visibility="public" method="_LESBous1Eea7AqSsB_lc7w"/>
-              <ownedOperation xmi:type="uml:Operation" xmi:id="_LESosOs1Eea7AqSsB_lc7w" name="checkRow" visibility="public" method="_LET20es1Eea7AqSsB_lc7w">
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_LESoses1Eea7AqSsB_lc7w" direction="return">
-                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
-                </ownedParameter>
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_LETPwOs1Eea7AqSsB_lc7w" name="start" type="_Inc_YOsgEeagpPVreqOLZw"/>
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_LETPwes1Eea7AqSsB_lc7w" name="xdir">
-                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
-                </ownedParameter>
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_LETPwus1Eea7AqSsB_lc7w" name="ydir">
-                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
-                </ownedParameter>
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_LETPw-s1Eea7AqSsB_lc7w" name="zdir">
-                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
-                </ownedParameter>
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_LET20Os1Eea7AqSsB_lc7w" name="m" type="_BwkckOsfEeagpPVreqOLZw"/>
-              </ownedOperation>
-              <ownedOperation xmi:type="uml:Operation" xmi:id="_LEUd4Os1Eea7AqSsB_lc7w" name="checkZcolums" visibility="public" method="_LEUd4-s1Eea7AqSsB_lc7w">
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_LEUd4es1Eea7AqSsB_lc7w" direction="return">
-                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
-                </ownedParameter>
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_LEUd4us1Eea7AqSsB_lc7w" name="m" type="_BwkckOsfEeagpPVreqOLZw"/>
-              </ownedOperation>
-              <ownedOperation xmi:type="uml:Operation" xmi:id="_LEVE8Os1Eea7AqSsB_lc7w" name="checkPlanes" visibility="public" method="_LEWTEOs1Eea7AqSsB_lc7w">
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_LEVsAOs1Eea7AqSsB_lc7w" direction="return">
-                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
-                </ownedParameter>
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_LEVsAes1Eea7AqSsB_lc7w" name="m" type="_BwkckOsfEeagpPVreqOLZw"/>
-              </ownedOperation>
-              <ownedOperation xmi:type="uml:Operation" xmi:id="_LEW6IOs1Eea7AqSsB_lc7w" name="isWinner" visibility="public" method="_LEXhMus1Eea7AqSsB_lc7w">
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_LEXhMOs1Eea7AqSsB_lc7w" direction="return">
-                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
-                </ownedParameter>
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_LEXhMes1Eea7AqSsB_lc7w" name="m" type="_BwkckOsfEeagpPVreqOLZw"/>
-              </ownedOperation>
-              <ownedOperation xmi:type="uml:Operation" xmi:id="_LEYIQOs1Eea7AqSsB_lc7w" name="getWinner" visibility="public" method="_LEYIQus1Eea7AqSsB_lc7w">
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_LEYIQes1Eea7AqSsB_lc7w" type="_BwkckOsfEeagpPVreqOLZw" direction="return"/>
-              </ownedOperation>
-              <ownedOperation xmi:type="uml:Operation" xmi:id="_LEYvUOs1Eea7AqSsB_lc7w" name="hasEnded" visibility="public" method="_LEYvUus1Eea7AqSsB_lc7w">
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_LEYvUes1Eea7AqSsB_lc7w" direction="return">
-                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
-                </ownedParameter>
-              </ownedOperation>
-              <ownedOperation xmi:type="uml:Operation" xmi:id="_LEYvU-s1Eea7AqSsB_lc7w" name="toString" visibility="public" method="_LEZWYes1Eea7AqSsB_lc7w">
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_LEZWYOs1Eea7AqSsB_lc7w" type="_DIE0UOsaEeaRPtCCR8m55A" direction="return"/>
-              </ownedOperation>
-            </packagedElement>
             <packagedElement xmi:type="uml:Class" xmi:id="_ydeKEOvbEeaFWsKBBqDStg" name="Game" visibility="public">
               <generalization xmi:type="uml:Generalization" xmi:id="_ydfYMOvbEeaFWsKBBqDStg" general="_DIN-QOsaEeaRPtCCR8m55A"/>
               <ownedAttribute xmi:type="uml:Property" xmi:id="_ydfYMevbEeaFWsKBBqDStg" name="playerList" visibility="private" type="_DIRooesaEeaRPtCCR8m55A" isUnique="false">
@@ -458,7 +25,7 @@
                   <body>new ArrayList&lt;ClientHandler>()</body>
                 </defaultValue>
               </ownedAttribute>
-              <ownedAttribute xmi:type="uml:Property" xmi:id="_ydgmUOvbEeaFWsKBBqDStg" name="board" visibility="private" type="_LECKAOs1Eea7AqSsB_lc7w" isUnique="false"/>
+              <ownedAttribute xmi:type="uml:Property" xmi:id="_ydgmUOvbEeaFWsKBBqDStg" name="board" visibility="private" isUnique="false"/>
               <ownedAttribute xmi:type="uml:Property" xmi:id="_ydgmUevbEeaFWsKBBqDStg" name="answered" visibility="private" isUnique="false">
                 <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
                 <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_ydgmUuvbEeaFWsKBBqDStg" name="defaultValue">
@@ -724,6 +291,446 @@
               <ownedOperation xmi:type="uml:Operation" xmi:id="_yd5n4OvbEeaFWsKBBqDStg" name="notifyEnd" visibility="public" method="_yd5n4evbEeaFWsKBBqDStg"/>
               <ownedOperation xmi:type="uml:Operation" xmi:id="_yd6O8OvbEeaFWsKBBqDStg" name="run" visibility="public" method="_yd6O8evbEeaFWsKBBqDStg"/>
             </packagedElement>
+            <packagedElement xmi:type="uml:Class" xmi:id="_QNhLEOvfEea_C-H5NfTs0A" name="Field" visibility="public">
+              <ownedAttribute xmi:type="uml:Property" xmi:id="_QNkOYOvfEea_C-H5NfTs0A" name="x" visibility="public" isUnique="false">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+              </ownedAttribute>
+              <ownedAttribute xmi:type="uml:Property" xmi:id="_QNmDkOvfEea_C-H5NfTs0A" name="y" visibility="public" isUnique="false">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+              </ownedAttribute>
+              <ownedAttribute xmi:type="uml:Property" xmi:id="_QNmqoOvfEea_C-H5NfTs0A" name="z" visibility="public" isUnique="false">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+              </ownedAttribute>
+              <ownedAttribute xmi:type="uml:Property" xmi:id="_cOUqguvfEea_C-H5NfTs0A" type="_YdKtEOvfEea_C-H5NfTs0A" association="_cOUDcOvfEea_C-H5NfTs0A"/>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_QN4XcOvfEea_C-H5NfTs0A" name="Field" specification="_QNof0OvfEea_C-H5NfTs0A">
+                <language>JAVA</language>
+                <body>
+    this.x = newx;
+    this.y = newy;
+    this.z = newz;
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_QOATQOvfEea_C-H5NfTs0A" name="equals" specification="_QN8B0OvfEea_C-H5NfTs0A">
+                <language>JAVA</language>
+                <body>
+    if (o instanceof Field) {
+        return this.hashCode() == ((Field) o).hashCode();
+    }
+    return false;
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_QOCvgOvfEea_C-H5NfTs0A" name="hashCode" specification="_QOBhYOvfEea_C-H5NfTs0A">
+                <language>JAVA</language>
+                <body>
+    return x * 100 + y * 10 + z;
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_QODWkOvfEea_C-H5NfTs0A" name="copy" specification="_QOCvgevfEea_C-H5NfTs0A">
+                <language>JAVA</language>
+                <body>
+    return new Field(this.x, this.y, this.z);
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_QOEksOvfEea_C-H5NfTs0A" name="getMove" specification="_QOD9oOvfEea_C-H5NfTs0A">
+                <language>JAVA</language>
+                <body>
+    return this.x + &quot; &quot; + this.y;
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_QOFLwevfEea_C-H5NfTs0A" name="toString" specification="_QOEksevfEea_C-H5NfTs0A">
+                <language>JAVA</language>
+                <body>
+    return &quot;(&quot; + this.x + &quot;,&quot; + this.y + &quot;,&quot; + this.z + &quot;)&quot;;
+</body>
+              </ownedBehavior>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_QNof0OvfEea_C-H5NfTs0A" name="Field" visibility="public" method="_QN4XcOvfEea_C-H5NfTs0A">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_QNxpwOvfEea_C-H5NfTs0A" name="newx">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+                </ownedParameter>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_QN1UIOvfEea_C-H5NfTs0A" name="newy">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+                </ownedParameter>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_QN2iQOvfEea_C-H5NfTs0A" name="newz">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+                </ownedParameter>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_QN8B0OvfEea_C-H5NfTs0A" name="equals" visibility="public" method="_QOATQOvfEea_C-H5NfTs0A">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_QN93AOvfEea_C-H5NfTs0A" direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
+                </ownedParameter>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_QN_FIOvfEea_C-H5NfTs0A" name="o" type="_DJg-w-saEeaRPtCCR8m55A"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_QOBhYOvfEea_C-H5NfTs0A" name="hashCode" visibility="public" method="_QOCvgOvfEea_C-H5NfTs0A">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_QOCIcOvfEea_C-H5NfTs0A" direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+                </ownedParameter>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_QOCvgevfEea_C-H5NfTs0A" name="copy" visibility="public" method="_QODWkOvfEea_C-H5NfTs0A">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_QOCvguvfEea_C-H5NfTs0A" type="_QNhLEOvfEea_C-H5NfTs0A" direction="return"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_QOD9oOvfEea_C-H5NfTs0A" name="getMove" visibility="public" method="_QOEksOvfEea_C-H5NfTs0A">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_QOD9oevfEea_C-H5NfTs0A" type="_DIE0UOsaEeaRPtCCR8m55A" direction="return"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_QOEksevfEea_C-H5NfTs0A" name="toString" visibility="public" method="_QOFLwevfEea_C-H5NfTs0A">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_QOFLwOvfEea_C-H5NfTs0A" type="_DIE0UOsaEeaRPtCCR8m55A" direction="return"/>
+              </ownedOperation>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Class" xmi:id="_RaO10OvfEea_C-H5NfTs0A" name="Board" visibility="public">
+              <generalization xmi:type="uml:Generalization" xmi:id="_RaQD8OvfEea_C-H5NfTs0A" general="_MmtZQOvbEeaFWsKBBqDStg"/>
+              <ownedAttribute xmi:type="uml:Property" xmi:id="_RaRSEOvfEea_C-H5NfTs0A" name="MAXFIELD" visibility="public" isLeaf="true" isStatic="true" isUnique="false">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+                <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_RaTuUOvfEea_C-H5NfTs0A" name="defaultValue">
+                  <language>JAVA</language>
+                  <body>3</body>
+                </defaultValue>
+              </ownedAttribute>
+              <ownedAttribute xmi:type="uml:Property" xmi:id="_RaU8cOvfEea_C-H5NfTs0A" name="fieldMap" visibility="private" type="_DJGIAusaEeaRPtCCR8m55A" isUnique="false">
+                <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_RaWKkOvfEea_C-H5NfTs0A" name="defaultValue">
+                  <language>JAVA</language>
+                  <body>new HashMap&lt;Field, Mark>()</body>
+                </defaultValue>
+              </ownedAttribute>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_RabqIOvfEea_C-H5NfTs0A" name="Board" specification="_RaWxoOvfEea_C-H5NfTs0A">
+                <language>JAVA</language>
+                <body>
+    this.reset();
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_RaeGYOvfEea_C-H5NfTs0A" name="copy" specification="_RacRMOvfEea_C-H5NfTs0A">
+                <language>JAVA</language>
+                <body>
+    Board copy = new Board();
+    for (int x = 0; x &lt;= MAXFIELD; x++) {
+        for (int y = 0; y &lt;= MAXFIELD; y++) {
+            for (int z = 0; z &lt;= MAXFIELD; z++) {
+                Field field = new Field(x, y, z);
+                if (!this.isEmptyField(field)) {
+                    copy.fieldMap.put(field, this.getMark(field));
+                }
+            }
+        }
+    }
+    return copy;
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_RalbIOvfEea_C-H5NfTs0A" name="isField" specification="_Rai-4OvfEea_C-H5NfTs0A">
+                <language>JAVA</language>
+                <body>
+    return field.x >= 0 &amp;&amp; field.x &lt;= MAXFIELD &amp;&amp; field.y >= 0 &amp;&amp; field.y &lt;= MAXFIELD &amp;&amp; field.z >= 0 &amp;&amp; field.z &lt;= MAXFIELD;
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_RaoecOvfEea_C-H5NfTs0A" name="isReachableEmptyField" specification="_RamCMOvfEea_C-H5NfTs0A">
+                <language>JAVA</language>
+                <body>
+    Field copy = field.copy();
+    //check fields below
+    while ((copy = this.walkField(copy, 0, 0, -1)) != null) {
+        if (!this.fieldMap.containsKey(copy)) {
+            return false;
+        }
+    }
+    return this.isField(field) &amp;&amp; !this.fieldMap.containsKey(field);
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_RasI0OvfEea_C-H5NfTs0A" name="isEmptyField" specification="_RaqToOvfEea_C-H5NfTs0A">
+                <language>JAVA</language>
+                <body>
+    return !this.fieldMap.containsKey(field);
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_RayPcOvfEea_C-H5NfTs0A" name="getEmptyField" specification="_RaulEOvfEea_C-H5NfTs0A">
+                <language>JAVA</language>
+                <body>
+    Field empty = new Field(x, y, 0);
+    if (this.isReachableEmptyField(empty)) {
+        return empty;
+    } else {
+        while ((empty = walkField(empty, 0, 0, 1)) != null) {
+            if (this.isReachableEmptyField(empty)) {
+                return empty;
+            }
+        }
+    }
+    return null;
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_Ra0rsevfEea_C-H5NfTs0A" name="setField" specification="_RazdkOvfEea_C-H5NfTs0A">
+                <language>JAVA</language>
+                <body>
+    if (this.isReachableEmptyField(field)) {
+        this.fieldMap.put(field, m);
+        //use observer pattern to signal board change
+        setChanged();
+        notifyObservers(&quot;boardchanged&quot;);
+        return true;
+    }
+    return false;
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_Ra2g4OvfEea_C-H5NfTs0A" name="walkField" specification="_Ra0rsuvfEea_C-H5NfTs0A">
+                <language>JAVA</language>
+                <body>
+    Field nextfield = new Field(field.x + xoff, field.y + yoff, field.z + zoff);
+    if (this.isField(nextfield)) {
+        return nextfield;
+    }
+    return null;
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_Ra8AcOvfEea_C-H5NfTs0A" name="setField" specification="_Ra3H8OvfEea_C-H5NfTs0A">
+                <language>JAVA</language>
+                <body>
+    Field newfield = this.getEmptyField(x, y);
+    if (newfield != null) {
+        return this.setField(newfield, m);
+    }
+    return false;
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_Ra_DwOvfEea_C-H5NfTs0A" name="getMark" specification="_Ra9OkOvfEea_C-H5NfTs0A">
+                <language>JAVA</language>
+                <body>
+    if (this.isField(field)) {
+        return this.fieldMap.get(field);
+    }
+    return null;
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_RbBgAOvfEea_C-H5NfTs0A" name="reset" specification="_RbAR4OvfEea_C-H5NfTs0A">
+                <language>JAVA</language>
+                <body>
+    this.fieldMap.clear();
+    setChanged();
+    notifyObservers(&quot;boardchanged&quot;);
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_RbJb0OvfEea_C-H5NfTs0A" name="checkRow" specification="_RbD8QOvfEea_C-H5NfTs0A">
+                <language>JAVA</language>
+                <body>
+    Field checker = start.copy();
+    int count = 0;
+    do {
+        if (this.isEmptyField(checker) || !this.getMark(checker).equals(m)) {
+            return false;
+        }
+        count++;
+        checker = this.walkField(checker, xdir, ydir, zdir);
+    } while (checker != null);
+    if (count == MAXFIELD + 1) {
+        return true;
+    }
+    return false;
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_RbNGMOvfEea_C-H5NfTs0A" name="checkZcolums" specification="_RbKp8OvfEea_C-H5NfTs0A">
+                <language>JAVA</language>
+                <body>
+    for (int x = 0; x &lt;= MAXFIELD; x++) {
+        for (int y = 0; y &lt;= MAXFIELD; y++) {
+            Field zchecker = new Field(x, y, 0);
+            if (this.checkRow(zchecker, 0, 0, 1, m)) {
+                return true;
+            }
+        }
+    }
+    return false;
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_RbRXoOvfEea_C-H5NfTs0A" name="checkPlanes" specification="_RbOUUOvfEea_C-H5NfTs0A">
+                <language>JAVA</language>
+                <body>
+    for (int i = 0; i &lt;= MAXFIELD; i++) {
+        //check all x-y planes
+        for (int z = 0; z &lt;= MAXFIELD; z++) {
+            Field xchecker = new Field(0, i, z);
+            Field ychecker = new Field(i, 0, z);
+            if (this.checkRow(xchecker, 1, 0, 0, m) || this.checkRow(ychecker, 0, 1, 0, m)) {
+                return true;
+            }
+        }
+        //check diagonal planes
+        //startpoint x axis
+        Field yzchecker = new Field(i, 0, 0);
+        //startpoint y axis
+        Field xzchecker = new Field(0, i, 0);
+        //opposite startpoint x axis
+        Field yzdownchecker = new Field(i, MAXFIELD, 0);
+        //opposite startpoint y axis
+        Field xzdownchecker = new Field(MAXFIELD, i, 0);
+        //check cross-planes
+        Field crosschecker = new Field(0, 0, i);
+        Field crossdownchecker = new Field(0, MAXFIELD, i);
+        if (this.checkRow(yzchecker, 0, 1, 1, m) || this.checkRow(xzchecker, 1, 0, 1, m) || this.checkRow(yzdownchecker, 0, -1, 1, m) || this.checkRow(xzdownchecker, -1, 0, 1, m) || this.checkRow(crosschecker, 1, 1, 0, m) || this.checkRow(crossdownchecker, 1, -1, 0, m)) {
+            return true;
+        }
+    }
+    return false;
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_RbUa8OvfEea_C-H5NfTs0A" name="isWinner" specification="_RbSlwOvfEea_C-H5NfTs0A">
+                <language>JAVA</language>
+                <body>
+    return this.checkPlanes(m) || this.checkZcolums(m);
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_RbWQIOvfEea_C-H5NfTs0A" name="getWinner" specification="_RbVCAOvfEea_C-H5NfTs0A">
+                <language>JAVA</language>
+                <body>
+    Mark m = Mark.X;
+    if (this.isWinner(m) &amp;&amp; !this.isWinner(m.other())) {
+        return m;
+    } else if (this.isWinner(m.other())) {
+        return m.other();
+    } else {
+        return null;
+    }
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_RbZTcOvfEea_C-H5NfTs0A" name="hasEnded" specification="_RbXeQOvfEea_C-H5NfTs0A">
+                <language>JAVA</language>
+                <body>
+    if (this.isWinner(Mark.X) || this.isWinner(Mark.O) || this.fieldMap.size() == MAXFIELD * MAXFIELD * MAXFIELD) {
+        return true;
+    }
+    return false;
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_RbbvsOvfEea_C-H5NfTs0A" name="toString" specification="_RbahkOvfEea_C-H5NfTs0A">
+                <language>JAVA</language>
+                <body>
+    String result = &quot;&quot;;
+    for (int y = MAXFIELD; y >= 0; y--) {
+        for (int z = 0; z &lt;= MAXFIELD; z++) {
+            result = result + y;
+            for (int x = 0; x &lt;= MAXFIELD; x++) {
+                Field out = new Field(x, y, z);
+                if (this.isEmptyField(out)) {
+                    result = result + &quot;[ ]&quot;;
+                } else {
+                    result = result + &quot;[&quot; + this.getMark(out).toString() + &quot;]&quot;;
+                }
+            }
+            result = result + &quot;   &quot;;
+        }
+        result = result + &quot;\n&quot;;
+    }
+    return result;
+</body>
+              </ownedBehavior>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_RaWxoOvfEea_C-H5NfTs0A" name="Board" visibility="public" method="_RabqIOvfEea_C-H5NfTs0A"/>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_RacRMOvfEea_C-H5NfTs0A" name="copy" visibility="public" method="_RaeGYOvfEea_C-H5NfTs0A">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_Rac4QOvfEea_C-H5NfTs0A" type="_RaO10OvfEea_C-H5NfTs0A" direction="return"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_Rai-4OvfEea_C-H5NfTs0A" name="isField" visibility="public" method="_RalbIOvfEea_C-H5NfTs0A">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_Rajl8OvfEea_C-H5NfTs0A" direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
+                </ownedParameter>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_Rak0EOvfEea_C-H5NfTs0A" name="field" type="_QNhLEOvfEea_C-H5NfTs0A"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_RamCMOvfEea_C-H5NfTs0A" name="isReachableEmptyField" visibility="public" method="_RaoecOvfEea_C-H5NfTs0A">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_RampQOvfEea_C-H5NfTs0A" direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
+                </ownedParameter>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_Ran3YOvfEea_C-H5NfTs0A" name="field" type="_QNhLEOvfEea_C-H5NfTs0A"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_RaqToOvfEea_C-H5NfTs0A" name="isEmptyField" visibility="public" method="_RasI0OvfEea_C-H5NfTs0A">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_Raq6sOvfEea_C-H5NfTs0A" direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
+                </ownedParameter>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_RarhwOvfEea_C-H5NfTs0A" name="field" type="_QNhLEOvfEea_C-H5NfTs0A"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_RaulEOvfEea_C-H5NfTs0A" name="getEmptyField" visibility="public" method="_RayPcOvfEea_C-H5NfTs0A">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_RavMIOvfEea_C-H5NfTs0A" type="_QNhLEOvfEea_C-H5NfTs0A" direction="return"/>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_RawaQOvfEea_C-H5NfTs0A" name="x">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+                </ownedParameter>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_RaxBUOvfEea_C-H5NfTs0A" name="y">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+                </ownedParameter>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_RazdkOvfEea_C-H5NfTs0A" name="setField" visibility="public" method="_Ra0rsevfEea_C-H5NfTs0A">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_Ra0EoOvfEea_C-H5NfTs0A" direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
+                </ownedParameter>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_Ra0EoevfEea_C-H5NfTs0A" name="field" type="_QNhLEOvfEea_C-H5NfTs0A"/>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_Ra0rsOvfEea_C-H5NfTs0A" name="m" type="_BwkckOsfEeagpPVreqOLZw"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_Ra0rsuvfEea_C-H5NfTs0A" name="walkField" visibility="public" method="_Ra2g4OvfEea_C-H5NfTs0A">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_Ra1SwOvfEea_C-H5NfTs0A" type="_QNhLEOvfEea_C-H5NfTs0A" direction="return"/>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_Ra1SwevfEea_C-H5NfTs0A" name="field" type="_QNhLEOvfEea_C-H5NfTs0A"/>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_Ra1SwuvfEea_C-H5NfTs0A" name="xoff">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+                </ownedParameter>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_Ra1Sw-vfEea_C-H5NfTs0A" name="yoff">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+                </ownedParameter>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_Ra150OvfEea_C-H5NfTs0A" name="zoff">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+                </ownedParameter>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_Ra3H8OvfEea_C-H5NfTs0A" name="setField" visibility="public" method="_Ra8AcOvfEea_C-H5NfTs0A">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_Ra3vAOvfEea_C-H5NfTs0A" direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
+                </ownedParameter>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_Ra4WEOvfEea_C-H5NfTs0A" name="x">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+                </ownedParameter>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_Ra6LQOvfEea_C-H5NfTs0A" name="y">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+                </ownedParameter>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_Ra7ZYOvfEea_C-H5NfTs0A" name="m" type="_BwkckOsfEeagpPVreqOLZw"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_Ra9OkOvfEea_C-H5NfTs0A" name="getMark" visibility="public" method="_Ra_DwOvfEea_C-H5NfTs0A">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_Ra91oOvfEea_C-H5NfTs0A" type="_BwkckOsfEeagpPVreqOLZw" direction="return"/>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_Ra-csOvfEea_C-H5NfTs0A" name="field" type="_QNhLEOvfEea_C-H5NfTs0A"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_RbAR4OvfEea_C-H5NfTs0A" name="reset" visibility="public" method="_RbBgAOvfEea_C-H5NfTs0A"/>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_RbD8QOvfEea_C-H5NfTs0A" name="checkRow" visibility="public" method="_RbJb0OvfEea_C-H5NfTs0A">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_RbEjUOvfEea_C-H5NfTs0A" direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
+                </ownedParameter>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_RbFKYOvfEea_C-H5NfTs0A" name="start" type="_QNhLEOvfEea_C-H5NfTs0A"/>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_RbGYgOvfEea_C-H5NfTs0A" name="xdir">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+                </ownedParameter>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_RbG_kOvfEea_C-H5NfTs0A" name="ydir">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+                </ownedParameter>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_RbHmoOvfEea_C-H5NfTs0A" name="zdir">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+                </ownedParameter>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_RbI0wOvfEea_C-H5NfTs0A" name="m" type="_BwkckOsfEeagpPVreqOLZw"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_RbKp8OvfEea_C-H5NfTs0A" name="checkZcolums" visibility="public" method="_RbNGMOvfEea_C-H5NfTs0A">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_RbLRAOvfEea_C-H5NfTs0A" direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
+                </ownedParameter>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_RbL4EOvfEea_C-H5NfTs0A" name="m" type="_BwkckOsfEeagpPVreqOLZw"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_RbOUUOvfEea_C-H5NfTs0A" name="checkPlanes" visibility="public" method="_RbRXoOvfEea_C-H5NfTs0A">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_RbO7YOvfEea_C-H5NfTs0A" direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
+                </ownedParameter>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_RbQJgOvfEea_C-H5NfTs0A" name="m" type="_BwkckOsfEeagpPVreqOLZw"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_RbSlwOvfEea_C-H5NfTs0A" name="isWinner" visibility="public" method="_RbUa8OvfEea_C-H5NfTs0A">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_RbTM0OvfEea_C-H5NfTs0A" direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
+                </ownedParameter>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_RbTz4OvfEea_C-H5NfTs0A" name="m" type="_BwkckOsfEeagpPVreqOLZw"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_RbVCAOvfEea_C-H5NfTs0A" name="getWinner" visibility="public" method="_RbWQIOvfEea_C-H5NfTs0A">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_RbVpEOvfEea_C-H5NfTs0A" type="_BwkckOsfEeagpPVreqOLZw" direction="return"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_RbXeQOvfEea_C-H5NfTs0A" name="hasEnded" visibility="public" method="_RbZTcOvfEea_C-H5NfTs0A">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_RbYsYOvfEea_C-H5NfTs0A" direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
+                </ownedParameter>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_RbahkOvfEea_C-H5NfTs0A" name="toString" visibility="public" method="_RbbvsOvfEea_C-H5NfTs0A">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_RbbIoOvfEea_C-H5NfTs0A" type="_DIE0UOsaEeaRPtCCR8m55A" direction="return"/>
+              </ownedOperation>
+            </packagedElement>
           </packagedElement>
           <packagedElement xmi:type="uml:Package" xmi:id="_SH1GQOscEeaGGeTgDT8kcg" name="client">
             <packagedElement xmi:type="uml:Class" xmi:id="_jZtpgOs3Eea7AqSsB_lc7w" name="ComputerPlayer" visibility="public">
@@ -753,8 +760,8 @@
                 <ownedParameter xmi:type="uml:Parameter" xmi:id="_jZzwIOs3Eea7AqSsB_lc7w" type="_DIE0UOsaEeaRPtCCR8m55A" direction="return"/>
               </ownedOperation>
               <ownedOperation xmi:type="uml:Operation" xmi:id="_jZzwIus3Eea7AqSsB_lc7w" name="determineMove" visibility="public" method="_jZ0XM-s3Eea7AqSsB_lc7w">
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_jZ0XMOs3Eea7AqSsB_lc7w" type="_Inc_YOsgEeagpPVreqOLZw" direction="return"/>
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_jZ0XMes3Eea7AqSsB_lc7w" name="board" type="_LECKAOs1Eea7AqSsB_lc7w"/>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_jZ0XMOs3Eea7AqSsB_lc7w" direction="return"/>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_jZ0XMes3Eea7AqSsB_lc7w" name="board"/>
                 <ownedParameter xmi:type="uml:Parameter" xmi:id="_jZ0XMus3Eea7AqSsB_lc7w" name="m" type="_BwkckOsfEeagpPVreqOLZw"/>
               </ownedOperation>
             </packagedElement>
@@ -763,8 +770,8 @@
                 <ownedParameter xmi:type="uml:Parameter" xmi:id="_qb89Mes3Eea7AqSsB_lc7w" type="_DIE0UOsaEeaRPtCCR8m55A" direction="return"/>
               </ownedOperation>
               <ownedOperation xmi:type="uml:Operation" xmi:id="_qb9kQOs3Eea7AqSsB_lc7w" name="determineMove" visibility="public">
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_qb9kQes3Eea7AqSsB_lc7w" type="_Inc_YOsgEeagpPVreqOLZw" direction="return"/>
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_qb9kQus3Eea7AqSsB_lc7w" name="board" type="_LECKAOs1Eea7AqSsB_lc7w"/>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_qb9kQes3Eea7AqSsB_lc7w" direction="return"/>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_qb9kQus3Eea7AqSsB_lc7w" name="board"/>
                 <ownedParameter xmi:type="uml:Parameter" xmi:id="_qb-LUOs3Eea7AqSsB_lc7w" name="m" type="_BwkckOsfEeagpPVreqOLZw"/>
               </ownedOperation>
             </packagedElement>
@@ -795,160 +802,9 @@
                 <ownedParameter xmi:type="uml:Parameter" xmi:id="_xZpIEOs3Eea7AqSsB_lc7w" type="_DIE0UOsaEeaRPtCCR8m55A" direction="return"/>
               </ownedOperation>
               <ownedOperation xmi:type="uml:Operation" xmi:id="_xZpIEus3Eea7AqSsB_lc7w" name="determineMove" visibility="public" method="_xZqWMOs3Eea7AqSsB_lc7w">
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_xZpvIOs3Eea7AqSsB_lc7w" type="_Inc_YOsgEeagpPVreqOLZw" direction="return"/>
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_xZpvIes3Eea7AqSsB_lc7w" name="board" type="_LECKAOs1Eea7AqSsB_lc7w"/>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_xZpvIOs3Eea7AqSsB_lc7w" direction="return"/>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_xZpvIes3Eea7AqSsB_lc7w" name="board"/>
                 <ownedParameter xmi:type="uml:Parameter" xmi:id="_xZpvIus3Eea7AqSsB_lc7w" name="m" type="_BwkckOsfEeagpPVreqOLZw"/>
-              </ownedOperation>
-            </packagedElement>
-            <packagedElement xmi:type="uml:Class" xmi:id="_yB3lsOs3Eea7AqSsB_lc7w" name="Hard" visibility="public">
-              <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_yB4MwOs3Eea7AqSsB_lc7w" name="implements" client="_yB3lsOs3Eea7AqSsB_lc7w" supplier="_qb8WIOs3Eea7AqSsB_lc7w" contract="_qb8WIOs3Eea7AqSsB_lc7w"/>
-              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_yB4Mw-s3Eea7AqSsB_lc7w" name="getName" specification="_yB4Mwes3Eea7AqSsB_lc7w">
-                <language>JAVA</language>
-                <body>
-    return &quot;hard&quot;;
-</body>
-              </ownedBehavior>
-              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_yB5a4es3Eea7AqSsB_lc7w" name="determineMove" specification="_yB4z0Os3Eea7AqSsB_lc7w">
-                <language>JAVA</language>
-                <body>
-    ArrayList&lt;Field> moves = this.getMoves(board);
-    Map&lt;Field, Integer> result = this.getResultMap(board, m);
-    //Choose candidate with highest potential score
-    int maxValue = Collections.max(result.values());
-    Iterator&lt;Map.Entry&lt;Field, Integer>> it = result.entrySet().iterator();
-    while (it.hasNext()) {
-        Map.Entry&lt;Field, Integer> item = it.next();
-        if (item.getValue().intValue() &lt; maxValue) {
-            it.remove();
-        }
-    }
-    it = result.entrySet().iterator();
-    int next = (int) (Math.random() * new Double(result.size()));
-    int count = 0;
-    while (it.hasNext()) {
-        Map.Entry&lt;Field, Integer> item = it.next();
-        if (count == next) {
-            return item.getKey();
-        }
-        count++;
-    }
-    return null;
-</body>
-              </ownedBehavior>
-              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_yB7QEOs3Eea7AqSsB_lc7w" name="getMoves" specification="_yB6B8Os3Eea7AqSsB_lc7w">
-                <language>JAVA</language>
-                <body>
-    ArrayList&lt;Field> moves = new ArrayList&lt;Field>();
-    for (int x = 0; x &lt;= Board.MAXFIELD; x++) {
-        for (int y = 0; y &lt;= Board.MAXFIELD; y++) {
-            Field empty = board.getEmptyField(x, y);
-            if (empty != null) {
-                moves.add(empty);
-            }
-        }
-    }
-    return moves;
-</body>
-              </ownedBehavior>
-              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_yB73Ius3Eea7AqSsB_lc7w" name="getFutureImpact" specification="_yB7QEes3Eea7AqSsB_lc7w">
-                <language>JAVA</language>
-                <body>
-    int result = 0;
-    ArrayList&lt;Field> moves = this.getMoves(board);
-    for (Field field : moves) {
-        Board myboard = board.copy();
-        Board enemboard = board.copy();
-        myboard.setField(field, m);
-        enemboard.setField(field, m.other());
-        if (myboard.isWinner(m)) {
-            result += 50;
-        } else if (enemboard.isWinner(m.other())) {
-            result -= 50;
-        }
-    }
-    return result;
-</body>
-              </ownedBehavior>
-              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_yB9FQes3Eea7AqSsB_lc7w" name="getResultMap" specification="_yB8eMOs3Eea7AqSsB_lc7w">
-                <language>JAVA</language>
-                <body>
-    Map&lt;Field, Integer> result = new HashMap&lt;Field, Integer>();
-    ArrayList&lt;Field> moves = this.getMoves(board);
-    for (Field field : moves) {
-        Board myboard = board.copy();
-        Board enemboard = board.copy();
-        myboard.setField(field, m);
-        enemboard.setField(field, m.other());
-        if (myboard.isWinner(m)) {
-            result.put(field, new Integer(500));
-        } else if (enemboard.isWinner(m.other())) {
-            result.put(field, new Integer(100));
-        } else {
-            result.put(field, new Integer(countSurroundings(field, board, m) + getFutureImpact(myboard, m)));
-        }
-    //result.put(field, result.get(field) + getFutureImpact(myboard, m));
-    }
-    return result;
-</body>
-              </ownedBehavior>
-              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_yB9sU-s3Eea7AqSsB_lc7w" name="countSurroundings" specification="_yB9FQus3Eea7AqSsB_lc7w">
-                <language>JAVA</language>
-                <body>
-    int result = 0;
-    for (int z = -1; z &lt;= 1; z++) {
-        for (int i = -1; i &lt;= 1; i++) {
-            for (int a = -1; a &lt;= 1; a++) {
-                Field neighbour = board.walkField(field, i, a, z);
-                //next to field of same color
-                if (neighbour != null) {
-                    Mark nextmark = board.getMark(neighbour);
-                    if (nextmark != null &amp;&amp; nextmark.equals(m)) {
-                        result++;
-                    }
-                } else //next to boundary
-                if (neighbour == null) {
-                    result++;
-                }
-            }
-        }
-    }
-    return result;
-</body>
-              </ownedBehavior>
-              <ownedOperation xmi:type="uml:Operation" xmi:id="_yB4Mwes3Eea7AqSsB_lc7w" name="getName" visibility="public" method="_yB4Mw-s3Eea7AqSsB_lc7w">
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_yB4Mwus3Eea7AqSsB_lc7w" type="_DIE0UOsaEeaRPtCCR8m55A" direction="return"/>
-              </ownedOperation>
-              <ownedOperation xmi:type="uml:Operation" xmi:id="_yB4z0Os3Eea7AqSsB_lc7w" name="determineMove" visibility="public" method="_yB5a4es3Eea7AqSsB_lc7w">
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_yB4z0es3Eea7AqSsB_lc7w" type="_Inc_YOsgEeagpPVreqOLZw" direction="return"/>
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_yB4z0us3Eea7AqSsB_lc7w" name="board" type="_LECKAOs1Eea7AqSsB_lc7w"/>
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_yB5a4Os3Eea7AqSsB_lc7w" name="m" type="_BwkckOsfEeagpPVreqOLZw"/>
-              </ownedOperation>
-              <ownedOperation xmi:type="uml:Operation" xmi:id="_yB6B8Os3Eea7AqSsB_lc7w" name="getMoves" visibility="public" method="_yB7QEOs3Eea7AqSsB_lc7w">
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_yB6B8es3Eea7AqSsB_lc7w" type="_Inc_YOsgEeagpPVreqOLZw" direction="return">
-                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_yB6pAOs3Eea7AqSsB_lc7w"/>
-                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_yB6pAes3Eea7AqSsB_lc7w" value="*"/>
-                </ownedParameter>
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_yB6pAus3Eea7AqSsB_lc7w" name="board" type="_LECKAOs1Eea7AqSsB_lc7w"/>
-              </ownedOperation>
-              <ownedOperation xmi:type="uml:Operation" xmi:id="_yB7QEes3Eea7AqSsB_lc7w" name="getFutureImpact" visibility="public" method="_yB73Ius3Eea7AqSsB_lc7w">
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_yB7QEus3Eea7AqSsB_lc7w" direction="return">
-                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
-                </ownedParameter>
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_yB73IOs3Eea7AqSsB_lc7w" name="board" type="_LECKAOs1Eea7AqSsB_lc7w"/>
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_yB73Ies3Eea7AqSsB_lc7w" name="m" type="_BwkckOsfEeagpPVreqOLZw"/>
-              </ownedOperation>
-              <ownedOperation xmi:type="uml:Operation" xmi:id="_yB8eMOs3Eea7AqSsB_lc7w" name="getResultMap" visibility="public" method="_yB9FQes3Eea7AqSsB_lc7w">
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_yB8eMes3Eea7AqSsB_lc7w" type="_DJGIAusaEeaRPtCCR8m55A" direction="return"/>
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_yB8eMus3Eea7AqSsB_lc7w" name="board" type="_LECKAOs1Eea7AqSsB_lc7w"/>
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_yB9FQOs3Eea7AqSsB_lc7w" name="m" type="_BwkckOsfEeagpPVreqOLZw"/>
-              </ownedOperation>
-              <ownedOperation xmi:type="uml:Operation" xmi:id="_yB9FQus3Eea7AqSsB_lc7w" name="countSurroundings" visibility="public" method="_yB9sU-s3Eea7AqSsB_lc7w">
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_yB9FQ-s3Eea7AqSsB_lc7w" direction="return">
-                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
-                </ownedParameter>
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_yB9sUOs3Eea7AqSsB_lc7w" name="field" type="_Inc_YOsgEeagpPVreqOLZw"/>
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_yB9sUes3Eea7AqSsB_lc7w" name="board" type="_LECKAOs1Eea7AqSsB_lc7w"/>
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_yB9sUus3Eea7AqSsB_lc7w" name="m" type="_BwkckOsfEeagpPVreqOLZw"/>
               </ownedOperation>
             </packagedElement>
             <packagedElement xmi:type="uml:Class" xmi:id="_y1L5AOs3Eea7AqSsB_lc7w" name="Medium" visibility="public">
@@ -1037,16 +893,16 @@
                 <ownedParameter xmi:type="uml:Parameter" xmi:id="_y1NHIOs3Eea7AqSsB_lc7w" type="_DIE0UOsaEeaRPtCCR8m55A" direction="return"/>
               </ownedOperation>
               <ownedOperation xmi:type="uml:Operation" xmi:id="_y1NHIus3Eea7AqSsB_lc7w" name="determineMove" visibility="public" method="_y1OVQOs3Eea7AqSsB_lc7w">
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_y1NuMOs3Eea7AqSsB_lc7w" type="_Inc_YOsgEeagpPVreqOLZw" direction="return"/>
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_y1NuMes3Eea7AqSsB_lc7w" name="board" type="_LECKAOs1Eea7AqSsB_lc7w"/>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_y1NuMOs3Eea7AqSsB_lc7w" direction="return"/>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_y1NuMes3Eea7AqSsB_lc7w" name="board"/>
                 <ownedParameter xmi:type="uml:Parameter" xmi:id="_y1NuMus3Eea7AqSsB_lc7w" name="m" type="_BwkckOsfEeagpPVreqOLZw"/>
               </ownedOperation>
               <ownedOperation xmi:type="uml:Operation" xmi:id="_y1O8UOs3Eea7AqSsB_lc7w" name="countSurroundings" visibility="public" method="_y1PjYes3Eea7AqSsB_lc7w">
                 <ownedParameter xmi:type="uml:Parameter" xmi:id="_y1O8Ues3Eea7AqSsB_lc7w" direction="return">
                   <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
                 </ownedParameter>
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_y1O8Uus3Eea7AqSsB_lc7w" name="field" type="_Inc_YOsgEeagpPVreqOLZw"/>
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_y1O8U-s3Eea7AqSsB_lc7w" name="board" type="_LECKAOs1Eea7AqSsB_lc7w"/>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_y1O8Uus3Eea7AqSsB_lc7w" name="field"/>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_y1O8U-s3Eea7AqSsB_lc7w" name="board"/>
                 <ownedParameter xmi:type="uml:Parameter" xmi:id="_y1PjYOs3Eea7AqSsB_lc7w" name="m" type="_BwkckOsfEeagpPVreqOLZw"/>
               </ownedOperation>
             </packagedElement>
@@ -1076,7 +932,7 @@
                   <body>false</body>
                 </defaultValue>
               </ownedAttribute>
-              <ownedAttribute xmi:type="uml:Property" xmi:id="_MmZQMOvbEeaFWsKBBqDStg" name="board" visibility="private" type="_LECKAOs1Eea7AqSsB_lc7w" isUnique="false"/>
+              <ownedAttribute xmi:type="uml:Property" xmi:id="_MmZQMOvbEeaFWsKBBqDStg" name="board" visibility="private" isUnique="false"/>
               <ownedAttribute xmi:type="uml:Property" xmi:id="_MmZQMevbEeaFWsKBBqDStg" name="serverHandler" visibility="private" isUnique="false"/>
               <ownedAttribute xmi:type="uml:Property" xmi:id="_MmZ3QOvbEeaFWsKBBqDStg" name="view" visibility="private" type="_71-Q8OsfEeagpPVreqOLZw" isUnique="false"/>
               <ownedAttribute xmi:type="uml:Property" xmi:id="_MmeIsOvbEeaFWsKBBqDStg" name="ai" visibility="private" type="_jZtpgOs3Eea7AqSsB_lc7w" isUnique="false">
@@ -1456,7 +1312,7 @@
                 </ownedParameter>
               </ownedOperation>
               <ownedOperation xmi:type="uml:Operation" xmi:id="_MnD-kevbEeaFWsKBBqDStg" name="getBoard" visibility="public" method="_MnEloevbEeaFWsKBBqDStg">
-                <ownedParameter xmi:type="uml:Parameter" xmi:id="_MnEloOvbEeaFWsKBBqDStg" type="_LECKAOs1Eea7AqSsB_lc7w" direction="return"/>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_MnEloOvbEeaFWsKBBqDStg" direction="return"/>
               </ownedOperation>
               <ownedOperation xmi:type="uml:Operation" xmi:id="_MnElouvbEeaFWsKBBqDStg" name="getCapabilities" visibility="public" method="_MnGa0OvbEeaFWsKBBqDStg">
                 <ownedParameter xmi:type="uml:Parameter" xmi:id="_MnFMsOvbEeaFWsKBBqDStg" type="_DIE0UOsaEeaRPtCCR8m55A" direction="return"/>
@@ -1637,6 +1493,157 @@
                 <ownedParameter xmi:type="uml:Parameter" xmi:id="_cdcocOvbEeaFWsKBBqDStg" name="inputId" type="_DIE0UOsaEeaRPtCCR8m55A"/>
               </ownedOperation>
             </packagedElement>
+            <packagedElement xmi:type="uml:Class" xmi:id="_ebgeUOvgEea_C-H5NfTs0A" name="Hard" visibility="public">
+              <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_ebhFYOvgEea_C-H5NfTs0A" name="Hard implements Difficulty" client="_ebgeUOvgEea_C-H5NfTs0A" supplier="_qb8WIOs3Eea7AqSsB_lc7w" contract="_qb8WIOs3Eea7AqSsB_lc7w"/>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_ebhscevgEea_C-H5NfTs0A" name="getName" specification="_ebhFYevgEea_C-H5NfTs0A">
+                <language>JAVA</language>
+                <body>
+    return &quot;hard&quot;;
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_ebi6kOvgEea_C-H5NfTs0A" name="determineMove" specification="_ebhscuvgEea_C-H5NfTs0A">
+                <language>JAVA</language>
+                <body>
+    Map&lt;Field, Integer> result = this.getResultMap(board, m);
+    //Choose candidate with highest potential score
+    int maxValue = Collections.max(result.values());
+    Iterator&lt;Map.Entry&lt;Field, Integer>> it = result.entrySet().iterator();
+    while (it.hasNext()) {
+        Map.Entry&lt;Field, Integer> item = it.next();
+        if (item.getValue().intValue() &lt; maxValue) {
+            it.remove();
+        }
+    }
+    it = result.entrySet().iterator();
+    int next = (int) (Math.random() * new Double(result.size()));
+    int count = 0;
+    while (it.hasNext()) {
+        Map.Entry&lt;Field, Integer> item = it.next();
+        if (count == next) {
+            return item.getKey();
+        }
+        count++;
+    }
+    return null;
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_ebkIsevgEea_C-H5NfTs0A" name="getMoves" specification="_ebi6kevgEea_C-H5NfTs0A">
+                <language>JAVA</language>
+                <body>
+    ArrayList&lt;Field> moves = new ArrayList&lt;Field>();
+    for (int x = 0; x &lt;= Board.MAXFIELD; x++) {
+        for (int y = 0; y &lt;= Board.MAXFIELD; y++) {
+            Field empty = board.getEmptyField(x, y);
+            if (empty != null) {
+                moves.add(empty);
+            }
+        }
+    }
+    return moves;
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_eblW0evgEea_C-H5NfTs0A" name="getFutureImpact" specification="_ebkvwOvgEea_C-H5NfTs0A">
+                <language>JAVA</language>
+                <body>
+    int result = 0;
+    ArrayList&lt;Field> moves = this.getMoves(board);
+    for (Field field : moves) {
+        Board myboard = board.copy();
+        Board enemboard = board.copy();
+        myboard.setField(field, m);
+        enemboard.setField(field, m.other());
+        if (myboard.isWinner(m)) {
+            result += 50;
+        } else if (enemboard.isWinner(m.other())) {
+            result -= 50;
+        }
+    }
+    return result;
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_ebmk8uvgEea_C-H5NfTs0A" name="getResultMap" specification="_ebl94OvgEea_C-H5NfTs0A">
+                <language>JAVA</language>
+                <body>
+    Map&lt;Field, Integer> result = new HashMap&lt;Field, Integer>();
+    ArrayList&lt;Field> moves = this.getMoves(board);
+    for (Field field : moves) {
+        Board myboard = board.copy();
+        Board enemboard = board.copy();
+        myboard.setField(field, m);
+        enemboard.setField(field, m.other());
+        if (myboard.isWinner(m)) {
+            result.put(field, new Integer(500));
+        } else if (enemboard.isWinner(m.other())) {
+            result.put(field, new Integer(100));
+        } else {
+            result.put(field, new Integer(countSurroundings(field, board, m) + getFutureImpact(myboard, m)));
+        }
+    //result.put(field, result.get(field) + getFutureImpact(myboard, m));
+    }
+    return result;
+</body>
+              </ownedBehavior>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_eboaIOvgEea_C-H5NfTs0A" name="countSurroundings" specification="_ebnMAOvgEea_C-H5NfTs0A">
+                <language>JAVA</language>
+                <body>
+    int result = 0;
+    for (int z = -1; z &lt;= 1; z++) {
+        for (int i = -1; i &lt;= 1; i++) {
+            for (int a = -1; a &lt;= 1; a++) {
+                Field neighbour = board.walkField(field, i, a, z);
+                //next to field of same color
+                if (neighbour != null) {
+                    Mark nextmark = board.getMark(neighbour);
+                    if (nextmark != null &amp;&amp; nextmark.equals(m)) {
+                        result++;
+                    }
+                } else if (//next to boundary
+                neighbour == null) {
+                    result++;
+                }
+            }
+        }
+    }
+    return result;
+</body>
+              </ownedBehavior>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_ebhFYevgEea_C-H5NfTs0A" name="getName" visibility="public" method="_ebhscevgEea_C-H5NfTs0A">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_ebhscOvgEea_C-H5NfTs0A" type="_DIE0UOsaEeaRPtCCR8m55A" direction="return"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_ebhscuvgEea_C-H5NfTs0A" name="determineMove" visibility="public" method="_ebi6kOvgEea_C-H5NfTs0A">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_ebiTgOvgEea_C-H5NfTs0A" type="_QNhLEOvfEea_C-H5NfTs0A" direction="return"/>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_ebiTgevgEea_C-H5NfTs0A" name="board" type="_RaO10OvfEea_C-H5NfTs0A"/>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_ebiTguvgEea_C-H5NfTs0A" name="m" type="_BwkckOsfEeagpPVreqOLZw"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_ebi6kevgEea_C-H5NfTs0A" name="getMoves" visibility="public" method="_ebkIsevgEea_C-H5NfTs0A">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_ebjhoOvgEea_C-H5NfTs0A" type="_QNhLEOvfEea_C-H5NfTs0A" direction="return">
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ebjhoevgEea_C-H5NfTs0A"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ebjhouvgEea_C-H5NfTs0A" value="*"/>
+                </ownedParameter>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_ebkIsOvgEea_C-H5NfTs0A" name="board" type="_RaO10OvfEea_C-H5NfTs0A"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_ebkvwOvgEea_C-H5NfTs0A" name="getFutureImpact" visibility="public" method="_eblW0evgEea_C-H5NfTs0A">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_ebkvwevgEea_C-H5NfTs0A" direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+                </ownedParameter>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_ebkvwuvgEea_C-H5NfTs0A" name="board" type="_RaO10OvfEea_C-H5NfTs0A"/>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_eblW0OvgEea_C-H5NfTs0A" name="m" type="_BwkckOsfEeagpPVreqOLZw"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_ebl94OvgEea_C-H5NfTs0A" name="getResultMap" visibility="public" method="_ebmk8uvgEea_C-H5NfTs0A">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_ebl94evgEea_C-H5NfTs0A" type="_DJGIAusaEeaRPtCCR8m55A" direction="return"/>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_ebmk8OvgEea_C-H5NfTs0A" name="board" type="_RaO10OvfEea_C-H5NfTs0A"/>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_ebmk8evgEea_C-H5NfTs0A" name="m" type="_BwkckOsfEeagpPVreqOLZw"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_ebnMAOvgEea_C-H5NfTs0A" name="countSurroundings" visibility="public" method="_eboaIOvgEea_C-H5NfTs0A">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_ebnMAevgEea_C-H5NfTs0A" direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+                </ownedParameter>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_ebnMAuvgEea_C-H5NfTs0A" name="field" type="_QNhLEOvfEea_C-H5NfTs0A"/>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_ebnzEOvgEea_C-H5NfTs0A" name="board" type="_RaO10OvfEea_C-H5NfTs0A"/>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_ebnzEevgEea_C-H5NfTs0A" name="m" type="_BwkckOsfEeagpPVreqOLZw"/>
+              </ownedOperation>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Realization" xmi:id="_pHXkEOvgEea_C-H5NfTs0A" name="implements" client="_ebgeUOvgEea_C-H5NfTs0A" supplier="_L9C44Os5Eea7AqSsB_lc7w"/>
           </packagedElement>
           <packagedElement xmi:type="uml:Package" xmi:id="_sHHycOsfEeagpPVreqOLZw" name="server">
             <packagedElement xmi:type="uml:Class" xmi:id="_zgjXsOvbEeaFWsKBBqDStg" name="ClientHandler" visibility="public">
@@ -2409,16 +2416,6 @@
         </packagedElement>
       </packagedElement>
     </packagedElement>
-    <packagedElement xmi:type="uml:Association" xmi:id="_cg_wIOs1Eea7AqSsB_lc7w" memberEnd="_chA-QOs1Eea7AqSsB_lc7w _chA-Qes1Eea7AqSsB_lc7w">
-      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_chAXMOs1Eea7AqSsB_lc7w" source="org.eclipse.papyrus">
-        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_chAXMes1Eea7AqSsB_lc7w" key="nature" value="UML_Nature"/>
-      </eAnnotations>
-      <ownedEnd xmi:type="uml:Property" xmi:id="_chA-Qes1Eea7AqSsB_lc7w" type="_BwkckOsfEeagpPVreqOLZw" association="_cg_wIOs1Eea7AqSsB_lc7w">
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_eABS4Os1Eea7AqSsB_lc7w"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_eAJ1wOs1Eea7AqSsB_lc7w" value="*"/>
-      </ownedEnd>
-      <ownedEnd xmi:type="uml:Property" xmi:id="_chA-QOs1Eea7AqSsB_lc7w" type="_LECKAOs1Eea7AqSsB_lc7w" association="_cg_wIOs1Eea7AqSsB_lc7w"/>
-    </packagedElement>
     <packagedElement xmi:type="uml:Association" xmi:id="_tuCZAOs3Eea7AqSsB_lc7w" memberEnd="_tuDAEus3Eea7AqSsB_lc7w _tuDnIOs3Eea7AqSsB_lc7w">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_tuDAEOs3Eea7AqSsB_lc7w" source="org.eclipse.papyrus">
         <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_tuDAEes3Eea7AqSsB_lc7w" key="nature" value="UML_Nature"/>
@@ -2453,8 +2450,8 @@
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_L9CRxes5Eea7AqSsB_lc7w" type="_DIE0UOsaEeaRPtCCR8m55A" direction="return"/>
       </ownedOperation>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_L9CRxus5Eea7AqSsB_lc7w" name="determineMove" visibility="public" method="_L9CRw-s5Eea7AqSsB_lc7w">
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_L9CRx-s5Eea7AqSsB_lc7w" type="_Inc_YOsgEeagpPVreqOLZw" direction="return"/>
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_L9CRyOs5Eea7AqSsB_lc7w" name="board" type="_LECKAOs1Eea7AqSsB_lc7w"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_L9CRx-s5Eea7AqSsB_lc7w" type="_QN4XcOvfEea_C-H5NfTs0A" direction="return"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_L9CRyOs5Eea7AqSsB_lc7w" name="board" type="_RabqIOvfEea_C-H5NfTs0A"/>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_L9CRyes5Eea7AqSsB_lc7w" name="m" type="_BwkckOsfEeagpPVreqOLZw"/>
       </ownedOperation>
     </packagedElement>
@@ -2544,16 +2541,16 @@
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_L9C41us5Eea7AqSsB_lc7w" type="_DIE0UOsaEeaRPtCCR8m55A" direction="return"/>
       </ownedOperation>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_L9C41-s5Eea7AqSsB_lc7w" name="determineMove" visibility="public" method="_L9C40-s5Eea7AqSsB_lc7w">
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_L9C42Os5Eea7AqSsB_lc7w" type="_Inc_YOsgEeagpPVreqOLZw" direction="return"/>
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_L9C42es5Eea7AqSsB_lc7w" name="board" type="_LECKAOs1Eea7AqSsB_lc7w"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_L9C42Os5Eea7AqSsB_lc7w" type="_QN4XcOvfEea_C-H5NfTs0A" direction="return"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_L9C42es5Eea7AqSsB_lc7w" name="board" type="_RabqIOvfEea_C-H5NfTs0A"/>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_L9C42us5Eea7AqSsB_lc7w" name="m" type="_BwkckOsfEeagpPVreqOLZw"/>
       </ownedOperation>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_L9C42-s5Eea7AqSsB_lc7w" name="countSurroundings" visibility="public" method="_L9C41Os5Eea7AqSsB_lc7w">
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_L9C43Os5Eea7AqSsB_lc7w" direction="return">
           <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
         </ownedParameter>
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_L9C43es5Eea7AqSsB_lc7w" name="field" type="_Inc_YOsgEeagpPVreqOLZw"/>
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_L9C43us5Eea7AqSsB_lc7w" name="board" type="_LECKAOs1Eea7AqSsB_lc7w"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_L9C43es5Eea7AqSsB_lc7w" name="field" type="_QN4XcOvfEea_C-H5NfTs0A"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_L9C43us5Eea7AqSsB_lc7w" name="board" type="_RabqIOvfEea_C-H5NfTs0A"/>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_L9C43-s5Eea7AqSsB_lc7w" name="m" type="_BwkckOsfEeagpPVreqOLZw"/>
       </ownedOperation>
     </packagedElement>
@@ -2562,160 +2559,9 @@
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_L9C44us5Eea7AqSsB_lc7w" type="_DIE0UOsaEeaRPtCCR8m55A" direction="return"/>
       </ownedOperation>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_L9C44-s5Eea7AqSsB_lc7w" name="determineMove" visibility="public">
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_L9C45Os5Eea7AqSsB_lc7w" type="_Inc_YOsgEeagpPVreqOLZw" direction="return"/>
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_L9C45es5Eea7AqSsB_lc7w" name="board" type="_LECKAOs1Eea7AqSsB_lc7w"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_L9C45Os5Eea7AqSsB_lc7w" type="_QN4XcOvfEea_C-H5NfTs0A" direction="return"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_L9C45es5Eea7AqSsB_lc7w" name="board" type="_RabqIOvfEea_C-H5NfTs0A"/>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_L9C45us5Eea7AqSsB_lc7w" name="m" type="_BwkckOsfEeagpPVreqOLZw"/>
-      </ownedOperation>
-    </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_L9C45-s5Eea7AqSsB_lc7w" name="Hard" visibility="public">
-      <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_L9C46Os5Eea7AqSsB_lc7w" name="implements" client="_L9C45-s5Eea7AqSsB_lc7w" supplier="_L9C44Os5Eea7AqSsB_lc7w" contract="_L9C44Os5Eea7AqSsB_lc7w"/>
-      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_L9C46es5Eea7AqSsB_lc7w" name="getName" specification="_L9C47-s5Eea7AqSsB_lc7w">
-        <language>JAVA</language>
-        <body>
-    return &quot;hard&quot;;
-</body>
-      </ownedBehavior>
-      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_L9C46us5Eea7AqSsB_lc7w" name="determineMove" specification="_L9C48es5Eea7AqSsB_lc7w">
-        <language>JAVA</language>
-        <body>
-    ArrayList&lt;Field> moves = this.getMoves(board);
-    Map&lt;Field, Integer> result = this.getResultMap(board, m);
-    //Choose candidate with highest potential score
-    int maxValue = Collections.max(result.values());
-    Iterator&lt;Map.Entry&lt;Field, Integer>> it = result.entrySet().iterator();
-    while (it.hasNext()) {
-        Map.Entry&lt;Field, Integer> item = it.next();
-        if (item.getValue().intValue() &lt; maxValue) {
-            it.remove();
-        }
-    }
-    it = result.entrySet().iterator();
-    int next = (int) (Math.random() * new Double(result.size()));
-    int count = 0;
-    while (it.hasNext()) {
-        Map.Entry&lt;Field, Integer> item = it.next();
-        if (count == next) {
-            return item.getKey();
-        }
-        count++;
-    }
-    return null;
-</body>
-      </ownedBehavior>
-      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_L9C46-s5Eea7AqSsB_lc7w" name="getMoves" specification="_L9C49es5Eea7AqSsB_lc7w">
-        <language>JAVA</language>
-        <body>
-    ArrayList&lt;Field> moves = new ArrayList&lt;Field>();
-    for (int x = 0; x &lt;= Board.MAXFIELD; x++) {
-        for (int y = 0; y &lt;= Board.MAXFIELD; y++) {
-            Field empty = board.getEmptyField(x, y);
-            if (empty != null) {
-                moves.add(empty);
-            }
-        }
-    }
-    return moves;
-</body>
-      </ownedBehavior>
-      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_L9C47Os5Eea7AqSsB_lc7w" name="getFutureImpact" specification="_L9C4-us5Eea7AqSsB_lc7w">
-        <language>JAVA</language>
-        <body>
-    int result = 0;
-    ArrayList&lt;Field> moves = this.getMoves(board);
-    for (Field field : moves) {
-        Board myboard = board.copy();
-        Board enemboard = board.copy();
-        myboard.setField(field, m);
-        enemboard.setField(field, m.other());
-        if (myboard.isWinner(m)) {
-            result += 50;
-        } else if (enemboard.isWinner(m.other())) {
-            result -= 50;
-        }
-    }
-    return result;
-</body>
-      </ownedBehavior>
-      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_L9C47es5Eea7AqSsB_lc7w" name="getResultMap" specification="_L9C4_us5Eea7AqSsB_lc7w">
-        <language>JAVA</language>
-        <body>
-    Map&lt;Field, Integer> result = new HashMap&lt;Field, Integer>();
-    ArrayList&lt;Field> moves = this.getMoves(board);
-    for (Field field : moves) {
-        Board myboard = board.copy();
-        Board enemboard = board.copy();
-        myboard.setField(field, m);
-        enemboard.setField(field, m.other());
-        if (myboard.isWinner(m)) {
-            result.put(field, new Integer(500));
-        } else if (enemboard.isWinner(m.other())) {
-            result.put(field, new Integer(100));
-        } else {
-            result.put(field, new Integer(countSurroundings(field, board, m) + getFutureImpact(myboard, m)));
-        }
-    //result.put(field, result.get(field) + getFutureImpact(myboard, m));
-    }
-    return result;
-</body>
-      </ownedBehavior>
-      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_L9C47us5Eea7AqSsB_lc7w" name="countSurroundings" specification="_L9C5Aus5Eea7AqSsB_lc7w">
-        <language>JAVA</language>
-        <body>
-    int result = 0;
-    for (int z = -1; z &lt;= 1; z++) {
-        for (int i = -1; i &lt;= 1; i++) {
-            for (int a = -1; a &lt;= 1; a++) {
-                Field neighbour = board.walkField(field, i, a, z);
-                //next to field of same color
-                if (neighbour != null) {
-                    Mark nextmark = board.getMark(neighbour);
-                    if (nextmark != null &amp;&amp; nextmark.equals(m)) {
-                        result++;
-                    }
-                } else //next to boundary
-                if (neighbour == null) {
-                    result++;
-                }
-            }
-        }
-    }
-    return result;
-</body>
-      </ownedBehavior>
-      <ownedOperation xmi:type="uml:Operation" xmi:id="_L9C47-s5Eea7AqSsB_lc7w" name="getName" visibility="public" method="_L9C46es5Eea7AqSsB_lc7w">
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_L9C48Os5Eea7AqSsB_lc7w" type="_DIE0UOsaEeaRPtCCR8m55A" direction="return"/>
-      </ownedOperation>
-      <ownedOperation xmi:type="uml:Operation" xmi:id="_L9C48es5Eea7AqSsB_lc7w" name="determineMove" visibility="public" method="_L9C46us5Eea7AqSsB_lc7w">
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_L9C48us5Eea7AqSsB_lc7w" type="_Inc_YOsgEeagpPVreqOLZw" direction="return"/>
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_L9C48-s5Eea7AqSsB_lc7w" name="board" type="_LECKAOs1Eea7AqSsB_lc7w"/>
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_L9C49Os5Eea7AqSsB_lc7w" name="m" type="_BwkckOsfEeagpPVreqOLZw"/>
-      </ownedOperation>
-      <ownedOperation xmi:type="uml:Operation" xmi:id="_L9C49es5Eea7AqSsB_lc7w" name="getMoves" visibility="public" method="_L9C46-s5Eea7AqSsB_lc7w">
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_L9C49us5Eea7AqSsB_lc7w" type="_Inc_YOsgEeagpPVreqOLZw" direction="return">
-          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_L9C49-s5Eea7AqSsB_lc7w"/>
-          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_L9C4-Os5Eea7AqSsB_lc7w" value="*"/>
-        </ownedParameter>
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_L9C4-es5Eea7AqSsB_lc7w" name="board" type="_LECKAOs1Eea7AqSsB_lc7w"/>
-      </ownedOperation>
-      <ownedOperation xmi:type="uml:Operation" xmi:id="_L9C4-us5Eea7AqSsB_lc7w" name="getFutureImpact" visibility="public" method="_L9C47Os5Eea7AqSsB_lc7w">
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_L9C4--s5Eea7AqSsB_lc7w" direction="return">
-          <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
-        </ownedParameter>
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_L9C4_Os5Eea7AqSsB_lc7w" name="board" type="_LECKAOs1Eea7AqSsB_lc7w"/>
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_L9C4_es5Eea7AqSsB_lc7w" name="m" type="_BwkckOsfEeagpPVreqOLZw"/>
-      </ownedOperation>
-      <ownedOperation xmi:type="uml:Operation" xmi:id="_L9C4_us5Eea7AqSsB_lc7w" name="getResultMap" visibility="public" method="_L9C47es5Eea7AqSsB_lc7w">
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_L9C4_-s5Eea7AqSsB_lc7w" type="_DJGIAusaEeaRPtCCR8m55A" direction="return"/>
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_L9C5AOs5Eea7AqSsB_lc7w" name="board" type="_LECKAOs1Eea7AqSsB_lc7w"/>
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_L9C5Aes5Eea7AqSsB_lc7w" name="m" type="_BwkckOsfEeagpPVreqOLZw"/>
-      </ownedOperation>
-      <ownedOperation xmi:type="uml:Operation" xmi:id="_L9C5Aus5Eea7AqSsB_lc7w" name="countSurroundings" visibility="public" method="_L9C47us5Eea7AqSsB_lc7w">
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_L9C5A-s5Eea7AqSsB_lc7w" direction="return">
-          <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
-        </ownedParameter>
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_L9C5BOs5Eea7AqSsB_lc7w" name="field" type="_Inc_YOsgEeagpPVreqOLZw"/>
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_L9C5Bes5Eea7AqSsB_lc7w" name="board" type="_LECKAOs1Eea7AqSsB_lc7w"/>
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_L9C5Bus5Eea7AqSsB_lc7w" name="m" type="_BwkckOsfEeagpPVreqOLZw"/>
       </ownedOperation>
     </packagedElement>
     <packagedElement xmi:type="uml:Association" xmi:id="_L9Df4Os5Eea7AqSsB_lc7w" name="has" memberEnd="_L9Df5Os5Eea7AqSsB_lc7w _L9Df4-s5Eea7AqSsB_lc7w">
@@ -2752,8 +2598,8 @@
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_L9Df7es5Eea7AqSsB_lc7w" type="_DIE0UOsaEeaRPtCCR8m55A" direction="return"/>
       </ownedOperation>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_L9Df7us5Eea7AqSsB_lc7w" name="determineMove" visibility="public" method="_L9Df6es5Eea7AqSsB_lc7w">
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_L9Df7-s5Eea7AqSsB_lc7w" type="_Inc_YOsgEeagpPVreqOLZw" direction="return"/>
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_L9Df8Os5Eea7AqSsB_lc7w" name="board" type="_LECKAOs1Eea7AqSsB_lc7w"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_L9Df7-s5Eea7AqSsB_lc7w" type="_QN4XcOvfEea_C-H5NfTs0A" direction="return"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_L9Df8Os5Eea7AqSsB_lc7w" name="board" type="_RabqIOvfEea_C-H5NfTs0A"/>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_L9Df8es5Eea7AqSsB_lc7w" name="m" type="_BwkckOsfEeagpPVreqOLZw"/>
       </ownedOperation>
     </packagedElement>
@@ -2928,20 +2774,6 @@
       <generalization xmi:type="uml:Generalization" xmi:id="_egcikes5Eea7AqSsB_lc7w" general="_egb7gOs5Eea7AqSsB_lc7w"/>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_egcikus5Eea7AqSsB_lc7w" name="showBoard" visibility="public"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Association" xmi:id="_akIBgOs6Eea7AqSsB_lc7w" memberEnd="_akIokus6Eea7AqSsB_lc7w _akJPoOs6Eea7AqSsB_lc7w">
-      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_akIokOs6Eea7AqSsB_lc7w" source="org.eclipse.papyrus">
-        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_akIokes6Eea7AqSsB_lc7w" key="nature" value="UML_Nature"/>
-      </eAnnotations>
-      <ownedEnd xmi:type="uml:Property" xmi:id="_akIokus6Eea7AqSsB_lc7w" type="_Inc_YOsgEeagpPVreqOLZw" association="_akIBgOs6Eea7AqSsB_lc7w"/>
-      <ownedEnd xmi:type="uml:Property" xmi:id="_akJPoOs6Eea7AqSsB_lc7w" type="_cg_wIOs1Eea7AqSsB_lc7w" association="_akIBgOs6Eea7AqSsB_lc7w"/>
-    </packagedElement>
-    <packagedElement xmi:type="uml:Association" xmi:id="_hFdnkOs6Eea7AqSsB_lc7w" memberEnd="_hFdnk-s6Eea7AqSsB_lc7w _hFeOoOs6Eea7AqSsB_lc7w">
-      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_hFdnkes6Eea7AqSsB_lc7w" source="org.eclipse.papyrus">
-        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_hFdnkus6Eea7AqSsB_lc7w" key="nature" value="UML_Nature"/>
-      </eAnnotations>
-      <ownedEnd xmi:type="uml:Property" xmi:id="_hFeOoOs6Eea7AqSsB_lc7w" type="_Inc_YOsgEeagpPVreqOLZw" association="_hFdnkOs6Eea7AqSsB_lc7w"/>
-      <ownedEnd xmi:type="uml:Property" xmi:id="_hFdnk-s6Eea7AqSsB_lc7w" type="_cg_wIOs1Eea7AqSsB_lc7w" association="_hFdnkOs6Eea7AqSsB_lc7w"/>
-    </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_Y-A-4Ou0Eeao2KzjhbjEkg" name="ComputerPlayer" visibility="public">
       <ownedAttribute xmi:type="uml:Property" xmi:id="_Y-A-4eu0Eeao2KzjhbjEkg" name="difficulty" visibility="private" type="_qb8WIOs3Eea7AqSsB_lc7w" isUnique="false"/>
       <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_Y-A-4uu0Eeao2KzjhbjEkg" name="ComputerPlayer" specification="_Y-A-5eu0Eeao2KzjhbjEkg">
@@ -2969,8 +2801,8 @@
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_Y-A-6Ou0Eeao2KzjhbjEkg" type="_DIE0UOsaEeaRPtCCR8m55A" direction="return"/>
       </ownedOperation>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_Y-A-6eu0Eeao2KzjhbjEkg" name="determineMove" visibility="public" method="_Y-A-5Ou0Eeao2KzjhbjEkg">
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_Y-A-6uu0Eeao2KzjhbjEkg" type="_Inc_YOsgEeagpPVreqOLZw" direction="return"/>
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_Y-A-6-u0Eeao2KzjhbjEkg" name="board" type="_LECKAOs1Eea7AqSsB_lc7w"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_Y-A-6uu0Eeao2KzjhbjEkg" direction="return"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_Y-A-6-u0Eeao2KzjhbjEkg" name="board"/>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_Y-A-7Ou0Eeao2KzjhbjEkg" name="m" type="_BwkckOsfEeagpPVreqOLZw"/>
       </ownedOperation>
     </packagedElement>
@@ -3084,20 +2916,6 @@
       </eAnnotations>
       <ownedEnd xmi:type="uml:Property" xmi:id="_ggGlkOvbEeaFWsKBBqDStg" type="_Ml3rwOvbEeaFWsKBBqDStg" association="_ggFXcOvbEeaFWsKBBqDStg"/>
       <ownedEnd xmi:type="uml:Property" xmi:id="_ggF-guvbEeaFWsKBBqDStg" type="_cdOmAOvbEeaFWsKBBqDStg" association="_ggFXcOvbEeaFWsKBBqDStg"/>
-    </packagedElement>
-    <packagedElement xmi:type="uml:Association" xmi:id="_sMzdQOvbEeaFWsKBBqDStg" name="account changes" memberEnd="_sMzdQ-vbEeaFWsKBBqDStg _sM0EUOvbEeaFWsKBBqDStg">
-      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_sMzdQevbEeaFWsKBBqDStg" source="org.eclipse.papyrus">
-        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_sMzdQuvbEeaFWsKBBqDStg" key="nature" value="UML_Nature"/>
-      </eAnnotations>
-      <ownedEnd xmi:type="uml:Property" xmi:id="_sM0EUOvbEeaFWsKBBqDStg" type="_Ml3rwOvbEeaFWsKBBqDStg" association="_sMzdQOvbEeaFWsKBBqDStg"/>
-      <ownedEnd xmi:type="uml:Property" xmi:id="_sMzdQ-vbEeaFWsKBBqDStg" type="_LECKAOs1Eea7AqSsB_lc7w" association="_sMzdQOvbEeaFWsKBBqDStg"/>
-    </packagedElement>
-    <packagedElement xmi:type="uml:Association" xmi:id="_460A8OvbEeaFWsKBBqDStg" memberEnd="_460oAevbEeaFWsKBBqDStg _460oAuvbEeaFWsKBBqDStg">
-      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_460A8evbEeaFWsKBBqDStg" source="org.eclipse.papyrus">
-        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_460oAOvbEeaFWsKBBqDStg" key="nature" value="UML_Nature"/>
-      </eAnnotations>
-      <ownedEnd xmi:type="uml:Property" xmi:id="_460oAuvbEeaFWsKBBqDStg" type="_LECKAOs1Eea7AqSsB_lc7w" association="_460A8OvbEeaFWsKBBqDStg"/>
-      <ownedEnd xmi:type="uml:Property" xmi:id="_460oAevbEeaFWsKBBqDStg" type="_ydeKEOvbEeaFWsKBBqDStg" association="_460A8OvbEeaFWsKBBqDStg"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Association" xmi:id="_GIrwcOvcEeaFWsKBBqDStg" memberEnd="_GIs-kuvcEeaFWsKBBqDStg _GIs-k-vcEeaFWsKBBqDStg">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_GIs-kOvcEeaFWsKBBqDStg" source="org.eclipse.papyrus">
@@ -3390,22 +3208,22 @@
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_x1fuu-vcEeaFWsKBBqDStg" direction="return">
           <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
         </ownedParameter>
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_x1fuvOvcEeaFWsKBBqDStg" name="field" type="_Inc_YOsgEeagpPVreqOLZw"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_x1fuvOvcEeaFWsKBBqDStg" name="field"/>
       </ownedOperation>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_x1fuvevcEeaFWsKBBqDStg" name="isReachableEmptyField" visibility="public" method="_x1fuqOvcEeaFWsKBBqDStg">
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_x1fuvuvcEeaFWsKBBqDStg" direction="return">
           <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
         </ownedParameter>
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_x1fuv-vcEeaFWsKBBqDStg" name="field" type="_Inc_YOsgEeagpPVreqOLZw"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_x1fuv-vcEeaFWsKBBqDStg" name="field"/>
       </ownedOperation>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_x1fuwOvcEeaFWsKBBqDStg" name="isEmptyField" visibility="public" method="_x1fuqevcEeaFWsKBBqDStg">
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_x1fuwevcEeaFWsKBBqDStg" direction="return">
           <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
         </ownedParameter>
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_x1fuwuvcEeaFWsKBBqDStg" name="field" type="_Inc_YOsgEeagpPVreqOLZw"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_x1fuwuvcEeaFWsKBBqDStg" name="field"/>
       </ownedOperation>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_x1fuw-vcEeaFWsKBBqDStg" name="getEmptyField" visibility="public" method="_x1fuquvcEeaFWsKBBqDStg">
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_x1fuxOvcEeaFWsKBBqDStg" type="_Inc_YOsgEeagpPVreqOLZw" direction="return"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_x1fuxOvcEeaFWsKBBqDStg" direction="return"/>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_x1fuxevcEeaFWsKBBqDStg" name="x">
           <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
         </ownedParameter>
@@ -3417,12 +3235,12 @@
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_x1fuyOvcEeaFWsKBBqDStg" direction="return">
           <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
         </ownedParameter>
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_x1fuyevcEeaFWsKBBqDStg" name="field" type="_Inc_YOsgEeagpPVreqOLZw"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_x1fuyevcEeaFWsKBBqDStg" name="field"/>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_x1fuyuvcEeaFWsKBBqDStg" name="m" type="_BwkckOsfEeagpPVreqOLZw"/>
       </ownedOperation>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_x1fuy-vcEeaFWsKBBqDStg" name="walkField" visibility="public" method="_x1furOvcEeaFWsKBBqDStg">
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_x1fuzOvcEeaFWsKBBqDStg" type="_Inc_YOsgEeagpPVreqOLZw" direction="return"/>
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_x1fuzevcEeaFWsKBBqDStg" name="field" type="_Inc_YOsgEeagpPVreqOLZw"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_x1fuzOvcEeaFWsKBBqDStg" direction="return"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_x1fuzevcEeaFWsKBBqDStg" name="field"/>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_x1fuzuvcEeaFWsKBBqDStg" name="xoff">
           <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
         </ownedParameter>
@@ -3447,14 +3265,14 @@
       </ownedOperation>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_x1fu1uvcEeaFWsKBBqDStg" name="getMark" visibility="public" method="_x1furuvcEeaFWsKBBqDStg">
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_x1fu1-vcEeaFWsKBBqDStg" type="_BwkckOsfEeagpPVreqOLZw" direction="return"/>
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_x1fu2OvcEeaFWsKBBqDStg" name="field" type="_Inc_YOsgEeagpPVreqOLZw"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_x1fu2OvcEeaFWsKBBqDStg" name="field"/>
       </ownedOperation>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_x1fu2evcEeaFWsKBBqDStg" name="reset" visibility="public" method="_x1fur-vcEeaFWsKBBqDStg"/>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_x1fu2uvcEeaFWsKBBqDStg" name="checkRow" visibility="public" method="_x1fusOvcEeaFWsKBBqDStg">
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_x1fu2-vcEeaFWsKBBqDStg" direction="return">
           <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
         </ownedParameter>
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_x1fu3OvcEeaFWsKBBqDStg" name="start" type="_Inc_YOsgEeagpPVreqOLZw"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_x1fu3OvcEeaFWsKBBqDStg" name="start"/>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_x1fu3evcEeaFWsKBBqDStg" name="xdir">
           <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
         </ownedParameter>
@@ -5513,22 +5331,22 @@
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_g9I1HOvdEeaFWsKBBqDStg" direction="return">
           <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
         </ownedParameter>
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_g9I1HevdEeaFWsKBBqDStg" name="field" type="_Inc_YOsgEeagpPVreqOLZw"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_g9I1HevdEeaFWsKBBqDStg" name="field"/>
       </ownedOperation>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_g9I1HuvdEeaFWsKBBqDStg" name="isReachableEmptyField" visibility="public" method="_g9I1CevdEeaFWsKBBqDStg">
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_g9I1H-vdEeaFWsKBBqDStg" direction="return">
           <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
         </ownedParameter>
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_g9I1IOvdEeaFWsKBBqDStg" name="field" type="_Inc_YOsgEeagpPVreqOLZw"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_g9I1IOvdEeaFWsKBBqDStg" name="field"/>
       </ownedOperation>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_g9I1IevdEeaFWsKBBqDStg" name="isEmptyField" visibility="public" method="_g9I1CuvdEeaFWsKBBqDStg">
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_g9I1IuvdEeaFWsKBBqDStg" direction="return">
           <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
         </ownedParameter>
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_g9I1I-vdEeaFWsKBBqDStg" name="field" type="_Inc_YOsgEeagpPVreqOLZw"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_g9I1I-vdEeaFWsKBBqDStg" name="field"/>
       </ownedOperation>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_g9I1JOvdEeaFWsKBBqDStg" name="getEmptyField" visibility="public" method="_g9I1C-vdEeaFWsKBBqDStg">
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_g9I1JevdEeaFWsKBBqDStg" type="_Inc_YOsgEeagpPVreqOLZw" direction="return"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_g9I1JevdEeaFWsKBBqDStg" direction="return"/>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_g9I1JuvdEeaFWsKBBqDStg" name="x">
           <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
         </ownedParameter>
@@ -5540,12 +5358,12 @@
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_g9I1KevdEeaFWsKBBqDStg" direction="return">
           <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
         </ownedParameter>
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_g9I1KuvdEeaFWsKBBqDStg" name="field" type="_Inc_YOsgEeagpPVreqOLZw"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_g9I1KuvdEeaFWsKBBqDStg" name="field"/>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_g9I1K-vdEeaFWsKBBqDStg" name="m" type="_BwkckOsfEeagpPVreqOLZw"/>
       </ownedOperation>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_g9I1LOvdEeaFWsKBBqDStg" name="walkField" visibility="public" method="_g9I1DevdEeaFWsKBBqDStg">
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_g9I1LevdEeaFWsKBBqDStg" type="_Inc_YOsgEeagpPVreqOLZw" direction="return"/>
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_g9I1LuvdEeaFWsKBBqDStg" name="field" type="_Inc_YOsgEeagpPVreqOLZw"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_g9I1LevdEeaFWsKBBqDStg" direction="return"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_g9I1LuvdEeaFWsKBBqDStg" name="field"/>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_g9I1L-vdEeaFWsKBBqDStg" name="xoff">
           <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
         </ownedParameter>
@@ -5570,14 +5388,14 @@
       </ownedOperation>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_g9I1N-vdEeaFWsKBBqDStg" name="getMark" visibility="public" method="_g9I1D-vdEeaFWsKBBqDStg">
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_g9I1OOvdEeaFWsKBBqDStg" type="_BwkckOsfEeagpPVreqOLZw" direction="return"/>
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_g9I1OevdEeaFWsKBBqDStg" name="field" type="_Inc_YOsgEeagpPVreqOLZw"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_g9I1OevdEeaFWsKBBqDStg" name="field"/>
       </ownedOperation>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_g9I1OuvdEeaFWsKBBqDStg" name="reset" visibility="public" method="_g9I1EOvdEeaFWsKBBqDStg"/>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_g9I1O-vdEeaFWsKBBqDStg" name="checkRow" visibility="public" method="_g9I1EevdEeaFWsKBBqDStg">
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_g9I1POvdEeaFWsKBBqDStg" direction="return">
           <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
         </ownedParameter>
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_g9I1PevdEeaFWsKBBqDStg" name="start" type="_Inc_YOsgEeagpPVreqOLZw"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_g9I1PevdEeaFWsKBBqDStg" name="start"/>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_g9I1PuvdEeaFWsKBBqDStg" name="xdir">
           <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
         </ownedParameter>
@@ -5698,6 +5516,643 @@
       <ownedEnd xmi:type="uml:Property" xmi:id="_1SdvU-vdEeaFWsKBBqDStg" type="_g9FxoOvdEeaFWsKBBqDStg" association="_1SdIQOvdEeaFWsKBBqDStg"/>
       <ownedEnd xmi:type="uml:Property" xmi:id="_1SdvUuvdEeaFWsKBBqDStg" type="_ycb9YOvdEeaFWsKBBqDStg" association="_1SdIQOvdEeaFWsKBBqDStg"/>
     </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_TW0eUOvfEea_C-H5NfTs0A" memberEnd="_TW3hoOvfEea_C-H5NfTs0A _TW4IsOvfEea_C-H5NfTs0A">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_TW2TgOvfEea_C-H5NfTs0A" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_TW26kOvfEea_C-H5NfTs0A" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_TW4IsOvfEea_C-H5NfTs0A" type="_Ml3rwOvbEeaFWsKBBqDStg" association="_TW0eUOvfEea_C-H5NfTs0A"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_TW3hoOvfEea_C-H5NfTs0A" type="_RaO10OvfEea_C-H5NfTs0A" association="_TW0eUOvfEea_C-H5NfTs0A"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_WVRzgOvfEea_C-H5NfTs0A" memberEnd="_WVTBoevfEea_C-H5NfTs0A _WVTosOvfEea_C-H5NfTs0A">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_WVSakOvfEea_C-H5NfTs0A" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_WVTBoOvfEea_C-H5NfTs0A" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_WVTosOvfEea_C-H5NfTs0A" type="_RaO10OvfEea_C-H5NfTs0A" association="_WVRzgOvfEea_C-H5NfTs0A"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_WVTBoevfEea_C-H5NfTs0A" type="_ydeKEOvbEeaFWsKBBqDStg" association="_WVRzgOvfEea_C-H5NfTs0A"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_YdKtEOvfEea_C-H5NfTs0A" memberEnd="_YdLUIevfEea_C-H5NfTs0A _YdLUIuvfEea_C-H5NfTs0A">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_YdKtEevfEea_C-H5NfTs0A" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_YdLUIOvfEea_C-H5NfTs0A" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_YdLUIuvfEea_C-H5NfTs0A" type="_RaO10OvfEea_C-H5NfTs0A" association="_YdKtEOvfEea_C-H5NfTs0A"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_YdLUIevfEea_C-H5NfTs0A" type="_BwkckOsfEeagpPVreqOLZw" association="_YdKtEOvfEea_C-H5NfTs0A">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ZM-ZYOvfEea_C-H5NfTs0A"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ZND48OvfEea_C-H5NfTs0A" value="*"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_cOUDcOvfEea_C-H5NfTs0A" memberEnd="_cOUqguvfEea_C-H5NfTs0A _cOVRkOvfEea_C-H5NfTs0A">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_cOUqgOvfEea_C-H5NfTs0A" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_cOUqgevfEea_C-H5NfTs0A" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_cOVRkOvfEea_C-H5NfTs0A" type="_QNhLEOvfEea_C-H5NfTs0A" association="_cOUDcOvfEea_C-H5NfTs0A"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_j0bgQOvfEea_C-H5NfTs0A" name="Board" visibility="public">
+      <generalization xmi:type="uml:Generalization" xmi:id="_j0bgQevfEea_C-H5NfTs0A" general="_MmtZQOvbEeaFWsKBBqDStg"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_j0bgQuvfEea_C-H5NfTs0A" name="MAXFIELD" visibility="public" isLeaf="true" isStatic="true" isUnique="false">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+        <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_j0bgQ-vfEea_C-H5NfTs0A" name="defaultValue">
+          <language>JAVA</language>
+          <body>3</body>
+        </defaultValue>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_j0bgROvfEea_C-H5NfTs0A" name="fieldMap" visibility="private" type="_DJGIAusaEeaRPtCCR8m55A" isUnique="false">
+        <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_j0bgRevfEea_C-H5NfTs0A" name="defaultValue">
+          <language>JAVA</language>
+          <body>new HashMap&lt;Field, Mark>()</body>
+        </defaultValue>
+      </ownedAttribute>
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_j0bgRuvfEea_C-H5NfTs0A" name="Board" specification="_j0bgWOvfEea_C-H5NfTs0A">
+        <language>JAVA</language>
+        <body>
+    this.reset();
+</body>
+      </ownedBehavior>
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_j0bgR-vfEea_C-H5NfTs0A" name="copy" specification="_j0bgWevfEea_C-H5NfTs0A">
+        <language>JAVA</language>
+        <body>
+    Board copy = new Board();
+    for (int x = 0; x &lt;= MAXFIELD; x++) {
+        for (int y = 0; y &lt;= MAXFIELD; y++) {
+            for (int z = 0; z &lt;= MAXFIELD; z++) {
+                Field field = new Field(x, y, z);
+                if (!this.isEmptyField(field)) {
+                    copy.fieldMap.put(field, this.getMark(field));
+                }
+            }
+        }
+    }
+    return copy;
+</body>
+      </ownedBehavior>
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_j0bgSOvfEea_C-H5NfTs0A" name="isField" specification="_j0bgW-vfEea_C-H5NfTs0A">
+        <language>JAVA</language>
+        <body>
+    return field.x >= 0 &amp;&amp; field.x &lt;= MAXFIELD &amp;&amp; field.y >= 0 &amp;&amp; field.y &lt;= MAXFIELD &amp;&amp; field.z >= 0 &amp;&amp; field.z &lt;= MAXFIELD;
+</body>
+      </ownedBehavior>
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_j0bgSevfEea_C-H5NfTs0A" name="isReachableEmptyField" specification="_j0bgXuvfEea_C-H5NfTs0A">
+        <language>JAVA</language>
+        <body>
+    Field copy = field.copy();
+    //check fields below
+    while ((copy = this.walkField(copy, 0, 0, -1)) != null) {
+        if (!this.fieldMap.containsKey(copy)) {
+            return false;
+        }
+    }
+    return this.isField(field) &amp;&amp; !this.fieldMap.containsKey(field);
+</body>
+      </ownedBehavior>
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_j0bgSuvfEea_C-H5NfTs0A" name="isEmptyField" specification="_j0bgYevfEea_C-H5NfTs0A">
+        <language>JAVA</language>
+        <body>
+    return !this.fieldMap.containsKey(field);
+</body>
+      </ownedBehavior>
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_j0bgS-vfEea_C-H5NfTs0A" name="getEmptyField" specification="_j0bgZOvfEea_C-H5NfTs0A">
+        <language>JAVA</language>
+        <body>
+    Field empty = new Field(x, y, 0);
+    if (this.isReachableEmptyField(empty)) {
+        return empty;
+    } else {
+        while ((empty = walkField(empty, 0, 0, 1)) != null) {
+            if (this.isReachableEmptyField(empty)) {
+                return empty;
+            }
+        }
+    }
+    return null;
+</body>
+      </ownedBehavior>
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_j0bgTOvfEea_C-H5NfTs0A" name="setField" specification="_j0bgaOvfEea_C-H5NfTs0A">
+        <language>JAVA</language>
+        <body>
+    if (this.isReachableEmptyField(field)) {
+        this.fieldMap.put(field, m);
+        //use observer pattern to signal board change
+        setChanged();
+        notifyObservers(&quot;boardchanged&quot;);
+        return true;
+    }
+    return false;
+</body>
+      </ownedBehavior>
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_j0bgTevfEea_C-H5NfTs0A" name="walkField" specification="_j0bgbOvfEea_C-H5NfTs0A">
+        <language>JAVA</language>
+        <body>
+    Field nextfield = new Field(field.x + xoff, field.y + yoff, field.z + zoff);
+    if (this.isField(nextfield)) {
+        return nextfield;
+    }
+    return null;
+</body>
+      </ownedBehavior>
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_j0bgTuvfEea_C-H5NfTs0A" name="setField" specification="_j0bgcuvfEea_C-H5NfTs0A">
+        <language>JAVA</language>
+        <body>
+    Field newfield = this.getEmptyField(x, y);
+    if (newfield != null) {
+        return this.setField(newfield, m);
+    }
+    return false;
+</body>
+      </ownedBehavior>
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_j0bgT-vfEea_C-H5NfTs0A" name="getMark" specification="_j0bgd-vfEea_C-H5NfTs0A">
+        <language>JAVA</language>
+        <body>
+    if (this.isField(field)) {
+        return this.fieldMap.get(field);
+    }
+    return null;
+</body>
+      </ownedBehavior>
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_j0bgUOvfEea_C-H5NfTs0A" name="reset" specification="_j0bgeuvfEea_C-H5NfTs0A">
+        <language>JAVA</language>
+        <body>
+    this.fieldMap.clear();
+    setChanged();
+    notifyObservers(&quot;boardchanged&quot;);
+</body>
+      </ownedBehavior>
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_j0bgUevfEea_C-H5NfTs0A" name="checkRow" specification="_j0bge-vfEea_C-H5NfTs0A">
+        <language>JAVA</language>
+        <body>
+    Field checker = start.copy();
+    int count = 0;
+    do {
+        if (this.isEmptyField(checker) || !this.getMark(checker).equals(m)) {
+            return false;
+        }
+        count++;
+        checker = this.walkField(checker, xdir, ydir, zdir);
+    } while (checker != null);
+    if (count == MAXFIELD + 1) {
+        return true;
+    }
+    return false;
+</body>
+      </ownedBehavior>
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_j0bgUuvfEea_C-H5NfTs0A" name="checkZcolums" specification="_j0bgguvfEea_C-H5NfTs0A">
+        <language>JAVA</language>
+        <body>
+    for (int x = 0; x &lt;= MAXFIELD; x++) {
+        for (int y = 0; y &lt;= MAXFIELD; y++) {
+            Field zchecker = new Field(x, y, 0);
+            if (this.checkRow(zchecker, 0, 0, 1, m)) {
+                return true;
+            }
+        }
+    }
+    return false;
+</body>
+      </ownedBehavior>
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_j0bgU-vfEea_C-H5NfTs0A" name="checkPlanes" specification="_j0bghevfEea_C-H5NfTs0A">
+        <language>JAVA</language>
+        <body>
+    for (int i = 0; i &lt;= MAXFIELD; i++) {
+        //check all x-y planes
+        for (int z = 0; z &lt;= MAXFIELD; z++) {
+            Field xchecker = new Field(0, i, z);
+            Field ychecker = new Field(i, 0, z);
+            if (this.checkRow(xchecker, 1, 0, 0, m) || this.checkRow(ychecker, 0, 1, 0, m)) {
+                return true;
+            }
+        }
+        //check diagonal planes
+        //startpoint x axis
+        Field yzchecker = new Field(i, 0, 0);
+        //startpoint y axis
+        Field xzchecker = new Field(0, i, 0);
+        //opposite startpoint x axis
+        Field yzdownchecker = new Field(i, MAXFIELD, 0);
+        //opposite startpoint y axis
+        Field xzdownchecker = new Field(MAXFIELD, i, 0);
+        //check cross-planes
+        Field crosschecker = new Field(0, 0, i);
+        Field crossdownchecker = new Field(0, MAXFIELD, i);
+        if (this.checkRow(yzchecker, 0, 1, 1, m) || this.checkRow(xzchecker, 1, 0, 1, m) || this.checkRow(yzdownchecker, 0, -1, 1, m) || this.checkRow(xzdownchecker, -1, 0, 1, m) || this.checkRow(crosschecker, 1, 1, 0, m) || this.checkRow(crossdownchecker, 1, -1, 0, m)) {
+            return true;
+        }
+    }
+    return false;
+</body>
+      </ownedBehavior>
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_j0bgVOvfEea_C-H5NfTs0A" name="isWinner" specification="_j0bgiOvfEea_C-H5NfTs0A">
+        <language>JAVA</language>
+        <body>
+    return this.checkPlanes(m) || this.checkZcolums(m);
+</body>
+      </ownedBehavior>
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_j0bgVevfEea_C-H5NfTs0A" name="getWinner" specification="_j0bgi-vfEea_C-H5NfTs0A">
+        <language>JAVA</language>
+        <body>
+    Mark m = Mark.X;
+    if (this.isWinner(m) &amp;&amp; !this.isWinner(m.other())) {
+        return m;
+    } else if (this.isWinner(m.other())) {
+        return m.other();
+    } else {
+        return null;
+    }
+</body>
+      </ownedBehavior>
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_j0bgVuvfEea_C-H5NfTs0A" name="hasEnded" specification="_j0bgjevfEea_C-H5NfTs0A">
+        <language>JAVA</language>
+        <body>
+    if (this.isWinner(Mark.X) || this.isWinner(Mark.O) || this.fieldMap.size() == MAXFIELD * MAXFIELD * MAXFIELD) {
+        return true;
+    }
+    return false;
+</body>
+      </ownedBehavior>
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_j0bgV-vfEea_C-H5NfTs0A" name="toString" specification="_j0bgj-vfEea_C-H5NfTs0A">
+        <language>JAVA</language>
+        <body>
+    String result = &quot;&quot;;
+    for (int y = MAXFIELD; y >= 0; y--) {
+        for (int z = 0; z &lt;= MAXFIELD; z++) {
+            result = result + y;
+            for (int x = 0; x &lt;= MAXFIELD; x++) {
+                Field out = new Field(x, y, z);
+                if (this.isEmptyField(out)) {
+                    result = result + &quot;[ ]&quot;;
+                } else {
+                    result = result + &quot;[&quot; + this.getMark(out).toString() + &quot;]&quot;;
+                }
+            }
+            result = result + &quot;   &quot;;
+        }
+        result = result + &quot;\n&quot;;
+    }
+    return result;
+</body>
+      </ownedBehavior>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_j0bgWOvfEea_C-H5NfTs0A" name="Board" visibility="public" method="_j0bgRuvfEea_C-H5NfTs0A"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_j0bgWevfEea_C-H5NfTs0A" name="copy" visibility="public" method="_j0bgR-vfEea_C-H5NfTs0A">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_j0bgWuvfEea_C-H5NfTs0A" type="_j0bgQOvfEea_C-H5NfTs0A" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_j0bgW-vfEea_C-H5NfTs0A" name="isField" visibility="public" method="_j0bgSOvfEea_C-H5NfTs0A">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_j0bgXOvfEea_C-H5NfTs0A" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_j0bgXevfEea_C-H5NfTs0A" name="field" type="_j0cuYOvfEea_C-H5NfTs0A"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_j0bgXuvfEea_C-H5NfTs0A" name="isReachableEmptyField" visibility="public" method="_j0bgSevfEea_C-H5NfTs0A">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_j0bgX-vfEea_C-H5NfTs0A" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_j0bgYOvfEea_C-H5NfTs0A" name="field" type="_j0cuYOvfEea_C-H5NfTs0A"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_j0bgYevfEea_C-H5NfTs0A" name="isEmptyField" visibility="public" method="_j0bgSuvfEea_C-H5NfTs0A">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_j0bgYuvfEea_C-H5NfTs0A" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_j0bgY-vfEea_C-H5NfTs0A" name="field" type="_j0cuYOvfEea_C-H5NfTs0A"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_j0bgZOvfEea_C-H5NfTs0A" name="getEmptyField" visibility="public" method="_j0bgS-vfEea_C-H5NfTs0A">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_j0bgZevfEea_C-H5NfTs0A" type="_j0cuYOvfEea_C-H5NfTs0A" direction="return"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_j0bgZuvfEea_C-H5NfTs0A" name="x">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_j0bgZ-vfEea_C-H5NfTs0A" name="y">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_j0bgaOvfEea_C-H5NfTs0A" name="setField" visibility="public" method="_j0bgTOvfEea_C-H5NfTs0A">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_j0bgaevfEea_C-H5NfTs0A" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_j0bgauvfEea_C-H5NfTs0A" name="field" type="_j0cuYOvfEea_C-H5NfTs0A"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_j0bga-vfEea_C-H5NfTs0A" name="m" type="_BwkckOsfEeagpPVreqOLZw"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_j0bgbOvfEea_C-H5NfTs0A" name="walkField" visibility="public" method="_j0bgTevfEea_C-H5NfTs0A">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_j0bgbevfEea_C-H5NfTs0A" type="_j0cuYOvfEea_C-H5NfTs0A" direction="return"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_j0bgbuvfEea_C-H5NfTs0A" name="field" type="_j0cuYOvfEea_C-H5NfTs0A"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_j0bgb-vfEea_C-H5NfTs0A" name="xoff">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_j0bgcOvfEea_C-H5NfTs0A" name="yoff">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_j0bgcevfEea_C-H5NfTs0A" name="zoff">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_j0bgcuvfEea_C-H5NfTs0A" name="setField" visibility="public" method="_j0bgTuvfEea_C-H5NfTs0A">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_j0bgc-vfEea_C-H5NfTs0A" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_j0bgdOvfEea_C-H5NfTs0A" name="x">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_j0bgdevfEea_C-H5NfTs0A" name="y">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_j0bgduvfEea_C-H5NfTs0A" name="m" type="_BwkckOsfEeagpPVreqOLZw"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_j0bgd-vfEea_C-H5NfTs0A" name="getMark" visibility="public" method="_j0bgT-vfEea_C-H5NfTs0A">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_j0bgeOvfEea_C-H5NfTs0A" type="_BwkckOsfEeagpPVreqOLZw" direction="return"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_j0bgeevfEea_C-H5NfTs0A" name="field" type="_j0cuYOvfEea_C-H5NfTs0A"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_j0bgeuvfEea_C-H5NfTs0A" name="reset" visibility="public" method="_j0bgUOvfEea_C-H5NfTs0A"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_j0bge-vfEea_C-H5NfTs0A" name="checkRow" visibility="public" method="_j0bgUevfEea_C-H5NfTs0A">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_j0bgfOvfEea_C-H5NfTs0A" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_j0bgfevfEea_C-H5NfTs0A" name="start" type="_j0cuYOvfEea_C-H5NfTs0A"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_j0bgfuvfEea_C-H5NfTs0A" name="xdir">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_j0bgf-vfEea_C-H5NfTs0A" name="ydir">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_j0bggOvfEea_C-H5NfTs0A" name="zdir">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_j0bggevfEea_C-H5NfTs0A" name="m" type="_BwkckOsfEeagpPVreqOLZw"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_j0bgguvfEea_C-H5NfTs0A" name="checkZcolums" visibility="public" method="_j0bgUuvfEea_C-H5NfTs0A">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_j0bgg-vfEea_C-H5NfTs0A" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_j0bghOvfEea_C-H5NfTs0A" name="m" type="_BwkckOsfEeagpPVreqOLZw"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_j0bghevfEea_C-H5NfTs0A" name="checkPlanes" visibility="public" method="_j0bgU-vfEea_C-H5NfTs0A">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_j0bghuvfEea_C-H5NfTs0A" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_j0bgh-vfEea_C-H5NfTs0A" name="m" type="_BwkckOsfEeagpPVreqOLZw"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_j0bgiOvfEea_C-H5NfTs0A" name="isWinner" visibility="public" method="_j0bgVOvfEea_C-H5NfTs0A">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_j0bgievfEea_C-H5NfTs0A" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_j0bgiuvfEea_C-H5NfTs0A" name="m" type="_BwkckOsfEeagpPVreqOLZw"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_j0bgi-vfEea_C-H5NfTs0A" name="getWinner" visibility="public" method="_j0bgVevfEea_C-H5NfTs0A">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_j0bgjOvfEea_C-H5NfTs0A" type="_BwkckOsfEeagpPVreqOLZw" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_j0bgjevfEea_C-H5NfTs0A" name="hasEnded" visibility="public" method="_j0bgVuvfEea_C-H5NfTs0A">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_j0bgjuvfEea_C-H5NfTs0A" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_j0bgj-vfEea_C-H5NfTs0A" name="toString" visibility="public" method="_j0bgV-vfEea_C-H5NfTs0A">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_j0bgkOvfEea_C-H5NfTs0A" type="_DIE0UOsaEeaRPtCCR8m55A" direction="return"/>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_j0cuYOvfEea_C-H5NfTs0A" name="Field" visibility="public">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_j0cuYevfEea_C-H5NfTs0A" name="x" visibility="public" isUnique="false">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_j0cuYuvfEea_C-H5NfTs0A" name="y" visibility="public" isUnique="false">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_j0cuY-vfEea_C-H5NfTs0A" name="z" visibility="public" isUnique="false">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_j0cuZOvfEea_C-H5NfTs0A" type="_YdKtEOvfEea_C-H5NfTs0A"/>
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_j0cuZevfEea_C-H5NfTs0A" name="Field" specification="_j0cua-vfEea_C-H5NfTs0A">
+        <language>JAVA</language>
+        <body>
+    this.x = newx;
+    this.y = newy;
+    this.z = newz;
+</body>
+      </ownedBehavior>
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_j0cuZuvfEea_C-H5NfTs0A" name="equals" specification="_j0cub-vfEea_C-H5NfTs0A">
+        <language>JAVA</language>
+        <body>
+    if (o instanceof Field) {
+        return this.hashCode() == ((Field) o).hashCode();
+    }
+    return false;
+</body>
+      </ownedBehavior>
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_j0cuZ-vfEea_C-H5NfTs0A" name="hashCode" specification="_j0cucuvfEea_C-H5NfTs0A">
+        <language>JAVA</language>
+        <body>
+    return x * 100 + y * 10 + z;
+</body>
+      </ownedBehavior>
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_j0cuaOvfEea_C-H5NfTs0A" name="copy" specification="_j0cudOvfEea_C-H5NfTs0A">
+        <language>JAVA</language>
+        <body>
+    return new Field(this.x, this.y, this.z);
+</body>
+      </ownedBehavior>
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_j0cuaevfEea_C-H5NfTs0A" name="getMove" specification="_j0cuduvfEea_C-H5NfTs0A">
+        <language>JAVA</language>
+        <body>
+    return this.x + &quot; &quot; + this.y;
+</body>
+      </ownedBehavior>
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_j0cuauvfEea_C-H5NfTs0A" name="toString" specification="_j0cueOvfEea_C-H5NfTs0A">
+        <language>JAVA</language>
+        <body>
+    return &quot;(&quot; + this.x + &quot;,&quot; + this.y + &quot;,&quot; + this.z + &quot;)&quot;;
+</body>
+      </ownedBehavior>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_j0cua-vfEea_C-H5NfTs0A" name="Field" visibility="public" method="_j0cuZevfEea_C-H5NfTs0A">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_j0cubOvfEea_C-H5NfTs0A" name="newx">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_j0cubevfEea_C-H5NfTs0A" name="newy">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_j0cubuvfEea_C-H5NfTs0A" name="newz">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_j0cub-vfEea_C-H5NfTs0A" name="equals" visibility="public" method="_j0cuZuvfEea_C-H5NfTs0A">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_j0cucOvfEea_C-H5NfTs0A" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_vAIV4I7PEdySGvm5GN66HA"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_j0cucevfEea_C-H5NfTs0A" name="o" type="_DJg-w-saEeaRPtCCR8m55A"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_j0cucuvfEea_C-H5NfTs0A" name="hashCode" visibility="public" method="_j0cuZ-vfEea_C-H5NfTs0A">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_j0cuc-vfEea_C-H5NfTs0A" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_j0cudOvfEea_C-H5NfTs0A" name="copy" visibility="public" method="_j0cuaOvfEea_C-H5NfTs0A">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_j0cudevfEea_C-H5NfTs0A" type="_j0cuYOvfEea_C-H5NfTs0A" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_j0cuduvfEea_C-H5NfTs0A" name="getMove" visibility="public" method="_j0cuaevfEea_C-H5NfTs0A">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_j0cud-vfEea_C-H5NfTs0A" type="_DIE0UOsaEeaRPtCCR8m55A" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_j0cueOvfEea_C-H5NfTs0A" name="toString" visibility="public" method="_j0cuauvfEea_C-H5NfTs0A">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_j0cueevfEea_C-H5NfTs0A" type="_DIE0UOsaEeaRPtCCR8m55A" direction="return"/>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_vZKHsOvfEea_C-H5NfTs0A" memberEnd="_vZKuwuvfEea_C-H5NfTs0A _vZKuw-vfEea_C-H5NfTs0A">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_vZKuwOvfEea_C-H5NfTs0A" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_vZKuwevfEea_C-H5NfTs0A" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_vZKuw-vfEea_C-H5NfTs0A" type="_j0bgQOvfEea_C-H5NfTs0A" association="_vZKHsOvfEea_C-H5NfTs0A"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_vZKuwuvfEea_C-H5NfTs0A" type="_BwkckOsfEeagpPVreqOLZw" association="_vZKHsOvfEea_C-H5NfTs0A">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_wZJlEOvfEea_C-H5NfTs0A"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_wZMBUOvfEea_C-H5NfTs0A" value="*"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_xf8OAOvfEea_C-H5NfTs0A" memberEnd="_xf81EuvfEea_C-H5NfTs0A _xf9cIOvfEea_C-H5NfTs0A">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_xf81EOvfEea_C-H5NfTs0A" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_xf81EevfEea_C-H5NfTs0A" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_xf9cIOvfEea_C-H5NfTs0A" type="_j0cuYOvfEea_C-H5NfTs0A" association="_xf8OAOvfEea_C-H5NfTs0A"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_xf81EuvfEea_C-H5NfTs0A" type="_vZKHsOvfEea_C-H5NfTs0A" association="_xf8OAOvfEea_C-H5NfTs0A"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_1v-DUOvgEea_C-H5NfTs0A" name="Hard" visibility="public">
+      <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_1v-DUevgEea_C-H5NfTs0A" name="implements" client="_1v-DUOvgEea_C-H5NfTs0A" supplier="_qb8WIOs3Eea7AqSsB_lc7w" contract="_qb8WIOs3Eea7AqSsB_lc7w"/>
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_1v-DUuvgEea_C-H5NfTs0A" name="getName" specification="_1v-DWOvgEea_C-H5NfTs0A">
+        <language>JAVA</language>
+        <body>
+    return &quot;hard&quot;;
+</body>
+      </ownedBehavior>
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_1v-DU-vgEea_C-H5NfTs0A" name="determineMove" specification="_1v-DWuvgEea_C-H5NfTs0A">
+        <language>JAVA</language>
+        <body>
+    Map&lt;Field, Integer> result = this.getResultMap(board, m);
+    //Choose candidate with highest potential score
+    int maxValue = Collections.max(result.values());
+    Iterator&lt;Map.Entry&lt;Field, Integer>> it = result.entrySet().iterator();
+    while (it.hasNext()) {
+        Map.Entry&lt;Field, Integer> item = it.next();
+        if (item.getValue().intValue() &lt; maxValue) {
+            it.remove();
+        }
+    }
+    it = result.entrySet().iterator();
+    int next = (int) (Math.random() * new Double(result.size()));
+    int count = 0;
+    while (it.hasNext()) {
+        Map.Entry&lt;Field, Integer> item = it.next();
+        if (count == next) {
+            return item.getKey();
+        }
+        count++;
+    }
+    return null;
+</body>
+      </ownedBehavior>
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_1v-DVOvgEea_C-H5NfTs0A" name="getMoves" specification="_1v-DXuvgEea_C-H5NfTs0A">
+        <language>JAVA</language>
+        <body>
+    ArrayList&lt;Field> moves = new ArrayList&lt;Field>();
+    for (int x = 0; x &lt;= Board.MAXFIELD; x++) {
+        for (int y = 0; y &lt;= Board.MAXFIELD; y++) {
+            Field empty = board.getEmptyField(x, y);
+            if (empty != null) {
+                moves.add(empty);
+            }
+        }
+    }
+    return moves;
+</body>
+      </ownedBehavior>
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_1v-DVevgEea_C-H5NfTs0A" name="getFutureImpact" specification="_1v-DY-vgEea_C-H5NfTs0A">
+        <language>JAVA</language>
+        <body>
+    int result = 0;
+    ArrayList&lt;Field> moves = this.getMoves(board);
+    for (Field field : moves) {
+        Board myboard = board.copy();
+        Board enemboard = board.copy();
+        myboard.setField(field, m);
+        enemboard.setField(field, m.other());
+        if (myboard.isWinner(m)) {
+            result += 50;
+        } else if (enemboard.isWinner(m.other())) {
+            result -= 50;
+        }
+    }
+    return result;
+</body>
+      </ownedBehavior>
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_1v-DVuvgEea_C-H5NfTs0A" name="getResultMap" specification="_1v-DZ-vgEea_C-H5NfTs0A">
+        <language>JAVA</language>
+        <body>
+    Map&lt;Field, Integer> result = new HashMap&lt;Field, Integer>();
+    ArrayList&lt;Field> moves = this.getMoves(board);
+    for (Field field : moves) {
+        Board myboard = board.copy();
+        Board enemboard = board.copy();
+        myboard.setField(field, m);
+        enemboard.setField(field, m.other());
+        if (myboard.isWinner(m)) {
+            result.put(field, new Integer(500));
+        } else if (enemboard.isWinner(m.other())) {
+            result.put(field, new Integer(100));
+        } else {
+            result.put(field, new Integer(countSurroundings(field, board, m) + getFutureImpact(myboard, m)));
+        }
+    //result.put(field, result.get(field) + getFutureImpact(myboard, m));
+    }
+    return result;
+</body>
+      </ownedBehavior>
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_1v-DV-vgEea_C-H5NfTs0A" name="countSurroundings" specification="_1v-Da-vgEea_C-H5NfTs0A">
+        <language>JAVA</language>
+        <body>
+    int result = 0;
+    for (int z = -1; z &lt;= 1; z++) {
+        for (int i = -1; i &lt;= 1; i++) {
+            for (int a = -1; a &lt;= 1; a++) {
+                Field neighbour = board.walkField(field, i, a, z);
+                //next to field of same color
+                if (neighbour != null) {
+                    Mark nextmark = board.getMark(neighbour);
+                    if (nextmark != null &amp;&amp; nextmark.equals(m)) {
+                        result++;
+                    }
+                } else if (//next to boundary
+                neighbour == null) {
+                    result++;
+                }
+            }
+        }
+    }
+    return result;
+</body>
+      </ownedBehavior>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_1v-DWOvgEea_C-H5NfTs0A" name="getName" visibility="public" method="_1v-DUuvgEea_C-H5NfTs0A">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_1v-DWevgEea_C-H5NfTs0A" type="_DIE0UOsaEeaRPtCCR8m55A" direction="return"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_1v-DWuvgEea_C-H5NfTs0A" name="determineMove" visibility="public" method="_1v-DU-vgEea_C-H5NfTs0A">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_1v-DW-vgEea_C-H5NfTs0A" type="_QNhLEOvfEea_C-H5NfTs0A" direction="return"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_1v-DXOvgEea_C-H5NfTs0A" name="board" type="_RaO10OvfEea_C-H5NfTs0A"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_1v-DXevgEea_C-H5NfTs0A" name="m" type="_BwkckOsfEeagpPVreqOLZw"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_1v-DXuvgEea_C-H5NfTs0A" name="getMoves" visibility="public" method="_1v-DVOvgEea_C-H5NfTs0A">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_1v-DX-vgEea_C-H5NfTs0A" type="_QNhLEOvfEea_C-H5NfTs0A" direction="return">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1v-DYOvgEea_C-H5NfTs0A"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1v-DYevgEea_C-H5NfTs0A" value="*"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_1v-DYuvgEea_C-H5NfTs0A" name="board" type="_RaO10OvfEea_C-H5NfTs0A"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_1v-DY-vgEea_C-H5NfTs0A" name="getFutureImpact" visibility="public" method="_1v-DVevgEea_C-H5NfTs0A">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_1v-DZOvgEea_C-H5NfTs0A" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_1v-DZevgEea_C-H5NfTs0A" name="board" type="_RaO10OvfEea_C-H5NfTs0A"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_1v-DZuvgEea_C-H5NfTs0A" name="m" type="_BwkckOsfEeagpPVreqOLZw"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_1v-DZ-vgEea_C-H5NfTs0A" name="getResultMap" visibility="public" method="_1v-DVuvgEea_C-H5NfTs0A">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_1v-DaOvgEea_C-H5NfTs0A" type="_DJGIAusaEeaRPtCCR8m55A" direction="return"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_1v-DaevgEea_C-H5NfTs0A" name="board" type="_RaO10OvfEea_C-H5NfTs0A"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_1v-DauvgEea_C-H5NfTs0A" name="m" type="_BwkckOsfEeagpPVreqOLZw"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_1v-Da-vgEea_C-H5NfTs0A" name="countSurroundings" visibility="public" method="_1v-DV-vgEea_C-H5NfTs0A">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_1v-DbOvgEea_C-H5NfTs0A" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://PapyrusJava_LIBRARIES/JavaLibrary.uml#_7wRIABydEduyofBvg4RL2w"/>
+        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_1v-DbevgEea_C-H5NfTs0A" name="field" type="_QNhLEOvfEea_C-H5NfTs0A"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_1v-DbuvgEea_C-H5NfTs0A" name="board" type="_RaO10OvfEea_C-H5NfTs0A"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_1v-Db-vgEea_C-H5NfTs0A" name="m" type="_BwkckOsfEeagpPVreqOLZw"/>
+      </ownedOperation>
+    </packagedElement>
     <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_DHeXYOsaEeaRPtCCR8m55A">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_DHflgOsaEeaRPtCCR8m55A" source="http://www.eclipse.org/uml2/2.0.0/UML">
         <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/PapyrusJava/1#/"/>
@@ -5735,13 +6190,9 @@
   <PapyrusJava:External xmi:id="_2PKZcOsfEeagpPVreqOLZw" name="java.lang.Exception" base_Classifier="_2PIkQOsfEeagpPVreqOLZw"/>
   <PapyrusJava:External xmi:id="_9u7WoOsfEeagpPVreqOLZw" name="ss.project.view.Terminal" base_Classifier="_9u5hcOsfEeagpPVreqOLZw"/>
   <standard:Create xmi:id="_9vBdQOsfEeagpPVreqOLZw" base_BehavioralFeature="_9u_BAOsfEeagpPVreqOLZw"/>
-  <standard:Create xmi:id="_IngCsOsgEeagpPVreqOLZw" base_BehavioralFeature="_Indmc-sgEeagpPVreqOLZw"/>
   <PapyrusJava:External xmi:id="_RPkrwOsgEeagpPVreqOLZw" name="ss.project.view.ClientView" base_Classifier="_71-Q8OsfEeagpPVreqOLZw"/>
   <standard:Create xmi:id="_RPnvEOsgEeagpPVreqOLZw" base_BehavioralFeature="_RPlS0esgEeagpPVreqOLZw"/>
-  <PapyrusJava:External xmi:id="_t8rZUOs0Eea7AqSsB_lc7w" name="Mark" base_Classifier="_BwkckOsfEeagpPVreqOLZw"/>
-  <PapyrusJava:External xmi:id="_t8w44Os0Eea7AqSsB_lc7w" name="Field" base_Classifier="_Inc_YOsgEeagpPVreqOLZw"/>
-  <standard:Create xmi:id="_LEHCgOs1Eea7AqSsB_lc7w" base_BehavioralFeature="_LED_Mus1Eea7AqSsB_lc7w"/>
-  <PapyrusJava:External xmi:id="_1kjewOs2Eea7AqSsB_lc7w" name="Board" base_Classifier="_LECKAOs1Eea7AqSsB_lc7w"/>
+  <PapyrusJava:External xmi:id="_t8rZUOs0Eea7AqSsB_lc7w" name="ss.project.game.Mark" base_Classifier="_BwkckOsfEeagpPVreqOLZw"/>
   <PapyrusJava:External xmi:id="_4jVkEOs2Eea7AqSsB_lc7w" name="ss.project.view.View" base_Classifier="_71-Q8esfEeagpPVreqOLZw"/>
   <PapyrusJava:External xmi:id="_jZwFwOs3Eea7AqSsB_lc7w" name="Difficulty" base_Classifier="_qb8WIOs3Eea7AqSsB_lc7w"/>
   <standard:Create xmi:id="_jZyiAOs3Eea7AqSsB_lc7w" base_BehavioralFeature="_jZws0es3Eea7AqSsB_lc7w"/>
@@ -5795,4 +6246,11 @@
   <standard:Create xmi:id="_g9QwwOvdEeaFWsKBBqDStg" base_BehavioralFeature="_g9IN9-vdEeaFWsKBBqDStg"/>
   <PapyrusJava:External xmi:id="_g9QwwevdEeaFWsKBBqDStg" name="Board" base_Classifier="_g9I1AevdEeaFWsKBBqDStg"/>
   <standard:Create xmi:id="_ycdykOvdEeaFWsKBBqDStg" base_BehavioralFeature="_ycb9b-vdEeaFWsKBBqDStg"/>
+  <standard:Create xmi:id="_QNvNgOvfEea_C-H5NfTs0A" base_BehavioralFeature="_QNof0OvfEea_C-H5NfTs0A"/>
+  <standard:Create xmi:id="_RaacAOvfEea_C-H5NfTs0A" base_BehavioralFeature="_RaWxoOvfEea_C-H5NfTs0A"/>
+  <PapyrusJava:External xmi:id="_RahwwOvfEea_C-H5NfTs0A" name="ss.project.game.Field" base_Classifier="_QNhLEOvfEea_C-H5NfTs0A"/>
+  <standard:Create xmi:id="_j0fKoOvfEea_C-H5NfTs0A" base_BehavioralFeature="_j0cua-vfEea_C-H5NfTs0A"/>
+  <PapyrusJava:External xmi:id="_j0g_0OvfEea_C-H5NfTs0A" name="Field" base_Classifier="_j0cuYOvfEea_C-H5NfTs0A"/>
+  <standard:Create xmi:id="_j0iN8OvfEea_C-H5NfTs0A" base_BehavioralFeature="_j0bgWOvfEea_C-H5NfTs0A"/>
+  <PapyrusJava:External xmi:id="_Th860OvgEea_C-H5NfTs0A" name="ss.project.game.Board" base_Classifier="_RaO10OvfEea_C-H5NfTs0A"/>
 </xmi:XMI>
