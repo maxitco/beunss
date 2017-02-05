@@ -229,7 +229,7 @@ public class Client implements Observer {
         }
     }
     /**
-     * AT method for game start
+     * AT method for game start.
      * @param inputSplit
      */
     public void atStartGame(String[] inputSplit) {

@@ -11,7 +11,7 @@ public class GameTest {
     
     public class Turnn {
         public int whoseTurn(int input) {
-            return input % (2);
+            return input % 2;
         }
     }
     

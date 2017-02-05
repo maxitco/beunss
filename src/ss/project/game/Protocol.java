@@ -88,7 +88,7 @@ public class Protocol {
         return result;
     }
 
-    public static String getWin(String number){
+    public static String getWin(String number) {
         String result = null;
         if (number.equals("1")) {
             result = "The game was won!";

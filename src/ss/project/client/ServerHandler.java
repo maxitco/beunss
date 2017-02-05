@@ -3,7 +3,6 @@ package ss.project.client;
 import java.io.IOException;
 import java.net.Socket;
 
-import ss.project.game.Mark;
 import ss.project.game.Protocol;
 import ss.project.view.Terminal;
 

@@ -92,7 +92,7 @@ public class ClientHandler extends Terminal implements Runnable {
 	@Override
 	public void atStart() {
 	    //first action from the server, send capabilities as described in protocol
-	    send(Protocol.ProtServer.SERVERCAPABILITIES + server.CAPABILITIES); 
+	    send(Protocol.ProtServer.SERVERCAPABILITIES + Server.CAPABILITIES); 
 	}
 	
 	@Override

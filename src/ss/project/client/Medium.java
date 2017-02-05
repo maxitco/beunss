@@ -38,11 +38,9 @@ public class Medium implements Difficulty {
             test2.setField(field, m.other());
             if (test.isWinner(m)) {
                 result.put(field, new Integer(50));
-            }
-            else if (test2.isWinner(m.other())) {
+            } else if (test2.isWinner(m.other())) {
                 result.put(field, new Integer(40));
-            }
-            else {
+            } else {
             	result.put(field, new Integer(countSurroundings(field, board, m)));
             }
         }
@@ -82,9 +80,7 @@ public class Medium implements Difficulty {
     					if (nextmark != null && nextmark.equals(m)) {
         					result++;
     					}
-    				}
-    				//next to boundary
-    				else if (neighbour == null) {
+    				} else if (neighbour == null) { //next to boundary
     					result++;
     				}
     			}
